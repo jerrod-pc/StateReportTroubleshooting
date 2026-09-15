@@ -1,0 +1,1524 @@
+{
+  "collection": "SCS",
+  "error_list_version": "10.3",
+  "handbook_version": "9.4",
+  "object_ranges": [
+    {
+      "object": "LEAInfo",
+      "start": 2000,
+      "end": 2099
+    },
+    {
+      "object": "SchoolInfo",
+      "start": 2100,
+      "end": 2299
+    },
+    {
+      "object": "StudentPersonal",
+      "start": 2300,
+      "end": 3799
+    },
+    {
+      "object": "StaffPersonal",
+      "start": 3800,
+      "end": 4499
+    },
+    {
+      "object": "DisciplineIncident",
+      "start": 4500,
+      "end": 5799
+    },
+    {
+      "object": "EmploymentRecord",
+      "start": 5800,
+      "end": 6299
+    },
+    {
+      "object": "SchoolCourseInfo",
+      "start": 6300,
+      "end": 6599
+    },
+    {
+      "object": "StaffAssignment",
+      "start": 6600,
+      "end": 7199
+    },
+    {
+      "object": "StaffEvaluation",
+      "start": 7200,
+      "end": 7599
+    },
+    {
+      "object": "StudentSchoolEnrollment",
+      "start": 7600,
+      "end": 8599
+    },
+    {
+      "object": "StudentAttendanceSummary",
+      "start": 8600,
+      "end": 8699
+    },
+    {
+      "object": "StudentSpecialEducationSummary",
+      "start": 8700,
+      "end": 8999
+    },
+    {
+      "object": "TermInfo",
+      "start": 9000,
+      "end": 9099
+    },
+    {
+      "object": "SectionInfo",
+      "start": 9100,
+      "end": 9199
+    },
+    {
+      "object": "SectionMarkInfo",
+      "start": 9200,
+      "end": 9299
+    },
+    {
+      "object": "StudentSectionMarks",
+      "start": 9300,
+      "end": 9399
+    },
+    {
+      "object": "StaffSectionAssignment",
+      "start": 9400,
+      "end": 9599
+    },
+    {
+      "object": "StudentSectionEnrollment",
+      "start": 9600,
+      "end": 9899
+    },
+    {
+      "object": "Discontinued Elements",
+      "start": 9900,
+      "end": 9999
+    }
+  ],
+  "errors": [
+    {
+      "code": "SCSF10",
+      "collection": "SCS",
+      "title": "Invalid Record/Missing Data",
+      "description": "A record with the right number of commas but data not provided.",
+      "example": ",,,,,,,,,,,, [correct number of commas, 12 commas]",
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF20",
+      "collection": "SCS",
+      "title": "Invalid Record/Missing Data",
+      "description": "A record with the wrong number of commas and data not provided.",
+      "example": ",,,,,,,,,,, [incorrect number of commas, less than 12 commas]",
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF30",
+      "collection": "SCS",
+      "title": "Invalid Record/Only SASID Provided",
+      "description": "A record with a SASID but no other data provided.",
+      "example": ",8910111213,,,,,,,,,,, [correct number of commas but no values except a 10 digit SASID.]",
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF40",
+      "collection": "SCS",
+      "title": "Invalid Record/Missing SASID",
+      "description": "A record with a missing SASID.",
+      "example": "12345,,09990999,123454,1200,22,31,01,01,2,0,55,55555 [SASID is missing]",
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF50",
+      "collection": "SCS",
+      "title": "Invalid Record/Invalid SASID Length",
+      "description": "A record with an invalid SASID.",
+      "example": "12345,678,09990999,123454,1200,22,31,01,01,2,0,55,55555 [SASID length is not 10 digits.]",
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF60",
+      "collection": "SCS",
+      "title": "Invalid Record/Special character reported",
+      "description": "A special character is reported.",
+      "example": "12345,6789101112,\\^,123454,1200,22,31,01,01,2,0,55,55555 [\\^ is reported in one of the fields ]",
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF70",
+      "collection": "SCS",
+      "title": "Invalid File Header",
+      "description": "The SCS file header should always follow the following format:\n\nSCS, STUDENT_COURSE_DATA,XXXX0000\n\nWhere XXXX0000 is the 8 digits organization code submitting the file.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF80",
+      "collection": "SCS",
+      "title": "Invalid File Selection/File Missing",
+      "description": "The SCS file should be a text or CSV file.\n\nWhen you upload the file, please make sure that the file exists.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF90",
+      "collection": "SCS",
+      "title": "Invalid organization Code in the Header",
+      "description": "The header should always contain the org code for which the data are reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF100",
+      "collection": "SCS",
+      "title": "Invalid Record Length",
+      "description": "Each record in the file should not exceed 242 characters.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF110",
+      "collection": "SCS",
+      "title": "File Size Exceeds Maximum Size",
+      "description": "File size exceeds limit. Please break it into smaller files.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCSF120",
+      "collection": "SCS",
+      "title": "File has Formatting Errors",
+      "description": "All of the records in your file have formatting errors.\n\n#",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": null
+    },
+    {
+      "code": "SCS2100",
+      "collection": "SCS",
+      "title": "Invalid/Missing School Identification Number (SCS03)",
+      "description": "Should be alphanumeric with a length of 8 characters.\n\nShould be one of the valid school codes listed in the organization table.\n\n\"CLBR\" must be all uppercase letters.\n\nCan't be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03"
+      ],
+      "object": "SchoolInfo"
+    },
+    {
+      "code": "SCS2300",
+      "collection": "SCS",
+      "title": "Invalid/Missing LASID (SCS01)",
+      "description": "Should be alphanumeric with length between 1 and 32 characters.\n\nSpecial characters other than hyphen, apostrophe, period, and space are not acceptable.\n\nCan't be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS01"
+      ],
+      "object": "StudentPersonal"
+    },
+    {
+      "code": "SCS2310",
+      "collection": "SCS",
+      "title": "Invalid SASID (SCS02)",
+      "description": "Should be alphanumeric with a length of 10 characters.\n\nShould be one of the valid values listed in the student directory table.\n\nCan't be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS02"
+      ],
+      "object": "StudentPersonal"
+    },
+    {
+      "code": "SCS2330",
+      "collection": "SCS",
+      "title": "An exited student in SIMS who has recorded attendance must have SCS record(s) [school,lasid,sasid]",
+      "description": "If a student is reported in SIMS with an exit code, but with days of attendance, then the student must have courses reported in SCS.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StudentPersonal"
+    },
+    {
+      "code": "SCS6300",
+      "collection": "SCS",
+      "title": "Invalid/Missing College/Virtual Identification Number (SCS03)",
+      "description": "Should be alphanumeric with a length of 8 characters.\n\nShould be one of the valid college codes or virtual ID codes listed in the organization table.\n\n\"CLBR\" must be all uppercase letters.\n\nCan't be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6310",
+      "collection": "SCS",
+      "title": "Out of District Virtual and College courses (SCS03) must be reported by Subject area (SCS05)",
+      "description": "If SCS03 begins with \"CLBR\" which indicates either a virtual or college course, then SCS05 cannot be an \"all-subjects\" course (73029-73039 or 99999)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03",
+        "SCS05"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6320",
+      "collection": "SCS",
+      "title": "Alternative Education Class reported in SCS not reported in EPIMS [school,course,section,term,count of SCS records]",
+      "description": "If SCS03 is an alternative education program that belongs to the reporting district, then every Subject Area Course code, class section and term for which a SASID is reported in SCS must have a corresponding record in EPIMS with Job Classification 2305 or 2306 or 2310 or 2325 or 2307 or 2308.\n\n(Every Alternative Education Program class in which there are students, must have at least one teacher.)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6330",
+      "collection": "SCS",
+      "title": "Invalid/Missing Local Course Code (SCS04)",
+      "description": "Should be alphanumeric with length between 1 and 20 characters.\n\nCan't be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS04"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6340",
+      "collection": "SCS",
+      "title": "Invalid/Missing Subject Area Course (SCS05)",
+      "description": "Should be alphanumeric with length between 5 and 7 characters.\n\nCan't be blank or null.\n\nShould be one of the valid codes listed in the type table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6350",
+      "collection": "SCS",
+      "title": "Invalid CIP Code (SCS05)",
+      "description": "Should be alphanumeric with length between 5 and 7 characters.\n\nCan't be blank or null.\n\nShould be one of the valid codes listed in the type table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6360",
+      "collection": "SCS",
+      "title": "Invalid Subject Area--Course Code (SCS05)",
+      "description": "Subject Area--Course Code (SCS05) must not equal 00000.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6370",
+      "collection": "SCS",
+      "title": "School not approved for CIP program",
+      "description": "SCS05 must be the seven-digit (CIP) code approved for the district.\n\n(Chapter 74-approved program)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6380",
+      "collection": "SCS",
+      "title": "School Identification Number (SCS03)/ SASID (SCS02)/ Subject Area Course (SCS05)/ Class Section (SCS06)/ Course Term (SCS07) combination must be unique within a district [School, SASID, Course, Section, Term] (count of SCS records)",
+      "description": "Combination of School, SASID, Subject Area Course, Class Section, & Term must be unique for all records in the collection.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS02",
+        "SCS03",
+        "SCS05",
+        "SCS06",
+        "SCS07"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6390",
+      "collection": "SCS",
+      "title": "Class reported in Previous Collection not reported in Current Collection [SASID, School, Local Course Code, Course, Section, Term].",
+      "description": "All courses reported in the previous period need to be reported again in the current period so that a mark may be recorded. Courses are matched on SASID, School, Course Code, and either Term or Section Code. The Local Course Code (SCS04) and Section (SCS06) are included to assist finding the October course and need not be repeated in the current collection.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS04",
+        "SCS06"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6400",
+      "collection": "SCS",
+      "title": "An enrolled student in grades 6 through 10 must report at least one ELA course.",
+      "description": "If a general education student is enrolled in grades 06 through 10, a distinct record of an ELA class is needed to assist the Early Warning Indicator System (EWIS).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6410",
+      "collection": "SCS",
+      "title": "An enrolled student in grades 6 through 10 must report at least one Math course.",
+      "description": "If a general education student is enrolled in grades 06 through 10, a distinct record of a Math class is needed to assist the Early Warning Indicator System (EWIS).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6420",
+      "collection": "SCS",
+      "title": "AP Course not valid for student not in grade level 9-12",
+      "description": "If an AP course is reported in SCS05 for a given SASID, then the student should be in Grade 9 to 12 in SIMS",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6430",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Level (SCS09)",
+      "description": "Should be alphanumeric with a length of 2 characters.\n\nCan't be blank or null.\n\nShould be one of the valid codes listed in the type table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6440",
+      "collection": "SCS",
+      "title": "Subject Area Course (SCS05) not valid for Course Level (SCS09)",
+      "description": "If Subject Area Course is an AP course, course level must be 03.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05",
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6450",
+      "collection": "SCS",
+      "title": "A post-secondary course level (SCS09=04 or 05) cannot be assigned to a course with a pre-secondary or general course code.",
+      "description": "A post-secondary course level (SCS09=04 or 05) must not be assigned to a course with a pre-secondary course code. Post-secondary courses must be assigned a *secondary* code that most closely relates to the subject matter of the course. The general course code (SCS05=99999) may not be assigned a post-secondary level.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05",
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6452",
+      "collection": "SCS",
+      "title": "Course offered as online college level (SCS03=CLBRVCLG) must have a course level of 04 or 05.",
+      "description": "Virtual courses that are college level should be reported with a postsecondary course level in SCS09.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03",
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6454",
+      "collection": "SCS",
+      "title": "Course offered as online K-12 level (SCS03=CLBRVK12) must have a course level of 01, 02 or 03",
+      "description": "Virtual courses that are K-12 level should not be reported with a postsecondary course level value in SCS09.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03",
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6456",
+      "collection": "SCS",
+      "title": "More than 10% of courses in the school are reported as offering college credit. If this is correct then please contact your support representative",
+      "description": "More than 10% of courses reported have a course level of Postsecondary Credit (SCS09 = 04). Please check course levels for accuracy.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6460",
+      "collection": "SCS",
+      "title": "Too Few Courses (SCS05) reported as General Course Level (SCS09=02) [district, %]",
+      "description": "Districts should report at least 50% of their course levels as General (SCS09 =02).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05",
+        "SCS09"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6470",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Credit Available (SCS10)",
+      "description": "Should be a decimal with length between 1 and 5 characters.\n\nValue may contain up to 2 decimal places.\n\nCan't be zero, blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6480",
+      "collection": "SCS",
+      "title": "Class reported in EPIMS not reported in SCS [school, MEPID course, section, term]",
+      "description": "For every Subject Area Course code, class section and term reported in EPIMS with a job classification 2305 or 2306 or 2325 in a given public or charter school, there should be at least one SCS record reported with the same information (District, school, course, section and term) in SCS, except for Chapter 74 approved exploratory courses (WA10= C990100).\n\n(Every public or charter school class for which there are teacher(s) must have at least one student.)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6490",
+      "collection": "SCS",
+      "title": "Class reported in SCS not reported in EPIMS [school,course,section,term,count of SCS records]",
+      "description": "If SCS03 is a public or charter school that belongs to the reporting district, then every Subject Area Course code, class section and term for which a SASID is reported in SCS\n\nmust have a corresponding record in EPIMS with Job Classification 2305 or 2306 or 2310 or 2325 or 2307 or 2308.\n\n(Every public or charter school class in which there are students must have at least one teacher.)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6500",
+      "collection": "SCS",
+      "title": "Student Course record reported with a SASID not found in SIMS [school,lasid,sasid,count of SCS records]",
+      "description": "SASID reported in SCS by a given district does not exist in SIMS for the same district.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS6510",
+      "collection": "SCS",
+      "title": "Virtual class reported in EPIMS not reported in SCS [school,mepid,course,section,term]",
+      "description": "For every Subject Area Course code, class section and term reported in EPIMS with a job classification 2307 or 2308 in a given public or charter school, there should be at least one SCS record reported with the same information (District,school,course,section, and term) in SCS, except for Chapter 74 approved exploratory courses (WA10-C990100).\n\n(Every public or charter school class for which there are teacher(s) must have at least one student.)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "SCS9000",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Term (SCS07)",
+      "description": "Should be alphanumeric with a length of 2 characters.\n\nCan't be blank or null.\n\nShould be one of the valid codes listed in the type table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS07"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "SCS9010",
+      "collection": "SCS",
+      "title": "Future Course Terms (SCS07) should not be reported in October",
+      "description": "In October, the following terms (SCS07) must not be reported at all: Second Semester (22), Second Trimester (32), Third Trimester (33), Third Quarter (43), Fourth Quarter (44), Third Quinmester (53), Fourth Quinmester (54) and Fifth Quinmester (55).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS07"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "SCS9100",
+      "collection": "SCS",
+      "title": "Invalid/Missing Class Section (SCS06)",
+      "description": "Should be alphanumeric with length between 1 and 20 characters.\n\nCan't be blank or null.\n\nSpecial characters other than hyphen, apostrophe, period, parentheses, underscore, forward slash and space are not acceptable.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS06"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "SCS9110",
+      "collection": "SCS",
+      "title": "Entire class has withdrawn from this course. Do not report it in SCS or EPIMS.",
+      "description": "If all of the students connected with a course (SCS03, SCS05, SCS06 & SCS07) are reported as withdrawn (SCS09=02) in October, then do not report it at all.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS03",
+        "SCS05",
+        "SCS06",
+        "SCS07",
+        "SCS09"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "SCS9300",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Credit Earned (SCS11)",
+      "description": "Should be a decimal with length between 1 and 5 characters.\n\nValue may contain up to 2 decimal places.\n\nCan't be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS11"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9310",
+      "collection": "SCS",
+      "title": "Course Credit Earned (SCS11) must be less or equal to Course Credit Available (SCS10)",
+      "description": "Course Credit Earned (SCS11) must always be less or equal to Course Credit Available (SCS10).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS10",
+        "SCS11"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9320",
+      "collection": "SCS",
+      "title": "Course Credit Earned (SCS11) not valid for Course Credit Available (SCS10)",
+      "description": "If Course Credit Earned (SCS11) = 9999 (Not Applicable), Course Credit Available (SCS10) must equal 9999 (Not Applicable) and if Course Credit Available (SCS10) equals 9999 (Not Applicable), then Course Credit Earned (SCS11) must equal 9999 (Not Applicable).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS10",
+        "SCS11"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9330",
+      "collection": "SCS",
+      "title": "Course Credit Earned (SCS11) not valid for Course Letter Mark (SCS12)",
+      "description": "If course letter mark (SCS12) equal 13 (F) or 15 (Fail) or 23 (Withdrawn -- Fail), then course credit earned (SCS11) must equal 0 or 9999.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS11",
+        "SCS12"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9340",
+      "collection": "SCS",
+      "title": "Course Credit Earned (SCS11) not valid for Course Numeric Mark (SCS13)",
+      "description": "If course numeric mark (SCS13) is less than 59.5 or is equal to 23333 (withdrawn with a failing grade), then course credit earned (SCS11) must equal 0 or 9999.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS11",
+        "SCS13"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9350",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Credit Earned (SCS11)",
+      "description": "If Course Enrollment Status (SCS08) = 01 (Enrolled), Course Credit Earned (SCS11) must = 0 or 9999.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS11"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9360",
+      "collection": "SCS",
+      "title": "A course with a passing letter mark (SCS12) and credit available (SCS10) should have credits awarded (SCS11).",
+      "description": "If course credit is available and a student's letter mark reflects a \"C\" or above or any of the non-letter passing marks, then some credit should be recorded.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS10",
+        "SCS11",
+        "SCS12"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9370",
+      "collection": "SCS",
+      "title": "A course with a passing numeric mark (SCS13) and credit available (SCS10) should have credits awarded (SCS11).",
+      "description": "If course credit is available and a student's numeric mark reflects a 75 or above or \"Withdrawn -- Pass\", then some credit should be recorded.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS10",
+        "SCS11",
+        "SCS13"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9380",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Letter Mark (SCS12)",
+      "description": "Should be alphanumeric with a length of 2 characters.\n\nCan't be blank or null.\n\nShould be one of the valid codes listed in the type table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9390",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS08 is 03 (Completed) then SCS12 must not be 88 (Course in Progress)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12"
+      ],
+      "object": "StudentSectionMarks"
+    },
+    {
+      "code": "SCS9400",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) and Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS08 is 03 (Completed) and if SCS13 is 99999 (a numeric mark is not applicable) then SCS12 must not be 88 (Course in Progress) or 99 (Numeric Mark (only) provided for this course) or 21 (Withdrawn) or 22 (Withdrawn Pass) or23 (Withdrawn Fail) or 40 (Incomplete) or 50 (Excused)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9410",
+      "collection": "SCS",
+      "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS12 is 55 (Mark will not be reported for this course) then SCS13 must be 55555 (a numeric mark is awarded but will not be reported) or 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9420",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS08 is 03 (Completed) then SCS12 must not be **22 (WP), 23 (WF), 21 (W), 40 (I) or 50 (Ex).**",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9430",
+      "collection": "SCS",
+      "title": "Course Letter Mark (SCS12 = Pass) Invalid with Course Numeric Mark (SCS13)",
+      "description": "If SCS12 = 14 (Pass), then SCS13 must not equal 0.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9440",
+      "collection": "SCS",
+      "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS12 is 66 (No grade provided for this course (ungraded)) then SCS13 must be 66666 (course is not graded) or 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9450",
+      "collection": "SCS",
+      "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS12 is 77 (Audit) then SCS13 must be 77777 (course was audited) or 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9460",
+      "collection": "SCS",
+      "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS12 is 22 (WP: Withdrawn Pass) then SCS13 must not be 23333 (Withdrawn Fail: WF).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9470",
+      "collection": "SCS",
+      "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS12 is 23 (WF: Withdrawn Fail) then SCS13 must not be 22222 (Withdrawn Pass: WP).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9480",
+      "collection": "SCS",
+      "title": "Number of records with Letter Mark (SCS12) equaling 66 or Numeric Mark (SCS13) equaling 66666 exceeds limit [school] (out of # students with secondary courses, # students are reported as ungraded)",
+      "description": "If SCS05 is a secondary course then the number of records a school submits where SCS12=66 or SCS13=66666 cannot exceed a reasonable rate.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9490",
+      "collection": "SCS",
+      "title": "Subject Area Course Code (SCS05) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)",
+      "description": "If SCS05 is a secondary course then SCS12 must not be 55 and SCS13 must not be 55555.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS05",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9500",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Numeric Mark (SCS13)",
+      "description": "Should be a numeric with length between 1 and 5 characters.\n\nValue may contain up to 2 decimal places.\n\nCan't be blank or null.\n\nIf SCS13 is not equal to 55555 or 66666 or 77777 or 88888 or 99999 or 21111 or 22222 or 23333 or 40000 or 50000, then the value must be between 0 and 100.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9510",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) and Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 03 (Completed) and if SCS12 is 99 (Numeric Mark (only) provided for this course) then SCS13 must be 0-100 or be 77777 (course was audited) or 66666 (course is not graded) or 55555 (a numeric mark is awarded but will not be reported)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9520",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 03 (Completed) then SCS13 must not be 88888 (a numeric mark will be provided when the course is completed)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9530",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 03 (Completed) then SCS13 must not be **22222 (WP), 23333 (WF), 21111 (W), 40000 (I) or 50000 (Ex).**",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9540",
+      "collection": "SCS",
+      "title": "Course Numeric Mark (SCS13) Invalid with Course Letter Mark (SCS12)",
+      "description": "If SCS12 is equal to 15 or 16 and if SCS13 is not equal 99999, then scs13 must be between 0 and 70.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9550",
+      "collection": "SCS",
+      "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS13 is 55555 (a numeric mark is awarded but will not be reported) then SCS12 must be 55 (Mark will not be reported for this course) or 99 (Numeric Mark (only) provided for this course).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9560",
+      "collection": "SCS",
+      "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS13 is 66666 (course is not graded) then SCS12 must be 66 (No grade provided for this course (ungraded)) or 99 (Numeric Mark (only) provided for this course).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9570",
+      "collection": "SCS",
+      "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS13 is 77777 (course was audited) then SCS12 must be 77 (Audit) or 99 (Numeric Mark (only) provided for this course).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9580",
+      "collection": "SCS",
+      "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)",
+      "description": "If SCS12 is 99 (Numeric Mark (only) provided for this course) then SCS13 must not be 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9590",
+      "collection": "SCS",
+      "title": "Course Numeric Mark (SCS13) is 0 for a more than half of the students in this section.",
+      "description": "This is a warning validation meant to catch cases when marks may not have been entered for a section. If this situation is legitimate, then contact your District Support Specialist.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS13"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "SCS9600",
+      "collection": "SCS",
+      "title": "Invalid/Missing Course Enrollment Status (SCS08)",
+      "description": "Should be alphanumeric with a length of 2 characters.\n\nCan't be blank or null.\n\nShould be one of the valid codes listed in the type table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9610",
+      "collection": "SCS",
+      "title": "Active Student reported in SIMS with no Active Course Record(s) reported in SCS [school,lasid,sasid]",
+      "description": "If a student is reported in SIMS with Enrollment status Enrolled, Graduated, Certificate of Attainment or Completed Grade 12 (DOE012=01, 04, 10 or 11) and Reason for Reporting (DOE011) does not equal to 02 with days attendance not equal to 0 or 555, then the same district must report that student in SCS having at least one active course (Enrollment Status other than \"withdrawn\" or \"excused\" (SCS08\\<\\>02 or 05).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE011",
+        "DOE012",
+        "SCS08"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9611",
+      "collection": "SCS",
+      "title": "Students reported in SIMS with enrollment status as 04, 10, 11 should have a completed course in SCS",
+      "description": "Students who graduate or receive a certificate should have at least one completed course in SCS",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9620",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 01 (Enrolled) then SCS12 must be 55 (Mark will not be reported for this course), 66 (No grade provided for this course (ungraded)), 77 (Audit), 88 (Course In Progress) or 99 (Numeric Mark (only) provided for this course) and SCS13 must be 55555 (a numeric mark is awarded but will not be reported), 66666 (course is not graded), 77777 (course was audited), 88888 (a numeric mark will be provided when the course is completed) or 99999 (a numeric mark is not applicable).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9630",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 02 (Withdrawn) then SCS12 must be 22 (WP: Withdrawn Pass) or 23 (WF: Withdrawn Fail) or 21 (Withdrawn: W) or 99 (Numeric Mark (only) provided for this course) and SCS13 must be 22222 (Withdrawn Pass: WP) or 23333 (Withdrawn Fail: WF) or 21111 (Withdrawn: W) or 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9640",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 04 (Incomplete) then SCS12 must be 40 (Incomplete) or 99 (Numeric Mark (only) provided for this course) and SCS13 must be 40000 (Incomplete) or 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9650",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)",
+      "description": "If SCS08 is 05 (excused) then SCS12 must be 50 (excused) or 99 (Numeric Mark (only) provided for this course) and SCS13 must be 50000 (excused) or 99999 (a numeric mark is not applicable)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "SCS12",
+        "SCS13"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9660",
+      "collection": "SCS",
+      "title": "Student is still enrolled in class at end of year.",
+      "description": "SCS08 must not equal 01 (Enrolled) for the EOY collection.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9670",
+      "collection": "SCS",
+      "title": "Course Enrollment Status (SCS08) not valid with Course Term (SCS07) for the reporting period",
+      "description": "In October, SCS08 must not equal 03 (Completed) for a Course Term (SCS07) except Mini-term 1- 15 (61-75), Multiple Mini-terms (78), Multiple Non-consecutive Mini-terms (79), Summer Term (80) and Intersession (90).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS07",
+        "SCS08"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9680",
+      "collection": "SCS",
+      "title": "Enrolled Student reported in SIMS with no Enrolled Course Record(s) reported in SCS [school,lasid,sasid]",
+      "description": "In October, if a student is reported in SIMS with Enrollment status \"Enrolled\" (DOE012=01) and Reason for Reporting (DOE011) not equal to 02 with days attendance not equal to 0, then the same district must report that student in SCS having at least one enrolled course (SCS08=01).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE011",
+        "DOE012",
+        "SCS08"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9690",
+      "collection": "SCS",
+      "title": "An un-enrolled student in SIMS cannot be reported as enrolled in a course in SCS",
+      "description": "If a student is reported in SIMS as un-enrolled (DOE012\\<\\>01) then their enrollment status in SCS cannot be reported as enrolled (SCS08=01).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE012",
+        "SCS08"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9700",
+      "collection": "SCS",
+      "title": "A Class reported with an inactive term (WA17=02) may not have any enrolled students (SCS08=01)",
+      "description": "If the work assignment record for a class reports the term as inactive (WA17=02), then students may not be enrolled in the class (SCS08=01). Either the WA17 or SCS08 is incorrect",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS08",
+        "WA17"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9710",
+      "collection": "SCS",
+      "title": "Invalid Pathways Courses code (SCS14) -- must be 00 or 01",
+      "description": "Pathways Course code (SCS14) must be either 00 or 01",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS14"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9720",
+      "collection": "SCS",
+      "title": "Pathways Course is applicable to secondary courses only -- must be 00 for prior to secondary courses",
+      "description": "Pathways Course value of 01 in SCS14 is applicable to secondary courses only. SCS14 must be 00 for prior to secondary courses.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS14"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9730",
+      "collection": "SCS",
+      "title": "Pathways Internship and Pathways Capstone must have a value of 01 in SCS14",
+      "description": "Pathways Internship (course code 22501) and Pathways Capstone (course code 22502) must be reported as 01 in SCS14.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SCS14"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SCS9740",
+      "collection": "SCS",
+      "title": "Credits available should be 0 when SCS12 Course Letter Mark is 66 and SCS11 - Credits earned is 0.",
+      "description": "For an ungraded course that does not award credits, credits available (SCS10) should be 0.\n\nSIF Validations\n\nSIF1097 - Attending School code has invalid format\n\nThe AttendingSchool element in the SchoolCourseInfo object contains invalid characters and/or is not 8 characters long.\n\nSIF1099 - Local course code has invalid format\n\nThe DistrictCourseCode element in the SchoolCourseInfo object contains invalid characters and/or is not between 1 and 20 characters long.\n\nSIF1100 - Local course code is missing\n\nThe DistrictCourseCode element in the SchoolCourseInfo object is blank or null.\n\nSIF1101 - Subject Area - Course Code has invalid format\n\nThe StateCourseCode element in the SchoolCourseInfo object contains invalid characters and/or is not between 5 and 7 characters long.\n\nSIF1102 - Subject Area - Course Code is missing\n\nThe StateCourseCode element in the SchoolCourseInfo object is blank or null.\n\nSIF1105 - SchoolCourseInfo SchoolInfoRefId is missing\n\nThe SchoolInfoRefId attribute in the SchoolCourseInfo object is blank or null.\n\nSIF1117 - SchoolInfo LeaInfoRefId is missing\n\nThe LEAInfoRefId element in the SchoolInfo object is blank or null.\n\nSIF1118 - SchoolInfo LeaInfoRefId is unknown\n\nThe LEAInfoRefId element in the SchoolInfo object refers to a LEAInfo object which is missing.\n\nSIF1119 - TermInfo SchoolInfoRefId is missing\n\nThe SchoolInfoRefId attribute in the TermInfo object is blank or null.\n\nSIF1120 - TermInfo SchoolInfoRefId is unknown\n\nThe SchoolInfoRefId attribute in the TermInfo object refers to a SchoolInfo object which is missing.\n\nSIF1121 - SCS06 Class Section has invalid format\n\nThe CourseSectionCode element in the SectionInfo object contains invalid characters and/or is not between 1 and 20 characters long or is blank or null..\n\nSIF1122 - Class Section is missing\n\nThe CourseSectionCode element in the SectionInfo object is blank or null..\n\nSIF1154 - SectionInfo missing SectionMarkInfo\n\nThere is no SectionMarkInfo object that corresponds to the SectionInfo object.\n\nSIF1155 - SectionInfo missing SchoolCourseInfo\n\nThere is no SchoolCourseInfo object that corresponds to the SectionInfo object.\n\nSIF1156 - StudentSectionEnrollment missing SectionInfo\n\nThere is no SectionInfo object that corresponds to the StudentSectionEnrollment object.\n\nSIF1157 - StudentSectionEnrollment missing StudentPersonal\n\nThere is no StudentPersonal object that corresponds to the StudentSectionEnrollment object.\n\nSIF1158 - StudentSchoolEnrollment with no matching StudentSectionEnrollment\n\nA valid active StudentSchoolEnrollment object has been submitted for a student who has no StudentSectionEnrollments. This implies that the student is enrolled in a school, but is not enrolled in any courses. Investigations should be carried out to determine if the school enrollment is invalid or if the course enrollments are missing.\n\nSIF1159 - Term is missing in SectionMarkInfo\n\nSectionMarkinfo is missing an entry in its TermMarkLists/MarkInfoList structure. This entry is essential for determining the term of a section to be reported in SCS and EPIMS.\n\nSIF1160 - SchoolCourseInfo missing SchoolInfo\n\nThe SchoolInfo object which is referred to by the SchoolCourseInfo object could not be found.\n\nSIF1161 - StudentSectionEnrollment without matching StudentSchoolEnrollment\n\nA course enrollment has been reported for a student with no school enrollment. This warning may result in a SCS6500 cross validation error.\n\nSIF1162 - Completed Course without StudentSectionMark\n\nWhen a course is reported as completed, it is expected that marks will be reported in the StudentSectionMarks object. No matching marks object was found.\n\nSIF1163 - Withdrawn CourseEnrollment status is unlikely if the student is enrolled through the end of the term\n\nThis warning is given when a CourseEnrollmentStatus in StudentSectionEnrollment is reported as withdrawn (02) but the ExitDate of the enrollment is at the end of the term. The assumption is that a withdrawal would occur before the end of term.\n\nSIF1173 - Future enrollment reported as withdrawn\n\nThis warning is given when a CourseEnrollmentStatus in StudentSectionEnrollment is reported as withdrawn (02) but the EntryDate of the enrollment is after the reporting date. An example would be if during the October collection, an enrollment that would start in November was reported as withdrawn.\n\nSIF1191 -- Incomplete Course override info -- DistrictCourseCode\n\nFor a SectionInfo object where SchoolCourseInfoOverride has been set to \\\"Yes\\\" the DistrictCourseCode element is missing or blank.\n\nSIF1192 -- Incomplete Course override info -- StateCourseCode\n\nFor a SectionInfo object where SchoolCourseInfoOverride has been set to \\\"Yes\\\" the StateCourseCode element is missing or blank.\n\nSIF1193 -- Incomplete Course override info -- InstructionalLevelCode\n\nFor a SectionInfo object where SchoolCourseInfoOverride has been set to \\\"Yes\\\" the InstructionalLevelCode element is missing or blank.\n\nSIF1194 -- Incomplete Course override info -- CourseCredits\n\nFor a SectionInfo object where SchoolCourseInfoOverride has been set to \\\"Yes\\\" the CourseCredits element is missing or blank.\n\nSIF1195 -- Incomplete Course override info -- CourseCreditsType\n\nFor a SectionInfo object where SchoolCourseInfoOverride has been set to \\\"Yes\\\" the CourseCreditsType element is missing or blank.\n\nSIF1196 -- Incomplete Course Override Info - AttendingSchool\n\nFor a SectionInfo object where SchoolCourseInfoOverride has been set to \\\"Yes\\\" the AttendingSchool element is missing or blank.\n\n+---------+--------+--------------------------------------------------+ | Ve | Date | Description | | rsion** | of | | | | Ch | | | | ange** | | +=========+========+==================================================+ | 10.3 | 1 | Added 9740, updated description for 6420 | | | 0/1/25 | | +---------+--------+--------------------------------------------------+ | 10.2 | 1 | Reviewed for 2024-25 | | | 0/1/24 | | +---------+--------+--------------------------------------------------+ | 10.1 | 1 | Added 9611, 9710,9720,9730 | | | 0/1/21 | | +---------+--------+--------------------------------------------------+ | 10.0 | 1 | Added SCS6452,SCS6454,SCS6456 and SIF1191, | | | 1/4/19 | SIF1192, SIF1193, SIF1194, SIF1195 | +---------+--------+--------------------------------------------------+ | 9.0 | 8 | Renumbered all | | | /17/18 | | | | | Added SCS9110 | +---------+--------+--------------------------------------------------+ | 8.0 | 9/1/17 | SCS2350: Deleted (duplicated 2340) | | | | | | | | SCS2430: Updated to allow for new code | +---------+--------+--------------------------------------------------+ | 5.1 | 5 | SCS3040: Enhanced matching criteria. | | | /15/15 | | | | | SCS2390: Updated message | +---------+--------+--------------------------------------------------+ | 5.0 | 8 | SCS4015, SCS1090: Conditions modified. | | | /27/14 | | | | | SCS3040: Message and explanation modified | | | | | | | | SCS2450, SCS2460, SCS4034, SCS4036 added. | +---------+--------+--------------------------------------------------+ | 4.0 | 8 | SCS1050: added parentheses, underscore, forward | | | /20/13 | slash to allowable characters | +---------+--------+--------------------------------------------------+ | 2.2 | 5 | SCS4015 Updated | | | /16/12 | | | | | Changed date to 6/1/12 to reflect potential post | | | | date | | | | | | | | Changed version to 2.2 | +---------+--------+--------------------------------------------------+ | 2.1 | 1 | Changed date to 1/26/12 to reflect potential | | | /25/12 | post date | +---------+--------+--------------------------------------------------+ | 2.1 | 12 | Moved History to end | | | /07/11 | | | | | SCS2440 - Added | | | | | | | | SCS4010 -- Modified to be October only | | | | | | | | SCS4015 -- Added | | | | | | | | SCS5003 - Added | +---------+--------+--------------------------------------------------+ | 2.1 | 09 | Added new rule: SCS5003 - | | | /26/11 | | | | | If the work assignment record for a class | | | | reports the term as inactive (WA17=02), then | | | | students may not be enrolled in the class | | | | (SCS08=01). Either WA17 or SCS08 is incorrect. | +---------+--------+--------------------------------------------------+ | 2.1 | 09 | Sent for posting. | | | /20/11 | | | | | Fixed footers. | +---------+--------+--------------------------------------------------+ | 2.0 | 09 | Modified Rules: | | | /08/11 | | | | | - SCS5010 -- Class reported in SCS not | | | | > reported in EPIMS | | | | > [school,course,section,term,count of SCS | | | | > records] | | | | | | | | > Added 2307 or 2308 to definition. | | | | | | | | - SCS2430 -- A post-secondary course level | | | | > (SCS09=04) cannot be assigned to a course | | | | > with a pre-secondary or general course | | | | > code. | | | | | | | | > Added: The general course code (SCS05=99999) | | | | > may not be assigned a post-secondary level. | | | | | | | | New Rules: | | | | | | | | - SCS5002 -- Virtual class reported in EPIMS | | | | > not reported in SCS | | | | > [school,mepid,course,section,term] | | | | | | | | - SCS5020 -- Alternative Education Class | | | | > reported in SCS not reported in EPIMS | | | | > [school,course,section,term,count of SCS | | | | > records] | | | | | | | | Deactivated Rule: | | | | | | | | - SCS4030 -- Student Course Record must not be | | | | > reported [school,lasid,sasid,count of SCS | | | | > records] | | | | | | | | > If a District in SIMS reports a SASID with | | | | > Enrollment status DOE012=40 or 41, then the | | | | > SASID must not be reported in SCS. | +---------+--------+--------------------------------------------------+ | 1.10 | 05 | Added two new rules: | | | /26/11 | | | | | SCS4032 -- An un-enrolled student in SIMS cannot | | | | be reported as enrolled in a course in SCS. | | | | | | | | SCS2430 -- A post-secondary course level | | | | (SCS09=04) cannot be assigned to a course with a | | | | pre-secondary course code. | | | | | | | | Modified SCS4020 -- removed \"with Enrollment | | | | status other than Enrolled (SCS08\\<\\>01)\" text | | | | from rule. | +---------+--------+--------------------------------------------------+ | 1.9 | 03 | Re-Activated SCS3040 -- Class reported in | | | /21/11 | Previous Collection not reported in Current | | | | Collection [SASID, School, Course, Term]. | +---------+--------+--------------------------------------------------+ | 1.8 | 01 | Added new Rule: | | | /06/11 | | | | | SCS2420 -- Future Course Terms (SCS07) should | | | | not be reported in October. | +---------+--------+--------------------------------------------------+ | 1.7 | 12 | Modified Rule SCS1020 and SCS1025 to state that | | | /20/10 | \"CLBR\" must be all uppercase letters. | +---------+--------+--------------------------------------------------+ | 1.7 | 11 | Modified Rule SCS2410 to: | | | /10/10 | | | | | In October, SCS08 must not equal 03 (Completed) | | | | for a Course Term (SCS07) except Mini-term 1- 15 | | | | (61-75), Multiple Mini-terms (78), Multiple | | | | Non-consecutive Mini-terms (79), Summer Term | | | | (80) and Intersession (90). | +---------+--------+--------------------------------------------------+ | 1.6 | 10 | Modified rule SCS4010 (Glenn K.) | | | /25/10 | | | | | If a District in SIMS reports a SASID with | | | | Enrollment status \"Enrolled\" (DOE012=01) and | | | | Reason for Reporting (DOE011) not equal to 02 | | | | with days in attendance not equal to 0, then the | | | | same SASID must be reported in SCS and reported | | | | by the same district for Public or Charters. | +---------+--------+--------------------------------------------------+ | 1.6 | 1 | Removed PILOT Watermark. | | | 0/1/10 | | | | | Updated Headers and footers. | | | | | | | | Updated version number. | | | | | | | | Quick check on formatting. | | | | | | | | Added new rule SCS3030 and SCS2410 | | | | | | | | Text change to SCS4001 | | | | | | | | Text change to SCS4010 | | | | | | | | Modified rule and text change to SCS4020 | | | | | | | | Text change to SCS4030 | | | | | | | | Text change to SCS4031 | | | | | | | | Text change to (new output) SCS5010 | +---------+--------+--------------------------------------------------+ | 1.5 | 7 | Added new rule SCS2400 -- Course Letter Mark | | | /23/10 | (SCS12 = Pass) Invalid with Course Numeric Mark | | | | (SCS13). | | | | | | | | If SCS12 = 14 (Pass), then SCS13 must not equal | | | | 0. | +---------+--------+--------------------------------------------------+ | 1.4 | 7/1/10 | Incorporated the following updates: | | | | | | | | - Modified rule: SCS4020 | | | | | | | | - Added sub-title to doc cover and footers. | +---------+--------+--------------------------------------------------+ | 1.3 | 06 | Incorporated the following updates: | | | /04/10 | | | | | Added new rule, SCS2390. | | | | | | | | Fixed page numbering and updated template with | | | | PILOT watermark. | +---------+--------+--------------------------------------------------+ | 1.2 | 05 | Incorporated the following updates: | | | /28/10 | | | | | Modified rule: SCS3001. | | | | | | | | Modified rule: SCS3010. | | | | | | | | Modified rule: SCS 4001. | | | | | | | | Modified rule: SCS 4020. | | | | | | | | Modified rule: SCS 4030. | | | | | | | | Modified rule: SCS 4031. | | | | | | | | Modified rule: SCS 5001. | +---------+--------+--------------------------------------------------+ | 1.1 | 04 | Reformatted 1.0 SCS Error List from previous | | | /14/10 | template into the standard documentation | | | | template, adding a revision history. | | | | | | | | Modified rule: SCS2250. | | | | | | | | Modified rule: SCS2255. | | | | | | | | Modified rule: SCS2260. | | | | | | | | Modified rule: SCS2265. | | | | | | | | Modified rule: SCS2270. | | | | | | | | Modified rule: SCS2275. | | | | | | | | Modified rule: SCS2300. | | | | | | | | Modified rule: SCS2370. | | | | | | | | Modified rule: SCS2380 | +---------+--------+--------------------------------------------------+",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE011",
+        "DOE012",
+        "SCS05",
+        "SCS06",
+        "SCS07",
+        "SCS08",
+        "SCS09",
+        "SCS10",
+        "SCS11",
+        "SCS12",
+        "SCS13",
+        "WA17"
+      ],
+      "object": "StudentSectionEnrollment"
+    }
+  ],
+  "fields": [
+    {
+      "description": "Unique Local Education Agency Assigned Student Identifier. Must have corresponding State assigned Student ID.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 32,
+      "acceptable_values": "Set by LEA. The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": "SIMS: DOE001 -- Locally Assigned Student Identifier",
+      "notes": null,
+      "sif_object": "StudentPersonal",
+      "sif_element": "LocalId",
+      "field_id": "SCS01",
+      "name": "Locally Assigned Student Identifier (LASID)",
+      "collection": "SCS"
+    },
+    {
+      "description": "Unique 10-digit State Assigned Student Identifier",
+      "type": "Alphanumeric",
+      "min_length": 10,
+      "max_length": 10,
+      "acceptable_values": "10-digit state-assigned identification number.",
+      "related_elements": "SIMS: DOE002 -- State Assigned Student Identifier",
+      "notes": "1. In order to track students within and across districts over time and to keep student information secure and confidential at both the state and local levels, two student identifiers will be used --- one assigned by the district in which the student is enrolled (LASID) and a State Assigned number (SASID).  2. State Assigned Student Identifiers will be assigned through the State Student Registration System. Districts will need to use the State Assigned Student Identifier and the Locally Assigned Student Identifier on all individual data submitted to the Department of Elementary and Secondary Education.  3. This element will be used to match with SIMS data element DOE002.",
+      "sif_object": "StudentPersonal",
+      "sif_element": "StateProvinceId",
+      "field_id": "SCS02",
+      "name": "State-Assigned Student Identifier (SASID)",
+      "collection": "SCS"
+    },
+    {
+      "description": "Indicates the location where a course is being taught. This code may differ from the school in which the student is enrolled. Each school in Massachusetts has a four-digit code assigned by the ESE. In combination with the four-digit district code, each school in Massachusetts has a unique, eight-digit code number. Each student's course record must contain the eight-digit code of the school or institution where the course is being taught.  Starting in October 2011, alternative education programs can be reported in SCS as the location where a course is taught **if the course in not taught in a school**. If the course is taught in a school, the school code must be used for WA06 (and SCS03).  Districts will be able to report school codes or valid 8-digit district alternative education program codes in WA06 (and SCS03).  District alternative education program codes must **be registered with DESE**.  Alternative Education program codes will be cross-validated between EPIMS and SCS so students and teachers will be linked at the classroom level by the alternative education program code OR by the school code.",
+      "type": "Alphanumeric",
+      "min_length": 8,
+      "max_length": 8,
+      "acceptable_values": "Set by State. Only school codes currently reported as being open in Directory Administration will be accepted.  To report course location for public schools in Massachusetts: Each school in Massachusetts has an eight-digit code assigned by the ESE. The first four digits represent the district code. The second four digits represent the school code.  To report courses provided by colleges: The four digit college institution codes used to report degree institutions in the EPIMS staff roster file will be preceded by \"CLBR\" (all uppercase letters only) to form the 8 character code.  The following two codes will be used to report online (virtual) courses:  \"CLBRVK12\" will be used to report online courses for grades K -12;\\ \"CLBRVCLG\" will be used to report online college-level courses.  A listing of DESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>",
+      "related_elements": "SIMS: DOE015 - School Identification Number  EPIMS: WA06 -- Assignment Location Code",
+      "notes": "The four character educational institution codes required to report courses provided by colleges are the same codes required to report EPIMS SR19 Degree Institution 1, SR 22 Degree Institution 2 and SR 25 Degree Institution 3. (See *EPIMS Data Handbook*, *Appendix C*.)  Element is similar to SIMS DOE015 School Identification Number and EPIMS WA06 Assignment Location Code.  \"CLBR\" must be all uppercase letters only. Lowercase letters will cause an error.\\\\\\\\",
+      "sif_object": "SchoolInfo",
+      "sif_element": "SchoolInfo",
+      "field_id": "SCS03",
+      "name": "School/Program ID Number",
+      "collection": "SCS"
+    },
+    {
+      "description": "The locally defined code that identifies the organization of subject matter and related learning experiences provided for the instruction of students.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 20,
+      "acceptable_values": "Set by LEA. The complete set of printable characters available on a standard, English keyboard are allowed in this field.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "SchoolCourseInfo",
+      "sif_element": "DistrictCourseCode",
+      "field_id": "SCS04",
+      "name": "Local Course Code",
+      "collection": "SCS"
+    },
+    {
+      "description": "The State-defined code that identifies the organization of subject matter and related learning experiences, provided for the instruction of students.",
+      "type": "Alphanumeric",
+      "min_length": 5,
+      "max_length": 7,
+      "acceptable_values": "00000 = Not Applicable. (Administrative staff should report \"not applicable\" in this field.)  99999 = All Subjects (This code is not acceptable for prior-to-secondary courses and is limited to SPED and EL courses for secondary courses.)  A complete list of subject area-course codes may be found in EPIMS Appendices",
+      "related_elements": "EPIMS: WA10 -- Subject Area-Course",
+      "notes": null,
+      "sif_object": "SchoolCourseInfo",
+      "sif_element": "StateCourseCode",
+      "field_id": "SCS05",
+      "name": "Subject Area--Course Code",
+      "collection": "SCS"
+    },
+    {
+      "description": "This field indicates the class assigned for a unique occurrence of a subject area-course. The class section code will identify the class assigned for that subject area-course and will be unique for the data collection within a school.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 20,
+      "acceptable_values": "Set by LEA. An alphanumeric string of 20 characters or fewer. Special characters other than a hyphen, period, underscore, parentheses, forward slash and space are not acceptable.",
+      "related_elements": "EPIMS: WA11 -- Class Section",
+      "notes": null,
+      "sif_object": "SectionInfo",
+      "sif_element": "CourseSectionCode",
+      "field_id": "SCS06",
+      "name": "Class Section",
+      "collection": "SCS"
+    },
+    {
+      "description": "The length of an individual course. For the purposes of reporting, the term sequence (e.g., 1^st^, 2^nd^, or 3^rd^ trimester) must be provided in the value.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Full School Year\n21 = First Semester\n22 = Second Semester\n31 = First Trimester\n32 = Second Trimester\n33 = Third Trimester\n34 = Multiple Trimesters\n35 = Multiple Non-consecutive Trimesters\n41 = First Quarter\n42 = Second Quarter\n43 = Third Quarter\n44 = Fourth Quarter\n45 = Multiple Quarters\n46 = Multiple Non-consecutive Quarters\n51 = First Quinmester\n52 = Second Quinmester\n53 = Third Quinmester\n54 = Fourth Quinmester\n55 = Fifth Quinmester\n56 = Multiple Quinmesters\n57 = Multiple Non-consecutive Quinmesters\n61 = Mini-term 1\n62 = Mini-term 2\n63 = Mini-term 3\n64 = Mini-term 4\n65 = Mini-term 5\n66 = Mini-term 6\n67 = Mini-term 7\n68 = Mini-term 8\n69 = Mini-term 9\n70 = Mini-term 10\n71 = Mini-term 11\n72 = Mini-term 12\n73 = Mini-term 13\n74 = Mini-term 14\n75 = Mini-term 15\n78 = Multiple Mini-terms\n79 = Multiple Non-consecutive Mini-terms\n80 = Summer Term\n90 = Intersession\n\nTerm definitions: Full school year = a regular school term consisting of no major subdivision of time segments, usually beginning in late summer/early fall and ending in late spring/early summer. Semester = one of two equal segments into which a school year is divided. Trimester = one of three equal segments into which a school year is divided. Quarter = one of four equal segments into which a school year is divided. Quinmester = one of five equal segments into which a school year is divided. Mini-term = a school term shorter than a regular session. Summer term = a school term that takes place in the summer between two regular school terms. Intersession = a short session which occurs between longer sessions.",
+      "related_elements": "EPIMS: WA16 -- Course Term",
+      "notes": "All non-instructional staff should be reported as code 01 -- FULL. Value must match course term values reported in EPIMS (WA16).",
+      "sif_object": "TermInfo",
+      "sif_element": "Extended",
+      "field_id": "SCS07",
+      "name": "Course Term",
+      "collection": "SCS"
+    },
+    {
+      "description": "Indicates a student\\'s status in each course in which they are or were enrolled. This includes any courses that:  - Are currently in session  - Were reported in a previous collection, as having students enrolled  - Started and concluded entirely between reporting periods  For example, in a given collection period a student\\'s status is recorded as Enrolled for all courses currently in session and Completed, Withdrawn, Incomplete or Excused to reflect progress in all courses for which final marks have been reported.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Enrolled\n02 = Withdrawn\n03 = Completed\n04 = Incomplete\n05 = Excused",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "StudentSectionEnrollment",
+      "sif_element": "Extended",
+      "field_id": "SCS08",
+      "name": "Course Enrollment Status",
+      "collection": "SCS"
+    },
+    {
+      "description": "An indication of the general nature and difficulty of instruction provided throughout a course.  The broad range of data models employed across the state means that the values used for SCS09 Course Levels will vary widely between districts. This means that data mapping will be required to capture the data in a standardized, usable format.  DESE has constructed a four-tiered data model that provides a robust and flexible data mapping structure for integrating and using the Course Level data. District data mapping involves evaluating actual data values in your local Student Information Systems and finding the most appropriate transformations to the DESE values.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Basic or Remedial: A course focusing primarily on skills development. The course offered may focus on the improvement of a particular deficiency in content previously taught but not learned.\n02 = General: A course providing instruction that focuses primarily on general concepts for the appropriate grade level.\n03 = Advanced: An advanced course designed for students who achieve a specified level of academic performance.\n04 = Postsecondary Credit: A course, often taken at or in conjunction with a postsecondary institution, which contains instruction equivalent to a college-level course and for which a student earns college credits.\n05 = Postsecondary Non-Credit: A course, often taken at or in conjunction with a postsecondary institution, which contains remedial or developmental content or for which a student does not earn college credits.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "SchoolCourseInfo",
+      "sif_element": "InstructionalLevel",
+      "field_id": "SCS09",
+      "name": "Course Level",
+      "collection": "SCS"
+    },
+    {
+      "description": "The number of credits that a student can earn for enrolling in and completing a given course. If course credits are not provided for this course, the \"not applicable\" code should be used.",
+      "type": "Decimal",
+      "min_length": 1,
+      "max_length": 5,
+      "acceptable_values": "Numerical entries assessed by the LEA. Value may contain up to 2 decimal places.  9999 = Not Applicable",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "SchoolCourseInfo",
+      "sif_element": "CourseCredits",
+      "field_id": "SCS10",
+      "name": "Course Credit Available",
+      "collection": "SCS"
+    },
+    {
+      "description": "The number of credits awarded to a student who successfully meets the objectives of the course. If course credits are not provided for this course, the \"not applicable\" code should be used.",
+      "type": "Decimal",
+      "min_length": 1,
+      "max_length": 5,
+      "acceptable_values": "Numeric value assessed by the LEA. Value may contain up to 2 decimal places.  9999 = Not Applicable.",
+      "related_elements": null,
+      "notes": "If a course is currently in progress; the value for this element will be 0 or 9999 and will match the value reported in SCS10.",
+      "sif_object": "StudentSectionMarks",
+      "sif_element": "Extended",
+      "field_id": "SCS11",
+      "name": "Course Credit Earned",
+      "collection": "SCS"
+    },
+    {
+      "description": "A meaningful alphabetical or categorical expression of the performance of an individual. The results can be expressed in different ranges of passing marks (for example, ABC or ABCD) and/or levels (for example, A+, A, A-) or categories (for example, Pass/Fail).  The broad range of grading standards employed across the state means that the values used for SCS12 Course Letter Marks vary widely between districts. This means that data mapping will be required for categorical marks that conform to neither standard alphabetical nor Pass/ Fail grading systems.  DESE has constructed a multi-tiered data model that provides a robust and flexible data mapping structure to reliably capture Course Letter Marks data (values 16-20). District data mapping involves evaluating actual data values in your local Student Information Systems and finding the most appropriate transformations to the DESE values.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = A+\n02 = A\n03 = A-\n04 = B+\n05 = B\n06 = B-\n07 = C+\n08 = C\n09 = C-\n10 = D+\n11 = D\n12 = D-\n13 = F\n14 = Pass\n15 = Fail\n16 = Failing (Very poor performance)\n17 = Minimally Acceptable (Lowest passing grade)\n18 = Acceptable (Meets some of the basic standards for the course)\n19 = Good (Meets standards for the assignment or course)\n20 = Outstanding (Meets the highest standards for the assignment or course)\n21 = Withdrawn\n22 = Withdrawn - Pass\n23 = Withdrawn - Fail\n40 = Incomplete\n50 = Excused\n55 = Mark is not required\n66 = Ungraded Course\n77 = Audit\n88 = Course In Progress\n99 = Numeric Mark (only) provided for this course\n\nIf a letter mark is awarded for this course but will not be reported, SCS12 should be reported as 55. If the course is not graded, report 66. If this course was audited, report 77. If a course offered across non-consecutive terms is not completed and is not in session at the time of the collection, Enrollment Status (SCS08) will be reported as \"Enrolled,\" and this element will be reported as 88 (Course In Progress).",
+      "related_elements": null,
+      "notes": "on Dependencies  - If the course has been completed and only a numeric mark has been provided, then the value for SCS12 should be reported as 99, and a numeric mark other than 99999, 88888, 21111, 22222, 23333, 40000 and 50000 must be reported in SCS13.  - If the course has been completed, and only a letter mark has been provided, then the value for SCS13 should be reported as 99999, and a letter mark other than 99, 88, 21, 22, 23, 40, and 50 must be reported in SCS12.  - If SCS08 is 01 (Enrolled), then SCS12 may be 55 (Mark will not be reported for this course), 66 (No grade provided for this course (ungraded)), 77 (Audit), 88 (Course In Progress) or 99 (Not Applicable).  - If the Enrollment Status (SCS08) for a student course is reported as \"Completed\", a mark (letter, numeric, or both) is required.",
+      "sif_object": "StudentSectionMarks",
+      "sif_element": "MarkList",
+      "field_id": "SCS12",
+      "name": "Course Letter Mark",
+      "collection": "SCS"
+    },
+    {
+      "description": "Course numeric mark on a 100-point (percentage) scale. Value may contain up to 2 decimal places.",
+      "type": "Numeric",
+      "min_length": 1,
+      "max_length": 5,
+      "acceptable_values": "Numeric value assessed by the LEA. Value may contain up to 2 decimal places, or:\n21111 = Withdrawn, no numeric grade provided\n22222 = Withdrawn, passing grade provided\n23333 = Withdrawn, failing grade provided\n40000 = Incomplete, no numeric grade provided\n50000 = Excused, no numeric grade provided\n55555 = Numeric mark is awarded for the course but it is not required that mark is reported\n66666 = Course not graded\n77777 = Course was audited\n88888 = Course in progress\n99999 = Numeric mark is not applicable",
+      "related_elements": null,
+      "notes": "on Dependencies:  - If SCS08 is 01, then SCS13 may be 55555, 66666, 77777, 88888, or 99999.  - If a numeric mark will be provided when the course is completed however the course is being offered at the time of the collection, the value for this element will be reported as 88888. In this case, SCS12 (Course Letter Mark) should have a value of \"88\".  - If the course has been completed, and only a letter mark has been provided, then the value for SCS13 should be reported as 99999, and a letter mark other than 99, 88, 21, 22, 23, 40, and 50 must be reported in SCS12.  - If the Enrollment Status (SCS08) for a student course is reported as \"Completed,\" a mark (letter, numeric, or both) is required.  - If a course offered across non-consecutive terms is not completed and is not in session at the time of the collection, the Enrollment Status (SCS08) will be reported as \"Enrolled,\" and the value for this element will be reported as code 88888 or 99999.",
+      "sif_object": "StudentSectionMarks",
+      "sif_element": "MarkList",
+      "field_id": "SCS13",
+      "name": "Course Numeric Mark",
+      "collection": "SCS"
+    },
+    {
+      "description": "Indicates that a particular course is being used to meet the student's technical course taking requirement for Perkins, Early College or Innovation Pathway programs.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Non-Pathways Course\n01 = Pathways Course",
+      "related_elements": null,
+      "notes": "More information on Early College and Innovation Pathways: [Massachusetts High Quality College and Career Pathways Initiative - College, Career and Technical Education](https://www.doe.mass.edu/ccte/pathways/hqccp/default.html)  More information on Perkins: [Perkins Funding - College, Career and Technical Education](https://www.doe.mass.edu/ccte/policies/perkins-v/default.html)",
+      "sif_object": "StudentSectionEnrollment",
+      "sif_element": "Extended",
+      "field_id": "SCS14",
+      "name": "Pathways Course",
+      "collection": "SCS"
+    }
+  ]
+}

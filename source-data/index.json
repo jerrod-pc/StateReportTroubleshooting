@@ -1,0 +1,4646 @@
+[
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF10",
+    "title": "Invalid Record/Missing Data"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF20",
+    "title": "Invalid Record/Missing Data"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF30",
+    "title": "Invalid Record/Only SASID Provided"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF40",
+    "title": "Invalid Record/Missing SASID"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF50",
+    "title": "Invalid Record/Invalid SASID Length"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF60",
+    "title": "Invalid Record/Special character reported"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF70",
+    "title": "Invalid File Header"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF80",
+    "title": "Invalid File Selection/File Missing"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF90",
+    "title": "Invalid organization Code in the Header"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF100",
+    "title": "Invalid Record Length"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF110",
+    "title": "File Size Exceeds Maximum Size"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCSF120",
+    "title": "File has Formatting Errors"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS2100",
+    "title": "Invalid/Missing School Identification Number (SCS03)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS2300",
+    "title": "Invalid/Missing LASID (SCS01)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS2310",
+    "title": "Invalid SASID (SCS02)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS2330",
+    "title": "An exited student in SIMS who has recorded attendance must have SCS record(s) [school,lasid,sasid]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6300",
+    "title": "Invalid/Missing College/Virtual Identification Number (SCS03)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6310",
+    "title": "Out of District Virtual and College courses (SCS03) must be reported by Subject area (SCS05)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6320",
+    "title": "Alternative Education Class reported in SCS not reported in EPIMS [school,course,section,term,count of SCS records]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6330",
+    "title": "Invalid/Missing Local Course Code (SCS04)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6340",
+    "title": "Invalid/Missing Subject Area Course (SCS05)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6350",
+    "title": "Invalid CIP Code (SCS05)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6360",
+    "title": "Invalid Subject Area--Course Code (SCS05)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6370",
+    "title": "School not approved for CIP program"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6380",
+    "title": "School Identification Number (SCS03)/ SASID (SCS02)/ Subject Area Course (SCS05)/ Class Section (SCS06)/ Course Term (SCS07) combination must be unique within a district [School, SASID, Course, Section, Term] (count of SCS records)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6390",
+    "title": "Class reported in Previous Collection not reported in Current Collection [SASID, School, Local Course Code, Course, Section, Term]."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6400",
+    "title": "An enrolled student in grades 6 through 10 must report at least one ELA course."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6410",
+    "title": "An enrolled student in grades 6 through 10 must report at least one Math course."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6420",
+    "title": "AP Course not valid for student not in grade level 9-12"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6430",
+    "title": "Invalid/Missing Course Level (SCS09)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6440",
+    "title": "Subject Area Course (SCS05) not valid for Course Level (SCS09)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6450",
+    "title": "A post-secondary course level (SCS09=04 or 05) cannot be assigned to a course with a pre-secondary or general course code."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6452",
+    "title": "Course offered as online college level (SCS03=CLBRVCLG) must have a course level of 04 or 05."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6454",
+    "title": "Course offered as online K-12 level (SCS03=CLBRVK12) must have a course level of 01, 02 or 03"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6456",
+    "title": "More than 10% of courses in the school are reported as offering college credit. If this is correct then please contact your support representative"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6460",
+    "title": "Too Few Courses (SCS05) reported as General Course Level (SCS09=02) [district, %]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6470",
+    "title": "Invalid/Missing Course Credit Available (SCS10)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6480",
+    "title": "Class reported in EPIMS not reported in SCS [school, MEPID course, section, term]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6490",
+    "title": "Class reported in SCS not reported in EPIMS [school,course,section,term,count of SCS records]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6500",
+    "title": "Student Course record reported with a SASID not found in SIMS [school,lasid,sasid,count of SCS records]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS6510",
+    "title": "Virtual class reported in EPIMS not reported in SCS [school,mepid,course,section,term]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9000",
+    "title": "Invalid/Missing Course Term (SCS07)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9010",
+    "title": "Future Course Terms (SCS07) should not be reported in October"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9100",
+    "title": "Invalid/Missing Class Section (SCS06)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9110",
+    "title": "Entire class has withdrawn from this course. Do not report it in SCS or EPIMS."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9300",
+    "title": "Invalid/Missing Course Credit Earned (SCS11)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9310",
+    "title": "Course Credit Earned (SCS11) must be less or equal to Course Credit Available (SCS10)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9320",
+    "title": "Course Credit Earned (SCS11) not valid for Course Credit Available (SCS10)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9330",
+    "title": "Course Credit Earned (SCS11) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9340",
+    "title": "Course Credit Earned (SCS11) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9350",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Credit Earned (SCS11)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9360",
+    "title": "A course with a passing letter mark (SCS12) and credit available (SCS10) should have credits awarded (SCS11)."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9370",
+    "title": "A course with a passing numeric mark (SCS13) and credit available (SCS10) should have credits awarded (SCS11)."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9380",
+    "title": "Invalid/Missing Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9390",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9400",
+    "title": "Course Enrollment Status (SCS08) and Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9410",
+    "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9420",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9430",
+    "title": "Course Letter Mark (SCS12 = Pass) Invalid with Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9440",
+    "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9450",
+    "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9460",
+    "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9470",
+    "title": "Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9480",
+    "title": "Number of records with Letter Mark (SCS12) equaling 66 or Numeric Mark (SCS13) equaling 66666 exceeds limit [school] (out of # students with secondary courses, # students are reported as ungraded)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9490",
+    "title": "Subject Area Course Code (SCS05) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9500",
+    "title": "Invalid/Missing Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9510",
+    "title": "Course Enrollment Status (SCS08) and Course Letter Mark (SCS12) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9520",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9530",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9540",
+    "title": "Course Numeric Mark (SCS13) Invalid with Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9550",
+    "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9560",
+    "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9570",
+    "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9580",
+    "title": "Course Numeric Mark (SCS13) not valid for Course Letter Mark (SCS12)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9590",
+    "title": "Course Numeric Mark (SCS13) is 0 for a more than half of the students in this section."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9600",
+    "title": "Invalid/Missing Course Enrollment Status (SCS08)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9610",
+    "title": "Active Student reported in SIMS with no Active Course Record(s) reported in SCS [school,lasid,sasid]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9611",
+    "title": "Students reported in SIMS with enrollment status as 04, 10, 11 should have a completed course in SCS"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9620",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9630",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9640",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9650",
+    "title": "Course Enrollment Status (SCS08) not valid for Course Letter Mark (SCS12) and/or Course Numeric Mark (SCS13)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9660",
+    "title": "Student is still enrolled in class at end of year."
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9670",
+    "title": "Course Enrollment Status (SCS08) not valid with Course Term (SCS07) for the reporting period"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9680",
+    "title": "Enrolled Student reported in SIMS with no Enrolled Course Record(s) reported in SCS [school,lasid,sasid]"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9690",
+    "title": "An un-enrolled student in SIMS cannot be reported as enrolled in a course in SCS"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9700",
+    "title": "A Class reported with an inactive term (WA17=02) may not have any enrolled students (SCS08=01)"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9710",
+    "title": "Invalid Pathways Courses code (SCS14) -- must be 00 or 01"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9720",
+    "title": "Pathways Course is applicable to secondary courses only -- must be 00 for prior to secondary courses"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9730",
+    "title": "Pathways Internship and Pathways Capstone must have a value of 01 in SCS14"
+  },
+  {
+    "collection": "SCS",
+    "type": "error",
+    "code": "SCS9740",
+    "title": "Credits available should be 0 when SCS12 Course Letter Mark is 66 and SCS11 - Credits earned is 0."
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS01",
+    "title": "Locally Assigned Student Identifier (LASID)"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS02",
+    "title": "State-Assigned Student Identifier (SASID)"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS03",
+    "title": "School/Program ID Number"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS04",
+    "title": "Local Course Code"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS05",
+    "title": "Subject Area--Course Code"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS06",
+    "title": "Class Section"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS07",
+    "title": "Course Term"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS08",
+    "title": "Course Enrollment Status"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS09",
+    "title": "Course Level"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS10",
+    "title": "Course Credit Available"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS11",
+    "title": "Course Credit Earned"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS12",
+    "title": "Course Letter Mark"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS13",
+    "title": "Course Numeric Mark"
+  },
+  {
+    "collection": "SCS",
+    "type": "field",
+    "code": "SCS14",
+    "title": "Pathways Course"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS2100",
+    "title": "Invalid/Missing District/School (WA06)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS2110",
+    "title": "District/School ID (WA06) invalid for the reporting district"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS2120",
+    "title": "School ID code (WA06) required for school level job classification"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS2130",
+    "title": "Title I school (WA06) requires Title I staff to be reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3800",
+    "title": "MEPID does not exist in EPIMS"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3810",
+    "title": "MEPID reported in SR01 is Inactive"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3820",
+    "title": "MEPID does not exist in EPIMS"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3830",
+    "title": "MEPID Reported in WA01 is Inactive"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3840",
+    "title": "MEPID needs to be reported once in SR file"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3850",
+    "title": "Record reported more than once in SR file"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3860",
+    "title": "Invalid Employee Number / Length must be 1--20 (SR02)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3870",
+    "title": "Invalid Employee Number / Length must be 1--20 (WA02)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3880",
+    "title": "License Number (SR03) must match MEPID on file"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3890",
+    "title": "Gender Missing on File"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3900",
+    "title": "Invalid/Missing Race/Ethnicity (SR08)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3910",
+    "title": "FN must match MEPID on file (SR)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3920",
+    "title": "FN must match MEPID on file (WA)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3930",
+    "title": "MN/MI must match MEPID on file (SR)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3940",
+    "title": "MN/MI must match MEPID on file (WA)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3950",
+    "title": "LN must match MEPID on file (SR)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3960",
+    "title": "LN must match MEPID on file (WA)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3970",
+    "title": "DOB must match MEPID on file"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3980",
+    "title": "Invalid format for Date of Birth (SR07)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS3990",
+    "title": "Date or Birth (SR07) cannot be less than 14 Years Old or More than 90 Years Old When Hired"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4000",
+    "title": "Degree Information Required"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4010",
+    "title": "Invalid/Missing Degree Type 1 (SR18)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4020",
+    "title": "Degree Type 1 (SR18) not applicable. Invalid Degree Type 2 (SR21) and Degree Type 3 (SR24)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4030",
+    "title": "Degree Type 1 (SR18) invalid with Degree Institution 1 (SR19) and Degree Subject 1 (SR20) (A)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4040",
+    "title": "Degree Type 1 (SR18) invalid with Degree Institution 1 (SR19) and Degree Subject 1 (SR20) (B)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4050",
+    "title": "Degree Type 2 (SR21) reported. Degree Type 1 (SR18) must be reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4070",
+    "title": "Invalid Degree Institution 1 (SR19)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4080",
+    "title": "Invalid/Missing Degree Subject 1 (SR20)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4090",
+    "title": "Invalid/Missing Degree Type 2 (SR21)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4100",
+    "title": "Degree Type 2 (SR21) invalid with Degree Institution 2 (SR22) and Degree Subject 2 (SR23) (A)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4110",
+    "title": "Degree Type 2 (SR21) invalid with Degree Institution 2 (SR22) and Degree Subject 2 (SR23) (B)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4120",
+    "title": "Degree Type 3 (SR24) reported. Degree Type 2 (SR21) must be reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4130",
+    "title": "Invalid Degree Institution 2 (SR22)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4140",
+    "title": "Invalid/Missing Degree Subject 2 (SR23)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4150",
+    "title": "Invalid/Missing Degree Type 3 (SR24)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4160",
+    "title": "Degree Type 3 (SR24) invalid with Degree Institution 3 (SR25) and Degree Subject 3 (SR26) (A)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4170",
+    "title": "Degree Type 3 (SR24) invalid with Degree Institution 3 (SR25) and Degree Subject 3 (SR26) (B)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4180",
+    "title": "Invalid Degree Institution 3 (SR25)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS4190",
+    "title": "Invalid/Missing Degree Subject 3 (SR26)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5800",
+    "title": "Invalid/Missing Employment Status (SR09)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5810",
+    "title": "No In-District Staff reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5820",
+    "title": "Invalid/Missing Reason for Exit (SR10)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5830",
+    "title": "Employee Status (SR09) not valid with Reason for Exit (SR10)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5840",
+    "title": "- Invalid format for Date of Hire (SR11)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5850",
+    "title": "Date of Hire (SR11) Can Not be Less Than or Equal to Date of Birth (SR07)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5860",
+    "title": "Date of Hire (SR11) must be on or prior to the EOY close date"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5870",
+    "title": "Invalid/Missing Fed Sal Source 1 (SR12)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5880",
+    "title": "Inaccurate Grant Code (SR12, SR14, or SR16) reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5890",
+    "title": "Invalid Percent Federal Salary Source1 (SR13)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5900",
+    "title": "Federal Salary Source 1 (SR12) reported. Invalid Percent of Federal Salary Source 1 (SR13)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5910",
+    "title": "Federal Salary Source 1 (SR12) not reported. Invalid SR13--SR17"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5920",
+    "title": "Sum of Federal Salary Percent (SR13 + SR15 + SR17) cannot be greater than 100%"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5930",
+    "title": "Invalid/Missing Fed Sal Source 2 (SR14)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5940",
+    "title": "Federal Salary Source 2 (SR14) reported. Invalid Federal Salary Source 1 (SR12)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5950",
+    "title": "Inaccurate Grant Code (SR12, SR14, or SR16) reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5960",
+    "title": "Invalid Percent Federal Salary Source2 (SR15)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5970",
+    "title": "Federal Salary Source 2 (SR14) reported. Invalid Percent of Federal Salary Source 2 (SR15)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5980",
+    "title": "Federal Salary Source 2 (SR14) not reported. Invalid SR15--SR17"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS5990",
+    "title": "Invalid/Missing Fed Sal Source 3 (SR16)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6000",
+    "title": "Federal Salary Source 3 (SR16) reported. Invalid Federal Salary Source 2 (SR14)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6010",
+    "title": "If SR12/ SR14/ SR16 are reported then SR12 must not equal SR14 and SR14 must not equal SR16"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6020",
+    "title": "Inaccurate Grant Code (SR12, SR14, or SR16) reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6030",
+    "title": "Invalid Percent Federal Salary Source3 (SR17)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6040",
+    "title": "Federal Salary Source 3 (SR16) reported. Invalid Percent of Federal Salary Source 3 (SR17)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6050",
+    "title": "Federal Salary Source 3 (SR16) not reported. Invalid Percent of Federal Salary Source 3 (SR17)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6060",
+    "title": "Invalid Date of Exit (SR27). A date must be entered or NA if not applicable"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6070",
+    "title": "Date of Exit (SR27) must not be reported for employed staff"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6080",
+    "title": "Date of Exit (SR27) must be reported for exited staff"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6090",
+    "title": "Date of Exit (SR27) for exited staff must be between the Date of Hire (SR11) and the date of collection."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6100",
+    "title": "Invalid District Level Educator's Professional Teacher Status (SR28)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6110",
+    "title": "Not Applicable must be reported in Educators Professional Teacher Status (SR28) for Charter Schools"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6120",
+    "title": "If the Overall Evaluation is non-administrative, then Professional Teacher Status cannot be NA (99)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6130",
+    "title": "SR29 through SR33 must be \"Not Applicable\" where no Work Assignment records have been reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6140",
+    "title": "Educator's Professional Teacher Status (SR28) must be \"Not Applicable\" where Job Classifications do not require a License"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6150",
+    "title": "Invalid Educator's Professional Teacher Status (SR28)/ Admin"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6160",
+    "title": "Teachers must report Professional Teacher Status (SR28)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6170",
+    "title": "All individuals reported as active in the previous collection must have a staff roster record in current collection"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6180",
+    "title": "Exited Staff (SR09=04) that worked in current school year must have at least one work assignment record"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6208",
+    "title": "SR Record missing for WA record"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6266",
+    "title": "Overall rating (SR29) cannot be proficient or exemplary if standard 1 and/or 2 (SR30 and SR31) rating is \\\"needs improvement\\\""
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6168",
+    "title": "Overall Summative Rating (SR29) invalid with Standard (1) Rating(s) (SR30 / Administrators)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9500",
+    "title": "District is identified with staff attendance rate of 98.0% or higher. Please reach out to Data Collection Support."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9510",
+    "title": "District is identified with staff attendance rate lower than 90.0%. Please reach out to Data Collection Support."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9520",
+    "title": "Exited staff with work assignments should not have 0 Expected Days of Attendance"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6300",
+    "title": "Missing Subject Area--Course (WA10)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6310",
+    "title": "Invalid Subject Area/Course (WA10) code"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6320",
+    "title": "Invalid CIP (WA10) code"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6330",
+    "title": "District not approved for CIP program"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6340",
+    "title": "Prior-to-Secondary Course Code (WA10) required for Grade (WA09) reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6350",
+    "title": "Secondary Course Code (WA10) required for Grade (WA09) reported"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6360",
+    "title": "Subject Area-Course (WA10) not valid for Work Assignment (WA08)** (A)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6370",
+    "title": "Subject Area-Course (WA10) not valid for Work Assignment (WA08) (B)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6380",
+    "title": "Prior-to-Secondary Course Code (WA10) required for Assignment (WA08)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6390",
+    "title": "Secondary Course Code (WA10) required for Assignment (WA08)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6400",
+    "title": "Subject Area-Course (WA10) not valid for Work Assignment (WA08) and Job Classification (WA07)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6410",
+    "title": "Non Instructional Paraprofessionals (WA08) must have 00000 for a Course Code (WA10)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6420",
+    "title": "All Subjects course code (WA10=99999) is only valid for secondary SPED or ELL work assignments"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6430",
+    "title": "All subjects course code (WA10=99999) is not valid for virtual classrooms"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6440",
+    "title": "All subjects course code (WA10=99999) is not valid for prior-to-secondary classes"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6450",
+    "title": "Prior-to-Secondary Education Class WA10= 73039 must use a multiple grade code (WA09)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6460",
+    "title": "Tutors (WA07=3323) must have N/A values for Grade (WA09), Subject Area-Course (WA10), Class Section (WA11)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6470",
+    "title": "MEPID (WA01)/Job Classification (WA07)/Assignment (WA08)/Course (WA10)/Section (WA11)/ Course Term (WA16) combination must be unique within School (WA06)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6480",
+    "title": "Secondary Core Subject Area-Course Code (WA10) for Job Classification (WA07=2305, 2306, 2307, or 2308) must have multiple WA records & FTE (WA12) must be less than 1.0 per course term"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6600",
+    "title": "Days of Attendance must be between 0 and 261"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6605",
+    "title": "Working Staff may not have 0 Days of Attendance."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6606",
+    "title": "Days of Attendance (SR36) has invalid format"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6610",
+    "title": "Expected Days of Attendance must be less than 261 days."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6615",
+    "title": "Exited staff may not report NA (999) for days of attendance or expected days (may report 0)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6620",
+    "title": "Expected Days of Attendance must be greater than or equal to Days in Attendance"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6625",
+    "title": "SR36 Staff Days of Attendance exceeds maximum for collection period. Attendance Days value cannot exceed 65 days in October Collection."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6626",
+    "title": "SR37 Staff Expected Days of Attendance exceeds maximum for collection period. Expected Attendance Days value cannot exceed 65 days in October Collection"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6630",
+    "title": "Working Staff may not have 0 Expected Days of Attendance."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6640",
+    "title": "Expected Days of Attendance (SR37) is not consistent with the Termination date (SR27)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6650",
+    "title": "Invalid Beginner Educator Identifier (SR38)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6655",
+    "title": "Staff has experience in primary job classification and so may not be reported as a beginning educator in SR38."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6660",
+    "title": "Invalid/Missing Job Classification (WA07)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6670",
+    "title": "Job Classification (WA07) not valid with Grade (WA09) and should be reported at the school level in District/School ID (WA06)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6680",
+    "title": "Job Classification (WA07) not valid with Grade (WA09) and should be reported at the district level in District/School ID (WA06)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6690",
+    "title": "Job Classification (WA07=1312) must be reported at the school level (WA06)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6700",
+    "title": "Working Staff (SR09=01) must have at least one work assignment record reported in an active term (WA17=01)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6710",
+    "title": "Superintendent Job Classification (WA07) required/must be one and only one WA record reported for your district"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6720",
+    "title": "Principal Job Classification (WA07) required"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6730",
+    "title": "Special Education Administrator Job Classification (WA07) required/must be one and only one WA record reported for your district"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6740",
+    "title": "Only one working Teaching assignment (WA07=2305, 2307 or 2325) may be reported for a class"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6750",
+    "title": "The number of working Co-Teaching assignments (WA07=2306, 2308 or 2325) may be reported for a class must be between two and four."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6760",
+    "title": "A maximum of four Support Content assignments (WA07=2310) may be reported for a class"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6770",
+    "title": "The number of Co-Teaching assignment records (WA07=2306 or 2308) reported for a class must not equal 1"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6790",
+    "title": "Virtual and traditional teachers may not be combined in the same class"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6800",
+    "title": "FTE (WA12) Invalid value"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6810",
+    "title": "FTE (WA12) Invalid format"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6820",
+    "title": "Total of FTE cannot be greater than 1.5 for an educator per term"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6830",
+    "title": "Total of FTE (WA12) cannot be greater than 1.5 for an educator for all active terms"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6840",
+    "title": "School(s) missing WAR(s)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6850",
+    "title": "Staff receiving Title I funding must be reported in Title I school(s) (WA06)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS6860",
+    "title": "Work Assignment record for lead teacher (WA07 = 2305 or 2307) is inactive (WA17 = 03)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7200",
+    "title": "Invalid Overall Annual Summative Evaluation or Formative Evaluation Rating (SR29)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7210",
+    "title": "Evaluation Fields (SR29-SR33) must either be all N/A (99) or all valid evaluation codes."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7220",
+    "title": "Ratings must be all Summative"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7230",
+    "title": "Ratings must be all Formative"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7240",
+    "title": "Overall Summative Rating (SR29) invalid with Standard Rating(s) (SR30-SR33)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7250",
+    "title": "Overall Summative Rating (SR29) invalid with Standard Rating(s) (SR30-SR33)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7260",
+    "title": "Summative/Formative Evaluation Rating (SR29) must be \"Not Applicable\" where Job Classifications do not require a License"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7270",
+    "title": "Invalid Evaluation Rating (SR29) -- Check that evaluation date is in current calendar year."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7280",
+    "title": "Overall Summative Rating (SR29) invalid with Standard (1) and/or Standard (2) Rating(s) (SR30-SR31) /Non-Administrators"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7290",
+    "title": "Overall Summative Rating (SR29) invalid with Standard (1) Rating(s) (SR30 /Administrators"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7300",
+    "title": "Administrators may only be evaluated with administrative ratings."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7310",
+    "title": "Non-Administrators may only be evaluated with non-administrative ratings."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7320",
+    "title": "EOY Non-Administrative Rating in SR29 may not be re-characterized as Administrative in October"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7330",
+    "title": "EOY Administrative Rating in SR29 may not be re-characterized as Non-Administrative in October"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7340",
+    "title": "Evaluation data may only be reported in October if it is an update to EOY data."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7350",
+    "title": "A \\\"Not Evaluated\\\" rating for SR29 may only be reported in October if it is an update to EOY evaluation data."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7360",
+    "title": "Invalid Standard (1) Evaluation Rating (SR30)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7370",
+    "title": "Invalid Standard (2) Evaluation Rating (SR31)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7380",
+    "title": "Invalid Standard (3) Evaluation Rating (SR32)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7390",
+    "title": "Invalid Standard (4) Evaluation Rating (SR33)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7400",
+    "title": "- Educator Evaluation Data Missing"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7410",
+    "title": "Staff reported as a beginner educator (SR38 = 01) must have the MEPID of their mentor reported in SR34"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7420",
+    "title": "The MEPID submitted in SR34 cannot be the MEPID of the beginner educator mentee. Please report the MEPID of the educator\\'s mentor"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7430",
+    "title": "If staff is not a Beginner Educator (SR38 = 01), then Mentor MEPID (SR34) should be 99"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7440",
+    "title": "Invalid Value in SR34 element. Only acceptable values are a valid MEPID or 99"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS7450",
+    "title": "Invalid WA12 and WA17 value combination. FTE (WA12) cannot be .001 for assignments with Term Status (WA17) 01"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9000",
+    "title": "Invalid/Missing Course Term (WA16)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9010",
+    "title": "Future Course Terms (WA16) should not be reported in October"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9020",
+    "title": "Invalid/Missing Term Status (WA17)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9030",
+    "title": "Term Status (WA17=Inactive) invalid with Course Term (WA16)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9040",
+    "title": "Term Status (WA17=Active) invalid with Course Term (WA16)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9050",
+    "title": "Term Status (WA17=Inactive) invalid with Course Term (WA16)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9060",
+    "title": "EPIMS9060 - Inactive Staff may not be reported in an active assignment."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9100",
+    "title": "Invalid Class Section (WA11)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9110",
+    "title": "Class Section (WA11) invalid"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9120",
+    "title": "Class Section (WA11) must be reported for teachers in grades PK--12"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9130",
+    "title": "Invalid/Missing Grade (WA09)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9140",
+    "title": "Grade (WA09) must be reported for teachers"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9150",
+    "title": "Grade (WA09) not valid with Subject Area/Course (WA10)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9160",
+    "title": "Number of records with Grade (WA09) equaling 88 or 99 exceeds limit"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9400",
+    "title": "Invalid/Missing Teacher/Paraprofessional Assignment (WA08)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9410",
+    "title": "Not Applicable work assignment (WA08) not applied as required"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9420",
+    "title": "Support Content work assignment (WA08) not applied as required"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9430",
+    "title": "Core work assignment (WA08) not applied as required"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9440",
+    "title": "Paraprofessional work assignment (WA08) not applied as required"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9450",
+    "title": "Title I School Type invalid for Assignment (WA08)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9460",
+    "title": "A virtual-only school may not report traditional classroom teachers (WA07=2305 or 2306)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9470",
+    "title": "No Work Assignments reported with EL assignment codes for the District. Please reach out to Data Collection Support."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9480",
+    "title": "No Work Assignments reported with SPED assignment codes for the District. Please reach out to Data Collection Support."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9900",
+    "title": "Data elements discontinued (SR35), should be 99."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "error",
+    "code": "EPIMS9910",
+    "title": "Data elements discontinued (WA13, WA14, WA15), should be 99."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID01",
+    "title": "First Name"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID02",
+    "title": "Middle Name / Middle Initial"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID03",
+    "title": "Last Name"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID04",
+    "title": "Date of Birth"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID05",
+    "title": "Gender"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID06",
+    "title": "License / Certification Number"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "ID07",
+    "title": "Local Employee Number"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR01",
+    "title": "Massachusetts Education Personnel Identifier (MEPID)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR02",
+    "title": "Local Employee Number"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR03",
+    "title": "License / Certification Number"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR04",
+    "title": "First Name"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR05",
+    "title": "Middle Name / Middle Initial"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR06",
+    "title": "Last Name"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR07",
+    "title": "Date of Birth"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR08",
+    "title": "Race-Ethnicity"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR09",
+    "title": "Employment Status at Time of Data Collection"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR10",
+    "title": "Reason for Exit"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR11",
+    "title": "Date of Hire"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR12",
+    "title": "Federal Salary Source 1"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR13",
+    "title": "Percent of Federal Salary Source 1"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR14",
+    "title": "Federal Salary Source 2"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR15",
+    "title": "Percent of Federal Salary Source 2"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR16",
+    "title": "Federal Salary Source 3"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR17",
+    "title": "Percent of Federal Salary Source 3"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR18",
+    "title": "Degree Type 1"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR19",
+    "title": "Degree Institution 1"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR20",
+    "title": "Degree Subject 1"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR21",
+    "title": "Degree Type 2"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR22",
+    "title": "Degree Institution 2"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR23",
+    "title": "Degree Subject 2"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR24",
+    "title": "Degree Type 3"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR25",
+    "title": "Degree Institution 3"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR26",
+    "title": "Degree Subject 3"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR27",
+    "title": "Exit Date"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR28",
+    "title": "District Level Educator's Professional Teacher Status"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR29",
+    "title": "Overall Annual Summative Evaluation or Formative Evaluation Rating"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR30",
+    "title": "Standard (1) Evaluation Rating"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR31",
+    "title": "Standard (2) Evaluation Rating"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR32",
+    "title": "Standard (3) Evaluation Rating"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR33",
+    "title": "Standard (4) Evaluation Rating"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR34",
+    "title": "Beginner Educator Mentor"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR35",
+    "title": "Discontinued"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR36",
+    "title": "Staff Days of Attendance"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR37",
+    "title": "Staff Expected Days of Attendance"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "SR38",
+    "title": "Beginner Educator Identifier"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA01",
+    "title": "Massachusetts Education Personnel Identifier (MEPID)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA02",
+    "title": "Local Employee Number"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA03",
+    "title": "First Name"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA04",
+    "title": "Middle Name / Middle Initial"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA05",
+    "title": "Last Name"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA06",
+    "title": "Assignment Location Code"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA07",
+    "title": "Job Classification"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA08",
+    "title": "2."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA09",
+    "title": "4."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA10",
+    "title": "6."
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA11",
+    "title": "8. Teacher / Paraprofessional Assignment"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA12",
+    "title": "9. Grade"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA13",
+    "title": "Subject Area-Course Code"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA14",
+    "title": "Class Section"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA15",
+    "title": "Full Time Equivalent (FTE)"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA16",
+    "title": "Discontinued"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA17",
+    "title": "Discontinued"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA18",
+    "title": "Discontinued"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA19",
+    "title": "Course Term"
+  },
+  {
+    "collection": "EPIMS",
+    "type": "field",
+    "code": "WA20",
+    "title": "Term Status at Time of Data Collection"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS100",
+    "title": "Enrolled student from previous collection not reported currently"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS101",
+    "title": "Enrolled student from previous collection not reported currently # Missing StudentSchoolEnrollment"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS102",
+    "title": "Enrolled student from previous collection not reported currently # Missing SchoolInfo"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS103",
+    "title": "Enrolled student from previous collection not reported currently # Missing TermInfo"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS107",
+    "title": "Enrolled student from previous collection not reported currently # Missing StudentPersonal"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS1316",
+    "title": "Students reported with grade level KT, PK2, or PK4 must have a DOE013 value of 08 (Tuitioned in -- paid by parent/guardian)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2100",
+    "title": "Invalid School code (DOE015)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2110",
+    "title": "An alternative education/Innovation program code is reported as a school code (DOE015)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2120",
+    "title": "DYS school code (DOE015 = 09200300) is for general education students only"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2130",
+    "title": "Institutional School (DOE015) requires an institutional SpEd placement (DOE032=45 or DOE034=90)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2140",
+    "title": "An Institutional School Code (DOE015) must accompany a SpEd institutional Placement (DOE032 or DOE034)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2150",
+    "title": "PreSchool/HomeSchool (DOE015) is only valid for Services Only enrollment status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2160",
+    "title": "Title I: status for the school is not available"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2170",
+    "title": "Public/Charter school not valid for report/enroll code"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2180",
+    "title": "School Code (DOE015) is not consistent with Reason for Enrollment (DOE013)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2200",
+    "title": "No students enrolled in school and/or grade level."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2300",
+    "title": "Duplicate Lasids Not Allowed"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2310",
+    "title": "SASID (DOE002) not recorded in DESE student directory table"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2320",
+    "title": "SASID has been deactivated in student directory. Please use the active SASID:"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2330",
+    "title": "Student reported in prior period is missing (prior period elements displayed)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2340",
+    "title": "FN: First Name does not match directory:"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2345",
+    "title": "Ch. 74 (\"After Dark\") program (DOE043) not approved for this School"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2350",
+    "title": "FN: NMN is not allowed in the first name field"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2360",
+    "title": "MN: Middle Name does not match directory:"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2370",
+    "title": "MN: Middle name=NMN percentage too high"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2380",
+    "title": "MN: Middle name=NA percentage too high"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2390",
+    "title": "LN: Last Name does not match directory:"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2400",
+    "title": "LN: NMN is not allowed in the last name field"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2410",
+    "title": "DOB does not match directory"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2420",
+    "title": "Invalid City of Birth (DOE008)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2430",
+    "title": "City of birth (COB)= NA percentage too high"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2440",
+    "title": "City of birth (COB)=state name percentage too high"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2450",
+    "title": "Gender does not match directory:"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2460",
+    "title": "Invalid Race code (DOE010)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2470",
+    "title": "Invalid City/Town of Residence code (DOE014)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2480",
+    "title": "METCO (DOE013 = 04) is only valid when Town of Residence (DOE014) is either Boston or Springfield"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2490",
+    "title": "Reason for Enrollment (DOE013) is not consistent with out-of-state students (DOE014=888)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2500",
+    "title": "Tuitioned in out-of-state enrollment (DOE013=06) requires out-of-state town code (DOE014=888)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2510",
+    "title": "Town of Residence (DOE014) is not consistent with Resident Enrollment (DOE011=01)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2520",
+    "title": "Reason for Enrollment (DOE013) is not consistent with Sending Enrollment (DOE011=02) for an out-of-district student."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2526",
+    "title": "Student reported as English Learner (DOE025 = 01) must have an EL program type identified in DOE026"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2530",
+    "title": "In district town (DOE014) is not consistent with School Choice or METCO Reason (DOE013 = 02 or 04)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2540",
+    "title": "Town of Residence (DOE014) is not consistent with Receiving Enrollment (DOE011=03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2542",
+    "title": "ZIP Code is invalid."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2544",
+    "title": "ZIP Code is inconsistent with town."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2546",
+    "title": "Out of state student has in-state ZIP code"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2550",
+    "title": "Invalid Low income status code (DOE019)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2560",
+    "title": "Invalid Years in US for EL code (DOE021)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2570",
+    "title": "Students in Pre-K and SP must report 00 in DOE021"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2572",
+    "title": "EL Student is not in first year of US schooling and so may not report 01 in DOE021"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2580",
+    "title": "EL in First Year code (DOE021) not consistent with EL code (DOE025)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2590",
+    "title": "Invalid Immigrant status code (DOE022)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2600",
+    "title": "Student has spent more than 3 years in MA schools and so is not an immigrant by Federal standards."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2610",
+    "title": "Foreign exchange students should not be reported as immigrant students in DOE022"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2620",
+    "title": "Invalid Country of origin code (DOE023)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2630",
+    "title": "Country of Origin cannot equal 500 for Immigrants and must equal 500 for Non-Immigrants"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2640",
+    "title": "Invalid First (native) language code (DOE024)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2650",
+    "title": "EL code (DOE025) not consistent with English reported as first language (DOE024). Please request an exception if this is accurate."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2660",
+    "title": "Invalid English Learner code (DOE025)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2661",
+    "title": "Student has met ACCESS test score to exit English Learner status. DOE025 should be 00."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2670",
+    "title": "EL Program code (DOE026) reported but student not reported as EL (DOE025)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2680",
+    "title": "Invalid Military Family code (DOE029)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2690",
+    "title": "Invalid CVTE Competency Attainment code (DOE031)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2700",
+    "title": "CVTE Competency Attainment Code (DOE031) appropriate only for the students in grades 9-12 and SP"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2710",
+    "title": "CTE- The student should be reported with a CTE competency attainment (DOE031) as s/he was previously reported with a competency attainment"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2720",
+    "title": "Invalid High School Completer Plans code (DOE033)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2730",
+    "title": "Graduates: High school completer plans code (DOE033) invalid with enrollment status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2740",
+    "title": "Graduates- High school completer plans=unknown, percentage too high"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2750",
+    "title": "Invalid Grad Core Curriculum code (DOE037)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2760",
+    "title": "Graduate, completed Mass core curriculum (DOE037) invalid for enrollment status(DOE012)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2770",
+    "title": "Enrollment status (DOE012) invalid with graduate, completed Mass core curriculum (DOE037)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2780",
+    "title": "Invalid 504 Plan Status code (DOE039)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2790",
+    "title": "Student previously reported on 504 plan must continue to report as 504 plan"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2795",
+    "title": "Student previously reported as no longer on a 504 plan (DOE039) in EOY so current 504 plan status is not likely"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2800",
+    "title": "Invalid SLIFE code (DOE041)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2810",
+    "title": "Only English Learners (DOE025) may report SLIFE (DOE041)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2820",
+    "title": "Only students aged between 8 and 21 may report SLIFE."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2830",
+    "title": "Invalid CVTE Special Populations code (DOE042)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2840",
+    "title": "CVTE Special Population Code (DOE042) requires being in a CVTE Program (DOE035)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2850",
+    "title": "Invalid/Missing Industry Recognized Credential code (DOE047) code. Please only report Safety related IRC codes or 500 in DOE047."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2860",
+    "title": "Invalid Industry Recognized Credential code (DOE048)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2880",
+    "title": "Invalid Industry Recognized Credential code (DOE049)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2890",
+    "title": "If DOE048 is N/A (500) then DOE049 cannot hold a significant value."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2900",
+    "title": "Industry Recognized Credentials are only valid for secondary students"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2950",
+    "title": "Early Childhood Experience (DOE050) is not valid for PK students. Report 99 (N/A)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2960",
+    "title": "Early Childhood Experience (DOE050) must be reported for Kindergarten students."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2970",
+    "title": "Previously reported Early Childhood Experience (DOE050), if accurate, must continue to be reported."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2980",
+    "title": "Duplicate SASIDs Not Allowed."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS2990",
+    "title": "Invalid/Missing School Code value. School Code is required for summer exit/transfer students."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS3000",
+    "title": "Invalid/Missing Gender (DOE009) value"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS3010",
+    "title": "Students with exit date prior to the report date cannot have DOE012 value as 01 or 40"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7510",
+    "title": "Innovation Pathway/Sector program (DOE046) not approved for this school"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7520",
+    "title": "Non-Ch. 74 program (DOE044) not approved for this School"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7600",
+    "title": "Invalid Reason for Reporting code (DOE011)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7610",
+    "title": "Charter School (DOE15) must be reported with a Receiving Enrollment (DOE011=03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7620",
+    "title": "Reason for Enrollment (DOE013) is not consistent with Receiving Enrollment (DOE011=03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7630",
+    "title": "Reason for Enrollment (DOE013) is not consistent with Resident Enrollment (DOE011=01)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7640",
+    "title": "Resident Enrollment (DOE011=01) tuitioned-in reason (DOE013=08) is only valid for grades PK2, PK4, PK5 and KT (DOE016)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7650",
+    "title": "School (DOE015) is not consistent with a Non-Sending Enrollment (DOE011 = 01 or 03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7670",
+    "title": "Reason for Enrollment (DOE013) is not consistent with Sending Enrollment (DOE011=02)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7680",
+    "title": "School (DOE015) is not consistent with a Sending Enrollment (DOE011 = 02)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7690",
+    "title": "Invalid Enrollment Status code (DOE012)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7700",
+    "title": "Certificate only for grades greater than 10"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7710",
+    "title": "Dropout code in DOE012 not valid for grade"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7720",
+    "title": "Enrolled student must be between 3:24 years old (Less than 25)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7730",
+    "title": "Enrolled student must be between 3:24 years old (Not less than 3)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7740",
+    "title": "Enrollment Status (DOE012) = 01 or 04 invalid when an SCS exception has been granted. Please verify the enrollment status and contact ESE if you need the exception removed"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7760",
+    "title": "Services Only Enrollment (DOE012 = 40) is not consistent with SpEd Placement (DOE032 or DOE34)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7770",
+    "title": "Reasons for Reporting and Enrollment (DOE11 and DOE013) are not consistent with students receiving services only (DOE012 = 40,41)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7810",
+    "title": "Enrollment Status (DOE012) can only be either 10 or 11 within district, not BOTH"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7850",
+    "title": "Enrollment status (DOE012)=11, not valid for Grade"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7870",
+    "title": "Graduates must be in grades 11, 12 or SP"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7890",
+    "title": "Private school (DOE015) is only consistent with Services Only Status (DOE012 = 40 or 41)."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7900",
+    "title": "School (DOE015) is not consistent with Services Only Status (DOE012 = 40 or 41)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7910",
+    "title": "Reached maximum age must be 21 or older (Not less than 21 but less than 25)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7920",
+    "title": "In district school (DOE015) is not consistent with Services Only status (DOE012 = 40 or 41)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7930",
+    "title": "Graduate percentage too low"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7940",
+    "title": "Students previously reported as Summer exits must continue to be reported as such with Days of Attendance and Membership equal to 555"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7950",
+    "title": "Previous year graduates should not be reported this year."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7960",
+    "title": "Previous year graduates, Aged Out, Deceased should not be reported this year."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7965",
+    "title": "Student reported as exited last year. It is not likely that the student exited again."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7970",
+    "title": "Summer dropouts reported in Oct must be reported in March/EOY"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7980",
+    "title": "Summer graduates,Aged Out, Deceased reported in October must not be reported in March/EOY"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS7990",
+    "title": "Summer transfers reported in Oct must be reported in March/EOY"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8000",
+    "title": "Invalid Reason for Enrollment code (DOE013)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8010",
+    "title": "Non-Charter school (DOE015) is not consistent with Charter Reason for Enrollment (DOE013=03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8020",
+    "title": "Charter School (DOE015) is only consistent with Charter Reason for Enrollment (DOE013=03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8030",
+    "title": "Out of district foster care students (DOE013=12) in Vocational or Regional districts should be reported as in-district enrollments (DOE012-13 = 01,01,01)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8040",
+    "title": "District does not offer choice. Reason for Enrollment (DOE013) = 02 is invalid"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8050",
+    "title": "District does not offer METCO. Reason for Enrollment (DOE013) = 04 is invalid"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8080",
+    "title": "Invalid Grade code (DOE016)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8090",
+    "title": "Private or Approved Sped Grade not listed in reported school"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8100",
+    "title": "Public or Charter School/Grade not in reporting district"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8110",
+    "title": "Grade (DOE016) invalid when Alternative program reported"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8120",
+    "title": "Grade invalid with School Code"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8140",
+    "title": "Grade (DOE016=SP) requires an age greater than 15"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8150",
+    "title": "Grade (DOE016=SP) requires a SpEd Placement (DOE034)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8160",
+    "title": "Invalid Title I Participation code (DOE020)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8170",
+    "title": "Title I: School has no Title I. Students must be reported with DOE020=00 and DOE030=00"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8180",
+    "title": "Title I: School has schoolwide Title I. Students must be reported with DOE020=01 and DOE030=00"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8190",
+    "title": "Title I: Student must not have Title I Code = 01 (SW)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8200",
+    "title": "Title I Code applies only to Public/Charter"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8210",
+    "title": "Title I Targeted Assistance must have at least one TA and one non-Title I student"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8220",
+    "title": "Invalid English Learners Program Status code (DOE026)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8230",
+    "title": "Invalid Alternative Education/Innovation Program code (DOE027)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8240",
+    "title": "Alternative Education/Innovation Program code is invalid for the reporting district (DOE027)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8250",
+    "title": "Invalid Non-Instructional Title I Targeted Assistance Services code (DOE030)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8260",
+    "title": "Invalid CVTE Program Type code (DOE035)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8270",
+    "title": "Outplacement school (DOE015) not approved for CVTE Program Type code (DOE035)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8280",
+    "title": "Student reported in Non-Ch. 74 program (DOE035) and so needs a Non-Ch. 74 program code (DOE044)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8300",
+    "title": "Student reported in Ch. 74 program (DOE035) and so needs a Ch. 74 program code (DOE043)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8310",
+    "title": "Student not reported in a Ch. 74 program (DOE035) and so should report N/A (500) in the Ch. 74 Program code (DOE043)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8320",
+    "title": "CVTE Program Type code (DOE035) valid only for grades 9-12 and SP"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8330",
+    "title": "Student not reported in a Non-Ch. 74 program (DOE035) and so should report N/A (500) in the Non-Ch. 74 Program code (DOE044)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8340",
+    "title": "Student previously reported with a CVTE Program Type code (DOE035) and should continue to be reported with one"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8350",
+    "title": "Ch. 74 program (DOE043) not approved for this LEA"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8355",
+    "title": "Vocational School/Program should not have zero students reported in DOE035 for grades 9, 10, 11 and 12."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8360",
+    "title": "Invalid Non-Ch. 74 Prog Partic. code (DOE044)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8365",
+    "title": "Chapter 74 Approved Vocational Technical Education Program Participation code is not a valid value"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8370",
+    "title": "Invalid Seal of Biliteracy code (DOE028)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8380",
+    "title": "Seal of Biliteracy code is only valid for graduates"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8385",
+    "title": "Seal of Biliteracy with Distinction is not valid for prior-year graduates"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8390",
+    "title": "Invalid HQCCP program Type code (DOE045)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8395",
+    "title": "HQCCP Program Type (DOE045) is not offered in student's school"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8396",
+    "title": "School offers Innovation Pathways HQCP program but no students are reported participating."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8397",
+    "title": "School offers Early College HQCP program but no students are reported participating."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8400",
+    "title": "Invalid Early College Partnership code (DOE046)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8420",
+    "title": "Early College Partership is limited to secondary students (grades 9-12 or SP)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8430",
+    "title": "Students reported as Innovation Career Pathway (DOE045 = 01 or 04) must have a valid two-digit Innovation Career Pathway sector identified in DOE057"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8440",
+    "title": "Students reported as Early College (DOE045 = 02,03,04) must have a four-digit Early College Partnership identified in DOE046"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8450",
+    "title": "Invalid/missing DOE056 value. Only acceptable values are 00 or 01."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8460",
+    "title": "More than 10 students identified as supplemental low-income (DOE056 = 01). Please reach out to your support specialist."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8470",
+    "title": "DOE046 - Early College Partnership code is not valid for the School DOE015."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8500",
+    "title": "Invalid/Missing Innovation Career Pathway Sector code (DOE057)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8600",
+    "title": "Invalid Days In Attendance (DOE017) - must be between 0 and 261"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8640",
+    "title": "Days in Attendance exceeds maximum for collection period"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8650",
+    "title": "Days In Membership=555 valid only with Days in Attendance=555 and vice versa."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8660",
+    "title": "Days in attendance- Perfect attendance for entire school not likely (Oct)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8670",
+    "title": "Days in attendance- Perfect attendance for entire grade not likely (March)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8680",
+    "title": "Days in attendance- Perfect attendance for entire grade not likely (EOY)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8690",
+    "title": "Invalid Days In Membership (DOE018) - must be less than 262 days"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8700",
+    "title": "Days in Membership exceeds maximum for collection period"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8710",
+    "title": "Invalid Days In Membership (DOE018) - must not equal 0"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8730",
+    "title": "Days in Membership invalid for Enrollment status code (Oct)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8740",
+    "title": "Days in Membership invalid for Enrollment status code (March,EOY)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8750",
+    "title": "Days in membership=555 not valid with Enrollment status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8770",
+    "title": "Days in Attendance/Membership=555 invalid for students already submitted in EOY with 555"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8780",
+    "title": "Days in Membership cannot accrue for unenrolled students"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8790",
+    "title": "Days in Membership (DOE018) must accrue for enrolled students"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8800",
+    "title": "District must have at least one student with an unexcused absence"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8810",
+    "title": "Invalid Unexcused Student Absences (DOE052) value. When DOE017 is equal to DOE018 then DOE052 should be 0"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8900",
+    "title": "Invalid Sped Placement Age 3:5 code (DOE032)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8905",
+    "title": "SPED data elements not needed for non:SPED student"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8910",
+    "title": "SpEd Placement must be either 3-5 (DOE032) or 6-21 (DOE034), not both"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8925",
+    "title": "SpEd Placement (DOE032\\<\\>00) is only consistent with 3 to 5 year olds"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8930",
+    "title": "SpEd Placement (DOE032 and DOE034) requires supporting SpEd elements (DOE036 and DOE038)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8935",
+    "title": "Invalid SPED Placement Age 6:21 code (DOE034)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8937",
+    "title": "SPED Placement age 6:21 (DOE034) contains a DOE032 value. Student will be 6 by report date and Placement code will need to be updated."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8945",
+    "title": "SpEd Placement (DOE034\\<\\>00) is not consistent with student being less than 6 years old"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8950",
+    "title": "Reason for enrollment is not consistent with SpEd Placement (DOE032 or DOE034)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8955",
+    "title": "Reason for reporting (DOE011) is not consistent with SpEd Placement (DOE032 or DOE034)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8960",
+    "title": "Current or Former SPED (DOE032 or DOE034) must report current SpEd Placement or exit code (01)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8965",
+    "title": "Invalid SPED Primary Disability code (DOE036)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8970",
+    "title": "Developmental delay (DOE036=13) is valid for 3-9 year olds only (Less than 10)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8980",
+    "title": "Invalid SPED Level of Need code (DOE038)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8985",
+    "title": "Services Only (DOE012 = 40) requires a SpEd Level of Need (DOE038)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8990",
+    "title": "No students with disabilities reported. This is not likely."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS8995",
+    "title": "Invalid SPED Evaluation Results code (DOE040)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9005",
+    "title": "SpEd Placement (DOE032 or DOE034) is not consistent with Evaluation Result (DOE040=03)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9015",
+    "title": "SpEd Evaluation Result (DOE040) is not consistent with SpEd Placement (DOE032 or DOE034)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9025",
+    "title": "Sped Services are declined (DOE040=09) so both SpEd Placement elements (DOE032 and DOE034) should show no current activity."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9030",
+    "title": "Student reported as no longer receiving special education services (DOE032 or DOE034) in EOY. Reporting this again is not required."
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9040",
+    "title": "Students reported as School Choice in DOE013 cannot be reported as Public Residential Institutional Facilities in DOE034"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9050",
+    "title": "Student reported as outplaced (DOE011 = 02) should have a corresponding special education placement setting value in DOE034"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9060",
+    "title": "Students in Grade level (DOE016) PK through 06 from Town of Residence (DOE014) 053 or 129 must be reported as school choice (DOE011= 03 and DOE013 = 02)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9600",
+    "title": "Invalid Days Attended Remote (DOE54)- must be between 0 and 261"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9610",
+    "title": "Having no Days in Attendance (D0E017) and no Days Attended Remote (DOE054) is not likely with reported days in membership (DOE018)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9620",
+    "title": "Days in Attendance and Days Attended Remote cannot both equal 0 for enrolled outplaced student(s)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9630",
+    "title": "Days total: DaysAttendance+DaysAttendedRemote+DaysAbsentRemote Greater than Days in membership"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9640",
+    "title": "Sum of Days in Attendance (DOE017) and Days Attended Remote (DOE054) exceeds maximum for collection period"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9650",
+    "title": "Days in Attendance Remote (DOE054) and Days Absent Remote (DOE055) should be reported as 555 when Days in Membership (DOE018) is 555"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9660",
+    "title": "Perfect attendance (Days in Attendance + Days Attended Remote) for entire school not likely (Oct)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9720",
+    "title": "Days In Membership must be greater or equal to (Days in Attendance + Days Attended Remote)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9900",
+    "title": "Invalid DOB format (DOE007)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9950",
+    "title": "Invalid Civics Project code (DOE053)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9960",
+    "title": "Civics Project code (DOE053) must be 500 for grades 7 and below, must be not 500 for grades 8 and above"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9970",
+    "title": "Student who is age 5 in kindergarten should have a SpEd placement code in DOE034"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9980",
+    "title": "More than 50 students are reported as transfer to homeschool (DOE012 value of 23). Homeschool programming must be approved by superintendent or school committee. Please confirm the data is accurate and request an exception if needed"
+  },
+  {
+    "collection": "SIMS",
+    "type": "error",
+    "code": "SIMS9990",
+    "title": "District is not designated as offering a Non-Chapter 74 program"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE001",
+    "title": "Locally Assigned Student Identifier"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE002",
+    "title": "State Assigned Student Identifier (SASID)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE003",
+    "title": "First Name"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE004",
+    "title": "Middle Name"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE005",
+    "title": "Last Name"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE006",
+    "title": "Date of Birth"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE007",
+    "title": "Date of Birth Format"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE008",
+    "title": "City/Town of Birth"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE009",
+    "title": "Gender"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE010",
+    "title": "Race/Ethnicity"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE011",
+    "title": "Reason for Reporting"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE012",
+    "title": "Enrollment Status at Time of Data Collection"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE013",
+    "title": "Reason for Enrollment"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE014",
+    "title": "City/Town of Residence --- Student"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE015",
+    "title": "School Identification Number"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE016",
+    "title": "Grade Level"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE017",
+    "title": "Days in Attendance"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE018",
+    "title": "Days in Membership"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE019",
+    "title": "Low-Income Status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE020",
+    "title": "Title I Participation"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE021",
+    "title": "EL Students in their First Year in U.S. Schools"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE022",
+    "title": "Immigrant Status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE023",
+    "title": "Country of Origin"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE024",
+    "title": "First (Native) Language"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE025",
+    "title": "English Learner"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE026",
+    "title": "English Language Education Program Status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE027",
+    "title": "Program Code"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE028",
+    "title": "Seal of Biliteracy"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE030",
+    "title": "Member of Military Family"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE031",
+    "title": "Non-Instructional Title I Targeted Assistance Services"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE032",
+    "title": "CCTE - Competency Attainment"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE033",
+    "title": "Special Education Placement, ages 3--5"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE034",
+    "title": "High School Completer Plans"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE035",
+    "title": "Special Education Placement, ages 6--21"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE036",
+    "title": "CCTE - Type of Program"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE037",
+    "title": "Special Education --- Nature of Primary Disability"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE038",
+    "title": "Graduate, Completed Massachusetts Core Curriculum"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE039",
+    "title": "Special Education --- Level of Need"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE040",
+    "title": "504 Plan Status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE041",
+    "title": "Special Education Evaluation Results"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE042",
+    "title": "English Learner Student with Limited or Interrupted Formal Education (SLIFE)"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE043",
+    "title": "CCTE --- Single Parent Status"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE044",
+    "title": "CCTE -- State Designated CTE Program Participation"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE045",
+    "title": "CCTE -- Career Connections Program Participation"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE046",
+    "title": "HQCCP Program Type"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE047",
+    "title": "Early College Partnership"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE048",
+    "title": "Industry Recognized Credential"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE049",
+    "title": "Industry Recognized Credential"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE050",
+    "title": "Industry Recognized Credential"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE051",
+    "title": "Early Childhood Experience"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE052",
+    "title": "ZIP Code"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE053",
+    "title": "Unexcused Student Absences"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE054",
+    "title": "Civics Project"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE055",
+    "title": "Days in Attendance Remote"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE056",
+    "title": "Days Absent Remote"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE057",
+    "title": "Supplemental Low-Income Indicator"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE058",
+    "title": "Innovation Career Pathway Sector"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE059",
+    "title": "Seal of Biliteracy Language 1"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": "DOE060",
+    "title": "Seal of Biliteracy Language 2"
+  },
+  {
+    "collection": "SIMS",
+    "type": "field",
+    "code": null,
+    "title": "My Career and Academic Plan (MyCAP) Participation"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2100",
+    "title": "Invalid School Code"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2300",
+    "title": "Discipline SASID not found in student directory"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2305",
+    "title": "Offender SASID not found in student directory"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2310",
+    "title": "Discipline SASID not enrolled for this organization"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2315",
+    "title": "Offender SASID not enrolled for this organization"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2320",
+    "title": "FN: First Name does not match directory"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2330",
+    "title": "LN: Last Name does not match directory"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2340",
+    "title": "DOB does not match directory"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR2350",
+    "title": "All demographic fields must be completed"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4500",
+    "title": "Incident ID duplicated"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4510",
+    "title": "A reported discipline must have a corresponding incident with a matching incident date"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4520",
+    "title": "Incident date must be within current school year"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4540",
+    "title": "At least one offense code must be entered"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4550",
+    "title": "Discipline Offense Code 1 invalid"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4560",
+    "title": "Offense Code 1 is repeated"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4570",
+    "title": "If Optional Description Code selected for Offense 1, a description is required"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4590",
+    "title": "Offense Code 2 invalid"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4600",
+    "title": "Offense Code 2 is repeated"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4610",
+    "title": "If Optional Description Code selected for Offense 2, a description is required"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4630",
+    "title": "Offense Code3 invalid"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4640",
+    "title": "Offense Code 3 is repeated"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4650",
+    "title": "If Optional Description Code selected for Offense 3, a description is required"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4670",
+    "title": "Offense Code4 invalid"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4680",
+    "title": "Offense Code 4 is repeated"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4690",
+    "title": "If Optional Description Code selected for Offense 4, a description is required"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4710",
+    "title": "Offense Code 5 invalid"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4720",
+    "title": "Offense Code 5 is repeated"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4730",
+    "title": "If Optional Description Code selected for Offense 5, a description is required"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4740",
+    "title": "Having no incidents that involve bullying is unlikely"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4750",
+    "title": "At least one offender must be reported"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4760",
+    "title": "Physical fight requires at least 2 offenders"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4770",
+    "title": "There are more offending student SASIDs than are counted in offending student count"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4780",
+    "title": "Offense Code(s) could involve physical injury, flag must be Y or N"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4800",
+    "title": "Offense Indicator must be set to \\\"Y\\\""
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4810",
+    "title": "Invalid Discipline Code entered"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4820",
+    "title": "Discipline dates are overlapping"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4830",
+    "title": "Program Status and Disciplinary Action must be completed"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4840",
+    "title": "Invalid Disciplinary Action Taken code (DAT) entered"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4850",
+    "title": "Disciplinary action cannot be 4 for general education students"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4860",
+    "title": "Educational Services code (AE) has an invalid value"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4870",
+    "title": "Education services must be offered if days missed are greater than 10."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4910",
+    "title": "Discipline Start Date and Days Missed cannot be blank"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4920",
+    "title": "Discipline start Date must be after Incident Date"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4930",
+    "title": "Discipline start date must be between the beginning and end of the current school year."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4950",
+    "title": "Discipline must have an end date."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4960",
+    "title": "Discipline End Date must be on or after the discipline start date, and on or before the end of the year."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4970",
+    "title": "Days missed cannot be 0."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4980",
+    "title": "Days missed cannot be equal to zero when end date is greater than start date."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR4990",
+    "title": "Days missed for an emergency removal cannot exceed three (3)"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5000",
+    "title": "If disciplinary action taken is expulsion (DAT=3) then days missed cannot be less than 90"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5010",
+    "title": "Discipline Start Date and Discipline End Date are inconsistent with number of days missed"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5020",
+    "title": "At least one offense code must be entered for a discipline"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5030",
+    "title": "Type of Offense ID 1 (SOT1) must be one of the offenses listed on the Incident Report (OT1 - OT5)"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5040",
+    "title": "Type of Offense ID 2 (SOT2) must be one of the offenses listed on the Incident Report (OT1 - OT5)"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5050",
+    "title": "Type of Offense ID 3 (SOT3) must be one of the offenses listed on the Incident Report (OT1 - OT5)"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5060",
+    "title": "Type of Offense ID 4 (SOT4) must be one of the offenses listed on the Incident Report (OT1 - OT5)"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5070",
+    "title": "Type of Offense ID 5 (SOT5) must be one of the offenses listed on the Incident Report (OT1 - OT5)"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5080",
+    "title": "The offense type implies that there should be a victim. Please provide a victim count."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5110",
+    "title": "Discipline record found, but not joined to any incident data"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5120",
+    "title": "Discipline was indicated (DISC IND = Y), but no disciplines were reported for this incident"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5130",
+    "title": "No disciplines were indicated (DISC IND = N), but disciplines were reported for this incident"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5140",
+    "title": "More than fifty percent of incidents have no suspension/removal reported. If this is correct, contact your District Support Specialist."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5150",
+    "title": "There are no disciplines reported for your district. If this is correct, contact your District Support Specialist."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5160",
+    "title": "Arrest has an invalid value. Must be Y or N."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5170",
+    "title": "Arrest flag should only be set to yes for school related arrests and not for out of school complaints or convictions."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5180",
+    "title": "When DAT=7 then Arrest should be Y and Law Enforcement Referral should be 01, 02 or 03"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5190",
+    "title": "Law Enforcement Referral has an invalid value. Must be 00, 01, 02 or 03."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR5220",
+    "title": "Action code 3089 is no longer valid for Law Enforcement referrals. Please use MA61 and/or MA62"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR6190",
+    "title": "Physical Injury Flag can be Y only when reported with 1300, 1700, 1810, 1820, 2000, 2300, 2600, 2800, 3010 and 3020 offense code(s)."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR8700",
+    "title": "The Program Status Code is invalid"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR9930",
+    "title": "Retaliation has an invalid value. Must be Y or N."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR9940",
+    "title": "There are no school-based arrests reported for your district. If this is correct, contact your District Support Specialist"
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR9900",
+    "title": "Bodily Injury and Alternative Education Indicator (BI OFF, AEINC), have been discontinued. Please leave fields blank."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR9910",
+    "title": "Date Eligible To Return (ERD) has been discontinued. Please leave the field blank."
+  },
+  {
+    "collection": "SSDR",
+    "type": "error",
+    "code": "SSDR9920",
+    "title": "Education Services Not Provided (NAE), Appeal Indicator (APPEAL) and Education Services Description (AEX) have been discontinued. Please leave these fields blank."
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF ID",
+    "title": "Incident ID"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DATE",
+    "title": "Incident Date"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SCH NAME",
+    "title": "School Name"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SCH CODE",
+    "title": "School Code"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF IND",
+    "title": "Offense Indicator"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "DISC IND",
+    "title": "Discipline Indicator"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OT1",
+    "title": "Offense Code 1"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OT2",
+    "title": "Offense Code 2"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OT3",
+    "title": "Offense Code 3"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OT4",
+    "title": "Offense Code 4"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OT5",
+    "title": "Offense Code 5"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "VS",
+    "title": "Count of Student Victims"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "VSCHP",
+    "title": "Count of School Personnel Victims"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "VNSCHP",
+    "title": "Count of Non-School Personnel Victims"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "VU",
+    "title": "Count of Unknown Victims"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFFES",
+    "title": "Count of Student Offenders"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFFENS",
+    "title": "Count of Non-Student Offenders"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFFEU",
+    "title": "Count of Unknown Offenders"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DESC",
+    "title": "Description of Offense Code 1"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DESC2",
+    "title": "Description of Offense Code 2"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DESC3",
+    "title": "Description of Offense Code 3"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DESC4",
+    "title": "Description of Offense Code 4"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DESC5",
+    "title": "Description of Offense Code 5"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "INC DESC",
+    "title": "Incident Description"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "RETALIATION",
+    "title": "Retaliation"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF ID",
+    "title": "Incident ID"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "OFF DATE",
+    "title": "Incident Date"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SASID",
+    "title": "State Assigned Student Identifier"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "FN",
+    "title": "First Name"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "LN",
+    "title": "Last Name"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "DOB",
+    "title": "Date of Birth"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "PST",
+    "title": "Program Status Code"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "DAT",
+    "title": "Disciplinary Action Taken"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": null,
+    "title": "Emergency Removal is temporary and may not exceed three school days."
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "BI OFF",
+    "title": "Bodily Injury Indicator *DISCONTINUED*"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SD",
+    "title": "Start Date of Discipline"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "RD",
+    "title": "Discipline End Date"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "ERD",
+    "title": "Eligible to Return Date *DISCONTINUED*"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "DM",
+    "title": "Days Missed"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "AEINC",
+    "title": "Education Services Indicator *DISCONTINUED*"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "AE",
+    "title": "Education Services"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "LAWENFREF",
+    "title": "Law Enforcement Referral"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "ARREST",
+    "title": "School-Related Arrest"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "APPEAL",
+    "title": "Appeal Indicator *DISCONTINUED*"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "AEX",
+    "title": "Education Services Description *DISCONTINUED*"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SOT1",
+    "title": "Offense Code 1"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SOT2",
+    "title": "Offense Code 2"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SOT3",
+    "title": "Offense Code 3"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SOT4",
+    "title": "Offense Code 4"
+  },
+  {
+    "collection": "SSDR",
+    "type": "field",
+    "code": "SOT5",
+    "title": "Offense Code 5"
+  }
+]

@@ -1,0 +1,173 @@
+@page "/collection/{Collection}"
+@inject TroubleshootingDataService Data
+
+<PageTitle>@Collection - State Report Troubleshooting</PageTitle>
+
+@if (_file is null)
+{
+    <p class="text-danger">Unknown collection: @Collection</p>
+}
+else
+{
+    <h1 class="mb-1">@Collection</h1>
+    <p class="text-muted">Error list v@(_file.ErrorListVersion) &middot; Handbook v@(_file.HandbookVersion)</p>
+
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <button type="button" class="nav-link @(_tab == "errors" ? "active" : "")" @onclick='() => SetTab("errors")'>
+                Errors <span class="badge text-bg-secondary">@_file.Errors.Count</span>
+            </button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="nav-link @(_tab == "fields" ? "active" : "")" @onclick='() => SetTab("fields")'>
+                Fields <span class="badge text-bg-secondary">@_file.Fields.Count</span>
+            </button>
+        </li>
+        @if (HasAppendices)
+        {
+            <li class="nav-item">
+                <button type="button" class="nav-link @(_tab == "appendices" ? "active" : "")" @onclick="ShowAppendicesTab">
+                    Appendices
+                </button>
+            </li>
+        }
+    </ul>
+
+    @if (_tab != "appendices")
+    {
+        <input class="form-control mb-3" style="max-width: 400px;" placeholder="Filter…"
+               @bind="_filter" @bind:event="oninput" />
+    }
+
+    @if (_tab == "errors")
+    {
+        <div class="table-responsive">
+            <table class="table table-sm table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Object</th>
+                        <th>Windows</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var e in FilteredErrors)
+                    {
+                        <tr>
+                            <td class="text-nowrap">
+                                <a href="@($"/collection/{Collection}/errors/{Uri.EscapeDataString(e.Code)}")">@e.Code</a>
+                            </td>
+                            <td>@e.Title</td>
+                            <td class="text-nowrap">@e.ObjectName</td>
+                            <td class="text-nowrap">
+                                @foreach (var w in e.CollectionWindows)
+                                {
+                                    <WindowBadge Code="@w" />
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (_tab == "fields")
+    {
+        <div class="table-responsive">
+            <table class="table table-sm table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Field ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var f in FilteredFields)
+                    {
+                        <tr>
+                            <td class="text-nowrap">
+                                <a href="@($"/collection/{Collection}/fields/{Uri.EscapeDataString(f.FieldId!)}")">@f.FieldId</a>
+                            </td>
+                            <td>@f.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (_tab == "appendices")
+    {
+        @if (_appendicesLoading)
+        {
+            <LoadingSplash />
+        }
+        else
+        {
+            var sheets = Data.AppendicesForCollection(Collection);
+            @if (sheets.Count == 0)
+            {
+                <p class="text-muted fst-italic">No appendices found for this collection.</p>
+            }
+            else
+            {
+                <div class="list-group">
+                    @foreach (var sheet in sheets)
+                    {
+                        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                           href="@($"/collection/{Collection}/appendices/{TroubleshootingDataService.Slugify(sheet.SheetName)}")">
+                            <span>@sheet.SheetName</span>
+                            <span class="badge text-bg-secondary rounded-pill">@sheet.Rows.Count rows</span>
+                        </a>
+                    }
+                </div>
+            }
+        }
+    }
+}
+
+@code {
+    [Parameter] public string Collection { get; set; } = "";
+
+    private CollectionFile? _file;
+    private string _tab = "errors";
+    private string _filter = "";
+    private bool _appendicesLoading;
+
+    protected override void OnParametersSet()
+    {
+        Data.Collections.TryGetValue(Collection, out _file);
+        _tab = "errors";
+        _filter = "";
+    }
+
+    private bool HasAppendices =>
+        Collection.Equals("EPIMS", StringComparison.OrdinalIgnoreCase)
+        || Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase);
+
+    private void SetTab(string tab) => _tab = tab;
+
+    private async Task ShowAppendicesTab()
+    {
+        _tab = "appendices";
+        if (Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase) && !Data.SimsAppendicesLoaded)
+        {
+            _appendicesLoading = true;
+            await Data.EnsureSimsAppendicesLoadedAsync();
+            _appendicesLoading = false;
+        }
+    }
+
+    private IEnumerable<ErrorEntry> FilteredErrors =>
+        _file is null ? []
+        : string.IsNullOrWhiteSpace(_filter) ? _file.Errors
+        : _file.Errors.Where(e => e.Code.Contains(_filter, StringComparison.OrdinalIgnoreCase)
+                                   || e.Title.Contains(_filter, StringComparison.OrdinalIgnoreCase));
+
+    private IEnumerable<FieldEntry> FilteredFields =>
+        _file is null ? []
+        : string.IsNullOrWhiteSpace(_filter) ? _file.Fields.Where(f => f.FieldId is not null)
+        : _file.Fields.Where(f => f.FieldId is not null
+                                   && ((f.FieldId?.Contains(_filter, StringComparison.OrdinalIgnoreCase) ?? false)
+                                       || f.Name.Contains(_filter, StringComparison.OrdinalIgnoreCase)));
+}

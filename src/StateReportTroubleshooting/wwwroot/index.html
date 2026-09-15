@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        window.appTheme = {
+            get: function () { return localStorage.getItem('theme') || 'light'; },
+            set: function (theme) {
+                localStorage.setItem('theme', theme);
+                document.documentElement.setAttribute('data-bs-theme', theme);
+            }
+        };
+        window.appTheme.set(window.appTheme.get());
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Report Troubleshooting</title>
+    <base href="/" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="StateReportTroubleshooting.styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+@page "/collection/{Collection}/errors/{Code}"
+@inject TroubleshootingDataService Data
+
+<PageTitle>@Code - @Collection</PageTitle>
+
+@if (_error is null)
+{
+    <p class="text-danger">Error <strong>@Code</strong> not found in @Collection.</p>
+    <a href="@($"/collection/{Collection}")">&larr; Back to @Collection</a>
+}
+else
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@($"/collection/{Collection}")">@Collection</a></li>
+            <li class="breadcrumb-item active">@_error.Code</li>
+        </ol>
+    </nav>
+
+    <div class="error-header mb-3">
+        <h1 class="mb-1">@_error.Code</h1>
+        <h5 class="text-muted mb-2">@_error.Title</h5>
+
+        <p class="mb-0">
+            @if (!string.IsNullOrWhiteSpace(_error.ObjectName))
+            {
+                <span class="badge text-bg-dark me-1">@_error.ObjectName</span>
+            }
+            @foreach (var w in _error.CollectionWindows)
+            {
+                <WindowBadge Code="@w" />
+            }
+        </p>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(_error.Description))
+    {
+        <div class="mb-3"><FormattedText Text="@_error.Description" /></div>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(_error.Example))
+    {
+        <div class="mb-4">
+            <h6>Example</h6>
+            <pre class="bg-light p-2 rounded border" style="white-space: pre-wrap;">@_error.Example</pre>
+        </div>
+    }
+
+    @if (RelatedCodes.Count > 0)
+    {
+        <h5 class="mb-2">Related fields</h5>
+        @foreach (var fieldCode in RelatedCodes)
+        {
+            <FieldSummaryCard Code="@fieldCode" ContextCollection="@Collection" />
+        }
+    }
+}
+
+@code {
+    [Parameter] public string Collection { get; set; } = "";
+    [Parameter] public string Code { get; set; } = "";
+
+    private ErrorEntry? _error;
+
+    protected override void OnParametersSet()
+    {
+        _error = Data.FindError(Collection, Code);
+    }
+
+    private List<string> RelatedCodes =>
+        _error is null
+            ? []
+            : _error.RelatedFields.Concat(_error.ElementsAffected)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+}

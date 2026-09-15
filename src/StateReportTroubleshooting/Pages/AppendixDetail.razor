@@ -1,0 +1,67 @@
+@page "/collection/{Collection}/appendices/{SheetSlug}"
+@inject TroubleshootingDataService Data
+
+<PageTitle>@(_sheet?.SheetName ?? SheetSlug) - @Collection</PageTitle>
+
+@if (_loading)
+{
+    <LoadingSplash />
+}
+else if (_sheet is null)
+{
+    <p class="text-danger">Appendix not found in @Collection.</p>
+    <a href="@($"/collection/{Collection}")">&larr; Back to @Collection</a>
+}
+else
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@($"/collection/{Collection}")">@Collection</a></li>
+            <li class="breadcrumb-item active">@_sheet.SheetName</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-2">@_sheet.SheetName</h1>
+
+    @if (_sheet.LinkedFields.Count > 0)
+    {
+        <p class="mb-3">
+            Linked field@(_sheet.LinkedFields.Count > 1 ? "s" : ""):
+            @foreach (var fieldId in _sheet.LinkedFields)
+            {
+                var field = Data.FindField(Collection, fieldId);
+                if (field is not null)
+                {
+                    <a class="me-2" href="@($"/collection/{Collection}/fields/{Uri.EscapeDataString(fieldId)}")">@fieldId</a>
+                }
+                else
+                {
+                    <span class="text-muted me-2">@fieldId</span>
+                }
+            }
+        </p>
+    }
+
+    <AppendixTable Columns="_sheet.Columns" Rows="_sheet.Rows" />
+}
+
+@code {
+    [Parameter] public string Collection { get; set; } = "";
+    [Parameter] public string SheetSlug { get; set; } = "";
+
+    private AppendixSheet? _sheet;
+    private bool _loading;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _loading = true;
+
+        if (Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase) && !Data.SimsAppendicesLoaded)
+        {
+            await Data.EnsureSimsAppendicesLoadedAsync();
+        }
+
+        _sheet = Data.FindAppendixSheet(Collection, SheetSlug);
+        _loading = false;
+    }
+}

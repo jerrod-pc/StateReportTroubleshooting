@@ -1,0 +1,12 @@
+.nav-link {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-link.active {
+    color: var(--brand-baby-blue);
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: var(--brand-baby-blue);
+}

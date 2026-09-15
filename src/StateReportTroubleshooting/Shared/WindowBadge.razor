@@ -1,0 +1,21 @@
+<span class="badge @CssClass" title="@Title">@Code</span>
+
+@code {
+    [Parameter, EditorRequired] public string Code { get; set; } = "";
+
+    private string CssClass => Code.ToUpperInvariant() switch
+    {
+        "OCT" => "window-badge-oct",
+        "MAR" => "window-badge-mar",
+        "EOY" => "window-badge-eoy",
+        _ => "text-bg-secondary"
+    };
+
+    private string Title => Code.ToUpperInvariant() switch
+    {
+        "OCT" => "October collection",
+        "MAR" => "March collection",
+        "EOY" => "End-of-year collection",
+        _ => Code
+    };
+}

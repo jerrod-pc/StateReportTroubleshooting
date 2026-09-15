@@ -1,0 +1,120 @@
+@page "/collection/{Collection}/fields/{FieldId}"
+@inject TroubleshootingDataService Data
+
+<PageTitle>@FieldId - @Collection</PageTitle>
+
+@if (_field is null)
+{
+    <p class="text-danger">Field <strong>@FieldId</strong> not found in @Collection.</p>
+    <a href="@($"/collection/{Collection}")">&larr; Back to @Collection</a>
+}
+else
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@($"/collection/{Collection}")">@Collection</a></li>
+            <li class="breadcrumb-item active">@_field.FieldId</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-1">@_field.FieldId</h1>
+    <h5 class="text-muted mb-3">@_field.Name</h5>
+
+    @if (!string.IsNullOrWhiteSpace(_field.Description))
+    {
+        <div class="mb-3"><FormattedText Text="@_field.Description" /></div>
+    }
+
+    <dl class="row mb-4">
+        @if (!string.IsNullOrWhiteSpace(_field.Type))
+        {
+            <dt class="col-sm-2">Type</dt>
+            <dd class="col-sm-10">@_field.Type</dd>
+        }
+        @if (_field.MinLength is not null || _field.MaxLength is not null)
+        {
+            <dt class="col-sm-2">Length</dt>
+            <dd class="col-sm-10">@_field.MinLength&ndash;@_field.MaxLength</dd>
+        }
+        @if (!string.IsNullOrWhiteSpace(_field.AcceptableValues))
+        {
+            <dt class="col-sm-2">Acceptable values</dt>
+            <dd class="col-sm-10"><FormattedText Text="@_field.AcceptableValues" /></dd>
+        }
+        @if (!string.IsNullOrWhiteSpace(_field.RelatedElements))
+        {
+            <dt class="col-sm-2">Related elements</dt>
+            <dd class="col-sm-10">@_field.RelatedElements</dd>
+        }
+        @if (!string.IsNullOrWhiteSpace(_field.Notes))
+        {
+            <dt class="col-sm-2">Notes</dt>
+            <dd class="col-sm-10"><FormattedText Text="@_field.Notes" /></dd>
+        }
+        @if (!string.IsNullOrWhiteSpace(_field.SifObject) && _field.SifObject != "None")
+        {
+            <dt class="col-sm-2">SIF mapping</dt>
+            <dd class="col-sm-10"><code>@($"{_field.SifObject}.{_field.SifElement}")</code></dd>
+        }
+    </dl>
+
+    @if (_appendicesLoading)
+    {
+        <LoadingSplash />
+    }
+    else if (_appendices.Count > 0)
+    {
+        <h5 class="mb-2">Code table@(_appendices.Count > 1 ? "s" : "")</h5>
+        @foreach (var sheet in _appendices)
+        {
+            <AppendixTable Columns="sheet.Columns" Rows="sheet.Rows" Title="@sheet.SheetName" />
+        }
+    }
+
+    <h5 class="mb-2 mt-4">Errors referencing this field</h5>
+    @if (ReferencingErrors.Count == 0)
+    {
+        <p class="text-muted fst-italic">No errors in @Collection reference this field directly.</p>
+    }
+    else
+    {
+        <ul class="list-group">
+            @foreach (var e in ReferencingErrors)
+            {
+                <a class="list-group-item list-group-item-action"
+                   href="@($"/collection/{Collection}/errors/{Uri.EscapeDataString(e.Code)}")">
+                    <strong>@e.Code</strong> &mdash; @e.Title
+                </a>
+            }
+        </ul>
+    }
+}
+
+@code {
+    [Parameter] public string Collection { get; set; } = "";
+    [Parameter] public string FieldId { get; set; } = "";
+
+    private FieldEntry? _field;
+    private List<AppendixSheet> _appendices = [];
+    private bool _appendicesLoading;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _field = Data.FindField(Collection, FieldId);
+        _appendices = [];
+
+        if (_field is null) return;
+
+        if (Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase) && !Data.SimsAppendicesLoaded)
+        {
+            _appendicesLoading = true;
+            await Data.EnsureSimsAppendicesLoadedAsync();
+            _appendicesLoading = false;
+        }
+
+        _appendices = Data.AppendicesFor(Collection, FieldId);
+    }
+
+    private List<ErrorEntry> ReferencingErrors =>
+        _field is null ? [] : Data.ErrorsReferencing(Collection, FieldId);
+}

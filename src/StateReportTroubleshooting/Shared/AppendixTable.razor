@@ -1,0 +1,107 @@
+@{
+    var filtered = FilteredRows;
+    var shown = filtered.Take(MaxRows).ToList();
+}
+
+<div class="appendix-table">
+    @if (!string.IsNullOrEmpty(Title))
+    {
+        <h6 class="mb-2">@Title</h6>
+    }
+
+    @if (ShowFilter && Rows.Count > MaxRows)
+    {
+        <input class="form-control form-control-sm mb-2" style="max-width: 320px;"
+               type="search" placeholder="Filter rows…" @bind="_filter" @bind:event="oninput" />
+    }
+
+    @if (Rows.Count == 0)
+    {
+        <p class="text-muted fst-italic mb-0">No rows in this table.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-sm table-striped table-bordered align-top">
+                <thead>
+                    <tr>
+                        @foreach (var col in Columns)
+                        {
+                            <th scope="col">@col</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < shown.Count; i++)
+                    {
+                        var rowIndex = i;
+                        var row = shown[rowIndex];
+                        <tr>
+                            @for (var c = 0; c < row.Count; c++)
+                            {
+                                var colIndex = c;
+                                var cell = row[colIndex];
+                                var key = (rowIndex, colIndex);
+                                var isLong = cell.Length > CellTruncateLength;
+                                var isExpanded = _expandedCells.Contains(key);
+                                <td>
+                                    @if (isLong && !isExpanded)
+                                    {
+                                        @(cell[..CellTruncateLength])<text>… </text>
+                                        <button type="button" class="btn btn-link btn-sm p-0 align-baseline" @onclick="() => Toggle(key)">show more</button>
+                                    }
+                                    else if (isLong)
+                                    {
+                                        <div style="white-space: pre-wrap;">@cell</div>
+                                        <button type="button" class="btn btn-link btn-sm p-0 align-baseline" @onclick="() => Toggle(key)">show less</button>
+                                    }
+                                    else
+                                    {
+                                        @cell
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (filtered.Count > MaxRows)
+        {
+            <p class="text-muted small">
+                Showing first @MaxRows of @filtered.Count matching rows — refine your search to narrow this down.
+            </p>
+        }
+        else if (Rows.Count > filtered.Count)
+        {
+            <p class="text-muted small">Showing @filtered.Count of @Rows.Count rows.</p>
+        }
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public List<string> Columns { get; set; } = [];
+    [Parameter, EditorRequired] public List<List<string>> Rows { get; set; } = [];
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public bool ShowFilter { get; set; } = true;
+    [Parameter] public int MaxRows { get; set; } = 200;
+
+    private const int CellTruncateLength = 240;
+
+    private string _filter = "";
+    private readonly HashSet<(int, int)> _expandedCells = [];
+
+    private List<List<string>> FilteredRows =>
+        string.IsNullOrWhiteSpace(_filter)
+            ? Rows
+            : Rows.Where(r => r.Any(cell => cell.Contains(_filter, StringComparison.OrdinalIgnoreCase))).ToList();
+
+    private void Toggle((int, int) key)
+    {
+        if (!_expandedCells.Add(key))
+        {
+            _expandedCells.Remove(key);
+        }
+    }
+}

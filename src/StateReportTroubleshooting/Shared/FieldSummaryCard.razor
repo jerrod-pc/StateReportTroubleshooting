@@ -1,0 +1,135 @@
+@inject TroubleshootingDataService Data
+
+@if (_resolved is null)
+{
+    <span class="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle me-1 mb-1"
+          title="This code could not be matched to a known field in any collection. It may be a typo in the source data — see the app's README notes on known data-quality issues.">
+        @Code <em>(unresolved)</em>
+    </span>
+}
+else
+{
+    var (collection, field) = _resolved.Value;
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-1">
+            <span>
+                <strong>@field.FieldId</strong> &mdash; @field.Name
+            </span>
+            <span class="d-flex gap-1 align-items-center">
+                @if (!collection.Equals(ContextCollection, StringComparison.OrdinalIgnoreCase))
+                {
+                    <span class="badge text-bg-info">from @collection</span>
+                }
+                <a class="btn btn-sm btn-outline-primary"
+                   href="@($"/collection/{collection}/fields/{Uri.EscapeDataString(field.FieldId!)}")">
+                    Full detail
+                </a>
+            </span>
+        </div>
+        <div class="card-body">
+            @if (!string.IsNullOrWhiteSpace(field.Description))
+            {
+                <div class="mb-2"><FormattedText Text="@field.Description" /></div>
+            }
+            <dl class="row small mb-2">
+                @if (!string.IsNullOrWhiteSpace(field.Type))
+                {
+                    <dt class="col-sm-3">Type</dt>
+                    <dd class="col-sm-9">@field.Type</dd>
+                }
+                @if (field.MinLength is not null || field.MaxLength is not null)
+                {
+                    <dt class="col-sm-3">Length</dt>
+                    <dd class="col-sm-9">@field.MinLength&ndash;@field.MaxLength</dd>
+                }
+                @if (!string.IsNullOrWhiteSpace(field.AcceptableValues))
+                {
+                    <dt class="col-sm-3">Acceptable values</dt>
+                    <dd class="col-sm-9"><FormattedText Text="@field.AcceptableValues" /></dd>
+                }
+                @if (!string.IsNullOrWhiteSpace(field.RelatedElements))
+                {
+                    <dt class="col-sm-3">Related elements</dt>
+                    <dd class="col-sm-9">@field.RelatedElements</dd>
+                }
+                @if (!string.IsNullOrWhiteSpace(field.Notes))
+                {
+                    <dt class="col-sm-3">Notes</dt>
+                    <dd class="col-sm-9"><FormattedText Text="@field.Notes" /></dd>
+                }
+                @if (!string.IsNullOrWhiteSpace(field.SifObject) && field.SifObject != "None")
+                {
+                    <dt class="col-sm-3">SIF mapping</dt>
+                    <dd class="col-sm-9"><code>@($"{field.SifObject}.{field.SifElement}")</code></dd>
+                }
+            </dl>
+
+            @if (ShowAppendixButton)
+            {
+                <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ToggleAppendices">
+                    @(_expanded ? "Hide" : "Show") code table
+                </button>
+                @if (_loading)
+                {
+                    <span class="spinner-border spinner-border-sm ms-2" role="status"></span>
+                }
+                @if (_expanded && !_loading)
+                {
+                    @if (_appendices is { Count: > 0 })
+                    {
+                        <div class="mt-2">
+                            @foreach (var sheet in _appendices)
+                            {
+                                <AppendixTable Columns="sheet.Columns" Rows="sheet.Rows" Title="@sheet.SheetName" />
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted small mt-2 mb-0">No code table found for this field.</p>
+                    }
+                }
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter, EditorRequired] public string Code { get; set; } = "";
+    [Parameter, EditorRequired] public string ContextCollection { get; set; } = "";
+
+    private (string Collection, Models.FieldEntry Field)? _resolved;
+    private List<Models.AppendixSheet>? _appendices;
+    private bool _expanded;
+    private bool _loading;
+
+    protected override void OnParametersSet()
+    {
+        _resolved = Data.FindFieldAnyCollection(Code, ContextCollection);
+        _appendices = null;
+        _expanded = false;
+    }
+
+    private bool ShowAppendixButton =>
+        _resolved is not null &&
+        (_resolved.Value.Collection.Equals("EPIMS", StringComparison.OrdinalIgnoreCase)
+         || _resolved.Value.Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase));
+
+    private async Task ToggleAppendices()
+    {
+        if (_resolved is null) return;
+        _expanded = !_expanded;
+
+        if (_expanded && _appendices is null)
+        {
+            var (collection, field) = _resolved.Value;
+            if (collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase))
+            {
+                _loading = true;
+                await Data.EnsureSimsAppendicesLoadedAsync();
+                _loading = false;
+            }
+            _appendices = Data.AppendicesFor(collection, field.FieldId!);
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@using System.Text.RegularExpressions
+@inject TroubleshootingDataService Data
+@inject NavigationManager Nav
+
+<form class="d-flex" role="search" @onsubmit="Go">
+    <input class="form-control me-2" type="search" placeholder="@Placeholder" @bind="_query" @bind:event="oninput" />
+    <button class="btn btn-primary" type="submit">Go</button>
+</form>
+
+@code {
+    [Parameter] public string Placeholder { get; set; } = "Jump to an error code (e.g. EPIMS6420) or search…";
+
+    private string _query = "";
+
+    private static readonly Regex ErrorCodePattern = new(@"^([A-Za-z]+?)(\d[\d]*)$", RegexOptions.Compiled);
+
+    private void Go()
+    {
+        var q = _query.Trim();
+        if (q.Length == 0) return;
+
+        var match = ErrorCodePattern.Match(q.Replace(" ", ""));
+        if (match.Success)
+        {
+            var prefix = match.Groups[1].Value;
+            var collection = TroubleshootingDataService.CollectionNames
+                .FirstOrDefault(c => c.Equals(prefix, StringComparison.OrdinalIgnoreCase));
+
+            if (collection is not null)
+            {
+                var error = Data.FindError(collection, q);
+                if (error is not null)
+                {
+                    Nav.NavigateTo($"/collection/{collection}/errors/{Uri.EscapeDataString(error.Code)}");
+                    return;
+                }
+            }
+        }
+
+        Nav.NavigateTo($"/search?q={Uri.EscapeDataString(q)}");
+    }
+}

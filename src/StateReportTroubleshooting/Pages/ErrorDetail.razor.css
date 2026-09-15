@@ -1,0 +1,4 @@
+.error-header {
+    border-left: 4px solid var(--brand-brick-ember);
+    padding-left: 0.85rem;
+}

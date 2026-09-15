@@ -1,0 +1,3561 @@
+{
+  "collection": "EPIMS",
+  "error_list_version": "9.9",
+  "handbook_version": "10.4",
+  "object_ranges": [
+    {
+      "object": "LEAInfo",
+      "start": 2000,
+      "end": 2099
+    },
+    {
+      "object": "SchoolInfo",
+      "start": 2100,
+      "end": 2299
+    },
+    {
+      "object": "StudentPersonal",
+      "start": 2300,
+      "end": 3799
+    },
+    {
+      "object": "StaffPersonal",
+      "start": 3800,
+      "end": 4499
+    },
+    {
+      "object": "DisciplineIncident",
+      "start": 4500,
+      "end": 5799
+    },
+    {
+      "object": "EmploymentRecord",
+      "start": 5800,
+      "end": 6299
+    },
+    {
+      "object": "SchoolCourseInfo",
+      "start": 6300,
+      "end": 6599
+    },
+    {
+      "object": "StaffAssignment",
+      "start": 6600,
+      "end": 7199
+    },
+    {
+      "object": "StaffEvaluation",
+      "start": 7200,
+      "end": 7599
+    },
+    {
+      "object": "StudentSchoolEnrollment",
+      "start": 7600,
+      "end": 8599
+    },
+    {
+      "object": "StudentAttendanceSummary",
+      "start": 8600,
+      "end": 8699
+    },
+    {
+      "object": "StudentSpecialEducationSummary",
+      "start": 8700,
+      "end": 8999
+    },
+    {
+      "object": "TermInfo",
+      "start": 9000,
+      "end": 9099
+    },
+    {
+      "object": "SectionInfo",
+      "start": 9100,
+      "end": 9199
+    },
+    {
+      "object": "SectionMarkInfo",
+      "start": 9200,
+      "end": 9299
+    },
+    {
+      "object": "StudentSectionMarks",
+      "start": 9300,
+      "end": 9399
+    },
+    {
+      "object": "StaffSectionAssignment",
+      "start": 9400,
+      "end": 9599
+    },
+    {
+      "object": "StudentSectionEnrollment",
+      "start": 9600,
+      "end": 9899
+    },
+    {
+      "object": "Discontinued Elements",
+      "start": 9900,
+      "end": 9999
+    }
+  ],
+  "errors": [
+    {
+      "code": "EPIMS2100",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing District/School (WA06)",
+      "description": "WA06 must be a valid district/school identification number. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06"
+      ],
+      "object": "SchoolInfo"
+    },
+    {
+      "code": "EPIMS2110",
+      "collection": "EPIMS",
+      "title": "District/School ID (WA06) invalid for the reporting district",
+      "description": "WA06 must be valid school code for the district reporting the EPIMS data.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06"
+      ],
+      "object": "SchoolInfo"
+    },
+    {
+      "code": "EPIMS2120",
+      "collection": "EPIMS",
+      "title": "School ID code (WA06) required for school level job classification",
+      "description": "If Job Classification (WA07) is for a school position, then District/School ID (WA06) must be for a school. (1305, 1310, 1320, 2305, 2306, 2307, 2308, 2310, 2325, 3329, 3330, 3350, 3351, 3360, 3361, 3370, 3371, 4100, 5020, or 5021).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06",
+        "WA07"
+      ],
+      "object": "SchoolInfo"
+    },
+    {
+      "code": "EPIMS2130",
+      "collection": "EPIMS",
+      "title": "Title I school (WA06) requires Title I staff to be reported",
+      "description": "If a school (WA06) is Title I Targeted Assistance, then at least one teacher or paraprofessional or an administrator must be reported with a Title I Federal salary source values in SR12 or SR14 or SR16 when SR09 is a working status.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "SR12",
+        "SR14",
+        "SR16",
+        "WA06"
+      ],
+      "object": "SchoolInfo"
+    },
+    {
+      "code": "EPIMS3800",
+      "collection": "EPIMS",
+      "title": "MEPID does not exist in EPIMS",
+      "description": "MEPID reported in WA01 not valid and does not exist in EPIMS.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA01"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3810",
+      "collection": "EPIMS",
+      "title": "MEPID reported in SR01 is Inactive",
+      "description": "The MEPID reported in SR01 is inactive.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR01"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3820",
+      "collection": "EPIMS",
+      "title": "MEPID does not exist in EPIMS",
+      "description": "MEPID reported in WA01 not valid and does not exist in EPIMS.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA01"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3830",
+      "collection": "EPIMS",
+      "title": "MEPID Reported in WA01 is Inactive",
+      "description": "MEPID reported in Work Assignment record is not active.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA01"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3840",
+      "collection": "EPIMS",
+      "title": "MEPID needs to be reported once in SR file",
+      "description": "For every MEPID that appears in a work assignment record, there should be EXACTLY ONE corresponding staff roster record containing that MEPID. This error checks the uniqueness and existence of the MEPID in the staff roster records submitted.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3850",
+      "collection": "EPIMS",
+      "title": "Record reported more than once in SR file",
+      "description": "Duplicate MEPID in a staff roster file. There should be only one staff roster record per individual submitted by a district.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3860",
+      "collection": "EPIMS",
+      "title": "Invalid Employee Number / Length must be 1--20 (SR02)",
+      "description": "SR02 must not be blank or null. If districts do not use a local employee number, the not applicable code of 0 must be used.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR02"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3870",
+      "collection": "EPIMS",
+      "title": "Invalid Employee Number / Length must be 1--20 (WA02)",
+      "description": "WA02 must not be blank or null. If districts do not use a local employee number, a single alphanumeric symbol can be used in this field that is identical in all records, such as a 0.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA02"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3880",
+      "collection": "EPIMS",
+      "title": "License Number (SR03) must match MEPID on file",
+      "description": "License number for a MEPID reported in the staff roster record must match the license number in ID Maintenance for that MEPID.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR03"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3890",
+      "collection": "EPIMS",
+      "title": "Gender Missing on File",
+      "description": "Every MEPID reported in the Staff Roster file must have a Gender on file.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3900",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Race/Ethnicity (SR08)",
+      "description": "SR08 must be one of the valid codes for race/ethnicity listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR08"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3910",
+      "collection": "EPIMS",
+      "title": "FN must match MEPID on file (SR)",
+      "description": "The identifying characteristic of first name (FN) associated with a MEPID in the SR record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3920",
+      "collection": "EPIMS",
+      "title": "FN must match MEPID on file (WA)",
+      "description": "The identifying characteristic of first name (FN) associated with the MEPID in the WA record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3930",
+      "collection": "EPIMS",
+      "title": "MN/MI must match MEPID on file (SR)",
+      "description": "The identifying characteristic of middle name/middle initial (MN/MI) associated with a MEPID in the SR record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3940",
+      "collection": "EPIMS",
+      "title": "MN/MI must match MEPID on file (WA)",
+      "description": "The identifying characteristic of middle name/middle initial (MN/MI) associated with the MEPID in the WA record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3950",
+      "collection": "EPIMS",
+      "title": "LN must match MEPID on file (SR)",
+      "description": "The identifying characteristic of last name (LN) associated with a MEPID in the SR record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3960",
+      "collection": "EPIMS",
+      "title": "LN must match MEPID on file (WA)",
+      "description": "The identifying characteristic of last name (LN) associated with the MEPID in the WA record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3970",
+      "collection": "EPIMS",
+      "title": "DOB must match MEPID on file",
+      "description": "The identifying characteristic of date of birth (DOB) associated with a non-exited MEPID in the SR record must match the identifying characteristic associated with the MEPID in ID Maintenance for current staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3980",
+      "collection": "EPIMS",
+      "title": "Invalid format for Date of Birth (SR07)",
+      "description": "The format of SR07 must be mm/dd/yyyy.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR07"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS3990",
+      "collection": "EPIMS",
+      "title": "Date or Birth (SR07) cannot be less than 14 Years Old or More than 90 Years Old When Hired",
+      "description": "DOB cannot be less than 14 years old or more than 90 years old when hired.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR07"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4000",
+      "collection": "EPIMS",
+      "title": "Degree Information Required",
+      "description": "If no license information is supplied, then degree information is required for this job classification.. (See EPIMS Appendix E for job classifications requiring degree information.)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4010",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Degree Type 1 (SR18)",
+      "description": "SR18 must be one of the valid codes for degree type listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR18"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4020",
+      "collection": "EPIMS",
+      "title": "Degree Type 1 (SR18) not applicable. Invalid Degree Type 2 (SR21) and Degree Type 3 (SR24)",
+      "description": "If SR18 = 000, then SR21 and SR24 must equal 000. Fill in degree information in the fields for Degree Type 1 first, then 2, and then 3.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR18",
+        "SR21",
+        "SR24"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4030",
+      "collection": "EPIMS",
+      "title": "Degree Type 1 (SR18) invalid with Degree Institution 1 (SR19) and Degree Subject 1 (SR20) (A)",
+      "description": "If SR18 = 000, 009, 010, 011, 012, or 013 then SR19 = 0000 and SR20 = 00. If the degree type information is not applicable, the corresponding institution and subject information is also not applicable.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR18",
+        "SR19",
+        "SR20"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4040",
+      "collection": "EPIMS",
+      "title": "Degree Type 1 (SR18) invalid with Degree Institution 1 (SR19) and Degree Subject 1 (SR20) (B)",
+      "description": "If SR18 does not equal 000, 008, 009, 010, 011, 012, or 013, then SR19 must not equal 0000 and SR20 must not equal 00. If there is degree type information entered (other than \"not applicable\"), there must be the corresponding institution and subject information also entered.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR18",
+        "SR19",
+        "SR20"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4050",
+      "collection": "EPIMS",
+      "title": "Degree Type 2 (SR21) reported. Degree Type 1 (SR18) must be reported",
+      "description": "If SR21 is not 000, then SR18 must not equal 000. Fill in degree information in the fields for Degree Type 1 first, then 2, and then 3.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR18",
+        "SR21"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4070",
+      "collection": "EPIMS",
+      "title": "Invalid Degree Institution 1 (SR19)",
+      "description": "SR19 must be one of the valid codes for degree institution listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR19"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4080",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Degree Subject 1 (SR20)",
+      "description": "SR20 must be one of the valid codes for degree subject listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR20"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4090",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Degree Type 2 (SR21)",
+      "description": "SR21 must be one of the valid codes for degree type listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR21"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4100",
+      "collection": "EPIMS",
+      "title": "Degree Type 2 (SR21) invalid with Degree Institution 2 (SR22) and Degree Subject 2 (SR23) (A)",
+      "description": "If SR21 = 000, 009, 010, 011, 012, or 013, then SR22 = 0000 and SR23 = 00. If the degree type information is not applicable, the corresponding institution and subject information is also not applicable.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR21",
+        "SR22",
+        "SR23"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4110",
+      "collection": "EPIMS",
+      "title": "Degree Type 2 (SR21) invalid with Degree Institution 2 (SR22) and Degree Subject 2 (SR23) (B)",
+      "description": "If SR21 does not equal 000, 008, 009, 010, 011, 012, or 013, then SR22 must not equal 0000 and SR23 must not equal 00. If there is degree type information entered (other than \"not applicable\"), there must be the corresponding institution and subject information also entered.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR21",
+        "SR22",
+        "SR23"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4120",
+      "collection": "EPIMS",
+      "title": "Degree Type 3 (SR24) reported. Degree Type 2 (SR21) must be reported",
+      "description": "If SR24 is not 000, then SR21 must not equal 000. Fill in degree information in the fields for Degree Type 1 first, then 2, and then 3.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR21",
+        "SR24"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4130",
+      "collection": "EPIMS",
+      "title": "Invalid Degree Institution 2 (SR22)",
+      "description": "SR22 must be one of the valid codes for degree institution listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR22"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4140",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Degree Subject 2 (SR23)",
+      "description": "SR23 must be one of the valid codes for degree subject listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR23"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4150",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Degree Type 3 (SR24)",
+      "description": "SR24 must be one of the valid codes for degree type listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR24"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4160",
+      "collection": "EPIMS",
+      "title": "Degree Type 3 (SR24) invalid with Degree Institution 3 (SR25) and Degree Subject 3 (SR26) (A)",
+      "description": "If SR24 = 000, 009, 010, 011, 012, or 013, then SR25 = 0000 and SR26 = 00. If the degree type information is not applicable, the corresponding institution and subject information is also not applicable.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR24",
+        "SR25",
+        "SR26"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4170",
+      "collection": "EPIMS",
+      "title": "Degree Type 3 (SR24) invalid with Degree Institution 3 (SR25) and Degree Subject 3 (SR26) (B)",
+      "description": "Do not use Degree Type 3 (SR24), with Degree Institution 3 (SR25) or Degree Subject 3 *(SR26) (B).*",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR24",
+        "SR25",
+        "SR26"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4180",
+      "collection": "EPIMS",
+      "title": "Invalid Degree Institution 3 (SR25)",
+      "description": "SR25 must be one of the valid codes for degree institution listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR25"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS4190",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Degree Subject 3 (SR26)",
+      "description": "SR26 must be one of the valid codes for degree subject listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR26"
+      ],
+      "object": "StaffPersonal"
+    },
+    {
+      "code": "EPIMS5800",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Employment Status (SR09)",
+      "description": "SR09 must be one of the valid codes for employment status listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5810",
+      "collection": "EPIMS",
+      "title": "No In-District Staff reported",
+      "description": "No staff was reported as being employed by the district (SR09=01).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5820",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Reason for Exit (SR10)",
+      "description": "SR10 must be one of the valid codes for reason for exit listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR10"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5830",
+      "collection": "EPIMS",
+      "title": "Employee Status (SR09) not valid with Reason for Exit (SR10)",
+      "description": "SR09 must equal 04 if SR10 is not 00, and vice versa. If the employee has exited the district (SR09 = 04), then SR10 = 01--10. If the individual is employed (SR09 = 01--03), then SR10 = 00 (Not Applicable).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "SR10"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5840",
+      "collection": "EPIMS",
+      "title": "- Invalid format for Date of Hire (SR11)",
+      "description": "The format for SR11 must be mm/dd/yyyy.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR11"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5850",
+      "collection": "EPIMS",
+      "title": "Date of Hire (SR11) Can Not be Less Than or Equal to Date of Birth (SR07)",
+      "description": "SR11 cannot be less than or equal to SR07.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR07",
+        "SR11"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5860",
+      "collection": "EPIMS",
+      "title": "Date of Hire (SR11) must be on or prior to the EOY close date",
+      "description": "The date of hire for a staff member must be prior to the collection closing date. Report future hires in the following collection.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR11"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5870",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Fed Sal Source 1 (SR12)",
+      "description": "SR12 must be one of the valid codes for federal salary source listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5880",
+      "collection": "EPIMS",
+      "title": "Inaccurate Grant Code (SR12, SR14, or SR16) reported",
+      "description": "The grant code reported in (SR12, SR14, or SR16) must represent a federal grant allocation that the district is receiving.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR14",
+        "SR16"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5890",
+      "collection": "EPIMS",
+      "title": "Invalid Percent Federal Salary Source1 (SR13)",
+      "description": "SR13 is a numeric value equal to or less than 1.00. It requires a minimum of 2 and a maximum of 5 characters, including a decimal point, and must not be blank or null. If not applicable, the acceptable code is 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR13"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5900",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 1 (SR12) reported. Invalid Percent of Federal Salary Source 1 (SR13)",
+      "description": "If SR12 is not 000, then SR13 must contain a percent greater than 0. SR13 must not equal 00 (Not Applicable) or be blank or null. If a Federal Grant code is entered, there must be a percent entered also.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR13"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5910",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 1 (SR12) not reported. Invalid SR13--SR17",
+      "description": "If SR12 = 000, then all the subsequent Federal Salary Source and percent Federal Salary Source fields (SR13--SR17) must be not applicable. If there is no Federal Grant code entered in the first option for a Federal Salary Source, then there is no Federal Salary Source information to be reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR13",
+        "SR17"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5920",
+      "collection": "EPIMS",
+      "title": "Sum of Federal Salary Percent (SR13 + SR15 + SR17) cannot be greater than 100%",
+      "description": "The sum of the sources of an individual's salary cannot exceed 1.00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR13",
+        "SR15",
+        "SR17"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5930",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Fed Sal Source 2 (SR14)",
+      "description": "SR14 must be one of the valid codes for federal salary source listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR14"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5940",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 2 (SR14) reported. Invalid Federal Salary Source 1 (SR12)",
+      "description": "If SR14 does not equal 000, then SR12 must not equal 000. Federal Salary information should be entered in Federal Salary Source 1, then 2, then 3.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR14"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5950",
+      "collection": "EPIMS",
+      "title": "Inaccurate Grant Code (SR12, SR14, or SR16) reported",
+      "description": "The grant code reported in (SR12, SR14, or SR16) must represent a federal grant allocation that the district is receiving.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR14",
+        "SR16"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5960",
+      "collection": "EPIMS",
+      "title": "Invalid Percent Federal Salary Source2 (SR15)",
+      "description": "SR15 is a numeric value equal to or less than 1.00. It requires a minimum of 2 and a maximum of 5 characters, including a decimal point, and must not be blank or null. If not applicable, the acceptable code is 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR15"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5970",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 2 (SR14) reported. Invalid Percent of Federal Salary Source 2 (SR15)",
+      "description": "If SR14 does not equal 000, then SR15 must not equal 00 (Not Applicable) or be blank or null. If a Federal Grant code is entered, there must also be a percent entered.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR14",
+        "SR15"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5980",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 2 (SR14) not reported. Invalid SR15--SR17",
+      "description": "If SR14 = 000 then SR15, SR16, and SR17 must be not applicable. If there is no Federal Grant code in SR14, there should not be a percentage in the corresponding Percent of Federal Salary Source 2 (SR15) or any Federal Salary Source information in the 3^rd^ group of fields (SR16 and SR17).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR14",
+        "SR15",
+        "SR16",
+        "SR17"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS5990",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Fed Sal Source 3 (SR16)",
+      "description": "SR16 must be one of the valid codes for federal salary source listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR16"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6000",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 3 (SR16) reported. Invalid Federal Salary Source 2 (SR14)",
+      "description": "If there is a Federal Salary Source reported in the third source field (SR16), there should be a source reported in the second source field (SR14). If SR14 = 000 (Not Applicable), so should SR16.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR14",
+        "SR16"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6010",
+      "collection": "EPIMS",
+      "title": "If SR12/ SR14/ SR16 are reported then SR12 must not equal SR14 and SR14 must not equal SR16",
+      "description": "Federal Salary sources must not be duplicated in a record. The first code for Federal Salary Source (SR12) should not be repeated in the second (SR14) or third (SR16) data elements for Federal Salary Source.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR14",
+        "SR16"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6020",
+      "collection": "EPIMS",
+      "title": "Inaccurate Grant Code (SR12, SR14, or SR16) reported",
+      "description": "The grant code reported in (SR12, SR14, or SR16) must represent a federal grant allocation that the district is receiving.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR14",
+        "SR16"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6030",
+      "collection": "EPIMS",
+      "title": "Invalid Percent Federal Salary Source3 (SR17)",
+      "description": "SR17 is a numeric value equal to or less than 1.00. It requires a minimum of 2 and a maximum of 5 characters, including a decimal point, and must not be blank or null. If not applicable, the acceptable code is 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR17"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6040",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 3 (SR16) reported. Invalid Percent of Federal Salary Source 3 (SR17)",
+      "description": "If SR16 does not equal 000, then SR17 must not equal 00 (Not Applicable) or be blank or null. If a Federal Grant code is entered, there must also be a percent entered.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR16",
+        "SR17"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6050",
+      "collection": "EPIMS",
+      "title": "Federal Salary Source 3 (SR16) not reported. Invalid Percent of Federal Salary Source 3 (SR17)",
+      "description": "If SR16 = 000, then SR17 must equal 00. If a Federal Salary Source is entered as not applicable, the corresponding percent of that Federal Salary Source must also be not applicable.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR16",
+        "SR17"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6060",
+      "collection": "EPIMS",
+      "title": "Invalid Date of Exit (SR27). A date must be entered or NA if not applicable",
+      "description": "SR27 must be formatted as mm/dd/yyyy if a date in reported. Otherwise, NA must be reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR27"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6070",
+      "collection": "EPIMS",
+      "title": "Date of Exit (SR27) must not be reported for employed staff",
+      "description": "If Employment Status (SR09) does not indicate an exit (not equal to '04'), then an exit date should not be reported and NA should be reported in SR27.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "SR27"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6080",
+      "collection": "EPIMS",
+      "title": "Date of Exit (SR27) must be reported for exited staff",
+      "description": "If Employment Status (SR09) indicates an exit (equal to '04'), then an exit date should be reported and must not equal NA.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "SR27"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6090",
+      "collection": "EPIMS",
+      "title": "Date of Exit (SR27) for exited staff must be between the Date of Hire (SR11) and the date of collection.",
+      "description": "For exited staff, SR27 must be between the Date of Hire (SR11) and the date of collection (usually October 1 or the last day of school) inclusive.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR11",
+        "SR27"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6100",
+      "collection": "EPIMS",
+      "title": "Invalid District Level Educator's Professional Teacher Status (SR28)",
+      "description": "SR28 must be one of the valid codes for Educator's Professional Teacher Status listed in the EPIMS Data Handbook. It must not be blank or null",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR28"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6110",
+      "collection": "EPIMS",
+      "title": "Not Applicable must be reported in Educators Professional Teacher Status (SR28) for Charter Schools",
+      "description": "For all Charter Schools, SR28 must be \"Not Applicable\".",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR28"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6120",
+      "collection": "EPIMS",
+      "title": "If the Overall Evaluation is non-administrative, then Professional Teacher Status cannot be NA (99)",
+      "description": "If a staff member in a public district has been evaluated as a non-administrator then the value of SR28 cannot be 99.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR28"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6130",
+      "collection": "EPIMS",
+      "title": "SR29 through SR33 must be \"Not Applicable\" where no Work Assignment records have been reported",
+      "description": "For educators who have no Work Assignments in the EOY collection, SR29 through SR33 must be \"Not Applicable\".",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR33"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6140",
+      "collection": "EPIMS",
+      "title": "Educator's Professional Teacher Status (SR28) must be \"Not Applicable\" where Job Classifications do not require a License",
+      "description": "For educators *whose only* job classifications are ones that do not require an ESE license, SR28 must be \"Not Applicable\".",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR28"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6150",
+      "collection": "EPIMS",
+      "title": "Invalid Educator's Professional Teacher Status (SR28)/ Admin",
+      "description": "For educators with job classifications that require an ESE license and *whose positions are only administrative*, SR28 must be \"Not Applicable\".",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR28"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6160",
+      "collection": "EPIMS",
+      "title": "Teachers must report Professional Teacher Status (SR28)",
+      "description": "In EOY, in non-Charter Public School Districts, for educators with job classifications that require an ESE license and *whose positions are non-administrative*, SR28 may not be \"Not Applicable\" (99).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR28"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6170",
+      "collection": "EPIMS",
+      "title": "All individuals reported as active in the previous collection must have a staff roster record in current collection",
+      "description": "If SR09 = 01, 02, 03 or 05 for the previous reporting period, the individual must be reported in the SR file for the current collection period. If they have since exited, they should be reported as SR09 = 04.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6180",
+      "collection": "EPIMS",
+      "title": "Exited Staff (SR09=04) that worked in current school year must have at least one work assignment record",
+      "description": "If a staff member is reported as exited (SR09=04) in the current period, then s/he must have at least one work assignment if they worked in current school year.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6208",
+      "collection": "EPIMS",
+      "title": "SR Record missing for WA record",
+      "description": "The MEPID has a work assignment, but not a staff roster record. All reported staff must have a staff roster record.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6266",
+      "collection": "EPIMS",
+      "title": "Overall rating (SR29) cannot be proficient or exemplary if standard 1 and/or 2 (SR30 and SR31) rating is \\\"needs improvement\\\"",
+      "description": "Overall rating (SR29) cannot be proficient or exemplary if standard 1 and/or 2 (SR30 and SR31) rating is \\\"needs improvement\\\"",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30",
+        "SR31"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS6168",
+      "collection": "EPIMS",
+      "title": "Overall Summative Rating (SR29) invalid with Standard (1) Rating(s) (SR30 / Administrators)",
+      "description": "Overall Summative Rating (SR29) and Standards Ratings must be all administrator codes, not teacher codes",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30"
+      ],
+      "object": "EmploymentRecord"
+    },
+    {
+      "code": "EPIMS9500",
+      "collection": "EPIMS",
+      "title": "District is identified with staff attendance rate of 98.0% or higher. Please reach out to Data Collection Support.",
+      "description": "Please review the attendance data. If the staff attendance is correct, please reach out to Data Collection for an exception.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9510",
+      "collection": "EPIMS",
+      "title": "District is identified with staff attendance rate lower than 90.0%. Please reach out to Data Collection Support.",
+      "description": "Please review the attendance data. If the staff attendance is correct, please reach out to the Data Collection for an exception.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9520",
+      "collection": "EPIMS",
+      "title": "Exited staff with work assignments should not have 0 Expected Days of Attendance",
+      "description": "If a staff member has work assignments in current school year, they should not have 0 expected days of attendance in SR37.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR37"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS6300",
+      "collection": "EPIMS",
+      "title": "Missing Subject Area--Course (WA10)",
+      "description": "WA10 must be a valid subject area--course code listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6310",
+      "collection": "EPIMS",
+      "title": "Invalid Subject Area/Course (WA10) code",
+      "description": "WA10 must be one of the valid codes for subject area/course listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6320",
+      "collection": "EPIMS",
+      "title": "Invalid CIP (WA10) code",
+      "description": "If the educator teaches in a Chapter 74--approved program, the subject area/course code (WA10) should be a seven-digit CIP code listed in the subject area/course codes found in the EPIMS Data Handbook. It should not be a five-digit NCES/EPIMS code, also found in the subject area/course code list.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6330",
+      "collection": "EPIMS",
+      "title": "District not approved for CIP program",
+      "description": "WA10 must be the seven-digit (CIP) code if the vocational teacher is teaching in a Chapter 74--approved program. If the school is not Chapter 74--approved, the vocational teacher's courses must be coded with the five-digit EPIMS/NCES codes.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6340",
+      "collection": "EPIMS",
+      "title": "Prior-to-Secondary Course Code (WA10) required for Grade (WA09) reported",
+      "description": "If WA09 = PK, K, 01, K01, 0102, 02, 03, 04, 05, 06, 07, or 08, then prior-to-secondary course code must be reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA09",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6350",
+      "collection": "EPIMS",
+      "title": "Secondary Course Code (WA10) required for Grade (WA09) reported",
+      "description": "If WA09 = 09, 10, 11, or 12, then secondary course code must be reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA09",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6360",
+      "collection": "EPIMS",
+      "title": "Subject Area-Course (WA10) not valid for Work Assignment (WA08)** (A)",
+      "description": "If WA08=011, then WA10=01008.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6370",
+      "collection": "EPIMS",
+      "title": "Subject Area-Course (WA10) not valid for Work Assignment (WA08) (B)",
+      "description": "If WA08 = 010, then WA10 must equal 51008.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6380",
+      "collection": "EPIMS",
+      "title": "Prior-to-Secondary Course Code (WA10) required for Assignment (WA08)",
+      "description": "If WA08 = 001, 010, 014, 212 or 301, then a prior-to-secondary course code must be reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6390",
+      "collection": "EPIMS",
+      "title": "Secondary Course Code (WA10) required for Assignment (WA08)",
+      "description": "If WA08 = 002, 011, 020, 208, 302, 303 or 213 then a secondary course code must be reported.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6400",
+      "collection": "EPIMS",
+      "title": "Subject Area-Course (WA10) not valid for Work Assignment (WA08) and Job Classification (WA07)",
+      "description": "If WA07=2305, 2306, 2307, 2308, 2310 or 2325 and WA08 is a non-core assignment, then subject area course code (WA10) must not be 00000.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6410",
+      "collection": "EPIMS",
+      "title": "Non Instructional Paraprofessionals (WA08) must have 00000 for a Course Code (WA10)",
+      "description": "Non-instructional paraprofessionals (WA08=406) must have N/A for a Course Code (WA10 = 00000).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6420",
+      "collection": "EPIMS",
+      "title": "All Subjects course code (WA10=99999) is only valid for secondary SPED or ELL work assignments",
+      "description": "If WA10=99999, then WA08 must be a Secondary SPED & ELL code (WA08 = \\'003\\',\\'004\\',\\'005\\', \\'006\\', \\'007\\',\\'008\\',\\'016\\', \\'020\\', '402' or '404').",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6430",
+      "collection": "EPIMS",
+      "title": "All subjects course code (WA10=99999) is not valid for virtual classrooms",
+      "description": "If WA10=99999, then WA07 must not be virtual (2307, 2308).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6440",
+      "collection": "EPIMS",
+      "title": "All subjects course code (WA10=99999) is not valid for prior-to-secondary classes",
+      "description": "If WA10=99999, then grade (WA09) must be 09 to 12 or 88 or 99.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA09",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6450",
+      "collection": "EPIMS",
+      "title": "Prior-to-Secondary Education Class WA10= 73039 must use a multiple grade code (WA09)",
+      "description": "The course code (WA10) of 73039 is to be used for general education classes which cannot be differentiated by a single grade level. When reported, the value of WA09 must be K01, 0102, 88 or 99. When there is a predominant grade in a general education classroom, use the grade specific codes 73029 through 73038.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA09",
+        "WA10"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6460",
+      "collection": "EPIMS",
+      "title": "Tutors (WA07=3323) must have N/A values for Grade (WA09), Subject Area-Course (WA10), Class Section (WA11)",
+      "description": "Tutors may not be reported with specific courses, grades or sections.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA09",
+        "WA10",
+        "WA11"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6470",
+      "collection": "EPIMS",
+      "title": "MEPID (WA01)/Job Classification (WA07)/Assignment (WA08)/Course (WA10)/Section (WA11)/ Course Term (WA16) combination must be unique within School (WA06)",
+      "description": "Determines uniqueness of a Work Assignment Record within a school by the combination of MEPID, Job Classification, Assignment, Subject Area/Course, Class Section and Course Term.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA01",
+        "WA06",
+        "WA07",
+        "WA08",
+        "WA10",
+        "WA11",
+        "WA16"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6480",
+      "collection": "EPIMS",
+      "title": "Secondary Core Subject Area-Course Code (WA10) for Job Classification (WA07=2305, 2306, 2307, or 2308) must have multiple WA records & FTE (WA12) must be less than 1.0 per course term",
+      "description": "If WA07=2305, 2306, 2307, or 2308 and WA10 is a secondary, core subject area-course code and does not equal CIP Code, then there must be more than one Work Assignment record and WA12 must be less than 1.0 per record per course term.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA10",
+        "WA12"
+      ],
+      "object": "SchoolCourseInfo"
+    },
+    {
+      "code": "EPIMS6600",
+      "collection": "EPIMS",
+      "title": "Days of Attendance must be between 0 and 261",
+      "description": "Days of Attendance (SR36) must be between 0 and 261 in EOY and for exited staff. In October, a value of 999 (not applicable) may be reported for working staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR36"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6605",
+      "collection": "EPIMS",
+      "title": "Working Staff may not have 0 Days of Attendance.",
+      "description": "A staff member reported as working and not on leave (SR09=01 or 05) must not be reported with 0 days of attendance.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6606",
+      "collection": "EPIMS",
+      "title": "Days of Attendance (SR36) has invalid format",
+      "description": "Days of attendance must be numeric",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR36"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6610",
+      "collection": "EPIMS",
+      "title": "Expected Days of Attendance must be less than 261 days.",
+      "description": "Expected Days of Attendance (SR37) must be less than 261 days in EOY and for exited staff. In October, a value of 999 (not applicable) may be reported for working staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR37"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6615",
+      "collection": "EPIMS",
+      "title": "Exited staff may not report NA (999) for days of attendance or expected days (may report 0)",
+      "description": "Staff reported as exited must report applicable days of attendance and expected attendance. A value of zero (0) may be reported for staff who exit between school years.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6620",
+      "collection": "EPIMS",
+      "title": "Expected Days of Attendance must be greater than or equal to Days in Attendance",
+      "description": "The value of SR37 (Expected Days of Attendance) must not be less than the Days of Attendance.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR37"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6625",
+      "collection": "EPIMS",
+      "title": "SR36 Staff Days of Attendance exceeds maximum for collection period. Attendance Days value cannot exceed 65 days in October Collection.",
+      "description": "The value of SR36 (Days of Attendance) must not exceed 65 days in October",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR36"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6626",
+      "collection": "EPIMS",
+      "title": "SR37 Staff Expected Days of Attendance exceeds maximum for collection period. Expected Attendance Days value cannot exceed 65 days in October Collection",
+      "description": "The value of SR37 (Expected Days of Attendance) must not exceed 65 days in October",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR37"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6630",
+      "collection": "EPIMS",
+      "title": "Working Staff may not have 0 Expected Days of Attendance.",
+      "description": "A staff member reported as working and not on leave (SR09=01) must not be reported with 0 expected days of attendance.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6640",
+      "collection": "EPIMS",
+      "title": "Expected Days of Attendance (SR37) is not consistent with the Termination date (SR27)",
+      "description": "The number of days between the hire and termination date of a staff member should be consistent with working a standard 5 day work week.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR27",
+        "SR37"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6650",
+      "collection": "EPIMS",
+      "title": "Invalid Beginner Educator Identifier (SR38)",
+      "description": "SR38 must be one of the valid codes for Beginner Educator Identifier found in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR38"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6655",
+      "collection": "EPIMS",
+      "title": "Staff has experience in primary job classification and so may not be reported as a beginning educator in SR38.",
+      "description": "If a staff member has recorded over a year in a reported job classification, then s/he may not be reported as a beginning educator for that classification.\n\nFor the purposes of this validation, teaching classifications are combined into one; so '2305', \\'2306\\', \\'2307\\', \\'2308\\',\\'2310\\' and \\'2325\\' are all considered to be the same.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR38"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6660",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Job Classification (WA07)",
+      "description": "WA07 must be a valid job classification code listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6670",
+      "collection": "EPIMS",
+      "title": "Job Classification (WA07) not valid with Grade (WA09) and should be reported at the school level in District/School ID (WA06)",
+      "description": "If WA07 = 1305, 1310, 1320, 3329, 3330, 3350, 3351, 3360, 3361, 3370, 3371, 5020, or 5021, then WA06 must equal a school code (the last four digits of the eight-digit number must not be 0000) and WA09 must equal 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06",
+        "WA07",
+        "WA09"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6680",
+      "collection": "EPIMS",
+      "title": "Job Classification (WA07) not valid with Grade (WA09) and should be reported at the district level in District/School ID (WA06)",
+      "description": "If WA07 = 1200, 1201, 1202, 1205, 1211, 1212 or 1226 then the WA06 must equal a district code (the last four digits of the eight-digit number must be 0000) and the WA09 must equal 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06",
+        "WA07",
+        "WA09"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6690",
+      "collection": "EPIMS",
+      "title": "Job Classification (WA07=1312) must be reported at the school level (WA06)",
+      "description": "If WA07=1312 (School Special Education Administrator), then WA06 must be a school code.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06",
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6700",
+      "collection": "EPIMS",
+      "title": "Working Staff (SR09=01) must have at least one work assignment record reported in an active term (WA17=01)",
+      "description": "If SR09 = 01, must have at least one work assignment record in an active term. If the employee is working, their MEPID must be reported at least once in a work assignment file.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA17"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6710",
+      "collection": "EPIMS",
+      "title": "Superintendent Job Classification (WA07) required/must be one and only one WA record reported for your district",
+      "description": "There must be exactly one work assignment record in a single active period reported with WA07 = 1200 for each school district for active records (SR09=01), including charter and Collaborative school districts.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6720",
+      "collection": "EPIMS",
+      "title": "Principal Job Classification (WA07) required",
+      "description": "There must be one or more work assignment record for all active periods reported with WA07 = 1305 for each school or charter or collaborative school for active records (SR09=01).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6730",
+      "collection": "EPIMS",
+      "title": "Special Education Administrator Job Classification (WA07) required/must be one and only one WA record reported for your district",
+      "description": "There must be exactly one work assignment record in a single active period reported with WA07 = 1212 for each school district, collaborative and charter school for active records (SR09=01).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6740",
+      "collection": "EPIMS",
+      "title": "Only one working Teaching assignment (WA07=2305, 2307 or 2325) may be reported for a class",
+      "description": "For any unique combination of School (WA06), Course (WA10), Section (WA11) and Term (WA16), only one working (SR09=01) solo teacher (WA07=2305, 2307 or 2325) can be reported. If multiple teachers are assigned to a course, then they must be reported as Co-Teachers (WA07=2306 or 2308).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA06",
+        "WA07",
+        "WA10",
+        "WA11",
+        "WA16"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6750",
+      "collection": "EPIMS",
+      "title": "The number of working Co-Teaching assignments (WA07=2306, 2308 or 2325) may be reported for a class must be between two and four.",
+      "description": "For co-teachers reported (job classification 2306, 2308 or 2325), only TWO working (SR09=01) staff may be reported within a school for a subject area course code, class section, and course term.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6760",
+      "collection": "EPIMS",
+      "title": "A maximum of four Support Content assignments (WA07=2310) may be reported for a class",
+      "description": "No more than four support content teachers (job classification 2310) may be reported within a school for a subject area course code, class section, course term, and term status.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6770",
+      "collection": "EPIMS",
+      "title": "The number of Co-Teaching assignment records (WA07=2306 or 2308) reported for a class must not equal 1",
+      "description": "If co-teachers reported (Job Classification 2306 or 2308), then must not report one single co-teacher within a school for a subject area course code, class section, and course term.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6790",
+      "collection": "EPIMS",
+      "title": "Virtual and traditional teachers may not be combined in the same class",
+      "description": "Co-teachers (2306) must not be reported with virtual co-teacher (2308) for a class and vice versa. 2306 and 2308 must not be reported for the same class (WA06, WA10, WA11, WA16)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06",
+        "WA10",
+        "WA11",
+        "WA16"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6800",
+      "collection": "EPIMS",
+      "title": "FTE (WA12) Invalid value",
+      "description": "WA12 must be equal to or less than 1.0 and cannot equal 0.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA12"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6810",
+      "collection": "EPIMS",
+      "title": "FTE (WA12) Invalid format",
+      "description": "It requires a minimum of 2 and a maximum of 5 characters, including a decimal point, and must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA12"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6820",
+      "collection": "EPIMS",
+      "title": "Total of FTE cannot be greater than 1.5 for an educator per term",
+      "description": "The sum of FTE (WA12) for all the records with the same MEPID, must be less than or equal to 1.5 for each inactive course term except for Multiple Quarters (45), Multiple Non-consecutive Quarters (46), Multiple Quinmesters (56), Multiple Non-Consecutive Quinmesters (57), Multiple Mini-terms (78) and Multiple Non-Consecutive Mini-Terms (79).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA12"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6830",
+      "collection": "EPIMS",
+      "title": "Total of FTE (WA12) cannot be greater than 1.5 for an educator for all active terms",
+      "description": "The sum of WA12 for all the records with the same MEPID, must be less than or equal to 1.5 for all active terms.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA12"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6840",
+      "collection": "EPIMS",
+      "title": "School(s) missing WAR(s)",
+      "description": "Every school in a district must submit at least one Work Assignment Record. This rule checks if any school is missing.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6850",
+      "collection": "EPIMS",
+      "title": "Staff receiving Title I funding must be reported in Title I school(s) (WA06)",
+      "description": "Staff receiving with Title I funding (SR12 or SR14 or SR16) must be reported in at least one Title I school.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR12",
+        "SR14",
+        "SR16",
+        "WA06"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS6860",
+      "collection": "EPIMS",
+      "title": "Work Assignment record for lead teacher (WA07 = 2305 or 2307) is inactive (WA17 = 03)",
+      "description": "All teaching assignments (2305, 2306, 2307, 2308 or 2325) for this particular school/course/section/term are inactive (WA17 = 03). The assignment that is active at report date should have a WA17 value of 01. Please check the staffsectionassignment end date as it compares to report date.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA17"
+      ],
+      "object": "StaffAssignment"
+    },
+    {
+      "code": "EPIMS7200",
+      "collection": "EPIMS",
+      "title": "Invalid Overall Annual Summative Evaluation or Formative Evaluation Rating (SR29)",
+      "description": "SR29 must be one of the valid codes for Educator's current school year overall Summative Evaluation rating or Formative Evaluation rating listed in . It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7210",
+      "collection": "EPIMS",
+      "title": "Evaluation Fields (SR29-SR33) must either be all N/A (99) or all valid evaluation codes.",
+      "description": "SR29 through SR33 must reflect a consistent standard. If a staff member is not subject to reportable evaluation then all standards must be NA. If a staff member is subject to reportable evaluation then all evaluation standards must be not NA (99).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7220",
+      "collection": "EPIMS",
+      "title": "Ratings must be all Summative",
+      "description": "If SR29 is a Summative rating, then SR30-SR33 must be all Summative ratings.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7230",
+      "collection": "EPIMS",
+      "title": "Ratings must be all Formative",
+      "description": "If SR29 is a Formative rating, then SR30-SR33 must be all Formative ratings.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7240",
+      "collection": "EPIMS",
+      "title": "Overall Summative Rating (SR29) invalid with Standard Rating(s) (SR30-SR33)",
+      "description": "For educators with job classifications that require an ESE license, if SR29 is not 00, then SR30 through SR33 must not be 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7250",
+      "collection": "EPIMS",
+      "title": "Overall Summative Rating (SR29) invalid with Standard Rating(s) (SR30-SR33)",
+      "description": "For educators with job classifications that require an ESE license, if SR30 through SR33 is not 00, then SR29 must not be 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7260",
+      "collection": "EPIMS",
+      "title": "Summative/Formative Evaluation Rating (SR29) must be \"Not Applicable\" where Job Classifications do not require a License",
+      "description": "For educators *whose only* job classifications are ones that do not require an ESE license in the EOY collection, SR29 must be \"Not Applicable\".",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7270",
+      "collection": "EPIMS",
+      "title": "Invalid Evaluation Rating (SR29) -- Check that evaluation date is in current calendar year.",
+      "description": "In EOY, for educators with job classifications require a DESE license, SR29 must not be \"Not Applicable\" with these exceptions: For 1205 (Other District Wide Administrators), 1208 (Human Resources Director), 1224 (Supervisor/Director/Coordinator: Technology) and 1320 (Other School Administrator/ Coordinator) an evaluation is optional and may report N/A (99). For 2325 (Long Term Substitute teachers) who are employed for less than 3 months, districts may report N/A (99) in this field. Commonwealth Charter Schools and collaboratives may report N/A (99) for all staff regardless of license requirements.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7280",
+      "collection": "EPIMS",
+      "title": "Overall Summative Rating (SR29) invalid with Standard (1) and/or Standard (2) Rating(s) (SR30-SR31) /Non-Administrators",
+      "description": "For staff whose licensed job classifications are only non-administrative positions, SR30 and SR31 must be 13 through 20 if SR29 is 13 through 20.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30",
+        "SR31"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7290",
+      "collection": "EPIMS",
+      "title": "Overall Summative Rating (SR29) invalid with Standard (1) Rating(s) (SR30 /Administrators",
+      "description": "For administrative job classifications that require an ESE license, SR30 must be 13 through 20 if SR29 is 13 through 20.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR30"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7300",
+      "collection": "EPIMS",
+      "title": "Administrators may only be evaluated with administrative ratings.",
+      "description": "In the EOY collection, if a staff member who is subject to evaluation has no non-administrative work assignments then their Ratings (SR29-SR33) cannot be non-administrative ratings.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7310",
+      "collection": "EPIMS",
+      "title": "Non-Administrators may only be evaluated with non-administrative ratings.",
+      "description": "In the EOY collection, if a staff member who is subject to evaluation has no administrative work assignments then their Ratings (SR29-SR33) cannot be administrative ratings.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29",
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7320",
+      "collection": "EPIMS",
+      "title": "EOY Non-Administrative Rating in SR29 may not be re-characterized as Administrative in October",
+      "description": "Staff evaluation data reported in October must be consistent in that a teacher rating can only be corrected to be a different teacher rating",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7330",
+      "collection": "EPIMS",
+      "title": "EOY Administrative Rating in SR29 may not be re-characterized as Non-Administrative in October",
+      "description": "Staff evaluation data reported in October must be consistent in that an administrative or \"not evaluated\" rating can only be corrected to be a different administrative rating",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7340",
+      "collection": "EPIMS",
+      "title": "Evaluation data may only be reported in October if it is an update to EOY data.",
+      "description": "Staff evaluation data reported in October must be different than that reported in EOY. The staff member must have been subject to evaluation in the EOY collection.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7350",
+      "collection": "EPIMS",
+      "title": "A \\\"Not Evaluated\\\" rating for SR29 may only be reported in October if it is an update to EOY evaluation data.",
+      "description": "If a staff member was reported as \\\"Not Evaluated\\\" in EOY, they may not be reported again as \"Not Evaluated\" in October. Report \"99\" (Not applicable) instead",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR29"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7360",
+      "collection": "EPIMS",
+      "title": "Invalid Standard (1) Evaluation Rating (SR30)",
+      "description": "SR30 must be one of the valid codes for Educator's current school year evaluation rating on Standard (1) listed in . It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR30"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7370",
+      "collection": "EPIMS",
+      "title": "Invalid Standard (2) Evaluation Rating (SR31)",
+      "description": "SR31 must be one of the valid codes for Educator's current school year evaluation rating on Standard (2) listed in . It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR31"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7380",
+      "collection": "EPIMS",
+      "title": "Invalid Standard (3) Evaluation Rating (SR32)",
+      "description": "SR32 must be one of the valid codes for Educator's current school year evaluation rating on Standard (3) listed in . It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR32"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7390",
+      "collection": "EPIMS",
+      "title": "Invalid Standard (4) Evaluation Rating (SR33)",
+      "description": "SR33 must be one of the valid codes for Educator's current school year evaluation rating on Standard (4) listed in . It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR33"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7400",
+      "collection": "EPIMS",
+      "title": "- Educator Evaluation Data Missing",
+      "description": "For educators with job classifications that require an ESE license, evaluation data must be reported in EOY. Collaboratives may report N/A (99) for all staff regardless of license requirements.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7410",
+      "collection": "EPIMS",
+      "title": "Staff reported as a beginner educator (SR38 = 01) must have the MEPID of their mentor reported in SR34",
+      "description": "See EPIMS data handbook for list of job classifications where mentor MEPID (SR34) is required for staff in their first year of experience.\n\nCommonwealth Charters and collaboratives may report 99 in SR34 for all staff",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR34",
+        "SR38"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7420",
+      "collection": "EPIMS",
+      "title": "The MEPID submitted in SR34 cannot be the MEPID of the beginner educator mentee. Please report the MEPID of the educator\\'s mentor",
+      "description": "The MEPID reported in SR34 for a beginner educator cannot be the MEPID of the staff member themselves.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR34"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7430",
+      "collection": "EPIMS",
+      "title": "If staff is not a Beginner Educator (SR38 = 01), then Mentor MEPID (SR34) should be 99",
+      "description": "Mentor MEPID (SR34) should be not applicable if staff is not identified as a beginner educator in SR34",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR34",
+        "SR38"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7440",
+      "collection": "EPIMS",
+      "title": "Invalid Value in SR34 element. Only acceptable values are a valid MEPID or 99",
+      "description": "SR34 must be 99 or represent an active MEPID in the staff directory lookup table.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR34"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS7450",
+      "collection": "EPIMS",
+      "title": "Invalid WA12 and WA17 value combination. FTE (WA12) cannot be .001 for assignments with Term Status (WA17) 01",
+      "description": "Assignments that are in an active term (WA17 value of 01) should have an active FTE value in WA12.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA12",
+        "WA17"
+      ],
+      "object": "StaffEvaluation"
+    },
+    {
+      "code": "EPIMS9000",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Course Term (WA16)",
+      "description": "WA16 must be a valid course term code listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA16"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9010",
+      "collection": "EPIMS",
+      "title": "Future Course Terms (WA16) should not be reported in October",
+      "description": "In October, the following terms (WA16) must not be reported at all: Second Semester (22), Second Trimester (32), Third Trimester (33), Third Quarter (43), Fourth Quarter (44), Third Quinmester (53), Fourth Quinmester (54), and Fifth Quinmester (55).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA16"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9020",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Term Status (WA17)",
+      "description": "WA17 must be a valid term status code listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA17"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9030",
+      "collection": "EPIMS",
+      "title": "Term Status (WA17=Inactive) invalid with Course Term (WA16)",
+      "description": "In EOY, the following terms (WA16) must be reported as active (WA17=01): full year (01), third trimester (33), second trimester (22), fourth quarter (44), and fifth Quinmester (55).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA16",
+        "WA17"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9040",
+      "collection": "EPIMS",
+      "title": "Term Status (WA17=Active) invalid with Course Term (WA16)",
+      "description": "In EOY, the following terms (WA16) must be reported as inactive (WA17=02): first quarter (41), first semester (21), first trimester (31), and first quinmester (51).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA16",
+        "WA17"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9050",
+      "collection": "EPIMS",
+      "title": "Term Status (WA17=Inactive) invalid with Course Term (WA16)",
+      "description": "In October, the following terms (WA16) must be reported as active (WA17=01): full year (01), first trimester (31), first semester (21), first quarter (41), and first quinmester (51).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA16",
+        "WA17"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9060",
+      "collection": "EPIMS",
+      "title": "EPIMS9060 - Inactive Staff may not be reported in an active assignment.",
+      "description": "Staff reported as inactive (SR09 equals 02, 03 or 04) may not be reported with an active assignment (WA17=01). If the term of the assignment is active, then report WA17 as 03.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "WA17"
+      ],
+      "object": "TermInfo"
+    },
+    {
+      "code": "EPIMS9100",
+      "collection": "EPIMS",
+      "title": "Invalid Class Section (WA11)",
+      "description": "WA11 must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA11"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9110",
+      "collection": "EPIMS",
+      "title": "Class Section (WA11) invalid",
+      "description": "An alphanumeric string of 20 characters or less. Special characters other than hyphen, space, parentheses, underscore, forward slash and period are not acceptable. If no class section is required, the code \"0\" should be entered in this field.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA11"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9120",
+      "collection": "EPIMS",
+      "title": "Class Section (WA11) must be reported for teachers in grades PK--12",
+      "description": "If Job Classification (WA07) = 2305, 2306, 2307, 2308, 2310, or 2325, and Grade (WA09) = PK--12, K01, 0102, 88 or 99 then WA11 must not equal 0 (Not Applicable).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA09",
+        "WA11"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9130",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Grade (WA09)",
+      "description": "WA09 must be a valid grade code listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA09"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9140",
+      "collection": "EPIMS",
+      "title": "Grade (WA09) must be reported for teachers",
+      "description": "If Job Classification (WA07) = 2305, 2306, 2307, 2308, 2310, or 2325, then WA09 must not equal 00 (Not Applicable).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA09"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9150",
+      "collection": "EPIMS",
+      "title": "Grade (WA09) not valid with Subject Area/Course (WA10)",
+      "description": "If WA09 = 00, then WA10 has to be 00000 and if WA09 does not equal to 00, then WA10 must not equal to 00000. If WA10 does not equal 00000, then WA09 must not equal 00.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA09",
+        "WA10"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9160",
+      "collection": "EPIMS",
+      "title": "Number of records with Grade (WA09) equaling 88 or 99 exceeds limit",
+      "description": "The number of work assignment records a district submits where the grade is identified as multiple or all (WA09 = 88 or 99) for teachers (WA07 = 2305 or 2307) cannot exceed a reasonable rate (30%)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA09"
+      ],
+      "object": "SectionInfo"
+    },
+    {
+      "code": "EPIMS9400",
+      "collection": "EPIMS",
+      "title": "Invalid/Missing Teacher/Paraprofessional Assignment (WA08)",
+      "description": "WA08 must be a valid assignment code listed in the EPIMS Data Handbook. It must not be blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9410",
+      "collection": "EPIMS",
+      "title": "Not Applicable work assignment (WA08) not applied as required",
+      "description": "If WA07 = 2305, 2306, 2307, 2308, 2310, 2325, or 4100, then WA08 cannot be 000 (not applicable), and if WA08 = 000, then WA07 cannot be 2305, 2306, 2307, 2308, 2310, 2325, or 4100.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9420",
+      "collection": "EPIMS",
+      "title": "Support Content work assignment (WA08) not applied as required",
+      "description": "If WA07 = 2310, then WA08 must equal one of the following codes: 005, 006, 012, 014, 020, 208--304, 215 and if WA08 = 005, 006, 012, 014, 020, 215, then WA07 must equal 2310 or 2325.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9430",
+      "collection": "EPIMS",
+      "title": "Core work assignment (WA08) not applied as required",
+      "description": "If WA10 represents a core course code, then WA08 must either be a core assignment code (001-020) or an instructional paraprofessional code (401-405). If WA08 is a core assignment code (001-020), then WA10 must be a core course.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08",
+        "WA10"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9440",
+      "collection": "EPIMS",
+      "title": "Paraprofessional work assignment (WA08) not applied as required",
+      "description": "If WA07 = 4100, then WA08 must equal 401-- 406, and if WA08 = 401-- 406, then WA07 must equal 4100.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA07",
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9450",
+      "collection": "EPIMS",
+      "title": "Title I School Type invalid for Assignment (WA08)",
+      "description": "If a school does not have a Title I targeted assistance or school-wide program, then WA08 cannot be 401 (Title I paraprofessional).",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9460",
+      "collection": "EPIMS",
+      "title": "A virtual-only school may not report traditional classroom teachers (WA07=2305 or 2306)",
+      "description": "If WA06 is a virtual school, then it cannot report 2305, 2306 for a work assignment.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA06",
+        "WA07"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9470",
+      "collection": "EPIMS",
+      "title": "No Work Assignments reported with EL assignment codes for the District. Please reach out to Data Collection Support.",
+      "description": "Please review the WA08 assignment codes to make sure that any EL assignments are reported with the correct WA08 value. If the data is correct, please reach out to the Data Collection for an exception.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9480",
+      "collection": "EPIMS",
+      "title": "No Work Assignments reported with SPED assignment codes for the District. Please reach out to Data Collection Support.",
+      "description": "Please review the WA08 assignment codes to make sure that any Special Ed assignments are reported with the correct WA08 value. If the data is correct, please reach out to the Data Collection for an exception.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "WA08"
+      ],
+      "object": "StaffSectionAssignment"
+    },
+    {
+      "code": "EPIMS9900",
+      "collection": "EPIMS",
+      "title": "Data elements discontinued (SR35), should be 99.",
+      "description": "SR35 has been discontinued. \"Not Applicable\" (99) should be reported for all staff.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR35"
+      ],
+      "object": "Discontinued Elements"
+    },
+    {
+      "code": "EPIMS9910",
+      "collection": "EPIMS",
+      "title": "Data elements discontinued (WA13, WA14, WA15), should be 99.",
+      "description": "WA13, WA14 & WA15 have been discontinued. \"Not Applicable\" (99) should be reported for all staff.\n\nSIF Validations\n\nIn addition to the EPIMS validations mentioned, LEAs submitting their EPIMS data via SIF will have their data validated with some enhanced rules. These are designed to assist in diagnosing the cause of certain errors as well enhance the quality of the data by utilizing data elements which are unavailable to those submitting via flat file.\n\n## SIF1105 - SchoolCourseInfo SchoolInfoRefId is missing\n\nObject: SchoolCourseInfo\n\nElement: SchoolInfoRefId\n\nA SchoolCourseInfo object has been received which references a school for which a SchoolInfo object has not been received.\n\n## SIF1117 - SchoolInfo LeaInfoRefId is missing\n\nObject: SchoolInfo\n\nElement: LEAInfoRefId\n\nA SchoolInfo object has been received which with a missing LEAInfoRefId element.\n\n## SIF1118 - SchoolInfo LeaInfoRefId is unknown\n\nObject: SchoolInfo\n\nElement: LEAInfoRefId\n\nA SchoolInfo object has been received which with an invalid LEAInfoRefId element.\n\n## SIF1119 - TermInfo SchoolInfoRefId is missing\n\nObject: TermInfo\n\nElement: SchoolInfoRefId\n\nA TermInfo object has been received with no SchoolInfoRefId.\n\n## SIF1120 - TermInfo SchoolInfoRefId is unknown\n\nObject: TermInfo\n\nElement: SchoolInfoRefId\n\nA TermInfo object has been received which references a school for which a SchoolInfo object has not been received.\n\n## SIF1141 - Invalid/Missing Leave Start Date\n\nObject: EmploymentRecord\n\nElement: LeaveStartDate\n\nLeave Start Date must be in YYYY-MM-DD standard SIF format.\n\n## SIF1142 - LeaveStartDate value cannot be blank when SR09 is 02 or 03.\n\nObject: EmploymentRecord\n\nElement: LeaveStartDate\n\nIf SR09 employment status is 02 or 03 (on leave), then LeaveStartDate must be populated\n\n## SIF1143 - SR09 cannot be 01 or 05 when LeaveStartDate value is prior to collection start date.\n\n## Object: EmploymentRecord\n\nElement: LeaveStartDate\n\nIf LeaveStartDate is populated, then the SR09 employment status value should be 02 or 03 (on leave).\n\n## SIF1164 - StaffAssignment missing StaffPersonal\n\nObject: StaffAssignment\n\nElement: StaffPersonalRefId\n\nNo StaffPersonal record can be found for a submitted StaffAssignment record.\n\n## SIF1165 - StaffSectionAssignment missing StaffPersonal\n\nObject: StaffSectionAssignment\n\nElement: StaffInfoRefId\n\nA StaffSectionAssignment object has been received which references a staff for whom a StaffPersonal object has not been received.\n\n## SIF1166 - Teaching StaffAssignment missing StaffSectionAssignment with matching role\n\nObject: StaffAssignment\n\nElement: StaffAssignment/JobFuntion/OtherCode & StaffSectionAssignment/Role\n\nA StaffSectionAssignment object has not been received with a teaching role to match a StaffAssignment with a teaching function.\n\n## SIF1167 - Multiple primary assignments\n\nObject: StaffAssignment\n\nElement: StaffAssignment/PrimaryAssignment\n\nOnly one active StaffAssignment may have the PrimaryAssignment flag set to Yes.\n\n## SIF1169 - StaffPersonal missing StaffAssignment\n\nObject: StaffAssignment\n\nElement: StaffPersonalRefId\n\nNo StaffAssignment can be found for a staff member's StaffPersonal record.\n\n## SIF1170 - StaffSectionAssignment missing StaffAssignment with matching JobFunction\n\nObject: StaffSectionAssignment\n\nElement: Roles/Role\n\nStaffSectionAssignments must have a corresponding StaffAssignment with a JobFunction which matches the role reported.\n\n## SIF1172 - EmploymentRecord missing LEAInfo\n\nObject: EmploymentRecord\n\nElement: LEAInfoRefId\n\nAn EmploymentRecord object has been received which with a missing LEAInfoRefId element.\n\n## SIF1188 - SectionInfo with StudentSectionEnrollments but no StaffSectionAssignments\n\nObject: StaffSectionAssignment\n\nElement: SectionInfoRefId\n\nA StaffSectionAssignment object has not been received which references a SectionInfo object, implying that there is no teacher for the section.\n\n## SIF1189 - SectionInfo with StaffSectionAssignments but no StudentSectionEnrollments\n\nObject: SectionInfo\n\nElement: StudentSectionEnrollment/SectionInfoRefId\n\nA staffed course section exists, but no students have been enrolled in it.\n\n+--------+-------+----------------------------------------------------+ | Ver | * | Description** | | sion** | *Date | | | | of | | | | Cha | | | | nge** | | +========+=======+====================================================+ | 9.9 | 10/1 | Added 6208,9500,9510,9520,7450, 9470,9480. Updated | | | /2025 | 6760. | +--------+-------+----------------------------------------------------+ | 9.8 | 3/25 | Added 7440 | | | /2025 | | +--------+-------+----------------------------------------------------+ | 9.7 | 10/1 | Added SIF1141, SIF1142, SIF1143. Added 6860. Added | | | /2024 | 6625, 6626 | +--------+-------+----------------------------------------------------+ | 9.6 | 10/3 | Added 7410,7420,7430 | | | /2022 | | +--------+-------+----------------------------------------------------+ | 9.04 | 05/ | Updated 3910, 3930, 3950, 6740, 6750 | | | 01/19 | | | | | Added 9060 | +--------+-------+----------------------------------------------------+ | 9.03 | 02/ | Added SIF1164,SIF1166,SIF1167.SIF1188 & SIF1189 | | | 15/19 | | +--------+-------+----------------------------------------------------+ | 9.02 | 8/ | Deprecated 6040 | | | 17/18 | | | | | Updated 4000, 6600, 6610 | | | | | | | | Added 6615 | +--------+-------+----------------------------------------------------+ | 9.01 | 4/5 | Added missing documentation for 6605 & 7275 | | | /2018 | | +--------+-------+----------------------------------------------------+ | 9.00 | 12/ | SIF Renumber | | | 11/17 | | +--------+-------+----------------------------------------------------+ | 8.00 | 09/ | Deleted 2032, 2046, 2106, 2107, 2108, 2114, 6028, | | | 01/17 | 6047, 6096, 6109, 6113, 6114, 6124, 6142, 6161, | | | | 6162, 6163, 6172, 6176, 6178, 6218, 6219, 6220, | | | | 6227, 6280 & 6292 | | | | | | | | Renumbered 6266 to [6083](#EPIMS6083), 6268 to | | | | [6 | | | | 085](#epims7290---overall-summative-rating-sr29-in | | | | valid-with-standard-1-ratings-sr30-administrators) | | | | | | | | Added: | | | | [0600](#epims9900---data-elements-disco | | | | ntinued-sr35-should-be-99.),[0905](#_0905_—_Data), | | | | [6049](#_6049_-_Date), [6050](#_6050_-Date_of), | | | | [6055](#_6055_-_Date), [6056](#_6056_-_Date), | | | | [6235](#_6235_-_Expected), | | | | [6255](#_6255_-Invalid_Summative/Formative) | +--------+-------+----------------------------------------------------+ | 7.00 | 05/ | Deleted 6078,6080,6082,6084 which refer to | | | 04/16 | discontinued SR35 | +--------+-------+----------------------------------------------------+ | 6.02 | 10/ | Added [2048](#_2048_–_Invalid) | | | 01/15 | | +--------+-------+----------------------------------------------------+ | 6.01 | 8/ | Deleted 6060 & 6062 | | | 16/15 | | | | | Restricted [6086](#_6086-If_the_Overall) and | | | | [6252](#epims6160---teac | | | | hers-must-report-professional-teacher-status-sr28) | | | | to non-charter districts | | | | | | | | Restricted [6238](#_6238_—_SR28), | | | | [6242](#_6242_—_Summative/Formative), | | | | [6272](#epims7300---administrators-m | | | | ay-only-be-evaluated-with-administrative-ratings.) | | | | & | | | | [6274](#epims7310---non-administrators-may-o | | | | nly-be-evaluated-with-non-administrative-ratings.) | | | | to EOY collection | | | | | | | | Renumbered 6264 to [6079](#_6079_—_Overall) and | | | | made it a step 1 validation | | | | | | | | Renumbered 6265 to | | | | [6081](#epims7250---overall-summative-ra | | | | ting-sr29-invalid-with-standard-ratings-sr30-sr33) | | | | and made it a step 1 validation | | | | | | | | Added | | | | [6284](#epims732 | | | | 0---eoy-non-administrative-rating-in-sr29-may-not- | | | | be-re-characterized-as-administrative-in-october), | | | | [6286](#epims733 | | | | 0---eoy-administrative-rating-in-sr29-may-not-be-r | | | | e-characterized-as-non-administrative-in-october), | | | | [6288](#epims7340---evaluation-data-may-only-be-re | | | | ported-in-october-if-it-is-an-update-to-eoy-data.) | | | | & [6290](#_6290-A_\"Not_Evaluated\" ) | +--------+-------+----------------------------------------------------+ | 6.0 | 8/ | Deleted 6064-6070, 6244-6249, 6256-6262 | | | 15/15 | | | | | Updated text for | | | | [6074](#_6074_–Evaluation_Fields), | | | | [6250]( | | | | #epims7270---invalid-evaluation-rating-sr29-check- | | | | that-evaluation-date-is-in-current-calendar-year.) | | | | | | | | Removed references to RTTT from | | | | [6254](# | | | | epims7270---invalid-evaluation-rating-sr29-check-t | | | | hat-evaluation-date-is-in-current-calendar-year.), | | | | [6270](#_6270_—_Educator) | | | | | | | | Added | | | | [6282](#epims73 | | | | 20---eoy-non-administrative-rating-in-sr29-may-not | | | | -be-re-characterized-as-administrative-in-october) | +--------+-------+----------------------------------------------------+ | 5.2 | 5/ | Updated [EPIMS2032](#_2032_-_Invalid) to allow for | | | 15/15 | reporting SR34 | | | | | | | | Added | | | | [EPIMS6280](#epims73 | | | | 20---eoy-non-administrative-rating-in-sr29-may-not | | | | -be-re-characterized-as-administrative-in-october) | | | | | | | | Added | | | | [EPIMS6252](#epims6160---teac | | | | hers-must-report-professional-teacher-status-sr28) | +--------+-------+----------------------------------------------------+ | 5.1 | 2 | Consolidated 6049 & 6050 into 6028 (existing | | | /4/15 | validation) | | | | | | | | Consolidated 6055 & 6056 into 6054 (existing | | | | validation) | +--------+-------+----------------------------------------------------+ | 5.0 | 08/ | Changed header of | | | 27/14 | [6128](#ep | | | | ims9460---a-virtual-only-school-may-not-report-tra | | | | ditional-classroom-teachers-wa072305-or-2306)-6130 | | | | | | | | Deleted 6131-6141, 6145 which have been | | | | consolidated in new validations | | | | | | | | Added [6174](#_6174_-_Core), [6176](#_6176_-_HQ), | | | | [6178](#_6178_-_SMC) | | | | | | | | [6129](#epims9420---support-con | | | | tent-work-assignment-wa08-not-applied-as-required) | | | | -- added 2325 to valid WA07 codes | | | | | | | | [6076](#epims7220---ratings-must-be-all-summative) | | | | -- changed header and updated documentation | | | | | | | | [6077](#epims7230---ratings-must-be-all-formative) | | | | -- added documentation to existing validation. | | | | | | | | [6266](#_6266_—_Overall), [6268](#_6268_—_Overall) | | | | corrected typo in description. Changed \"or\" to | | | | \"through\" | +--------+-------+----------------------------------------------------+ | 4.1 | 05/ | Added validations 2046, 6076, 6078, 6080, | | | 12/14 | 6082,6084, 6272, 6274, 6276, 6086, 6090, 6092, | | | | 6094, 6096 & 6098 | | | | | | | | Altered validations 6242 & 6254 to exclude certain | | | | classifications | +--------+-------+----------------------------------------------------+ | 4.0 | 08/ | 6060-6072 Removed RTTT restrictions and added | | | 20/13 | collection period restrictions | | | | | | | | 6118 Added parentheses, underscore and forward | | | | slash to allowable values | +--------+-------+----------------------------------------------------+ | 3.3 | 05/ | Modified 6072 to apply to all charter schools | | | 15/13 | | | | | Removed 6252 as it is not needed | +--------+-------+----------------------------------------------------+ | 3.2 | 05/ | Added: 2034 to 2044; 6074 | | | 10/13 | | | | | Modified 6254 to 6262, 6266 | +--------+-------+----------------------------------------------------+ | 3.2 | 04/ | Added validation 6238, 6072 | | | 23/13 | | +--------+-------+----------------------------------------------------+ | 3.1 | 04/ | Added validations 2032, 6060, 6062, 6064, 6066, | | | 19/13 | 6068, 6070, 6240, 6242, 6244, 6246, 6248, 6249, | | | | 6250, 6252, 6254, 6256, 6258, 6260, 6262, 6264, | | | | 6265, 6266, 6268, 6270 | +--------+-------+----------------------------------------------------+ | 3.0 | 09/ | Prepared for FY13 with new docx format, version & | | | 30/12 | date | | | | | | | | Added: Validation 6051-6056 for SR27 | +--------+-------+----------------------------------------------------+ | 2.1 | 01/ | Reviewed and prepared for posting. Changed date. | | | 26/12 | | +--------+-------+----------------------------------------------------+ | 2.0 | 11/ | Added 6234 | | | 15/11 | | | | | Updated 6113, 6142, 6164, 6168, 6224 | | | | | | | | Expiring WA10=73028 | +--------+-------+----------------------------------------------------+ | 2.0 | 09/ | Updated: | | | 27/11 | | | | | 6113 - If Assignment (WA08) = 001and Subject | | | | Area-Course (WA10) = 73028 or 73029 or 73030 | | | | or 73031 or 73032 or 73033 or 73034 or 73035 or | | | | 73036 or 73037 or 73038 or 73039 or 73041, then | | | | WA15 must not equal 03--06. WA15 codes 03--06 are | | | | only valid for secondary school teachers and | | | | non-generalists. | +--------+-------+----------------------------------------------------+ | 2.0 | 09/ | Updated: | | | 26/11 | | | | | 6142 -- If WA08 = 000 or 406 and | | | | WA07\\<\\>3323, then WA09 must equal 00 AND WA10 | | | | must equal 00000 AND WA11 must equal 0 AND WA13 | | | | must equal 00 AND WA14 must equal 00 AND WA15 must | | | | equal 00. | | | | | | | | 6224 -- Staff receiving Title I funding (SR12 | | | | or SR14 or SR16) must be reported in at least one | | | | Title 1 school. | +--------+-------+----------------------------------------------------+ | 2.0 | 09/ | Sent for posting. | | | 20/11 | | | | | Updated 6001. Removed \"non-exited\" from rule. | +--------+-------+----------------------------------------------------+ | 1.2 | 09/ | Updated: | | | 12/11 | | | | | 6164 -- rework syntax, put codes in order, and | | | | deleted redundant second sentence. | | | | | | | | 6165 -- deleted redundant second sentence. | | | | | | | | 6167 -- deleted redundant second sentence. | | | | | | | | 6225 -- added \"or 2308\". | +--------+-------+----------------------------------------------------+ | 1.2 | 09/ | **Updated guide with EPIMS Step 1 validations for | | | 09/11 | October 2011:** | | | | | | | | Updated validations: 2106, 6101, 6103, 6105, | | | | 6113, 6114, 6117, 6124, 6125, 6126, 6128, 6130, | | | | 6131, 6132, 6133, 6134, 6141, 6142, 6144, 6146, | | | | 6148, 6150. | | | | | | | | New validations: 6160, 6161, 6162, 6163, 6164, | | | | 6165, 6166, 6167, 6172. | | | | | | | | **Updated guide with EPIMS Step 2 validations for | | | | October 2011.** | | | | | | | | Updated validations: 6202, 6214, 6221, 6225, | | | | 6226, 6227, 6229. | | | | | | | | New validations: 6232, 6233. | +--------+-------+----------------------------------------------------+ | 1.12 | 07/ | Added one new rule: | | | 28/11 | | | | | 6220 -- HQ Status for MEPID, Subject Area | | | | Course Code, Job Assignment and Grade must be | | | | consistent within each inactive term. | | | | | | | | Modified one rule: | | | | | | | | 6219 -- HQ Status for MEPID, Subject Area | | | | Course Code, Job Assignment and Grade must be | | | | consistent across all active terms. | +--------+-------+----------------------------------------------------+ | 1.12 | 06/ | Added one new rule: | | | 29/11 | | | | | **6050 -- Date of Hire (SR11) must be on or prior | | | | to the EOY close date for a Collaborative.** | | | | | | | | In EOY, SR11 must be on or prior to the EOY close | | | | date and must reflect no more than 82 years of | | | | service. | | | | | | | | Modified two rules: | | | | | | | | **6028 - Date of Hire (SR11) must be on or prior | | | | to the date of collection in October.** | | | | | | | | In October, SR11 must be on or prior to date of | | | | collection (usually October 1, of the collection | | | | year) and must reflect no more than 82 years of | | | | service. | | | | | | | | **6204 --- Total of FTE cannot be greater than 1.5 | | | | for an educator per term.** | | | | | | | | The sum of FTE (WA12) for all the records with the | | | | same MEPID, must be less than or equal to 1.5 for | | | | each inactive course term except for Multiple | | | | Quarters (45), Multiple Non-consecutive Quarters | | | | (46), Multiple Quinmesters (56), Multiple | | | | Non-Consecutive Quinmesters (57), Multiple | | | | Mini-terms (78) and Multiple Non-Consecutive | | | | Mini-Terms (79). | +--------+-------+----------------------------------------------------+ | 1.12 | 06/ | Added a new rule: | | | 23/11 | | | | | 6049 --- Date of Hire (SR11) must be on or prior | | | | to the EOY close date | | | | | | | | In EOY, SR11 must be on or prior to the district's | | | | EOY close date and must reflect no more than 82 | | | | years of service. | +--------+-------+----------------------------------------------------+ | 1.11 | 04/ | Modified Validations: | | | 29/11 | | | | | 6037 -- removed \"non-exited\" text | | | | | | | | 6038 - removed \"non-exited\" text | | | | | | | | 6039 - removed \"non-exited\" text | | | | | | | | 6045 -- change \"82\" to \"90\" years of age | | | | | | | | 6203 -- If SR09=01, must have at least one | | | | work assignment record in an active term. | | | | | | | | 6215 -- removed \"period's\" text | | | | | | | | 6224 -- Staff receiving Title I funding (SR13, | | | | SR15, or SR17) must be reported in at | | | | least one Title I school. | | | | | | | | 6225 -- replaced | | | | | | | | 6226 -- replaced | | | | | | | | 6229 -- replaced | +--------+-------+----------------------------------------------------+ | 1.10 | 03/ | Modified Validations: | | | 21/11 | | | | | 6001 -- added 'for a non-exited MEPID' text | | | | | | | | 6037 -- replaced 'the' with 'a non-exited' text | | | | | | | | 6038 -- replaced 'the' with 'a non-exited' text | | | | | | | | 6039 -- replaced 'the' with 'a non-exited' text | | | | | | | | 6040 -- replaced 'the' with 'a non-exited' text | | | | | | | | 6224 -- | | | | | | | | Replaced: | | | | | | | | > **6224 -- Not Title I school (WA06)/ Title I | | | | > staff reported** | | | | > | | | | > If a school (WA06) is not Title I, then staff | | | | > roster records should not be reported with Title | | | | > I Federal salary source values in SR12 or SR14 | | | | > or SR16. | | | | | | | | With: | | | | | | | | > **6224 - Staff Reported with Title I funding | | | | > should work in Title I school(s) (WA06)** | | | | > | | | | > Staff reported with Title I funding (SR13 or | | | | > SR15 or SR17) should be reported with at least | | | | > one Title I school. | | | | | | | | 6206 -- Replaced 'ONLY' with 'EXACTLY'; Added 'and | | | | existence' to second sentence. | | | | | | | | 6215 -- Replaced 'year's' with 'period's' in | | | | definition. | | | | | | | | Added New Validation 6229 - The number of | | | | Co-Teaching assignment records (WA07=2306) | | | | reported for a class must not equal 1. | | | | | | | | De-Activated and removed Validations 6216 and | | | | 6217. | +--------+-------+----------------------------------------------------+ | 1.9 | 01/ | Added new WA validation: | | | 06/11 | | | | | 6157 -- Future Course Terms (WA16) should not be | | | | reported in October. | +--------+-------+----------------------------------------------------+ | 1.8 | 12/ | Modified the following WA validation: | | | 20/10 | | | | | 6205 - Total of FTE (WA12) cannot be greater than | | | | 1.5 for an educator for all active terms. | | | | | | | | Added the following WA validation: | | | | | | | | 6204 - Total of FTE cannot be greater than 1.5 for | | | | an educator for any term. | +--------+-------+----------------------------------------------------+ | 1.8 | 11/ | Added the following new (WA) validations: | | | 10/10 | | | | | 6154 | | | | | | | | 6155 | | | | | | | | 6156 | | | | | | | | Modified the following (WA) validations: | | | | | | | | 6211 -- added - There must be exactly one WA | | | | record in a single active period... | | | | | | | | 6212 -- added -- There must be one or more WA | | | | records for all active periods... | | | | | | | | 6213 -- added -- There must be exactly one WA | | | | record in a single active period... | +--------+-------+----------------------------------------------------+ | 1.7 | 09/ | Updated cover with current date and new revision. | | | 24/10 | | | | | Removed PILOT Watermark. | | | | | | | | Code 6144 -- removed 020 from rule. | | | | | | | | Code 6146 -- removed 014 from the rule. | | | | | | | | Code 6126 -- removed 'invalid' and replaced with | | | | 'required'. | | | | | | | | Code 6151 -- de-activated. | | | | | | | | Code 6152 -- de-activated. | | | | | | | | Code 6048 -- new rule added. | | | | | | | | Code 2114 -- fixed line and heading. | | | | | | | | Code 6205 -- fixed line and heading. | | | | | | | | Replaced all instances of Courier New, 10pt., with | | | | Times New Roman, 12pt. throughout. | | | | | | | | Fixed pagination. | | | | | | | | Removed extra page. | +--------+-------+----------------------------------------------------+ | 1.6 | 07/ | Fixed error in description for 6026, which now | | | 06/10 | reads: | | | | | | | | Do not use Degree Type 3 (SR24), with Degree | | | | Institution 3 (SR25) or Degree Subject 3 (SR26) | | | | (B). | +--------+-------+----------------------------------------------------+ | 1.5 | 06/ | Reformatted the EPIMS Validation Rules and Error | | | 29/10 | List in our standard template, with Revision | | | | History. | | | | | | | | Incorporated modified rule for 6045 - DOB cannot | | | | be less than 14 years old or more than 82 years | | | | old when hired. | +--------+-------+----------------------------------------------------+ | 1.4 | 06/ | Under Errors for Step 2: Validate Data, updated | | | 04/10 | text for modified rule 6226 and new rule 6228. | +--------+-------+----------------------------------------------------+",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "SR09",
+        "SR11",
+        "SR12",
+        "SR13",
+        "SR14",
+        "SR15",
+        "SR16",
+        "SR17",
+        "SR24",
+        "SR25",
+        "SR26",
+        "SR27",
+        "SR34",
+        "SR35",
+        "WA06",
+        "WA07",
+        "WA08",
+        "WA09",
+        "WA10",
+        "WA11",
+        "WA12",
+        "WA13",
+        "WA14",
+        "WA15",
+        "WA16"
+      ],
+      "object": "Discontinued Elements"
+    }
+  ],
+  "fields": [
+    {
+      "description": "A name given to an individual at birth, during a naming ceremony, or through legal change.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": null,
+      "sif_element": null,
+      "field_id": "ID01",
+      "name": "First Name",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A secondary name given to an individual at birth, during a naming ceremony, or through legal change. If none exists, the code \"NMN\" (No Middle Name) should be entered in the field.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The individual's middle name or initial or NMN for those individuals with no middle name. The only special characters allowed in this field are the hyphen, apostrophe, and space. Periods following a middle initial will not be accepted.",
+      "related_elements": null,
+      "notes": "Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts. The middle name or middle initial must match the middle name or middle initial entered in all subsequent staff roster and work assignment records.",
+      "sif_object": null,
+      "sif_element": null,
+      "field_id": "ID02",
+      "name": "Middle Name / Middle Initial",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The name borne in common by members of a family.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": null,
+      "sif_element": null,
+      "field_id": "ID03",
+      "name": "Last Name",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The month, day, and year in which an individual was born.",
+      "type": "Date",
+      "min_length": 10,
+      "max_length": 10,
+      "acceptable_values": "Format must be mm/dd/yyyy.",
+      "related_elements": null,
+      "notes": "Individuals must be sixteen years old or older.",
+      "sif_object": null,
+      "sif_element": null,
+      "field_id": "ID04",
+      "name": "Date of Birth",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The gender identity of an individual.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 1,
+      "acceptable_values": "Not case sensitive  F Female --- Individual identifies as a girl or a woman.  M Male --- Individual identifies as boy or a man.  N Nonbinary -- Individual does not identify as just female or male.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": null,
+      "sif_element": null,
+      "field_id": "ID05",
+      "name": "Gender",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The number assigned by the Massachusetts Department of Elementary and Secondary Education at the time the individual received their license. This data element is used to match certified staff to their licensure information maintained in the Educator Licensure and Recruitment (ELAR) database. The value of this field is \"Not Applicable\" for staff not licensed by DESE.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 20,
+      "acceptable_values": "ELAR License Number  OR  When the employee does not have an ELAR License, then report:  00 = Not Applicable",
+      "related_elements": null,
+      "notes": "The license number entered in an individual's staff roster record (SR03) must match the license number associated with their MEPID in MEPID Management.",
+      "sif_object": null,
+      "sif_element": null,
+      "field_id": "ID06",
+      "name": "License / Certification Number",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A number used at the local district to identify an employee. If districts do not use local employee numbers or do not have local employee numbers for all personnel reported in EPIMS, the \"not applicable\" code should be used.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 20,
+      "acceptable_values": "An alphanumeric string 20 characters or less. Special characters other than the hyphen are not acceptable. Due to security concerns and confidentiality requirements, districts should not use social security numbers for their local employee numbers.\n0 = Not Applicable",
+      "related_elements": "SCS07 Course Term",
+      "notes": "Primary use of this field is to simplify the MEPID import process for districts.  ## Staff Roster Data Elements {#staff-roster-data-elements .unnumbered}  1. Massachusetts Education Personnel Identifier (MEPID)  A unique number assigned to an individual by the Massachusetts Department of Elementary and Secondary Education.  The MEPID is the primary key that links the staff roster record to the work assignment record and to an individual's identifying characteristics entered in MEPID Management.  Primary use of this field is to simplify the ability to review and edit the staff roster for districts.  The license number entered in an individual's staff roster record must match the license number associated with their MEPID in MEPID Management.  The first name must match the first name entered in the work assignment record and to assign the MEPID in MEPID Management.  Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts.  Individuals must be sixteen years old or older.  *Employment Status* and *Reason for Exit* fields are cross-checked. Only if an individual is coded as \"exited\" should there be a code designating a reason for exit in the *Reason for Exit* field. For all others, the *Reason for Exit* field should be coded as \"not applicable.\"  *Employment Status* and *Exit Date* fields are cross-checked. If an individual is coded as \"exited\" there must be a valid date in the *Exit Date* field.  If an individual is coded as \"exited\", one or more complete work assignment records must be reported for the work assignment(s) the employee held prior to exiting.  *Reason for Exit* and *Employment Status* fields are cross-checked. If an individual is coded here with a reason for having exited, in other words, anything other than \"not applicable,\" the code in the preceding field for *Employment Status* must be for \"exited.\"  Date must be prior to collection date.  If an individual was hired as a paraprofessional but has since been re-assigned to a teaching position, the date he or she was hired as a paraprofessional is the date used.  If an individual was hired in the district and subsequently exited the district, then later was re-employed in the district, the latter date is used.  The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 1* is associated with *Percent of Federal Salary Source 1.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 1*.  This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 1*, there should be an appropriate percent entered here.  The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 2* is associated with *Percent of Federal Salary Source 2.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 2*.  This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 2*, there should be an appropriate percent entered here.  The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 3* is associated with *Percent of Federal Salary Source 3.* If a code for a specific federal salary source is used, a number other than zero must be entered in *Percent of Federal Salary Source 3*.  This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 3*, there should be an appropriate percent entered here.  *Degree Type 1* is associated with *Degree Institution 1* and *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"  *Degree Institution 1* is associated with *Degree Type 1* and with *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"  *Degree Subject 1* is associated with *Degree Type 1* and with *Degree Institution 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"  *Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"  *Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"  *Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"  *Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"  *Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"  *Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"  The date reported in this field must be greater than SR11 (Date of Hire) and less than or equal to the collection date.  If an exit date is reported then the value of SR09 must be 04.  If an individual has not exited, then report \"NA\" in this field.  Report 99 if:  - the status is not relevant for a specific educator or  - reporting for a charter school  Professional teacher status should be supplied for all educators. Reference regulations below:  35.08: Performance Level Ratings  > \\(6\\) Professional teacher status, pursuant to G.L. ch. 71, § 41, > should be granted only to educators who have achieved ratings of > proficient or exemplary on each Performance Standard and overall. A > principal considering making an employment decision that would lead to > professional teacher status for any educator who has not been rated > proficient or exemplary on each Performance Standard and overall on > the most recent evaluation shall confer with the superintendent of > schools by May 1. The principal\\'s decision is subject to review and > approval by the superintendent.  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical leave.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.  **To calculate Expected Days of Attendance, subtract any paid vacation days taken from the number of days in the employee's contract year.**  An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.  This element is meant to identify staff who are new to their position in general, not just new to the district. If the staff member has worked in their primary position before (in another district, state etc) then they are not a beginner educator for EPIMS reporting purposes.  The MEPID is the primary key that links any corresponding work assignment records to the staff roster record and to an individual's identifying characteristics entered in MEPID Management.  Primary use of this field is to simplify the ability to review and edit the staff roster for districts.  The first name must match the first name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.  Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts. The middle name or middle initial must match the middle name or middle initial entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.  The last name must match the last name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.  The eight-digit code for the district and/or school where the course is being taught. Each district/school in Massachusetts has an eight-digit code assigned by the ESE. The first four digits represent the district code. The second four digits represent the school code. The last four digits for a district position will equal \"0000.\" A listing of ESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>  Examples of job classifications for which codes are provided:  Superintendent of Schools  Teacher  Occupational Therapist  Librarians  Examples of teacher/paraprofessional assignments for which codes will be provided:  Severe Disabilities Consultative Content Instructors  Secondary Level ESL Teacher  Title I Instructional Paraprofessional  The intended grade for specific courses should be reported. A limited number of records will be accepted with the value of \"88\" and \"99.\"  Value must match course term values reported in SCS07.  Term Definitions Table  ----------------------------------------------------------------------- Term Definition --------------- ------------------------------------------------------- Full school A regular school term consisting of no major year subdivision of time segments. It usually begins in the late summer or early fall and ends in late spring or early summer (e.g., elementary school).  Intersession A short session which occurs between longer sessions.  Mini-term A school term which is shorter than a regular session.  Quarter One of four equal segments into which a school year is divided.  Quinmester One of five equal segments into which a school year is divided.  Semester One of two equal segments into which a school year is divided.  Summer term A school term which takes place in the summer between two regular school terms.  Trimester One of three equal segments into which a school year is divided. -----------------------------------------------------------------------  All non-instructional staff should be reported as code 01 -- FULL  Reporting Courses that Span Multiple Terms  Districts should use the \"X\" term codes (codes 34, 45, 56, and 68) when the length of the course consists of multiple terms, but does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters, but the Advanced Economics course is two trimesters long. In this case, the Course Term for Advanced Economics should be reported as code 34 -- TRIX to indicate that the course covers multiple trimesters.  Reporting Courses that Span Multiple Non-consecutive Terms  Districts should use the \"N\" term codes (codes 35, 46, 57, and 69) when the length of the course consists of multiple non-consecutive terms, and does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters. The World Cultures course is two trimesters long, but is in session during trimesters 1 and 3. In this case, the Course Term for World Cultures should be reported as code 35 -- TRIN to indicate that the course covers multiple non-consecutive trimesters.  The term status for the last term of a collection year should be reported as active in the EPIMS June EOY collection even though the course enrollment status for the course in the SCS collection will be reported as \"completed\" for the corresponding subject-area course and term reported in the SCS. The last term of the year may be a full year term, a fourth quarter term, or any other term that is active until the end of the academic school year.  01 = Active Term -- Use this code to indicate that the assignment is active and that the term is also active or was active at end of year.  02 = Inactive Term - Use this code to indicate that the assignment was active at the end of the term and that the term has completed (except for EOY).  03 = Inactive Assignment - Use this code to indicate that the educator was not active in this assignment at the time of the report or at the end of the term if it was in the past.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "StateProvinceId",
+      "field_id": "ID07",
+      "name": "Local Employee Number",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A unique number assigned to an individual by the Massachusetts Department of Elementary and Secondary Education.",
+      "type": "Numeric",
+      "min_length": 8,
+      "max_length": 8,
+      "acceptable_values": "Eight-digit state-assigned identification number",
+      "related_elements": null,
+      "notes": "The MEPID is the primary key that links the staff roster record to the work assignment record and to an individual's identifying characteristics entered in MEPID Management.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "StateProvinceId",
+      "field_id": "SR01",
+      "name": "Massachusetts Education Personnel Identifier (MEPID)",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A number used at the local district to identify an employee. If districts do not use local employee numbers or do not have local employee numbers for all personnel reported in EPIMS, the \"not applicable\" code should be used.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 20,
+      "acceptable_values": "An alphanumeric string 20 characters or less. Special characters other than the hyphen are not acceptable. Due to security concerns and confidentiality requirements, districts should not use social security numbers for their local employee numbers.  0 = Not Applicable",
+      "related_elements": null,
+      "notes": "Primary use of this field is to simplify the ability to review and edit the staff roster for districts.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "LocalId",
+      "field_id": "SR02",
+      "name": "Local Employee Number",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The number assigned by the Massachusetts Department of Elementary and Secondary Education at the time the individual received their license. This data element is used to match certified staff to their licensure information maintained in the Educator Licensure and Recruitment (ELAR) database. The value of this field is \"Not Applicable\" for staff not licensed by the ESE.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 20,
+      "acceptable_values": "ELAR License Number  OR  When the employee does not have an ELAR License, then report:  00 = Not Applicable",
+      "related_elements": null,
+      "notes": "The license number entered in an individual's staff roster record must match the license number associated with their MEPID in MEPID Management.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "OtherIdList",
+      "field_id": "SR03",
+      "name": "License / Certification Number",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A name given to an individual at birth, during a naming ceremony, or through legal change.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": null,
+      "notes": "The first name must match the first name entered in the work assignment record and to assign the MEPID in MEPID Management.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Name",
+      "field_id": "SR04",
+      "name": "First Name",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A secondary name given to an individual at birth, during a naming ceremony, or through legal change. If none exists, the code \"NMN\" (No Middle Name) should be entered in the field.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The individual's middle name or initial or NMN for those individuals with no middle name.",
+      "related_elements": null,
+      "notes": "Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Name",
+      "field_id": "SR05",
+      "name": "Middle Name / Middle Initial",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The name borne in common by members of a family.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "StaffPersonal",
+      "sif_element": "Name",
+      "field_id": "SR06",
+      "name": "Last Name",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The month, day, and year in which an individual was born.",
+      "type": "Date",
+      "min_length": 10,
+      "max_length": 10,
+      "acceptable_values": "Format must be mm/dd/yyyy.",
+      "related_elements": null,
+      "notes": "Individuals must be sixteen years old or older.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Demographics",
+      "field_id": "SR07",
+      "name": "Date of Birth",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The general racial category or categories that most clearly reflects the individual's recognition of his or her community or with which the individual most identifies.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "A current list of race and ethnicity codes is provided in EPIMS Appendix A.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "StaffPersonal",
+      "sif_element": "Demographics",
+      "field_id": "SR08",
+      "name": "Race-Ethnicity",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The two-digit code that describes an individual's employment status at the time of the collection.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Working -- District Employee  02 = On Paid Leave  03 = On Unpaid Leave  04 = Exited  05 = Working -- Non-District Employee",
+      "related_elements": null,
+      "notes": "*Employment Status* and *Reason for Exit* fields are cross-checked. Only if an individual is coded as \"exited\" should there be a code designating a reason for exit in the *Reason for Exit* field. For all others, the *Reason for Exit* field should be coded as \"not applicable.\"  *Employment Status* and *Exit Date* fields are cross-checked. If an individual is coded as \"exited\" there must be a valid date in the *Exit Date* field.  If an individual is coded as \"exited\", one or more complete work assignment records must be reported for the work assignment(s) the employee held prior to exiting.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR09",
+      "name": "Employment Status at Time of Data Collection",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The two-digit code that describes an individual's reason for no longer being employed by the district.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Not Applicable  01 = Personal  02 = Layoff  03 = Contract Not Continued or Renewed  04 = District Discharge  05 = Death  06 = Retirement  07 = Reason Unknown/Other  08 = Other employment in Pre K--12 public education  09 = Other employment in education  10 = Other employment outside education  11 = Dismissed as a result of an unsatisfactory summative rating on evaluation",
+      "related_elements": null,
+      "notes": "*Reason for Exit* and *Employment Status* fields are cross-checked. If an individual is coded here with a reason for having exited, in other words, anything other than \"not applicable,\" the code in the preceding field for *Employment Status* must be for \"exited.\"",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR10",
+      "name": "Reason for Exit",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The date of an individual's most recent hire in the district.",
+      "type": "Date",
+      "min_length": 10,
+      "max_length": 10,
+      "acceptable_values": "Format must be mm/dd/yyyy.",
+      "related_elements": null,
+      "notes": "Date must be prior to collection date.  If an individual was hired as a paraprofessional but has since been re-assigned to a teaching position, the date he or she was hired as a paraprofessional is the date used.  If an individual was hired in the district and subsequently exited the district, then later was re-employed in the district, the latter date is used.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "HireDate",
+      "field_id": "SR11",
+      "name": "Date of Hire",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "One of potentially multiple federal salary sources (maximum of 3) for an individual. If a source of the funding associated with the individual's salary is a federal grant, enter the specific code for that grant.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "000 = Not Applicable or the appropriate three-character ESE Federal Grant Code  A current list of federal salary source codes is provided in the EPIMS Appendix B.",
+      "related_elements": null,
+      "notes": "The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 1* is associated with *Percent of Federal Salary Source 1.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 1*.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR12",
+      "name": "Federal Salary Source 1",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Percent of an individual's salary paid from the federal grant identified in *Federal Salary Source 1*.  Enter as a decimal to the thousandths (if necessary); e.g., .04, .25, .333, .5... 1.00",
+      "type": "Numeric",
+      "min_length": 2,
+      "max_length": 5,
+      "acceptable_values": "00 = Not Applicable  to 1.00 = Representing 100%",
+      "related_elements": null,
+      "notes": "This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 1*, there should be an appropriate percent entered here.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR13",
+      "name": "Percent of Federal Salary Source 1",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "One of potentially multiple federal salary sources (maximum of 3) for an individual. If a source of the funding associated with the individual's salary is a federal grant, enter the specific code for that grant.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "000 = Not Applicable or the appropriate three-character Federal Grant Code  A current list of federal salary source codes is provided in EPIMS Appendices.",
+      "related_elements": null,
+      "notes": "The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 2* is associated with *Percent of Federal Salary Source 2.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 2*.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR14",
+      "name": "Federal Salary Source 2",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Percent of an individual's salary paid from the federal grant identified in *Federal Salary Source 2*.  Enter as a decimal to the thousandths (if necessary); e.g., .04, .25, .333, .5... 1.00",
+      "type": "Numeric",
+      "min_length": 2,
+      "max_length": 5,
+      "acceptable_values": "00 = Not Applicable  to 1.00 = Representing 100%",
+      "related_elements": null,
+      "notes": "This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 2*, there should be an appropriate percent entered here.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR15",
+      "name": "Percent of Federal Salary Source 2",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "One of potentially multiple federal salary sources (maximum of 3) for an individual. If a source of the funding associated with the individual's salary is a federal grant, enter the specific code for that grant.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "000 = Not Applicable or the appropriate three-character ESE Federal Grant Code  A current list of federal salary source codes is provided in EPIMS Appendices.",
+      "related_elements": null,
+      "notes": "The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 3* is associated with *Percent of Federal Salary Source 3.* If a code for a specific federal salary source is used, a number other than zero must be entered in *Percent of Federal Salary Source 3*.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR16",
+      "name": "Federal Salary Source 3",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Percent of an individual's salary paid from the federal grant identified in *Federal Salary Source 3*.  Enter as a decimal to the thousandths (if necessary); e.g., .04, .25, .333, .5... 1.00",
+      "type": "Numeric",
+      "min_length": 2,
+      "max_length": 5,
+      "acceptable_values": "00 = Not Applicable  to 1.00 = Representing 100%",
+      "related_elements": null,
+      "notes": "This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 3*, there should be an appropriate percent entered here.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR17",
+      "name": "Percent of Federal Salary Source 3",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "One of potentially multiple educational degrees (maximum of 3) achieved by staff who are not certified in ELAR and must be reported in EPIMS.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "000 = Not Applicable: Certified Employee; Data to be collected from ELAR, or Degree Type not required for reported Job Classification.\n001 = Bachelor's (Baccalaureate) degree (e.g., B.A., A.B., B.S.)\n002 = Specialist's degree (e.g., Ed.S.)\n003 = Master's degree (e.g., M.A., M.S., M.Eng., M.Ed., M.S.W., M.B.A., M.L.S.)\n004 = Doctoral (Doctors) degree (e.g., Ph.D., Ed.D.)\n005 = First-professional degree other than JD (e.g., D.C. or D.C.M., D.D.S. or D.M.D., M.D., O.D., D.O., D.Phar., Pod.D. or D.P.M., D.V.M., L.L.B. or M.Div., M.H.L., B.D.)\n007 = Juris Doctor (J.D.)\n008 = Associate's degree\n009 = Some college but no degree\n010 = Post high school formal award, certificate or diploma (more than or equal to one year)\n011 = Post high school formal award, certificate or diploma (less than one year)\n012 = Post high school graduate (Grade 13)\n013 = High school graduate - high school diploma or equivalent\n014 = No high school diploma\n\nNote: the handbook table also lists \"Certificate of Advanced Graduate Study (C.A.G.S.)\" as an additional degree type, but its code number was not legible in the extracted source text (the PDF table's column wrapping made it ambiguous, similar to other tables in this handbook) - verify the exact code against the handbook directly if this value is needed. There is no code 006 in this list; 005 covers all first-professional degrees other than the JD listed above.",
+      "related_elements": null,
+      "notes": "*Degree Type 1* is associated with *Degree Institution 1* and *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR18",
+      "name": "Degree Type 1",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The educational institution from which the individual received the corresponding degree (*Degree Type 1*), or the code for out-of-country institutions.",
+      "type": "Alphanumeric",
+      "min_length": 4,
+      "max_length": 4,
+      "acceptable_values": "The four character codes used by the College Board to identify domestic colleges is provided in EPIMS Appendices.  0000 = Not Applicable  7777 = Foreign Educational Institution  8888 = Other Domestic Educational Institution",
+      "related_elements": null,
+      "notes": "*Degree Institution 1* is associated with *Degree Type 1* and with *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR19",
+      "name": "Degree Institution 1",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The major subject area in which the corresponding degree (*Degree Type 1*) was achieved.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "Please see EPIMS Appendices for the list of degree subject codes.",
+      "related_elements": null,
+      "notes": "*Degree Subject 1* is associated with *Degree Type 1* and with *Degree Institution 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR20",
+      "name": "Degree Subject 1",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "One of potentially multiple educational degrees (maximum of 3) achieved by paraprofessionals, special education, and instructional support staff who are not certified in ELAR and must be reported in EPIMS.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "See *Degree Type 1*",
+      "related_elements": null,
+      "notes": "*Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR21",
+      "name": "Degree Type 2",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The educational institution from which the individual received the corresponding degree (*Degree Type 2*), or the code for out-of-country institutions.",
+      "type": "Alphanumeric",
+      "min_length": 4,
+      "max_length": 4,
+      "acceptable_values": "The four character codes used by the College Board to identify domestic colleges is provided in EPIMS Appendices.  0000 = Not Applicable  7777 = Foreign Educational Institution  8888 = Other Domestic Educational Institution",
+      "related_elements": null,
+      "notes": "*Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR22",
+      "name": "Degree Institution 2",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The major subject area in which the corresponding degree (*Degree Type 2*) was achieved.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "Please see the EPIMS Appendices for the list of degree subject codes.",
+      "related_elements": null,
+      "notes": "*Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR23",
+      "name": "Degree Subject 2",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "One of potentially multiple educational degrees (maximum of 3) achieved by paraprofessionals, special education, and instructional support staff who are not certified in ELAR and must be reported in EPIMS.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "See *Degree Type 1*",
+      "related_elements": null,
+      "notes": "*Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR24",
+      "name": "Degree Type 3",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The educational institution from which the individual received the corresponding degree (*Degree Type 3*), or the code for out-of-country institutions.",
+      "type": "Alphanumeric",
+      "min_length": 4,
+      "max_length": 4,
+      "acceptable_values": "The four character codes used by the College Board to identify domestic colleges are provided in EPIMS Appendices.  0000 = Not Applicable  7777 = Foreign Educational Institution  8888 = Other Domestic Educational Institution",
+      "related_elements": null,
+      "notes": "*Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR25",
+      "name": "Degree Institution 3",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The major subject area in which the corresponding degree (*Degree Type 3*) was achieved.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "Please see the EPIMS Appendices for the list of degree subject codes.",
+      "related_elements": null,
+      "notes": "*Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Extended",
+      "field_id": "SR26",
+      "name": "Degree Subject 3",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The month, day, and year in which an individual exits the district.",
+      "type": "Alphanumeric",
+      "min_length": 10,
+      "max_length": 10,
+      "acceptable_values": "Must be mm/dd/yyyy",
+      "related_elements": null,
+      "notes": "The date reported in this field must be greater than SR11 (Date of Hire) and less than or equal to the collection date.  If an exit date is reported then the value of SR09 must be 04.  If an individual has not exited, then report \"NA\" in this field.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "TerminationDate",
+      "field_id": "SR27",
+      "name": "Exit Date",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Educator's current professional teacher status as determined by district policies. This element should be completed for all staff.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Yes  02 = No  99 = Not Applicable",
+      "related_elements": null,
+      "notes": "Report 99 if:  - the status is not relevant for a specific educator or  - reporting for a charter school  Professional teacher status should be supplied for all educators. Reference regulations below:  35.08: Performance Level Ratings  > \\(6\\) Professional teacher status, pursuant to G.L. ch. 71, § 41, > should be granted only to educators who have achieved ratings of > proficient or exemplary on each Performance Standard and overall. A > principal considering making an employment decision that would lead to > professional teacher status for any educator who has not been rated > proficient or exemplary on each Performance Standard and overall on > the most recent evaluation shall confer with the superintendent of > schools by May 1. The principal\\'s decision is subject to review and > approval by the superintendent.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR28",
+      "name": "District Level Educator's Professional Teacher Status",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Educator's current school year overall Summative Evaluation rating or Formative Evaluation rating defined in 603 CMR 35.00.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Not Evaluated\n01 = Discontinued\n02 = Discontinued\n03 = Discontinued\n04 = Discontinued\n05 = Unsatisfactory - Formative - Teacher\n06 = Unsatisfactory - Summative - Teacher\n07 = Unsatisfactory - Formative - Administrator\n08 = Unsatisfactory - Summative - Administrator\n09 = Needs Improvement - Formative - Teacher\n10 = Needs Improvement - Summative - Teacher\n11 = Needs Improvement - Formative - Administrator\n12 = Needs Improvement - Summative - Administrator\n13 = Proficient - Formative - Teacher\n14 = Proficient - Summative - Teacher\n15 = Proficient - Formative - Administrator\n16 = Proficient - Summative - Administrator\n17 = Exemplary - Formative - Teacher\n18 = Exemplary - Summative - Teacher\n19 = Exemplary - Formative - Administrator\n20 = Exemplary - Summative - Administrator\n99 = Not Applicable",
+      "related_elements": null,
+      "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
+      "sif_object": "StaffEvaluation",
+      "sif_element": "EvaluationHolisticScore",
+      "field_id": "SR29",
+      "name": "Overall Annual Summative Evaluation or Formative Evaluation Rating",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Educator's current school year evaluation rating on Standard (1).",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Not Evaluated\n01 = Discontinued\n02 = Discontinued\n03 = Discontinued\n04 = Discontinued\n05 = Unsatisfactory - Formative - Teacher\n06 = Unsatisfactory - Summative - Teacher\n07 = Unsatisfactory - Formative - Administrator\n08 = Unsatisfactory - Summative - Administrator\n09 = Needs Improvement - Formative - Teacher\n10 = Needs Improvement - Summative - Teacher\n11 = Needs Improvement - Formative - Administrator\n12 = Needs Improvement - Summative - Administrator\n13 = Proficient - Formative - Teacher\n14 = Proficient - Summative - Teacher\n15 = Proficient - Formative - Administrator\n16 = Proficient - Summative - Administrator\n17 = Exemplary - Formative - Teacher\n18 = Exemplary - Summative - Teacher\n19 = Exemplary - Formative - Administrator\n20 = Exemplary - Summative - Administrator\n99 = Not Applicable",
+      "related_elements": null,
+      "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
+      "sif_object": "StaffEvaluation",
+      "sif_element": "EvaluationParts",
+      "field_id": "SR30",
+      "name": "Standard (1) Evaluation Rating",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Educator's current school year evaluation rating on Standard (2).",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Not Evaluated\n01 = Discontinued\n02 = Discontinued\n03 = Discontinued\n04 = Discontinued\n05 = Unsatisfactory - Formative - Teacher\n06 = Unsatisfactory - Summative - Teacher\n07 = Unsatisfactory - Formative - Administrator\n08 = Unsatisfactory - Summative - Administrator\n09 = Needs Improvement - Formative - Teacher\n10 = Needs Improvement - Summative - Teacher\n11 = Needs Improvement - Formative - Administrator\n12 = Needs Improvement - Summative - Administrator\n13 = Proficient - Formative - Teacher\n14 = Proficient - Summative - Teacher\n15 = Proficient - Formative - Administrator\n16 = Proficient - Summative - Administrator\n17 = Exemplary - Formative - Teacher\n18 = Exemplary - Summative - Teacher\n19 = Exemplary - Formative - Administrator\n20 = Exemplary - Summative - Administrator\n99 = Not Applicable",
+      "related_elements": null,
+      "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
+      "sif_object": "StaffEvaluation",
+      "sif_element": "EvaluationParts",
+      "field_id": "SR31",
+      "name": "Standard (2) Evaluation Rating",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Educator's current school year evaluation rating on Standard (3).",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Not Evaluated\n01 = Discontinued\n02 = Discontinued\n03 = Discontinued\n04 = Discontinued\n05 = Unsatisfactory - Formative - Teacher\n06 = Unsatisfactory - Summative - Teacher\n07 = Unsatisfactory - Formative - Administrator\n08 = Unsatisfactory - Summative - Administrator\n09 = Needs Improvement - Formative - Teacher\n10 = Needs Improvement - Summative - Teacher\n11 = Needs Improvement - Formative - Administrator\n12 = Needs Improvement - Summative - Administrator\n13 = Proficient - Formative - Teacher\n14 = Proficient - Summative - Teacher\n15 = Proficient - Formative - Administrator\n16 = Proficient - Summative - Administrator\n17 = Exemplary - Formative - Teacher\n18 = Exemplary - Summative - Teacher\n19 = Exemplary - Formative - Administrator\n20 = Exemplary - Summative - Administrator\n99 = Not Applicable",
+      "related_elements": null,
+      "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
+      "sif_object": "StaffEvaluation",
+      "sif_element": "EvaluationParts",
+      "field_id": "SR32",
+      "name": "Standard (3) Evaluation Rating",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Educator's current school year evaluation rating on Standard (4).",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 = Not Evaluated\n01 = Discontinued\n02 = Discontinued\n03 = Discontinued\n04 = Discontinued\n05 = Unsatisfactory - Formative - Teacher\n06 = Unsatisfactory - Summative - Teacher\n07 = Unsatisfactory - Formative - Administrator\n08 = Unsatisfactory - Summative - Administrator\n09 = Needs Improvement - Formative - Teacher\n10 = Needs Improvement - Summative - Teacher\n11 = Needs Improvement - Formative - Administrator\n12 = Needs Improvement - Summative - Administrator\n13 = Proficient - Formative - Teacher\n14 = Proficient - Summative - Teacher\n15 = Proficient - Formative - Administrator\n16 = Proficient - Summative - Administrator\n17 = Exemplary - Formative - Teacher\n18 = Exemplary - Summative - Teacher\n19 = Exemplary - Formative - Administrator\n20 = Exemplary - Summative - Administrator\n99 = Not Applicable",
+      "related_elements": null,
+      "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
+      "sif_object": "StaffEvaluation",
+      "sif_element": "EvaluationParts",
+      "field_id": "SR33",
+      "name": "Standard (4) Evaluation Rating",
+      "collection": "EPIMS"
+    },
+    {
+      "description": null,
+      "type": "Numeric",
+      "min_length": 2,
+      "max_length": 8,
+      "acceptable_values": "Eight-digit state-assigned identification number  OR  99 = Not Applicable",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "StaffAssignment",
+      "sif_element": "Extended",
+      "field_id": "SR34",
+      "name": "Beginner Educator Mentor",
+      "collection": "EPIMS"
+    },
+    {
+      "description": null,
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "99 = Not Applicable",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "None",
+      "sif_element": "None",
+      "field_id": "SR35",
+      "name": "Discontinued",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Cumulative number of days a staff member has been present (defined as at least half the school day) in the district.",
+      "type": "Integer",
+      "min_length": 1,
+      "max_length": 3,
+      "acceptable_values": "0 -- 261 Number of days  999 Not Applicable (Only valid in October for active staff)",
+      "related_elements": null,
+      "notes": "An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical leave.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR36",
+      "name": "Staff Days of Attendance",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "Cumulative number of days a staff member was expected to be present (defined as at least half the school day) in the district.",
+      "type": "Integer",
+      "min_length": 1,
+      "max_length": 3,
+      "acceptable_values": "0 -- 261 Number of days  999 Not Applicable (Only valid in October for active staff)",
+      "related_elements": null,
+      "notes": "**To calculate Expected Days of Attendance, subtract any paid vacation days taken from the number of days in the employee's contract year.**  An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.",
+      "sif_object": "EmploymentRecord",
+      "sif_element": "Extended",
+      "field_id": "SR37",
+      "name": "Staff Expected Days of Attendance",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "An indicator of whether the staff member is in the first year of experience in their primary job classification",
+      "type": "Integer",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "00 - No  01 - Yes",
+      "related_elements": null,
+      "notes": "This element is meant to identify staff who are new to their position in general, not just new to the district. If the staff member has worked in their primary position before (in another district, state etc) then they are not a beginner educator for EPIMS reporting purposes.",
+      "sif_object": "StaffAssignment",
+      "sif_element": "Extended",
+      "field_id": "SR38",
+      "name": "Beginner Educator Identifier",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A unique number assigned to an individual by the Massachusetts Department of Elementary and Secondary Education.",
+      "type": "Alphanumeric",
+      "min_length": 8,
+      "max_length": 8,
+      "acceptable_values": "Eight-digit state-assigned identification number",
+      "related_elements": null,
+      "notes": "The MEPID is the primary key that links any corresponding work assignment records to the staff roster record and to an individual's identifying characteristics entered in MEPID Management.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "StateProvinceId",
+      "field_id": "WA01",
+      "name": "Massachusetts Education Personnel Identifier (MEPID)",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A number used at the local district to identify an employee. If districts do not use local employee numbers or do not have local employee numbers for all personnel reported in EPIMS, the \"not applicable\" code should be used.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 20,
+      "acceptable_values": "An alphanumeric string 20 characters or less. Special characters other than the hyphen are not acceptable. Due to security concerns and confidentiality requirements, districts should not use social security numbers for their local employee numbers.  0 = Not Applicable",
+      "related_elements": null,
+      "notes": "Primary use of this field is to simplify the ability to review and edit the staff roster for districts.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "LocalId",
+      "field_id": "WA02",
+      "name": "Local Employee Number",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A name given to an individual at birth, during a naming ceremony, or through legal change.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": null,
+      "notes": "The first name must match the first name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Name",
+      "field_id": "WA03",
+      "name": "First Name",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A secondary name given to an individual at birth, during a naming ceremony, or through legal change. If none exists, the code \"NMN\" (No Middle Name) should be entered in the field.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The individual's middle name or initial or NMN for those individuals with no middle name. The only special characters allowed in this field are the hyphen, apostrophe, and space. Periods following a middle initial will not be accepted.",
+      "related_elements": null,
+      "notes": "Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts. The middle name or middle initial must match the middle name or middle initial entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Name",
+      "field_id": "WA04",
+      "name": "Middle Name / Middle Initial",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The name borne in common by members of a family.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 30,
+      "acceptable_values": "The only special characters allowed in this field are the hyphen, apostrophe, period, and space.",
+      "related_elements": null,
+      "notes": "The last name must match the last name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.",
+      "sif_object": "StaffPersonal",
+      "sif_element": "Name",
+      "field_id": "WA05",
+      "name": "Last Name",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "WA06 represents the location where a course is taught.  Alternative education programs can be reported in EPIMS as the location where a course is taught **if the course is not taught in a school building**. If the course is taught in a school building, the school code must be used for WA06 (and SCS03).  Districts will be able to report school codes or valid 8-digit district alternative education program codes in WA06 (and SCS03).  District alternative education program codes must **be registered with DESE**.  Alternative Education program codes will be cross-validated between EPIMS and SCS so students and teachers will be linked at the classroom level by the alternative education program code OR by the school code.",
+      "type": "Alphanumeric",
+      "min_length": 8,
+      "max_length": 8,
+      "acceptable_values": "Only school codes currently reported as being open in Directory Administration will be accepted.",
+      "related_elements": null,
+      "notes": "The eight-digit code for the district and/or school where the course is being taught. Each district/school in Massachusetts has an eight-digit code assigned by the ESE. The first four digits represent the district code. The second four digits represent the school code. The last four digits for a district position will equal \"0000.\" A listing of ESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>",
+      "sif_object": "SchoolInfo",
+      "sif_element": "SchoolInfo",
+      "field_id": "WA06",
+      "name": "Assignment Location Code",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "A description of the specific group of duties and responsibilities of a position.",
+      "type": "Alphanumeric",
+      "min_length": 4,
+      "max_length": 4,
+      "acceptable_values": "A complete list of job classification codes is provided in EPIMS Appendices.",
+      "related_elements": null,
+      "notes": "Examples of job classifications for which codes are provided:  Superintendent of Schools  Teacher  Occupational Therapist  Librarians",
+      "sif_object": "StaffAssignment",
+      "sif_element": "JobFunction",
+      "field_id": "WA07",
+      "name": "Job Classification",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The specific educational or educational support activity in which teachers, paraprofessionals, and other instructional staff are involved and employed on a daily basis. This data element is not applicable for all staff.",
+      "type": "Alphanumeric",
+      "min_length": 3,
+      "max_length": 3,
+      "acceptable_values": "A complete list of assignment codes is provided in EPIMS Appendices.  000 = Not Applicable",
+      "related_elements": null,
+      "notes": "Examples of teacher/paraprofessional assignments for which codes will be provided:  Severe Disabilities Consultative Content Instructors  Secondary Level ESL Teacher  Title I Instructional Paraprofessional",
+      "sif_object": "StaffAssignment",
+      "sif_element": "TeachingAssignment",
+      "field_id": "WA08",
+      "name": "Teacher / Paraprofessional Assignment",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The predominant grade level(s) for which the specific assignment provides educational services. Where appropriate, ranges may be provided.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 4,
+      "acceptable_values": "00 = Grade does not apply to this assignment\nPK = Pre-Kindergarten\nK = Kindergarten\n01 = Grade 1\nK01 = Grade K/1\n0102 = Grade 1/2\n02 = Grade 2\n03 = Grade 3\n04 = Grade 4\n05 = Grade 5\n06 = Grade 6\n07 = Grade 7\n08 = Grade 8\n09 = Grade 9\n10 = Grade 10\n11 = Grade 11\n12 = Grade 12\n88 = Multiple - This assignment provides instruction or services to students in multiple grades. The grade \"multiple\" should be used to report a special education classroom teacher or the teacher of an ELL class.\n99 = All - The individual in this assignment provides instruction or services to all grade levels in the school.",
+      "related_elements": null,
+      "notes": "The intended grade for specific courses should be reported. A limited number of records will be accepted with the value of \"88\" and \"99.\"",
+      "sif_object": "StudentSchoolEnrollment",
+      "sif_element": "Extended",
+      "field_id": "WA09",
+      "name": "Grade",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The subject area-course taught by an individual or for which he or she provides support. NCES coded values will be provided for academic subject areas and course descriptions and CIP codes will be provided for Chapter 74 programs to report vocational technical program areas. This data element is not applicable for all staff.",
+      "type": "Alphanumeric",
+      "min_length": 5,
+      "max_length": 7,
+      "acceptable_values": "A complete list of subject area-course codes is provided in EPIMS Appendices.  00000 = Not Applicable (Administrative staff should report \"not applicable\" in this field.)  99999 = All Subjects (This code is **not acceptable for prior-to-secondary courses** and is limited to SPED and ELL courses for secondary courses.) Secondary \"all courses\" codes will be validated to make sure they are only for SPED or ELL work assignments in the secondary grades.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "SchoolCourseInfo",
+      "sif_element": "StateCourseCode",
+      "field_id": "WA10",
+      "name": "Subject Area-Course Code",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The class section code will be a value provided by the school district. The class section code will identify the class assigned for that subject area-course and will be unique for the data collection within a school. This data element is not applicable for all staff.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 20,
+      "acceptable_values": "An alphanumeric string 20 characters or less. Special characters other than a hyphen, period, underscore, parentheses, forward slash and space are not acceptable.  0 = Not Applicable.",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "SectionInfo",
+      "sif_element": "CourseSectionCode",
+      "field_id": "WA11",
+      "name": "Class Section",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The ratio between the hours expected of a full-time position and the number of actual hours being provided by an individual (i.e., the percent of workday staff are involved in an assignment: 1.00 is a full-time employee; a half-time employee is a .50 FTE, etc.)  FTE must be computed on a term basis. Compute a part-time employee's FTE by dividing the time worked by the amount of time required for a full-time position for each term reported in the collection.  E.g., (a) for a teacher employed three hours each day in the first semester when full time is considered to be six hours, calculate 3 divided by 6 equals .50 FTE for the first semester.  \\(b\\) for a teacher employed one day a week in the second semester, calculate 1 divided by 5 equals .20 FTE for the second semester.  Enter as a decimal to the thousandths (if necessary); e.g., .04, .25, .333, .5... 1.00 representing the FTE for that assignment for each reported term.",
+      "type": "Numeric",
+      "min_length": 2,
+      "max_length": 5,
+      "acceptable_values": "0.01  to  1.00 = Representing 100%",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "StaffAssignment",
+      "sif_element": "JobFTE",
+      "field_id": "WA12",
+      "name": "Full Time Equivalent (FTE)",
+      "collection": "EPIMS"
+    },
+    {
+      "description": null,
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "99 = Not Applicable",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "None",
+      "sif_element": "None",
+      "field_id": "WA13",
+      "name": "Discontinued",
+      "collection": "EPIMS"
+    },
+    {
+      "description": null,
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "99 = Not Applicable",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "None",
+      "sif_element": "None",
+      "field_id": "WA14",
+      "name": "Discontinued",
+      "collection": "EPIMS"
+    },
+    {
+      "description": null,
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "99 = Not Applicable",
+      "related_elements": null,
+      "notes": null,
+      "sif_object": "None",
+      "sif_element": "None",
+      "field_id": "WA15",
+      "name": "Discontinued",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The length of an individual course. For the purposes of reporting, the term sequence (e.g., 1^st^, 2^nd^, or 3^rd^ trimester) must be provided in the value.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Full School Year\n21 = First Semester\n22 = Second Semester\n31 = First Trimester\n32 = Second Trimester\n33 = Third Trimester\n34 = Multiple Trimesters\n35 = Multiple Non-consecutive Trimesters\n41 = First Quarter\n42 = Second Quarter\n43 = Third Quarter\n44 = Fourth Quarter\n45 = Multiple Quarters\n46 = Multiple Non-consecutive Quarters\n51 = First Quinmester\n52 = Second Quinmester\n53 = Third Quinmester\n54 = Fourth Quinmester\n55 = Fifth Quinmester\n56 = Multiple Quinmesters\n57 = Multiple Non-consecutive Quinmesters\n61 = Mini-term 1\n62 = Mini-term 2\n63 = Mini-term 3\n64 = Mini-term 4\n65 = Mini-term 5\n66 = Mini-term 6\n67 = Mini-term 7\n68 = Mini-term 8\n69 = Mini-term 9\n70 = Mini-term 10\n71 = Mini-term 11\n72 = Mini-term 12\n73 = Mini-term 13\n74 = Mini-term 14\n75 = Mini-term 15\n78 = Multiple Mini-terms\n79 = Multiple Non-consecutive Mini-terms\n80 = Summer Term\n90 = Intersession",
+      "related_elements": "SCS07 Course Term",
+      "notes": "Value must match course term values reported in SCS07.  Term Definitions Table  ----------------------------------------------------------------------- Term Definition --------------- ------------------------------------------------------- Full school A regular school term consisting of no major year subdivision of time segments. It usually begins in the late summer or early fall and ends in late spring or early summer (e.g., elementary school).  Intersession A short session which occurs between longer sessions.  Mini-term A school term which is shorter than a regular session.  Quarter One of four equal segments into which a school year is divided.  Quinmester One of five equal segments into which a school year is divided.  Semester One of two equal segments into which a school year is divided.  Summer term A school term which takes place in the summer between two regular school terms.  Trimester One of three equal segments into which a school year is divided. -----------------------------------------------------------------------  All non-instructional staff should be reported as code 01 -- FULL  Reporting Courses that Span Multiple Terms  Districts should use the \"X\" term codes (codes 34, 45, 56, and 68) when the length of the course consists of multiple terms, but does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters, but the Advanced Economics course is two trimesters long. In this case, the Course Term for Advanced Economics should be reported as code 34 -- TRIX to indicate that the course covers multiple trimesters.  Reporting Courses that Span Multiple Non-consecutive Terms  Districts should use the \"N\" term codes (codes 35, 46, 57, and 69) when the length of the course consists of multiple non-consecutive terms, and does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters. The World Cultures course is two trimesters long, but is in session during trimesters 1 and 3. In this case, the Course Term for World Cultures should be reported as code 35 -- TRIN to indicate that the course covers multiple non-consecutive trimesters.",
+      "sif_object": "TermInfo",
+      "sif_element": "Extended",
+      "field_id": "WA16",
+      "name": "Course Term",
+      "collection": "EPIMS"
+    },
+    {
+      "description": "The two-digit code that identifies a course term as either active or inactive at the time of the data collection. Inactive terms are terms that have already been held and completed.",
+      "type": "Alphanumeric",
+      "min_length": 2,
+      "max_length": 2,
+      "acceptable_values": "01 = Active Term  02 = Inactive Term  03 = Inactive Assignment",
+      "related_elements": null,
+      "notes": "The term status for the last term of a collection year should be reported as active in the EPIMS June EOY collection even though the course enrollment status for the course in the SCS collection will be reported as \"completed\" for the corresponding subject-area course and term reported in the SCS. The last term of the year may be a full year term, a fourth quarter term, or any other term that is active until the end of the academic school year.  01 = Active Term -- Use this code to indicate that the assignment is active and that the term is also active or was active at end of year.  02 = Inactive Term - Use this code to indicate that the assignment was active at the end of the term and that the term has completed (except for EOY).  03 = Inactive Assignment - Use this code to indicate that the educator was not active in this assignment at the time of the report or at the end of the term if it was in the past.",
+      "sif_object": "StaffAssignment",
+      "sif_element": "JobEndDate",
+      "field_id": "WA17",
+      "name": "Term Status at Time of Data Collection",
+      "collection": "EPIMS"
+    }
+  ]
+}

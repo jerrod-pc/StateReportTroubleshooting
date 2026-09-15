@@ -1,0 +1,7 @@
+.formatted-text-item {
+    padding: 0.2rem 0;
+}
+
+.formatted-text-item + .formatted-text-item {
+    border-top: 1px dashed var(--bs-border-color);
+}

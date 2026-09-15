@@ -1,0 +1,19 @@
+@if (Items.Count <= 1)
+{
+    <span style="white-space: pre-wrap;">@Text</span>
+}
+else
+{
+    <div class="formatted-text-list">
+        @foreach (var item in Items)
+        {
+            <div class="formatted-text-item">@item</div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter, EditorRequired] public string? Text { get; set; }
+
+    private List<string> Items => TextFormat.SplitIntoItems(Text);
+}

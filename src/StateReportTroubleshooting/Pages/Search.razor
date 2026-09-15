@@ -1,0 +1,57 @@
+@page "/search"
+@inject TroubleshootingDataService Data
+
+<PageTitle>Search - State Report Troubleshooting</PageTitle>
+
+<h1 class="mb-3">Search</h1>
+
+<input class="form-control mb-3" style="max-width: 500px;"
+       placeholder="Search errors and fields across all collections…"
+       @bind="_query" @bind:event="oninput" />
+
+@if (string.IsNullOrWhiteSpace(_query))
+{
+    <p class="text-muted">Enter a search term above.</p>
+}
+else
+{
+    var hits = Data.GlobalSearch(_query, 150);
+    @if (hits.Count == 0)
+    {
+        <p class="text-muted">No results for "@_query".</p>
+    }
+    else
+    {
+        @foreach (var group in hits.GroupBy(h => h.Collection))
+        {
+            <h5 class="mt-3">@group.Key</h5>
+            <ul class="list-group mb-3">
+                @foreach (var hit in group)
+                {
+                    var href = hit.Kind == SearchHitKind.Error
+                        ? $"/collection/{hit.Collection}/errors/{Uri.EscapeDataString(hit.Code)}"
+                        : $"/collection/{hit.Collection}/fields/{Uri.EscapeDataString(hit.Code)}";
+                    <a class="list-group-item list-group-item-action" href="@href">
+                        <span class="badge text-bg-secondary me-2">@hit.Kind</span>
+                        <strong>@hit.Code</strong> &mdash; @hit.Title
+                    </a>
+                }
+            </ul>
+        }
+    }
+}
+
+@code {
+    [SupplyParameterFromQuery(Name = "q")]
+    public string? Q { get; set; }
+
+    private string _query = "";
+
+    protected override void OnParametersSet()
+    {
+        if (!string.IsNullOrEmpty(Q))
+        {
+            _query = Q;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.window-badge-oct {
+    background-color: var(--brand-pale-sky);
+    color: var(--brand-ink-black);
+}
+
+.window-badge-mar {
+    background-color: var(--brand-air-force-blue);
+    color: #fff;
+}
+
+.window-badge-eoy {
+    background-color: var(--brand-ink-black);
+    color: var(--brand-baby-blue);
+}
