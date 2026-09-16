@@ -1,23 +1,12 @@
-.stat-tile {
+.fun-ticker {
     background-color: var(--app-surface-tint);
-    border: 1px solid var(--app-surface-border);
+    border: 1px dashed var(--app-surface-border);
     border-radius: 0.5rem;
-    padding: 0.85rem 1rem;
+    padding: 0.65rem 1rem;
     text-align: center;
-}
-
-.stat-value {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--app-heading-color);
-    line-height: 1.1;
-}
-
-.stat-label {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
+    font-style: italic;
     color: var(--bs-secondary-color);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
 }
 
 .collection-tile {
@@ -28,12 +17,21 @@
     border-radius: 0.5rem;
     padding: 1rem 1.1rem;
     color: inherit;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.collection-tile:hover {
+.collection-tile:hover,
+.collection-tile:focus-visible {
+    background-color: var(--app-surface-tint);
+    border-color: var(--brand-air-force-blue);
     border-left-color: var(--brand-baby-blue);
-    box-shadow: var(--bs-box-shadow-sm);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.collection-tile:active {
+    transform: translateY(-1px);
 }
 
 .collection-tile-name {
