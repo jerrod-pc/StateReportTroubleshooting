@@ -3,19 +3,39 @@
 
 <PageTitle>SRTroubleshooting.HELP!</PageTitle>
 
-<div class="mb-4">
-    <h1 class="mb-2">STATE REPORT TROUBLESHOOTING is hard.<br />We're here to <span class="text-primary">HELP!</span></h1>
+<div class="home-hero text-center mb-4">
+    <h1 class="mb-3">STATE REPORT TROUBLESHOOTING is hard… We're here to <span class="text-primary">HELP!</span></h1>
     <p class="text-muted mb-0">
-        Pick a collection below, jump straight to an error code (e.g. <code>EPIMS6420</code>) using the box above,
-        or head to <a href="resources">Resources</a> for state login links and the original DESE source documents.
+        Pick a collection below &nbsp;&middot;&nbsp; jump straight to an error code (e.g. <code>EPIMS6420</code>) using the box above
+        &nbsp;&middot;&nbsp; visit <a href="resources">Resources</a> for state login links and the original DESE source documents
     </p>
 </div>
 
-<div class="fun-ticker mb-4">
-    @TroubleshootingDataService.CollectionNames.Length Collections
-    &nbsp;·&nbsp; @TotalFields Fields Documented
-    &nbsp;·&nbsp; @TotalErrors Errors Tracked
-    &nbsp;·&nbsp; 1,000's of Coffees Consumed per Reporting Period
+<div class="row row-cols-2 row-cols-md-4 g-3 mb-4">
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@TroubleshootingDataService.CollectionNames.Length</div>
+            <div class="stat-label">Collections</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@TotalFields</div>
+            <div class="stat-label">Fields Documented</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@TotalErrors</div>
+            <div class="stat-label">Errors Tracked</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">1,000's</div>
+            <div class="stat-label">Coffees Consumed Per Reporting Period</div>
+        </div>
+    </div>
 </div>
 
 <div class="row g-4">

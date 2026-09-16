@@ -1,12 +1,27 @@
-.fun-ticker {
+.home-hero {
+    padding-block: 1.5rem;
+}
+
+.stat-tile {
     background-color: var(--app-surface-tint);
-    border: 1px dashed var(--app-surface-border);
+    border: 1px solid var(--app-surface-border);
     border-radius: 0.5rem;
-    padding: 0.65rem 1rem;
+    padding: 0.85rem 1rem;
     text-align: center;
-    font-size: 0.85rem;
-    font-style: italic;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--app-heading-color);
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
     color: var(--bs-secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .collection-tile {
