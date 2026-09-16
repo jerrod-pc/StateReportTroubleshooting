@@ -5,7 +5,7 @@ namespace StateReportTroubleshooting.Services;
 
 public class TroubleshootingDataService(HttpClient http)
 {
-    public static readonly string[] CollectionNames = ["SCS", "EPIMS", "SIMS", "SSDR"];
+    public static readonly string[] CollectionNames = ["SIMS", "EPIMS", "SCS", "SSDR"];
 
     public bool IsInitialized { get; private set; }
     public bool SimsAppendicesLoaded { get; private set; }
