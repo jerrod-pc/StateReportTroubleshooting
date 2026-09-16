@@ -28,9 +28,6 @@ jobs:
       - name: Publish
         run: dotnet publish src/StateReportTroubleshooting/StateReportTroubleshooting.csproj -c Release -o release --nologo
 
-      - name: Rewrite base href for the GitHub Pages subpath
-        run: sed -i 's|<base href="/" />|<base href="/${{ github.event.repository.name }}/" />|' release/wwwroot/index.html
-
       - name: Disable Jekyll processing
         run: touch release/wwwroot/.nojekyll
 

@@ -8,7 +8,7 @@
         // Single Page Apps for GitHub Pages: redirect deep links back to the app root
         // so the client-side router can take over.
         // https://github.com/rafgraph/spa-github-pages
-        var pathSegmentsToKeep = 1; // project page: github.io/<repo>/...
+        var pathSegmentsToKeep = 0; // custom domain served from root: srtroubleshooting.help/...
         var l = window.location;
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
