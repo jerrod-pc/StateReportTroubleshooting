@@ -6,7 +6,7 @@
 
 <h4 class="mb-2">Quick Links</h4>
 <div class="list-group mb-4">
-    @foreach (var link in QuickLinks)
+    @foreach (var link in QuickLinks.All)
     {
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
            href="@link.Url" target="_blank" rel="noopener noreferrer">
@@ -39,8 +39,6 @@
 }
 
 @code {
-    private record LinkItem(string Label, string Url);
-
     private record FileItem(string Label, string Version, string FileName)
     {
         public string DisplayVersion => "v" + Version;
@@ -48,14 +46,6 @@
     }
 
     private record FileGroup(string Title, List<FileItem> Files);
-
-    private static readonly List<LinkItem> QuickLinks =
-    [
-        new("MA Education Security Portal Login", "https://gateway.edu.state.ma.us/stardust/login"),
-        new("DESE Data Collection Documentation", "https://www.doe.mass.edu/infoservices/data/default.html"),
-        new("EOE Support Request Form", "https://massgov.service-now.com/eoe?id=eoe_req_form&sys_id=87451de4dbba47006152f25bbf961923"),
-        new("Rediker Software State Reporting Solutions", "https://support.rediker.com/en/support/solutions/14000072051"),
-    ];
 
     private static readonly List<FileGroup> DownloadGroups =
     [

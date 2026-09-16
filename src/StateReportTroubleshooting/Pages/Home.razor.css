@@ -1,0 +1,43 @@
+.stat-tile {
+    background-color: var(--app-surface-tint);
+    border: 1px solid var(--app-surface-border);
+    border-radius: 0.5rem;
+    padding: 0.85rem 1rem;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--app-heading-color);
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--bs-secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.collection-tile {
+    display: block;
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-left: 4px solid var(--brand-air-force-blue);
+    border-radius: 0.5rem;
+    padding: 1rem 1.1rem;
+    color: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.collection-tile:hover {
+    border-left-color: var(--brand-baby-blue);
+    box-shadow: var(--bs-box-shadow-sm);
+}
+
+.collection-tile-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--app-heading-color);
+}

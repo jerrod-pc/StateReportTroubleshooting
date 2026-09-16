@@ -1,32 +1,85 @@
 @page "/"
 @inject TroubleshootingDataService Data
 
-<PageTitle>State Report Troubleshooting</PageTitle>
+<PageTitle>SRTroubleshooting.HELP!</PageTitle>
 
-<h1 class="mb-3">State Report Troubleshooting</h1>
-<p class="text-muted">
-    Pick a collection, or jump straight to an error code (e.g. <code>EPIMS6420</code>) using the box above.
-</p>
-
-<div class="row row-cols-1 row-cols-md-2 g-3 mt-2">
-    @foreach (var name in TroubleshootingDataService.CollectionNames)
-    {
-        if (Data.Collections.TryGetValue(name, out var file))
-        {
-            <div class="col">
-                <a class="card text-decoration-none h-100" href="@($"/collection/{name}")">
-                    <div class="card-body">
-                        <h5 class="card-title">@name</h5>
-                        <p class="card-text text-muted mb-1">
-                            Error list v@(file.ErrorListVersion) &middot; Handbook v@(file.HandbookVersion)
-                        </p>
-                        <p class="card-text">
-                            <span class="badge text-bg-secondary me-1">@file.Errors.Count errors</span>
-                            <span class="badge text-bg-secondary">@file.Fields.Count fields</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-        }
-    }
+<div class="mb-4">
+    <h1 class="mb-2">SRTroubleshooting.HELP!</h1>
+    <p class="text-muted mb-0">
+        Pick a collection below, jump straight to an error code (e.g. <code>EPIMS6420</code>) using the box above,
+        or head to <a href="resources">Resources</a> for state login links and the original DESE source documents.
+    </p>
 </div>
+
+<div class="row row-cols-2 row-cols-md-4 g-3 mb-4">
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@TotalErrors</div>
+            <div class="stat-label">Errors Tracked</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@TotalFields</div>
+            <div class="stat-label">Fields Documented</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@TroubleshootingDataService.CollectionNames.Length</div>
+            <div class="stat-label">Collections</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="stat-tile">
+            <div class="stat-value">@QuickLinks.All.Count</div>
+            <div class="stat-label">Quick Links</div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <h5 class="mb-3">Browse a Collection</h5>
+        <div class="row row-cols-1 row-cols-sm-2 g-3">
+            @foreach (var name in TroubleshootingDataService.CollectionNames)
+            {
+                if (Data.Collections.TryGetValue(name, out var file))
+                {
+                    <div class="col">
+                        <a class="collection-tile text-decoration-none d-block h-100" href="@($"/collection/{name}")">
+                            <div class="collection-tile-name">@name</div>
+                            <div class="text-muted small mb-2">
+                                Error list v@(file.ErrorListVersion) &middot; Handbook v@(file.HandbookVersion)
+                            </div>
+                            <div>
+                                <span class="badge text-bg-secondary me-1">@file.Errors.Count errors</span>
+                                <span class="badge text-bg-secondary">@file.Fields.Count fields</span>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <h5 class="mb-3">Quick Links</h5>
+        <div class="list-group mb-3">
+            @foreach (var link in QuickLinks.All)
+            {
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                   href="@link.Url" target="_blank" rel="noopener noreferrer">
+                    <span>@link.Label</span>
+                    <span class="text-muted small">↗</span>
+                </a>
+            }
+        </div>
+        <a class="btn btn-outline-primary w-100" href="resources">All Resources &amp; Downloads</a>
+    </div>
+</div>
+
+@code {
+    private int TotalErrors => Data.Collections.Values.Sum(c => c.Errors.Count);
+    private int TotalFields => Data.Collections.Values.Sum(c => c.Fields.Count);
+}
