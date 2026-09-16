@@ -32,7 +32,7 @@
         {
             <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                href="@("resources/" + file.FileName)" download>
-                <span>@file.Label <span class="text-muted">(v@file.Version)</span></span>
+                <span>@file.Label <span class="text-muted">(@file.DisplayVersion)</span></span>
                 <span class="badge text-bg-secondary">@file.Extension</span>
             </a>
         }
@@ -44,6 +44,7 @@
 
     private record FileItem(string Label, string Version, string FileName)
     {
+        public string DisplayVersion => "v" + Version;
         public string Extension => System.IO.Path.GetExtension(FileName).TrimStart('.').ToUpperInvariant();
     }
 
