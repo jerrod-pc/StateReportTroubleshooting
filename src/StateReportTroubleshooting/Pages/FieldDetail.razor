@@ -44,7 +44,7 @@ else
         @if (!string.IsNullOrWhiteSpace(_field.RelatedElements))
         {
             <dt class="col-sm-2">Related elements</dt>
-            <dd class="col-sm-10">@_field.RelatedElements</dd>
+            <dd class="col-sm-10"><FormattedText Text="@_field.RelatedElements" /></dd>
         }
         @if (!string.IsNullOrWhiteSpace(_field.Notes))
         {
