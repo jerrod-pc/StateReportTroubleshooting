@@ -2,6 +2,10 @@
     padding: 0.2rem 0;
 }
 
-.formatted-text-item + .formatted-text-item {
+.formatted-text-item-list + .formatted-text-item-list {
     border-top: 1px dashed var(--bs-border-color);
+}
+
+.formatted-text-item-paragraph + .formatted-text-item-paragraph {
+    margin-top: 0.4rem;
 }

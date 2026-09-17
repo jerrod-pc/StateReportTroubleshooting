@@ -28,11 +28,17 @@ public static partial class TextFormat
 
     private const int MinMarkersToTreatAsList = 4;
 
-    public static List<string> SplitIntoItems(string? text)
+    // IsList distinguishes genuinely distinct, enumerated entries (numbered notes, coded
+    // values) from plain paragraph breaks, so the two can be styled differently - a rule
+    // between list entries reads as a separator; the same rule between paragraphs reads
+    // as a stray horizontal line.
+    public readonly record struct FormattedItems(IReadOnlyList<string> Items, bool IsList);
+
+    public static FormattedItems SplitIntoItems(string? text)
     {
         if (string.IsNullOrWhiteSpace(text))
         {
-            return [];
+            return new FormattedItems([], false);
         }
 
         var matches = ListMarkerRegex().Matches(text);
@@ -61,7 +67,7 @@ public static partial class TextFormat
                 }
             }
 
-            return items;
+            return new FormattedItems(items, true);
         }
 
         var paragraphs = ParagraphBreakRegex().Split(text)
@@ -69,6 +75,8 @@ public static partial class TextFormat
             .Where(p => p.Length > 0)
             .ToList();
 
-        return paragraphs.Count > 1 ? paragraphs : [text.Trim()];
+        return paragraphs.Count > 1
+            ? new FormattedItems(paragraphs, false)
+            : new FormattedItems([text.Trim()], false);
     }
 }
