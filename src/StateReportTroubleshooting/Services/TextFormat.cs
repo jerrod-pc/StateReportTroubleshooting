@@ -6,9 +6,9 @@ namespace StateReportTroubleshooting.Services;
 /// Some source-data fields (mostly "notes" and "acceptable_values") are flattened,
 /// pandoc-derived dumps of numbered lists or two-column code tables with no line breaks
 /// (e.g. "1. First note. 2. Second note." or "00 Not Title I 14 Targeted/science ...").
-/// This splits such text into one chunk per numbered/coded item, or (failing that) at
-/// the runs of 2+ spaces that mark a flattened paragraph/line break, so it can render as
-/// separate lines instead of one dense paragraph. It never rewrites the text itself -
+/// This splits such text into one chunk per line, numbered/coded item, or (failing those)
+/// at the runs of 2+ spaces that mark a flattened paragraph/line break, so it can render
+/// as separate lines instead of one dense paragraph. It never rewrites the text itself -
 /// only where line breaks go - and leaves ordinary prose untouched.
 /// </summary>
 public static partial class TextFormat
@@ -39,6 +39,23 @@ public static partial class TextFormat
         if (string.IsNullOrWhiteSpace(text))
         {
             return new FormattedItems([], false);
+        }
+
+        // A literal newline in the source JSON is an explicit, unambiguous line break
+        // (unlike the flattened-whitespace cases below) and is used throughout the source
+        // data exclusively for enumerated "code = description" value lists, e.g.
+        // "00 = Not Applicable\n01 = ...". Honor it directly, ahead of the fuzzier heuristics.
+        if (text.Contains('\n'))
+        {
+            var lines = text.Split('\n')
+                .Select(l => l.Trim())
+                .Where(l => l.Length > 0)
+                .ToList();
+
+            if (lines.Count > 1)
+            {
+                return new FormattedItems(lines, true);
+            }
         }
 
         var matches = ListMarkerRegex().Matches(text);
