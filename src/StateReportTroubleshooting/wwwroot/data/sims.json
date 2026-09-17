@@ -4620,7 +4620,7 @@
       "related_elements": null,
       "notes": "1. The first name will be used as directory information in the State Student Directory to verify and assign SASIDs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/FirstName",
       "field_id": "DOE003",
       "name": "First Name",
       "collection": "SIMS"
@@ -4634,7 +4634,7 @@
       "related_elements": null,
       "notes": "1. The middle name will be used as directory information in the State Student Directory to verify and assign SASIDs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/MiddleName",
       "field_id": "DOE004",
       "name": "Middle Name",
       "collection": "SIMS"
@@ -4648,7 +4648,7 @@
       "related_elements": null,
       "notes": "1. The last name will be used as directory information in the State Student Directory to verify and assign SASIDs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/LastName",
       "field_id": "DOE005",
       "name": "Last Name",
       "collection": "SIMS"
@@ -4662,7 +4662,7 @@
       "related_elements": null,
       "notes": "1. Federal and state statutes require reporting enrollment by age for special education and early childhood students and for monitoring the delivery of an appropriate education to all school-age children.  2. Date of Birth will also be used as directory information in the State Student Directory to verify and assign SASIDs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/BirthDate",
       "field_id": "DOE006",
       "name": "Date of Birth",
       "collection": "SIMS"
@@ -4675,8 +4675,8 @@
       "acceptable_values": "D10 mm/dd/yyyy",
       "related_elements": null,
       "notes": "This element should be coded D10 for the required date format mm/dd/yyyy",
-      "sif_object": "Not",
-      "sif_element": "Not",
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "DOE007",
       "name": "Date of Birth Format",
       "collection": "SIMS"
@@ -4690,7 +4690,7 @@
       "related_elements": null,
       "notes": "1. City/Town of Birth will also be used as directory information in the State Student Directory to verify and assign SASIDs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/PlaceOfBirth",
       "field_id": "DOE008",
       "name": "City/Town of Birth",
       "collection": "SIMS"
@@ -4704,7 +4704,7 @@
       "related_elements": null,
       "notes": "1. Student gender is required for many state and federal reports.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/Gender",
       "field_id": "DOE009",
       "name": "Gender",
       "collection": "SIMS"
@@ -4718,7 +4718,7 @@
       "related_elements": null,
       "notes": "1. Student race/ethnicity is used in many state and federal statistical reports. For more information about race/ethnicity categories, see: http://www.doe.mass.edu/infoservices/data/guides/race-faq.html",
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/RaceList/Race/OtherCodeList/OtherCode",
       "field_id": "DOE010",
       "name": "Race/Ethnicity",
       "collection": "SIMS"
@@ -4732,7 +4732,7 @@
       "related_elements": null,
       "notes": "An indication of a district's responsibility for a student --- reason for reporting --- provides data to determine how a student is counted in Foundation Budget enrollment.",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "ResidencyStatus",
+      "sif_element": "ResidencyStatus/OtherCodeList/OtherCode",
       "field_id": "DOE011",
       "name": "Reason for Reporting",
       "collection": "SIMS"
@@ -4746,7 +4746,7 @@
       "related_elements": null,
       "notes": "Enrollment data are required for the October 1 enrollment count, annual reports on dropouts, plans of high school graduates, attendance and determination of grant allocations.  * Reached maximum SIMS reporting age of 25 years old.  ** Certificate of Attainment as defined by the Board of Education:  [Massachusetts Graduation Requirements and Related Guidance](https://www.doe.mass.edu/ccte/graduation/default.html)",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "ExitType",
+      "sif_element": "ExitType/OtherCodeList/OtherCode",
       "field_id": "DOE012",
       "name": "Enrollment Status at Time of Data Collection",
       "collection": "SIMS"
@@ -4760,7 +4760,7 @@
       "related_elements": null,
       "notes": "1. Tuition status data is required to compute financial allocations to school districts.  2. The Reason for Enrollment should represent the most recent enrollment status, if the student is not enrolled at the time of reporting. If the reason for a student's enrollment in the receiving district has changed over time, the current reason for enrollment should be reported.",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/ReasonForEnrollment",
       "field_id": "DOE013",
       "name": "Reason for Enrollment",
       "collection": "SIMS"
@@ -4774,7 +4774,7 @@
       "related_elements": null,
       "notes": "1. Data used for foundation enrollment calculations.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/CityofResidence",
       "field_id": "DOE014",
       "name": "City/Town of Residence --- Student",
       "collection": "SIMS"
@@ -4788,7 +4788,7 @@
       "related_elements": null,
       "notes": "1. For students who are receiving special education related services only and are enrolled in a private pre-school or nursery school in which the parents are paying tuition, use school code 00000001.  2. For students who are receiving special education services only and are beyond grade 12 (grade level SP), use school code 00000001.  3. For students who are receiving special education related services only and are being home-schooled, use school code 00000002.  4. For general education students in a DYS facility, use school code 09200300.  5. For special education students in a DYS facility, refer to SEIS codes here: <http://www.doe.mass.edu/infoservices/data/sims/seis.html>  6. For incarcerated students receiving services in a correctional facility, use school code 09200500.",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/AttendingSchool (or SchoolInfo/StateProvinceId, depending on situation)",
       "field_id": "DOE015",
       "name": "School Identification Number",
       "collection": "SIMS"
@@ -4802,7 +4802,7 @@
       "related_elements": null,
       "notes": "1. PK1,PK2,PK3,PK4,PK5 --- Pre-Kindergarten --- child must be at least three years old and not enrolled in KP, KT, or KF  2. Full time Pre-Kindergarten is 5+ hours (at least 25 hours per week)  3. KF --- Full-time Kindergarten --- child attends school or school related activities for at least 25 hours per week, and does not pay tuition  4. KP --- Part-time Kindergarten --- child attends school or school related activities for less than 25 hours per week  5. KT --- Full-time kindergarten, tuitioned --- child attends school or school related activities for at least 25 hours per week, and pays tuition",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "GradeLevel",
+      "sif_element": "GradeLevel/Code",
       "field_id": "DOE016",
       "name": "Grade Level",
       "collection": "SIMS"
@@ -4844,7 +4844,7 @@
       "related_elements": null,
       "notes": "This free/reduced price lunch data element is no longer used by DESE for low-income reporting or statistical analysis. Districts still need to report an acceptable value in DOE019, but DESE will not be using this data for state-level reporting.  For more information on the new low-income measure used: [Redefining Low-income Under the Student Opportunity Act (SY 2021-22) - Information Services/Data Collection (mass.edu)](https://www.doe.mass.edu/infoservices/data/sims/redefining-lowincome.html)",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/LowIncomeStatus",
       "field_id": "DOE019",
       "name": "Low-Income Status",
       "collection": "SIMS"
@@ -4858,7 +4858,7 @@
       "related_elements": null,
       "notes": "Enrollment data are used for Title I programs and is required for annual federal reporting.  For October reporting, districts may count students for whom they are planning to provide services, but the program has not yet begun, as participating in Title I. March and EOY reporting periods should only include students who are participating in Title I services at the time of reporting.  Dependencies:  Data will be checked against the Department's School Title I status.  If the StudentPersonal/Homeless flag is set to \"Yes\" then that student may be reported as receiving targeted assistance in a non-Title I school.",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/TitleIParticipation",
       "field_id": "DOE020",
       "name": "Title I Participation",
       "collection": "SIMS"
@@ -4872,7 +4872,7 @@
       "related_elements": null,
       "notes": "Changes to the Title I regulations require states and local school districts to identify EL students that have recently arrived to the United States and are in their first year of U.S. schooling. Below is the relevant text from the federal regulations for 34 CFR Part 200 (Title I) regarding the revised definition of EL students in their first year enrolled in U.S. schools.  \\(C\\) The State and its LEA must report on State and district report cards under section 1111(h) of the Act the number of recently arrived English learner (EL) students who are not assessed on the State's reading/language arts assessment.  \\(iv\\) A recently arrived English learner (EL) is a student who is not yet proficient in English and who has attended schools in the United States for less than twelve months. The phrase \"schools in the United States\" includes only schools in the 50 States and the District of Columbia.  Coding of students in Kindergarten through Grade 12:  All EL students enrolled in their first year of Kindergarten through Grade 12 in the U.S., regardless of country of birth, should be coded with 01. All EL students, regardless of country of birth, who are repeating Kindergarten through Grade 12 or who have been in U.S. schools for more than 12 months should be coded with 02.  Coding of students in PK or SP grade levels:  All students in grade levels PK or SP should be coded with 00.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/LEPStudentsInTheirFirstYearInUSSchools",
       "field_id": "DOE021",
       "name": "EL Students in their First Year in U.S. Schools",
       "collection": "SIMS"
@@ -4900,7 +4900,7 @@
       "related_elements": null,
       "notes": "1. The DOE must determine the number of immigrant students enrolled in public schools and in nonpublic elementary and secondary schools within the district served by an LEA in order to determine district eligibility to receive federal funds designated for immigrant students. For the purposes of determining eligibility for immigrant funds, \"State\" is defined as the 50 States, the District of Columbia, and the Commonwealth of Puerto Rico.  Country of Origin must be provided.  2. Country code equals 500 if:  a\\. Student was born in the United States  b\\. Student was born to Embassy personnel who are citizens of the United States  c\\. Student was born to parents, who are United States citizens, while traveling abroad  e\\. Student is a foreign exchange student  f\\. Student has completed over three full academic years of school in U.S.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/CountryOfOrigin",
       "field_id": "DOE023",
       "name": "Country of Origin",
       "collection": "SIMS"
@@ -4914,7 +4914,7 @@
       "related_elements": null,
       "notes": "1. First (native) language is collected for purposes of federal and state reporting, educational equity monitoring, and statistical purposes.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/LanguageList/Language/Code",
       "field_id": "DOE024",
       "name": "First (Native) Language",
       "collection": "SIMS"
@@ -4928,7 +4928,7 @@
       "related_elements": null,
       "notes": "1. Chapter 71A of the Massachusetts General Laws requires that school districts ascertain the number of English learner students enrolled in the district. The data are required for state and federal reporting and educational equity monitoring.  2. Districts should report the last known EL status for students who are not currently enrolled.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/EnglishProficiency/Code",
       "field_id": "DOE025",
       "name": "English Learner",
       "collection": "SIMS"
@@ -4942,7 +4942,7 @@
       "related_elements": null,
       "notes": "1. For further information, please view the English learner webpage located here: <http://www.doe.mass.edu/ele/>",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/ELLProgramStatus",
       "field_id": "DOE026",
       "name": "English Language Education Program Status",
       "collection": "SIMS"
@@ -4956,7 +4956,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/AlternativeEducationProgram",
       "field_id": "DOE027",
       "name": "Program Code",
       "collection": "SIMS"
@@ -4970,7 +4970,7 @@
       "related_elements": null,
       "notes": "Under the LOOK Act, all students (English learners and non-English learners) working toward proficiency in two or more languages are eligible to earn the Seal of Biliteracy if they are enrolled in a participating district.  [Massachusetts State Seal of Biliteracy - Student Scholarships, Awards and Special Programs](https://www.doe.mass.edu/scholarships/biliteracy/)",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/SealOfBiliteracy",
       "field_id": "DOE028",
       "name": "Seal of Biliteracy",
       "collection": "SIMS"
@@ -4984,7 +4984,7 @@
       "related_elements": null,
       "notes": "Which Children Are Eligible for Assistance Under the Compact?  Children of  1. Active duty members of the uniformed services, National Guard and Reserve on active duty orders  2. members or veterans of the uniformed services who are severely injured and medically discharged or retired for a period of 1 year after medical discharge or retirement  3. members of the uniformed services who perish in the line of duty or as a result of injuries sustained on active duty for a period of 1 year after death.  Which Children Are Not Eligible for Assistance Under the Compact?  Children of  - Inactive members of the National Guard and Reserves  - Members now retired not covered above  - Veterans not covered above  - Dept of Defense personnel, federal agency civilians and contract employees not defined as active duty",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MemberofMilitaryFamily",
       "field_id": "DOE029",
       "name": "Member of Military Family",
       "collection": "SIMS"
@@ -4998,7 +4998,7 @@
       "related_elements": null,
       "notes": "1. Enrollment data are used for Title I programs and is required for annual federal reporting.  2. For October reporting, districts may count students for whom they are planning to provide services, but the program has not begun yet, as participating in Title I. March and EOY reporting periods should only include students who are participating in Title I services at the time of reporting.  Dependencies:  Data will be checked against the Department's School Title I status listed on the School and District Profile page: <http://profiles.doe.mass.edu/>",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MATitleINonInstructional",
       "field_id": "DOE030",
       "name": "Non-Instructional Title I Targeted Assistance Services",
       "collection": "SIMS"
@@ -5012,7 +5012,7 @@
       "related_elements": null,
       "notes": "Data elements DOE047--DOE049 capture up to three of a student's most recent specific credentials attained since the last reporting period.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/VocTechEdAttainment",
       "field_id": "DOE031",
       "name": "CCTE - Competency Attainment",
       "collection": "SIMS"
@@ -5026,7 +5026,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSpecialEducationSummary",
-      "sif_element": "StudentParticipationList",
+      "sif_element": "StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode",
       "field_id": "DOE032",
       "name": "Special Education Placement, ages 3--5",
       "collection": "SIMS"
@@ -5040,7 +5040,7 @@
       "related_elements": null,
       "notes": "1. Information on post-graduation plans is collected for statistical purposes, for educational equity monitoring and for annual reporting.  2. All PK -- Grade 10 students must be reported as \"500.\"  3. All Grade 11 and 12 students must be reported as \"500\" until they graduate, receive a certificate of attainment, or complete grade 12.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/HighSchoolCompleterPlans",
       "field_id": "DOE033",
       "name": "High School Completer Plans",
       "collection": "SIMS"
@@ -5054,7 +5054,7 @@
       "related_elements": null,
       "notes": "1. Federal Child Count, Part B of the Individuals with Disabilities Education Act Implementation of FAPE requirements.  2. Report data as of the specified time of reporting (e.g., October 1).",
       "sif_object": "StudentSpecialEducationSummary",
-      "sif_element": "StudentParticipationList",
+      "sif_element": "StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode",
       "field_id": "DOE034",
       "name": "Special Education Placement, ages 6--21",
       "collection": "SIMS"
@@ -5068,7 +5068,7 @@
       "related_elements": null,
       "notes": "1. The Perkins V law and the Massachusetts CTE regulations require information on students enrolled in CCTE programs for accountability and funding purposes. To be considered for Perkins funding, the district must report its program enrollments.  2. Districts with CCTE programs can refer to the [CCTE Reporting & Data Resources page.](https://www.doe.mass.edu/ccte/data-reports/default.html)  Dependencies:  If DOE035 = 02, 04, 92, or 94 then DOE043 must not = 500  If DOE035 = 14, DOE044 must not = 500",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/VocTechEdProgramType",
       "field_id": "DOE035",
       "name": "CCTE - Type of Program",
       "collection": "SIMS"
@@ -5096,7 +5096,7 @@
       "related_elements": null,
       "notes": "See Appendix J for the list of the Massachusetts Recommended Core Curriculum.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/Graduate",
       "field_id": "DOE037",
       "name": "Graduate, Completed Massachusetts Core Curriculum",
       "collection": "SIMS"
@@ -5110,7 +5110,7 @@
       "related_elements": null,
       "notes": "1. Information on level of need is used for statistical purposes and to inform policy decisions.",
       "sif_object": "StudentSpecialEducationSummary",
-      "sif_element": "Extended",
+      "sif_element": "Extended/SpEdLevelofNeed",
       "field_id": "DOE038",
       "name": "Special Education --- Level of Need",
       "collection": "SIMS"
@@ -5124,7 +5124,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentPersonal",
-      "sif_element": "Section",
+      "sif_element": "Section504",
       "field_id": "DOE039",
       "name": "504 Plan Status",
       "collection": "SIMS"
@@ -5138,7 +5138,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSpecialEducationSummary",
-      "sif_element": "StudentParticipationList",
+      "sif_element": "StudentParticipationList/StudentParticipationData/ProgramStatus/OtherCodeList/OtherCode",
       "field_id": "DOE040",
       "name": "Special Education Evaluation Results",
       "collection": "SIMS"
@@ -5152,7 +5152,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/SLIFE",
       "field_id": "DOE041",
       "name": "English Learner Student with Limited or Interrupted Formal Education (SLIFE)",
       "collection": "SIMS"
@@ -5166,7 +5166,7 @@
       "related_elements": null,
       "notes": "Perkins V requires DESE to collect and report information on students enrolled in Perkins-funded programs for accountability and funding purposes. To be considered for Perkins V funding, the district must report its program enrollments.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/CTESingleParent",
       "field_id": "DOE042",
       "name": "CCTE --- Single Parent Status",
       "collection": "SIMS"
@@ -5180,7 +5180,7 @@
       "related_elements": null,
       "notes": "- Used for accountability and funding purposes and to calculate state aid based on students enrolled in state-designated CTE programs on October 1.  ```{=html} <!-- --> ``` - Staff in DESE's Office for College, Career, and Technical Education will provide technical assistance upon request (see the [liaison list](https://www.doe.mass.edu/ccte/pathways/cte/liaisons.html) to find the appropriate contact).  ```{=html} <!-- --> ``` - Refer to the [Instructions for School Districts in Reporting Data for CTE document](https://www.doe.mass.edu/ccte/pathways/cte/).",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/VocTecEdCh74",
       "field_id": "DOE043",
       "name": "CCTE -- State Designated CTE Program Participation",
       "collection": "SIMS"
@@ -5194,7 +5194,7 @@
       "related_elements": null,
       "notes": "The Perkins V law requires information on students enrolled in CTE programs for accountability and funding purposes.  Staff in DESE's Office for College, Career, and Technical Education will provide technical assistance on Perkins V upon request (see the [CCTE Liaisons to School Districts and Public Two-Year Colleges page](https://www.doe.mass.edu/ccte/pathways/cte/liaisons.html)).  Refer to the [Career Technical Education Reporting and Data Resources page](https://www.doe.mass.edu/ccte/data-reports/default.html).",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/VocTecEdNonCh74",
       "field_id": "DOE044",
       "name": "CCTE -- Career Connections Program Participation",
       "collection": "SIMS"
@@ -5208,7 +5208,7 @@
       "related_elements": null,
       "notes": "Innovation Pathway information: [Innovation Career Pathways - College, Career and Technical Education (mass.edu)](https://www.doe.mass.edu/ccte/pathways/innovation-pathways/default.html)  Early College information: [Early College - College, Career and Technical Education (mass.edu)](https://www.doe.mass.edu/ccte/pathways/early-college/default.html)  Dependencies:  - If DOE045 is 02 or 04, DOE046 cannot be 500  ```{=html} <!-- --> ``` - If DOE045 is 01 or 04, DOE057 cannot be 500",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/HQCCPType",
       "field_id": "DOE045",
       "name": "HQCCP Program Type",
       "collection": "SIMS"
@@ -5222,7 +5222,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/EarlyCollegePartnership",
       "field_id": "DOE046",
       "name": "Early College Partnership",
       "collection": "SIMS"
@@ -5236,7 +5236,7 @@
       "related_elements": null,
       "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements  1\\. DOE047 is no longer restricted to a specific list of safety-related IRCs.  2\\. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  3\\. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  4. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/IndustryRecognizedCredentials",
       "field_id": "DOE047",
       "name": "Industry Recognized Credential",
       "collection": "SIMS"
@@ -5250,7 +5250,7 @@
       "related_elements": null,
       "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements.  1\\. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  2\\. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  3. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/IndustryRecognizedCredentials",
       "field_id": "DOE048",
       "name": "Industry Recognized Credential",
       "collection": "SIMS"
@@ -5264,7 +5264,7 @@
       "related_elements": null,
       "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements.  1\\. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  2\\. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  3. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/IndustryRecognizedCredentials",
       "field_id": "DOE049",
       "name": "Industry Recognized Credential",
       "collection": "SIMS"
@@ -5278,7 +5278,7 @@
       "related_elements": null,
       "notes": "Refer to <http://www.doe.mass.edu/sfs/earlylearning/resources/> for additional guidance on this element, and copies of the family survey to collect this information. Survey is available in English and translated in 6 other languages (Arabic, Chinese, Haitian Creole, Khmer, Portuguese, Spanish)  See Appendix K for more information/guidance.",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/EarlyChildhoodExperience",
       "field_id": "DOE050",
       "name": "Early Childhood Experience",
       "collection": "SIMS"
@@ -5292,7 +5292,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentPersonal",
-      "sif_element": "AddressList",
+      "sif_element": "AddressList/Address/PostalCode",
       "field_id": "DOE051",
       "name": "ZIP Code",
       "collection": "SIMS"
@@ -5320,7 +5320,7 @@
       "related_elements": null,
       "notes": "Per [Chapter 296 of 2018, Section 4(c)](https://malegislature.gov/Laws/SessionLaws/Acts/2018/Chapter296) Each public school serving students in the eighth grade and each public high school shall provide not less than 1 student-led, non-partisan civics project for each student  FAQ on reporting civics project element can be found on the SIMS page here: [Student Information Management System (SIMS) - Data Collection/Information Services (mass.edu)](https://www.doe.mass.edu/infoservices/data/sims/default.html)",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/CivicsProject",
       "field_id": "DOE053",
       "name": "Civics Project",
       "collection": "SIMS"
@@ -5334,7 +5334,7 @@
       "related_elements": null,
       "notes": "10. Attendance is defined as follows: A student must be at school, or at a school related activity (e.g., field trip) or receiving academic instruction for at least half of the school day to be counted as present.  11. Attendance should be reported as the cumulative number of days the student was present in your district and SHOULD NOT reflect their attendance in each individual school while in your district.  12. Value of 555 --- Used for summer exits [only]{.underline} (summer graduates, dropouts, transfers, etc.).",
       "sif_object": "StudentAttendanceSummary",
-      "sif_element": "Extended",
+      "sif_element": "Extended/DaysAttendedRemote",
       "field_id": "DOE054",
       "name": "Days in Attendance Remote",
       "collection": "SIMS"
@@ -5348,7 +5348,7 @@
       "related_elements": null,
       "notes": "Value of 555 -- Used for summer exits [only]{.underline} (summer graduates, dropouts, transfers, etc.)",
       "sif_object": "StudentAttendanceSummary",
-      "sif_element": "Extnded",
+      "sif_element": "Extended/DaysAbsentRemote",
       "field_id": "DOE055",
       "name": "Days Absent Remote",
       "collection": "SIMS"
@@ -5362,7 +5362,7 @@
       "related_elements": null,
       "notes": "For more information and FAQ on supplemental low-income data collection:  [Supplemental Low-Income Data Collection - School Finance (mass.edu)](https://www.doe.mass.edu/finance/chapter70/data-collection.html)  Validations check for students who have already been identified as low-income either through the electronic match with EOHHS or the prior year's Supplement Low-Income Data Collection  Students claimed will not be designated as low income for Chapter 70 aid or charter tuition purposes until Department staff review the forms and supporting documentation collected for each student",
       "sif_object": "StudentPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/SupplementalLowIncomeIndicator",
       "field_id": "DOE056",
       "name": "Supplemental Low-Income Indicator",
       "collection": "SIMS"
@@ -5376,7 +5376,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/InnovationCareerPathwaySector",
       "field_id": "DOE057",
       "name": "Innovation Career Pathway Sector",
       "collection": "SIMS"
@@ -5390,7 +5390,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/SealOfBiliteracyLanguage",
       "field_id": "DOE058",
       "name": "Seal of Biliteracy Language 1",
       "collection": "SIMS"
@@ -5404,7 +5404,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/SealOfBiliteracyLanguage",
       "field_id": "DOE059",
       "name": "Seal of Biliteracy Language 2",
       "collection": "SIMS"
@@ -5418,7 +5418,7 @@
       "related_elements": null,
       "notes": "MyCAP is a structured, student-driven, college, career, and civic readiness framework designed to ensure every student gains the knowledge, skills, and experiences in personal, social, emotional, and behavioral development, career development, and academic and technical learning to navigate an individual path to success.  [My Career and Academic Plan (MyCAP)](https://www.doe.mass.edu/ccte/sec-design/mycap/default.html)",
       "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MyCAPParticipation",
       "field_id": "DOE060",
       "name": "My Career and Academic Plan (MyCAP) Participation",
       "collection": "SIMS"

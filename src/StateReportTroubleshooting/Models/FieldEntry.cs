@@ -39,4 +39,15 @@ public class FieldEntry
 
     [JsonPropertyName("sif_element")]
     public string? SifElement { get; set; }
+
+    /// <summary>
+    /// The full dotted SIF path, e.g. "StudentPersonal.Name.LastName" for an
+    /// object of "StudentPersonal" and an element of "Name/LastName" - source data
+    /// uses "/" to separate an element from its sub-element, but the dotted form
+    /// reads unambiguously as a path and can't be mistaken for "write to Name".
+    /// </summary>
+    public string? SifMapping =>
+        string.IsNullOrWhiteSpace(SifObject) || SifObject == "None"
+            ? null
+            : $"{SifObject}.{SifElement?.Replace('/', '.')}";
 }

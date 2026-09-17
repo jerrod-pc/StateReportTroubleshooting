@@ -51,10 +51,10 @@ else
             <dt class="col-sm-2">Notes</dt>
             <dd class="col-sm-10"><FormattedText Text="@_field.Notes" /></dd>
         }
-        @if (!string.IsNullOrWhiteSpace(_field.SifObject) && _field.SifObject != "None")
+        @if (_field.SifMapping is not null)
         {
             <dt class="col-sm-2">SIF mapping</dt>
-            <dd class="col-sm-10"><code>@($"{_field.SifObject}.{_field.SifElement}")</code></dd>
+            <dd class="col-sm-10"><code>@_field.SifMapping</code></dd>
         }
     </dl>
 
