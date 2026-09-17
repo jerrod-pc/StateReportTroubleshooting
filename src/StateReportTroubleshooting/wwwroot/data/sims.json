@@ -4543,7 +4543,7 @@
       "code": "SIMS9990",
       "collection": "SIMS",
       "title": "District is not designated as offering a Non-Chapter 74 program",
-      "description": "Record is reported with DOE035 value of 14, but district is not designated as offering a Non-Chapter 74 program in Directory Administration\n\nSIF Validations\n\nSIF1001 - Student LASID has invalid format\n\nObject: StudentPersonal\\ Element: LocalId\n\nThe LocalId element contains invalid characters and/or is longer than 32 characters.\n\n## SIF1002 - Student LASID is missing\n\nObject: StudentPersonal\n\nElement: LocalId\n\nA value is missing in the LocalId element.\n\n## SIF1004 - Student SASID is missing\n\nObject: StudentPersonal\\ Element: StateProvinceId\n\nA value is missing in the StateProvinceId element.\n\n## SIF1005 - First Name has invalid format\n\nObject: StudentPersonal\\ Element: Name/FirstName\n\nThe FirstName element contains invalid characters and/or is longer than 32 characters.\n\n## SIF1006 - First Name is missing\n\nObject: StudentPersonal\\ Element: Name/FirstName\n\nA value is missing in the FirstName element.\n\n## SIF1007 - Last Name has invalid format\n\nObject: StudentPersonal\\ Element: Name/LastName\n\nThe LastName element contains invalid characters and/or is longer than 50 characters.\n\n## SIF1008 - Last Name is missing\n\nObject: StudentPersonal\\ Element: Name/LastName\n\nA value is missing in the LastName element.\n\n## SIF1009 - Middle Name has invalid format\n\nObject: StudentPersonal\\ Element: Name/MiddleName\n\nThe MiddleName element contains invalid characters and/or is longer than 32 characters.\n\nSIF1010 - Middle Name is missing\n\nObject: StudentPersonal\\ Element: Name/MiddleName\n\nA value is missing in the MiddleName element.\n\n## SIF1011 - DOB has invalid format\n\nObject: StudentPersonal\\ Element: Demographics/BirthDate\n\nThe BirthDate element has an invalid format. It should be YYYY-MM-DD.\n\n## SIF1012 - DOB is Missing\n\nObject: StudentPersonal\\ Element: Demographics/BirthDate\n\nA value is missing in the BirthDate element.\n\n## SIF1013 - PlaceOfBirth has invalid format\n\nObject: StudentPersonal\\ Element: Demographics/PlaceOfBirth\n\nThe PlaceOfBirth element contains invalid characters and/or is longer than 50 characters.\n\n## SIF1014 - PlaceOfBirth is missing\n\nObject: StudentPersonal\\ Element: Demographics/PlaceOfBirth\n\nA value is missing for the element.\n\n## SIF1015 - Gender has invalid value\n\nObject: StudentPersonal\\ Element: Demographics/Gender\n\nThe Gender element does not have a value of \\'M\\',\\'F\\' or \\'N\\'\n\n## SIF1016 - Gender has invalid format\n\nObject: StudentPersonal\\ Element: Demographics/Gender\n\nThe Gender element is not alphabetic or is not one character.\n\n## SIF1017 - Gender is missing\n\nObject: StudentPersonal\\ Element: Demographics/Gender\n\nA value is missing for the element.\n\n­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­\n\n## SIF1018 - Race code has invalid format\n\nObject: StudentPersonal\\ Element: Demographics/RaceList/Race/Code\n\nThe element does not have a SIF compliant value\n\n## SIF1020 - City/Town of Residence has invalid format\n\nObject: StudentPersonal\\ Extended Element: CityofResidence\n\nThe format of the data is not correct.\n\n## SIF1021 - City/Town of Residence is missing\n\nObject: StudentPersonal\\ Extended Element: CityofResidence\n\nA value is missing for the element.\n\n## SIF1022 - Low income status code has invalid format\n\nObject: StudentPersonal\\ Extended Element: LowIncomeStatus\n\nThe element is not numeric or is not two characters long\n\n## SIF1024 - Title I Participation code has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: TitleIParticipation\n\nThe element is not numeric or is not two characters long\n\n## SIF1025 - Title I Participation code is missing\n\nObject: StudentSchoolEnrollment\\ Extended Element: TitleIParticipation\n\nA value is missing for the element.\n\n## SIF1026 - Years in US for EL student code has invalid format\n\nObject: StudentPersonal\\ Extended Element: LEPStudentsInTheirFirstYearInUSSchools\n\nThe element is not numeric or is not two characters long\n\n## SIF1027 - Years in US for EL student code is missing\n\nObject: StudentPersonal\\ Extended Element: LEPStudentsInTheirFirstYearInUSSchools\n\nA value is missing for the element.\n\nSIF1028 - Immigrant status code has invalid value\n\nObject: StudentPersonal\\ Element: Immigrant\n\nThe element does not have a SIF compliant value\n\nSIF1029 - Immigrant status code has invalid format\n\nObject: StudentPersonal\\ Element: Immigrant\n\nThe element does not have a SIF compliant value\n\n## SIF1030 - Immigrant status code is missing\n\nObject: StudentPersonal\\ Element: Immigrant\n\nA value is missing for the element.\n\n## SIF1031 - Country of origin code has invalid format\n\nObject: StudentPersonal\\ Extended Element: CountryOfOrigin\n\nThe format of the data is not correct.\n\n## SIF1032 - Country of origin code is missing\n\nObject: StudentPersonal\\ Extended Element: CountryOfOrigin\n\nA value is missing for the element.\n\n## SIF1034 - First (native) language code has invalid format\n\nObject: StudentPersonal\\ Element: Demographics/LanguageList/Language/Code\n\nThe element does not have a SIF compliant value\n\n## SIF1036 - First (native) language code is missing\n\nObject: StudentPersonal\\ Element: Demographics/LanguageList/Language/Code\n\nA value is missing for the element. LanguageType must be 1038\n\n## SIF1037 - EL: English Learners Program code has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: ELLProgramStatus\n\nThe format of the data is not correct.\n\nSIF1038 - EL: English Learners Program code is missing\n\nObject: StudentSchoolEnrollment\\ Extended Element: ELLProgramStatus\n\nA value is missing for the element.\n\n## SIF1039 - English Learner code has invalid value\n\nObject: StudentPersonal\n\nElement: Demographics/EnglishProficiency/Code\n\nThe code does not a value in the list of approved NCES English proficiency codes. (See SIF profile)\n\n## SIF1040 -- English Learner code has invalid format\n\nObject: StudentPersonal\n\nElement: Demographics/EnglishProficiency/Code\n\nThe code does is not numeric or is longer than 4 characters. (See SIF profile)\n\nSIF1041 - English Learner code is missing\n\nObject: StudentPersonal\n\nElement: Demographics/EnglishProficiency/Code\n\nThe element is either blank or null.\n\n## SIF1042 - Alternative Education/Innovation Program code has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: AlternativeEducationProgram\n\nThe format of the data is not correct.\n\n## SIF1043 - Alternative Education/Innovation Program code is missing\n\nObject: StudentSchoolEnrollment\\ Extended Element: AlternativeEducationProgram\n\nA value is missing for the element.\n\n## SIF1044 - Invalid MA Former 504 value\n\nObject: StudentPersonal\\ Extended Element: MAFormerSection504\n\nIf the current Section 504 value is \"No\" then the Former 504 value must be either \"Yes\" or \"No\".\n\n## SIF1046 - Military Family has invalid format\n\nObject: StudentPersonal\\ Extended Element: MemberofMilitaryFamily\n\nThe format of the data is not correct.\n\n## SIF1047 - Military Family is missing\n\nObject: StudentPersonal\\ Extended Element: MemberofMilitaryFamily\n\nA value is missing for the element.\n\nSIF1048 - Military Family has invalid value\n\nObject: StudentPersonal\\ Extended Element: MemberofMilitaryFamily\n\nThe element does not have one of the valid values found in the SIMS Data Handbook for DOE029.\n\n## SIF1049 - CTE: CTE competency attainment code has invalid format\n\nObject: StudentPersonal\\ Extended Element: VocTechEdAttainment\n\nThe format of the data is not correct.\n\n## SIF1050 - CTE: CTE competency attainment code is missing\n\nObject: StudentPersonal\\ Extended Element: VocTechEdAttainment\n\nA value is missing for the element.\n\n## SIF1051 - Graduates: High school completer plans code has invalid format\n\nObject: StudentPersonal\\ Extended Element: HighSchoolCompleterPlans\n\nThe format of the data is not correct.\n\n## SIF1052 - Graduates: High school completer plans code is missing\n\nObject: StudentPersonal\\ Extended Element: HighSchoolCompleterPlans\n\nA value is missing for the element.\n\n## SIF1053 - CTE: Career and technical type of program has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: VocTechEdProgramType\n\nThe element does not have one of the valid values found in the SIMS Data Handbook for DOE035.\n\n## SIF1054 - CTE: Career and technical type of program is missing\n\nObject: StudentSchoolEnrollment\\ Extended Element: VocTechEdProgramType\n\nA value is missing for the element.\n\n## SIF1055 - Graduate, Completed MA Core Curriculum has invalid value\n\nObject: StudentPersonal\\ Extended Element: Graduate\n\nThe format of the data is not correct.\n\nSIF1056 - Graduate, Completed MA Core Curriculum has invalid format\n\nObject: StudentPersonal\\ Extended Element: Graduate\n\nThe format of the data is not correct.\n\n## SIF1057 - Graduate, Completed MA Core Curriculum is missing\n\nObject: StudentPersonalE\\ Extended Element: Graduate\n\nA value is missing for the element or the element holds an invalid value.\n\n## SIF1058 - 504 Plan Status has invalid format\n\nObject: StudentPersonal\\ Element: Section504\n\nThe element does not have a SIF compliant value\n\nSIF1059 - 504 Plan Status is missing\n\nObject: StudentPersonal\\ Element: Section504\n\nA value is missing for the element.\n\n## SIF1060 - 504 Plan Status has invalid value\n\nObject: StudentPersonal\\ The element does not have a SIF compliant value\n\n## SIF1061 - CTE: CTE Special Populations Type has invalid value\n\nObject: StudentPersonal\\ Extended Element: VocTecSPEDPopulation\n\nThe element does not have one of the valid values found in the SIMS Data Handbook for DOE042.\n\n## SIF1062 - CTE: CTE Special Populations Type has invalid format\n\nObject: StudentPersonal\\ Extended Element: VocTecSPEDPopulation\n\nThe format of the data is not correct.\n\n## SIF1063 - CTE: CTE Special Populations Type is missing\n\nObject: StudentPersonal\\ Extended Element: VocTecSPEDPopulation\n\nA value is missing for the element.\n\n## SIF1064 - CTE: Chapter 74 program has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: VocTecEdCh74\n\nThe element does not have one of the valid values found in the SIMS Data Handbook for DOE043.\n\nSIF1065 - CTE: Chapter 74 program is missing\n\nObject: StudentSchoolEnrollment\\ Extended Element: VocTecEdCh74\n\nA value is missing for the element.\n\n## SIF1066 - CTE: Non:Chapter:74 Prog Partic. Code has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: VocTecEdNonCh74\n\nThe element does not have one of the valid values found in the SIMS Data Handbook for DOE044.\n\nSIF1067 - CTE: Non:Chapter:74 Prog Partic. Code is missing\n\nObject: StudentSchoolEnrollment\n\nExtended Element: VocTecEdNonCh74\n\nA value is missing for the element.\n\n## SIF1070 - Reason for Reporting code is missing\n\nObject: StudentSchoolEnrollment\n\nElement: ResidencyStatus/OtherCodeList/OtherCode\n\nThe element is either blank or null.\n\n## SIF1076 - Grade code has invalid format\n\nObject: StudentSchoolEnrollment\\ Element: GradeLevel/Code and/or GradeLevel/OtherCodeList/OtherCode (Codeset =\"StateProvince\")\n\nThe Code and/or the OtherCode is not formatted in a SIF compliant fashion.\n\n## SIF1078 - Non-Instructional Title I Targeted Assistance Services has invalid value\n\nObject: StudentSchoolEnrollment\\ Extended Element: MATitleINonInstructional\n\nThe element does not have one of the valid values found in the SIMS Data Handbook for DOE030.\n\n## SIF1079 - Non-Instructional Title I Targeted Assistance Services has invalid format\n\nObject: StudentSchoolEnrollment\\ Extended Element: MATitleINonInstructional\n\nThe format of the data is not correct.\n\n## SIF1081 - SPED Placement has invalid format\n\nObject: StudentSpecialEducationSummary\n\nElement: StudentParticipationList/StudentParticipationData /ProgramType/OtherCodeList/OtherCode (Codeset=\" StateProvince\")\n\nThe format of the data is not correct.\n\n## SIF1085 - SPED Level of Need code has invalid format\n\nObject: StudentSpecialEducationSummary\\ Extended Element: SpEdLevelofNeed\n\nThe format of the data is not correct.\n\n## SIF1087 - SPED Evaluation Results code has invalid format\n\nObject: StudentSpecialEducationSummary\n\nElement: StudentParticipationList/StudentParticipationData /ProgramStatus/OtherCodeList/OtherCode (Codeset=\"Other\")\n\nThe format of the data is not correct.\n\n## SIF1088 - SPED Evaluation Results code is missing\n\nObject: StudentSpecialEducationSummary\n\nElement: StudentParticipationList/StudentParticipationData /ProgramStatus/OtherCodeList/OtherCode (Codeset=\"Other\")\n\nA value is missing for the element.\n\n## SIF1089 - Days in Attendance has invalid format\n\nObject: StudentAttendanceSummary\\ Element: DaysAttended\n\nThe element is not numeric or does not represent a number between 0 and 261 inclusive.\n\nGrad\n\n## SIF1090 - Days in Attendance is missing\n\nObject: StudentAttendanceSummary\\ Element: DaysAttended\n\nA value is missing for the element.\n\n## SIF1091 - Days in Membership has invalid format\n\nObject: StudentAttendanceSummary\\ Element: DaysInMembership\n\nThe element is not numeric or does not represent a number between 0 and 261 inclusive.\n\n## SIF1092 - Days in Membership is missing\n\nObject: StudentAttendanceSummary\\ Element: DaysInMembership\n\nA value is missing for the element.\n\n## SIF1093 - Unexcused absences has invalid format\n\nObject: StudentAttendanceSummary\\ Element: UnexcusedAbsences\n\nThe element is not numeric or does not represent a number between 0 and 261 inclusive.\n\nSIF1094 - Unexcused absences is missing\n\nObject: StudentAttendanceSummary\\ Element: UnexcusedAbsences\n\nA value is missing for the element.\n\n## SIF1096 - Missing Student School Enrollment\n\nObject: StudentSchoolEnrollment\\ No Home StudentSchoolEnrollment object can be found for this StudentPersonal object.\n\n## SIF1103 - Race code is missing\n\nObject: StudentPersonal\n\nElement: Demographics/RaceList/Race/OtherCodeList/OtherCode\n\nThe code is blank or null.\n\n## SIF1107 - StudentSchoolEnrollment SchoolInfoRefId is missing\n\nObject: StudentSchoolEnrollment\n\nElement: SchoolInfoRefId\n\nThe mandatory element SchoolInfoRefId has not been provided.\n\n## SIF1108 - StudentSchoolEnrollment SchoolInfoRefId is unknown\n\nObject: StudentSchoolEnrollment\n\nElement: SchoolInfoRefId\n\nThe the object to which the element SchoolInfoRefId refers has not been provided.\n\nSIF1109 - StudentSchoolEnrollment but the associated TermInfo is missing\n\nObject: StudentSchoolEnrollment\n\nElement: none\n\nA Terminfo object with the same SchoolInfoRefId as that in the StudentSchoolEnrollment cannot be found.\n\nSIF1110 - StudentSchoolEnrollment StudentPersonalRefId is missing\n\nObject: StudentSchoolEnrollment\n\nElement: StudentPersonalRefId\n\nA StudentPersonal object with the RefId referenced in a StudentSchoolEnrollment cannot be found.\n\n## SIF1111 - StudentSchoolEnrollment with Services Only flag set but no SpecialEducationSummary.\n\nObject: StudentSchoolEnrollment\n\nExtended Element: ServicesOnly\n\nThe enrollment record for a student indicates that they are receiving special education services, but their StudentSpecialEducationSummary cannot be found.\n\nSIF1113 - StudentSchoolEnrollment with exit date before the report date but no exit code.\n\nObject: StudentSchoolEnrollment\n\nElements: ExitDate & ExitType/OtherCodeList/OtherCode\n\nAn exit date prior to the report date has been reported, but no exit code has been reported so the student's enrollment status is ambiguous.\n\n## SIF1117 - SchoolInfo LeaInfoRefId is missing\n\nObject: SchoolInfo\\ Element: LeaInfoRefId\n\nA value is missing for the element.\n\n## SIF1118 - SchoolInfo LeaInfoRefId is unknown\n\nObject: SchoolInfo\n\nElement: LeaInfoRefId\n\nThe LEAInfo object to which the element refers is missing.\n\n## SIF1119 - TermInfo SchoolInfoRefId is missing\n\nObject: TermInfo\n\nElement: SchoolInfoRefId\n\nA value is missing for the element\n\n## SIF1120 - TermInfo SchoolInfoRefId is unknown\n\nObject: SchoolInfo\n\nElement: SchoolInfoRefId\n\nThe SchoolInfo object to which the element refers is missing\n\n## SIF1123 - StudentSchoolEnrollment Enrolled student with exit date\n\nObject: StudentSchoolEnrollment\n\nElement: ExitType/OtherCodeList/OtherCode (Codeset =\"Text\") and ExitDate\n\nThe most recent StudentSchoolEnrollment object shows the student as exited on ExitDate, but the exit code reports them as enrolled (DOE012=01 or 40)\n\n## SIF1124 - SLIFE (DOE041) has invalid format\n\nObject: StudentPersonal\n\nExtended Element: SLIFE\n\nThe value provided in the element is not recognized as a valid value.\n\n## SIF1133 - Invalid CPPI Funded Status value. Valid values are Yes or No.\n\nObject: StudentPersonal\n\nExtended Element: CPPIFundedStudent\n\nThe value provided in the element is not recognized as a valid value.\n\n## SIF1158 - StudentSchoolEnrollment with no matching StudentSectionEnrollment\n\nObject: StudentSchoolEnrollment\n\nElement: N/A\n\nAn active general education enrollment record for a student has been received, but no section enrollments have been.\n\n## SIF1171 - Multiple SpecialEducationSummary found\n\nObject: StudentSpecialEducationSummary\n\nElement: N/A\n\nThe student has more than one SpecialEducationSummary object. Contact your SIS software vendor.\n\n## SIF1172 - SchoolInfo missing TermInfo\n\nObject: TermInfo\n\nElement: SchoolInfoRefId\n\nA SchoolInfo object has been received, but no TermInfo objects have been for this school.\n\n## SIF1174 - StudentPersonal with no StudentSchoolEnrollment\n\nObject: StudentSchoolEnrollment\n\nElement: StudentPersonalRefId\n\nA StudentPersonal object has been received, but no StudentSchoolEnrollment objects have been for the student.\n\nSIF1185 - Evaluation has been completed during this school year. Select a different value for DOE040\n\nObject: StudentSpecialEducationSummary\n\nElements: StudentParticipationList/StudentParticipationData/EvaluationDate & StudentParticipationList/StudentParticipationData/ProgramStatus/OtherCodeList/OtherCode\n\nThe evaluation date reported is during the school year, but the value reported in the OtherCode (DOE040 = 00,01 or 08) implies that the evaluation was not done in the current year and the student's status is not clear. The data reported is ambiguous so either the date or the DOE040 value is incorrect.\n\nSIF1186 - Evaluation was not completed during this school year. If the student is not receiving special education services, do not report this data\n\nObject: StudentSpecialEducationSummary\n\nElements: StudentParticipationList/StudentParticipationData/EvaluationDate & StudentParticipationList/StudentParticipationData/ProgramStatus/OtherCodeList/OtherCode\n\nThe evaluation date reported is prior to the school year, but the value reported in the OtherCode (DOE040 = 02,03 or 09) implies that the evaluation was done in the current year and the student is not receiving services. The data reported is ambiguous so either the date or the DOE040 value is incorrect.\n\nSIF1187 - Evaluation was completed prior to this school year. If the student is receiving special education services, report 01 in DOE040\n\nObject: StudentSpecialEducationSummary\n\nElements: StudentParticipationList/StudentParticipationData/EvaluationDate & StudentParticipationList/StudentParticipationData/ProgramStatus/OtherCodeList/OtherCode\n\nThe evaluation date reported is prior to the school year, but the value reported in the OtherCode (DOE040 = 04,05,06 or 07) implies that the evaluation was done in the current year and the student is receiving services. The data reported is ambiguous so either the date or the DOE040 value is incorrect.\n\nSIF1190 -- Invalid SASID for active enrollment\n\nObject: StudentPersonal\n\nElement: SASID\n\nSIF1198 -- Duplicate REFIDs in Student Personal\n\nObject: StudentPersonal\n\nElement: SASID\n\nSIF1230 -- Invalid/Missing value for Instruction Mode. Must be 01 (in-person), 02 (hybrid), or 03 (remote)\n\nObject: StudentSchoolEnrollment\n\nElement: InstructionMode\n\nSIF1231 -- If Instruction Mode is in-person only, Days in Attendance (DOE017) cannot be 0\n\nObject: StudentSchoolEnrollment\n\nElement: InstructionMode\n\nSIF1251 -- If Instruction Mode is remote only, Days Attended Remote (DOE054) cannot be 0\n\nObject: StudentSchoolEnrollment\n\nElement: InstructionMode\n\nSIF1321 -- Missing EnrollmentOfferDate. When SiblingPreference is Yes, EnrollmentOfferDate cannot be blank\n\nObject: StudentSchoolEnrollment\n\nElement: EnrollmentOfferDate\n\nSIF1322 -- Invalid/Missing values in SiblingPreference or EnrollmentOfferDate element(s)\n\nObject: StudentSchoolEnrollment\n\nElement: SiblingPreference, EnrollmentOfferDate\n\nSIF1520 - Title I: School has no Title I. Students must be reported with DOE020=00 and DOE030=00\n\nObject: StudentSchoolEnrollment\\ This is a substitution to SIMS1520 for SIF districts which serves to allow homeless students to be reported as receiving Title I funding even though they attend a non-Title I school.\n\nSchool is listed as not having Title I but the non-homeless student is reported with a Title I participation code. If the school is not a Title I school, then Title I participation codes must be 00 (DOE020 & DOE030). (Exclude summer exits.)\n\n+---------+----------+------------------------------------------------+ | Ve | Date | Description | | rsion** | of | | | | Change** | | +=========+==========+================================================+ | 21.2 | 1 | Retired 2910, 2920, 2930. Added 8470, 8810. | | | 0/1/2025 | Updated 1316 description. | +---------+----------+------------------------------------------------+ | 21.1 | 1 | Retired 7820, 7830, 7840 | | | 0/1/2025 | | +---------+----------+------------------------------------------------+ | 21.0 | 3/25/25 | Added 9650, 8355, 8365 | +---------+----------+------------------------------------------------+ | 20.9 | 10 | Updated description for 7640, 8400, 8420 | | | /15/2024 | | +---------+----------+------------------------------------------------+ | 20.8 | 1 | Added 2661 and 8430 | | | 0/1/2024 | | +---------+----------+------------------------------------------------+ | 20.6 | 1 | Updated for 2023-24 | | | 0/1/2023 | | +---------+----------+------------------------------------------------+ | 20.5 | 1 | Added 9050 and 9060 | | | 0/3/2022 | | +---------+----------+------------------------------------------------+ | 20.4 | 3/1/2022 | Added 7510 and 7520, SIF1230, SIF1231, | | | | SIF1251, SIF1321, SIF1322 | +---------+----------+------------------------------------------------+ | 20.3 | 10/1/21 | Added 2345 | +---------+----------+------------------------------------------------+ | 20.1 | 03/01/20 | Updated assorted text. | | | | | | | | Added 1190, 8395 | | | | | | | | Removed 2170, 2190, 7660, 7780, 7860, 7880, | | | | 8060, 8070, 8915, 7750, 8385, 8920, 9000, | | | | 9010, 9020, 8940, 8130, 8975 | +---------+----------+------------------------------------------------+ | 20.00 | 08/01/19 | Added 8385, 2542,2544, 2546 | +---------+----------+------------------------------------------------+ | 10.06 | 02/15/19 | Added 100-107, 8396 & 8397, SIF1171 | | | | | | | | 2910 Removed obsolete references to October | | | | 2018 | | | | | | | | Removed: SIF1086 | +---------+----------+------------------------------------------------+ | 10.05 | 01/09/19 | Added 8937 | +---------+----------+------------------------------------------------+ | 10.04 | 12/10/18 | Added 2970 | +---------+----------+------------------------------------------------+ | 10.03 | 10/10/18 | Added SIF SIMS section. Documented most | | | | popular SIF validations. | +---------+----------+------------------------------------------------+ | 10.02 | 09/12/18 | Added SIMS2305, SIMS2795, SIMS7695 & SIMS9030 | +---------+----------+------------------------------------------------+ | 10.01 | 09/10/18 | Updated text of many validations for clarity | | | | and consistency. | +---------+----------+------------------------------------------------+ | 10.00 | 08/17/18 | Rolled to 2019 | | | | | | | | Added 8370, 8380, 8390, 8400, 8410, 8420, | | | | 2850, 2860, 2870, 2880, 2890, 2900, 2910, | | | | 2920, 2930, 2940, 2950, 2960 | | | | | | | | Updated 9910, 2670, 2150 | | | | | | | | Deprecated 9930, 9940 | +---------+----------+------------------------------------------------+ | 9.01 | 02/23/18 | Deprecated 7790 & 7800 | +---------+----------+------------------------------------------------+ | 9.0 | 11/27/17 | Renumbered all validations. Added appendix A | | | | and index. | +---------+----------+------------------------------------------------+ | 8.01 | 9/18/17 | Corrected miscellaneous typos. | +---------+----------+------------------------------------------------+ | 8.0 | 9/01/17 | Updated: 1480, 1660, 1680, 1681 | | | | | | | | Added: 1505, 1529, 4830, 7055, 9326, 9575 | | | | | | | | Removed: 101574, 21480,21482,21484,31480 | +---------+----------+------------------------------------------------+ | 7.00 | 9/01/16 | Added validations for SLIFE (DOE041) 0785, | | | | 1706, 1708 | +---------+----------+------------------------------------------------+ | 6.01 | | Updated message for 1518 & 1520 | +---------+----------+------------------------------------------------+ | 6.00 | 09/01/15 | Added 0575 for DOE030 | | | | | | | | Updated 1516, 1518, 1520 & 3 to accommodate | | | | DOE030 | +---------+----------+------------------------------------------------+ | 5.20 | 05/15/15 | Removed validations 22 and 220 | | | | | | | | Updated 1660 to exclude PK and SP | | | | | | | | Added 2305 | | | | | | | | Updated 41525 to allow transfers and other | | | | exits | | | | | | | | Clarified 101502 as regards exiting services | | | | only students. | +---------+----------+------------------------------------------------+ | 5.10 | 02/04/15 | Combined and enhanced SIMS111433 & SIM121433 | | | | into SIMS131433 | | | | | | | | SIMS 21436 -- updated description | | | | | | | | SIMS1366 -- New validation added | +---------+----------+------------------------------------------------+ | 5.00 | 08/28/14 | Converted document from MS excel | | | | | | | | Deleted duplicate and added missing | | | | validations | | | | | | | | 25, 11507, 201345 Modified | | | | | | | | 26 Added | | | | | | | | 1670 Deleted | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1700 - Data elements discontinued (DOE047, | | | | DOE048, DOE049, DOE050, DOE051), should be | | | | 500 - New validation to check that 500 is | | | | reported in any of the 5 AP fields | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1394 - AP courses for grades 9-12 only (A) - | | | | Expired as data element has been deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1412 - Adv Placement Course 1 is repeated - | | | | Expired as data element has been deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1413 - Adv Placement Course 2 is repeated - | | | | Expired as data element has been deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1414 - Adv Placement Course 3 is repeated - | | | | Expired as data element has been deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1415 - Adv Placement Course 4 is repeated - | | | | Expired as data element has been deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1416 - Adv Placement Course 5 is repeated - | | | | Expired as data element has been deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 101355 - Adv Placement Course 1 is | | | | invalid(A) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 101356 - Adv Placement Course 2 is | | | | invalid(A) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 101357 - Adv Placement Course 3 is | | | | invalid(A) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 101358 - Adv Placement Course 4 is | | | | invalid(A) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 101359 - Adv Placement Course 5 is | | | | invalid(A) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 111355 - Adv Placement Course 1 is | | | | invalid(B) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 111356 - Adv Placement Course 2 is | | | | invalid(B) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 111357 - Adv Placement Course 3 is | | | | invalid(B) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 111358 - Adv Placement Course 4 is | | | | invalid(B) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 111359 - Adv Placement Course 5 is | | | | invalid(B) - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1445 - Number of In School Suspensions is | | | | invalid - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1446 - Number of Out School Suspensions is | | | | invalid - Expired as data element has been | | | | deprecated | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1701 - Data element discontinued (DOE045), | | | | should be 0 - New validation to check that 0 | | | | is reported in in_school suspension | +---------+----------+------------------------------------------------+ | 1.2 | 09/30/12 | 1702 - Data element discontinued (DOE046), | | | | should be 0 - New validation to check that 0 | | | | is reported in out of school suspension | +---------+----------+------------------------------------------------+ | 1.2 | 05/30/12 | 1593 - Enrollment Status (DOE012) = 01 or 04 | | | | invalid when an SCS exception has been | | | | granted. Please verify the enrollment status | | | | and contact ESE if you need the exception | | | | removed - To be deployed for EOY | +---------+----------+------------------------------------------------+ | 1.1 | 05/16/12 | Misc - Translations updated - To be deployed | | | | for EOY | +---------+----------+------------------------------------------------+ | 1.1 | 02/28/12 | 220 - Days in Attendance/Membership=555 | | | | invalid for students not reported in the | | | | previous period. - Added (to be deployed | | | | 3/1/12) | +---------+----------+------------------------------------------------+ | 1.1 | 02/28/12 | 1583 - Enrollment Status (DOE012) = 01 invalid | | | | when an SCS exception has been granted. Please | | | | verify the enrolment status and contact ESE if | | | | you need the exception removed - Added (to be | | | | deployed 3/1/12) | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 310 - CTE: The student should be reported with | | | | a CTE competency attainment (DOE031) as s/he | | | | was previously reported with a competency | | | | attainment - Changed description and text on | | | | production 10/20/11 | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 1474 - CTE: Special Population Code (DOE042) | | | | requires being in a CTE Program (DOE035) - | | | | Added to production 10/20/11 | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 1475 - CTE: Competency Attainment Code | | | | (DOE031) is not appropriate for the student's | | | | grade level (DOE016). - Added to production | | | | 10/20/11 | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 21479 - Alternative Education/Innovation | | | | Program code is invalid (DOE027) - Text change | | | | on production 11/20/11 | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 31479 - Alternative Education/Innovation | | | | Program code is invalid for the reporting | | | | district(DOE027) - Text change on production | | | | 11/20/11 | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 41479 - Grade (DOE016) invalid when | | | | Alternative program reported - Will not run | | | | for Innovation schools (SQL change) on | | | | production 11/20/11 | +---------+----------+------------------------------------------------+ | 1.0 | 01/17/12 | 51479 - An alternative education/Innovation | | | | program code is reported as a school code | | | | (DOE015) - Text change on production 11/20/11 | +---------+----------+------------------------------------------------+",
+      "description": "Record is reported with DOE035 value of 14, but district is not designated as offering a Non-Chapter 74 program in Directory Administration",
       "example": null,
       "elements_affected": [
         "DOE035",
@@ -4555,31 +4555,1299 @@
         "EOY"
       ],
       "related_fields": [
-        "DOE012",
-        "DOE015",
-        "DOE016",
-        "DOE017",
-        "DOE020",
-        "DOE027",
-        "DOE029",
-        "DOE030",
-        "DOE031",
         "DOE035",
-        "DOE040",
-        "DOE041",
-        "DOE042",
-        "DOE043",
-        "DOE044",
-        "DOE045",
-        "DOE046",
-        "DOE047",
-        "DOE048",
-        "DOE049",
-        "DOE050",
-        "DOE051",
-        "DOE054"
+        "DOE044"
       ],
       "object": "Discontinued Elements"
+    },
+    {
+      "code": "SIF1001",
+      "collection": "SIMS",
+      "title": "Student LASID has invalid format",
+      "description": "The LocalId element contains invalid characters and/or is longer than 32 characters.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE001"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1002",
+      "collection": "SIMS",
+      "title": "Student LASID is missing",
+      "description": "A value is missing in the LocalId element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE001"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1004",
+      "collection": "SIMS",
+      "title": "Student SASID is missing",
+      "description": "A value is missing in the StateProvinceId element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE002"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1005",
+      "collection": "SIMS",
+      "title": "First Name has invalid format",
+      "description": "The FirstName element contains invalid characters and/or is longer than 32 characters.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE003"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1006",
+      "collection": "SIMS",
+      "title": "First Name is missing",
+      "description": "A value is missing in the FirstName element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE003"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1007",
+      "collection": "SIMS",
+      "title": "Last Name has invalid format",
+      "description": "The LastName element contains invalid characters and/or is longer than 50 characters.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE005"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1008",
+      "collection": "SIMS",
+      "title": "Last Name is missing",
+      "description": "A value is missing in the LastName element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE005"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1009",
+      "collection": "SIMS",
+      "title": "Middle Name has invalid format",
+      "description": "The MiddleName element contains invalid characters and/or is longer than 32 characters.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE004"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1010",
+      "collection": "SIMS",
+      "title": "Middle Name is missing",
+      "description": "A value is missing in the MiddleName element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE004"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1011",
+      "collection": "SIMS",
+      "title": "DOB has invalid format",
+      "description": "The BirthDate element has an invalid format. It should be YYYY-MM-DD.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE006"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1012",
+      "collection": "SIMS",
+      "title": "DOB is Missing",
+      "description": "A value is missing in the BirthDate element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE006"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1013",
+      "collection": "SIMS",
+      "title": "PlaceOfBirth has invalid format",
+      "description": "The PlaceOfBirth element contains invalid characters and/or is longer than 50 characters.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE008"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1014",
+      "collection": "SIMS",
+      "title": "PlaceOfBirth is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE008"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1015",
+      "collection": "SIMS",
+      "title": "Gender has invalid value",
+      "description": "The Gender element does not have a value of 'M','F' or 'N'",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE009"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1016",
+      "collection": "SIMS",
+      "title": "Gender has invalid format",
+      "description": "The Gender element is not alphabetic or is not one character.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE009"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1017",
+      "collection": "SIMS",
+      "title": "Gender is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE009"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1018",
+      "collection": "SIMS",
+      "title": "Race code has invalid format",
+      "description": "The element does not have a SIF compliant value",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1020",
+      "collection": "SIMS",
+      "title": "City/Town of Residence has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE014"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1021",
+      "collection": "SIMS",
+      "title": "City/Town of Residence is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE014"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1022",
+      "collection": "SIMS",
+      "title": "Low income status code has invalid format",
+      "description": "The element is not numeric or is not two characters long",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE019"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1024",
+      "collection": "SIMS",
+      "title": "Title I Participation code has invalid format",
+      "description": "The element is not numeric or is not two characters long",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE020"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1025",
+      "collection": "SIMS",
+      "title": "Title I Participation code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE020"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1026",
+      "collection": "SIMS",
+      "title": "Years in US for EL student code has invalid format",
+      "description": "The element is not numeric or is not two characters long",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE021"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1027",
+      "collection": "SIMS",
+      "title": "Years in US for EL student code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE021"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1028",
+      "collection": "SIMS",
+      "title": "Immigrant status code has invalid value",
+      "description": "The element does not have a SIF compliant value",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE022"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1029",
+      "collection": "SIMS",
+      "title": "Immigrant status code has invalid format",
+      "description": "The element does not have a SIF compliant value",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE022"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1030",
+      "collection": "SIMS",
+      "title": "Immigrant status code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE022"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1031",
+      "collection": "SIMS",
+      "title": "Country of origin code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE023"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1032",
+      "collection": "SIMS",
+      "title": "Country of origin code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE023"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1034",
+      "collection": "SIMS",
+      "title": "First (native) language code has invalid format",
+      "description": "The element does not have a SIF compliant value",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE024"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1036",
+      "collection": "SIMS",
+      "title": "First (native) language code is missing",
+      "description": "A value is missing for the element. LanguageType must be 1038",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE024"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1037",
+      "collection": "SIMS",
+      "title": "EL: English Learners Program code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE026"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1038",
+      "collection": "SIMS",
+      "title": "EL: English Learners Program code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE026"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1039",
+      "collection": "SIMS",
+      "title": "English Learner code has invalid value",
+      "description": "The code does not a value in the list of approved NCES English proficiency codes. (See S IF profile)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE025"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1040",
+      "collection": "SIMS",
+      "title": "English Learner code has invalid format",
+      "description": "The code does is not numeric or is longer than 4 characters. (See SIF profile)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE025"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1041",
+      "collection": "SIMS",
+      "title": "English Learner code is missing",
+      "description": "The element is either blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE025"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1042",
+      "collection": "SIMS",
+      "title": "Alternative Education/Innovation Program code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE027"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1043",
+      "collection": "SIMS",
+      "title": "Alternative Education/Innovation Program code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE027"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1044",
+      "collection": "SIMS",
+      "title": "Invalid MA Former 504 value",
+      "description": "If the current Section 504 value is \"No\" then the Former 504 value must be either \"Yes\" or \"No\".",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1046",
+      "collection": "SIMS",
+      "title": "Military Family has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE029"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1047",
+      "collection": "SIMS",
+      "title": "Military Family is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE029"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1048",
+      "collection": "SIMS",
+      "title": "Military Family has invalid value",
+      "description": "The element does not have one of the valid values found in the SIMS Data Handbook for DOE029.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE029"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1049",
+      "collection": "SIMS",
+      "title": "CTE: CTE competency attainment code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE031"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1050",
+      "collection": "SIMS",
+      "title": "CTE: CTE competency attainment code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE031"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1051",
+      "collection": "SIMS",
+      "title": "Graduates: High school completer plans code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE033"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1052",
+      "collection": "SIMS",
+      "title": "Graduates: High school completer plans code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE033"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1053",
+      "collection": "SIMS",
+      "title": "CTE: Career and technical type of program has invalid format",
+      "description": "The element does not have one of the valid values found in the SIMS Data Handbook for DOE035.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE035"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1054",
+      "collection": "SIMS",
+      "title": "CTE: Career and technical type of program is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE035"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1055",
+      "collection": "SIMS",
+      "title": "Graduate, Completed MA Core Curriculum has invalid value",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE037"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1056",
+      "collection": "SIMS",
+      "title": "Graduate, Completed MA Core Curriculum has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE037"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1057",
+      "collection": "SIMS",
+      "title": "Graduate, Completed MA Core Curriculum is missing",
+      "description": "A value is missing for the element or the element holds an invalid value.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE037"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1058",
+      "collection": "SIMS",
+      "title": "504 Plan Status has invalid format",
+      "description": "The element does not have a SIF compliant value",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE039"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1059",
+      "collection": "SIMS",
+      "title": "504 Plan Status is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE039"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1060",
+      "collection": "SIMS",
+      "title": "504 Plan Status has invalid value",
+      "description": "The element does not have a SIF compliant value",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1061",
+      "collection": "SIMS",
+      "title": "CTE: CTE Special Populations Type has invalid value",
+      "description": "The element does not have one of the valid values found in the SIMS Data Handbook for DOE042.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1062",
+      "collection": "SIMS",
+      "title": "CTE: CTE Special Populations Type has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1063",
+      "collection": "SIMS",
+      "title": "CTE: CTE Special Populations Type is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1064",
+      "collection": "SIMS",
+      "title": "CTE: Chapter 74 program has invalid format",
+      "description": "The element does not have one of the valid values found in the SIMS Data Handbook for DOE043.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE043"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1065",
+      "collection": "SIMS",
+      "title": "CTE: Chapter 74 program is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE043"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1066",
+      "collection": "SIMS",
+      "title": "CTE: Non:Chapter:74 Prog Partic. Code has invalid format",
+      "description": "The element does not have one of the valid values found in the SIMS Data Handbook for DOE044.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE044"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1067",
+      "collection": "SIMS",
+      "title": "CTE: Non:Chapter:74 Prog Partic. Code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE044"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1070",
+      "collection": "SIMS",
+      "title": "Reason for Reporting code is missing",
+      "description": "The element is either blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE011"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1076",
+      "collection": "SIMS",
+      "title": "Grade code has invalid format",
+      "description": "The Code and/or the OtherCode is not formatted in a SIF compliant fashion.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1078",
+      "collection": "SIMS",
+      "title": "Non-Instructional Title I Targeted Assistance Services has invalid value",
+      "description": "The element does not have one of the valid values found in the SIMS Data Handbook for DOE030.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE030"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1079",
+      "collection": "SIMS",
+      "title": "Non-Instructional Title I Targeted Assistance Services has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE030"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1081",
+      "collection": "SIMS",
+      "title": "SPED Placement has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1085",
+      "collection": "SIMS",
+      "title": "SPED Level of Need code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE038"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1087",
+      "collection": "SIMS",
+      "title": "SPED Evaluation Results code has invalid format",
+      "description": "The format of the data is not correct.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1088",
+      "collection": "SIMS",
+      "title": "SPED Evaluation Results code is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1089",
+      "collection": "SIMS",
+      "title": "Days in Attendance has invalid format",
+      "description": "The element is not numeric or does not represent a number between 0 and 261 inclusive.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE017"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1090",
+      "collection": "SIMS",
+      "title": "Days in Attendance is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE017"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1091",
+      "collection": "SIMS",
+      "title": "Days in Membership has invalid format",
+      "description": "The element is not numeric or does not represent a number between 0 and 261 inclusive.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE018"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1092",
+      "collection": "SIMS",
+      "title": "Days in Membership is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE018"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1093",
+      "collection": "SIMS",
+      "title": "Unexcused absences has invalid format",
+      "description": "The element is not numeric or does not represent a number between 0 and 261 inclusive.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE052"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1094",
+      "collection": "SIMS",
+      "title": "Unexcused absences is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE052"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1096",
+      "collection": "SIMS",
+      "title": "Missing Student School Enrollment",
+      "description": "No Home StudentSchoolEnrollment object can be found for this StudentPersonal object.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1103",
+      "collection": "SIMS",
+      "title": "Race code is missing",
+      "description": "The code is blank or null.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE010"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1107",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment SchoolInfoRefId is missing",
+      "description": "The mandatory element SchoolInfoRefId has not been provided.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1108",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment SchoolInfoRefId is unknown",
+      "description": "The the object to which the element SchoolInfoRefId refers has not been provided.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1109",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment but the associated TermInfo is missing",
+      "description": "A Terminfo object with the same SchoolInfoRefId as that in the StudentSchoolEnrollment cannot be found.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1110",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment StudentPersonalRefId is missing",
+      "description": "A StudentPersonal object with the RefId referenced in a StudentSchoolEnrollment cannot be found.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1111",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment with Services Only flag set but no SpecialEducationSummary.",
+      "description": "The enrollment record for a student indicates that they are receiving special education services, but their StudentSpecialEducationSummary cannot be found.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1113",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment with exit date before the report date but no exit code.",
+      "description": "An exit date prior to the report date has been reported, but no exit code has been reported so the student's enrollment status is ambiguous.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1117",
+      "collection": "SIMS",
+      "title": "SchoolInfo LeaInfoRefId is missing",
+      "description": "A value is missing for the element.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1118",
+      "collection": "SIMS",
+      "title": "SchoolInfo LeaInfoRefId is unknown",
+      "description": "The LEAInfo object to which the element refers is missing.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1119",
+      "collection": "SIMS",
+      "title": "TermInfo SchoolInfoRefId is missing",
+      "description": "A value is missing for the element",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1120",
+      "collection": "SIMS",
+      "title": "TermInfo SchoolInfoRefId is unknown",
+      "description": "The SchoolInfo object to which the element refers is missing",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1123",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment Enrolled student with exit date",
+      "description": "The most recent StudentSchoolEnrollment object shows the student as exited on ExitDate, but the exit code reports them as enrolled (DOE012=01 or 40)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1124",
+      "collection": "SIMS",
+      "title": "SLIFE (DOE041) has invalid format",
+      "description": "The value provided in the element is not recognized as a valid value.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [
+        "DOE041"
+      ],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1133",
+      "collection": "SIMS",
+      "title": "Invalid CPPI Funded Status value. Valid values are Yes or No.",
+      "description": "The value provided in the element is not recognized as a valid value.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1158",
+      "collection": "SIMS",
+      "title": "StudentSchoolEnrollment with no matching StudentSectionEnrollment",
+      "description": "An active general education enrollment record for a student has been received, but no section enrollments have been.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1171",
+      "collection": "SIMS",
+      "title": "Multiple SpecialEducationSummary found",
+      "description": "The student has more than one SpecialEducationSummary object. Contact your SIS software vendor.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1172",
+      "collection": "SIMS",
+      "title": "SchoolInfo missing TermInfo",
+      "description": "A SchoolInfo object has been received, but no TermInfo objects have been for this school.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1174",
+      "collection": "SIMS",
+      "title": "StudentPersonal with no StudentSchoolEnrollment",
+      "description": "A StudentPersonal object has been received, but no StudentSchoolEnrollment objects have been for the student.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1185",
+      "collection": "SIMS",
+      "title": "Evaluation has been completed during this school year. Select a different value for DOE040",
+      "description": "The evaluation date reported is during the school year, but the value reported in the OtherCode (DOE040 = 00,01 or 08) implies that the evaluation was not done in the current year and the student's status is not clear. The data reported is ambiguous so either the date or the DOE040 value is incorrect.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1186",
+      "collection": "SIMS",
+      "title": "Evaluation was not completed during this school year. If the student is not receiving special education services, do not report this data",
+      "description": "The evaluation date reported is prior to the school year, but the value reported in the OtherCode (DOE040 = 02,03 or 09) implies that the evaluation was done in the current year and the student is not receiving services. The data reported is ambiguous so either the date or the DOE040 value is incorrect.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1187",
+      "collection": "SIMS",
+      "title": "Evaluation was completed prior to this school year. If the student is receiving special education services, report 01 in DOE040",
+      "description": "The evaluation date reported is prior to the school year, but the value reported in the OtherCode (DOE040 = 04,05,06 or 07) implies that the evaluation was done in the current year and the student is receiving services. The data reported is ambiguous so either the date or the DOE040 value is incorrect.",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1190",
+      "collection": "SIMS",
+      "title": "Invalid SASID for active enrollment",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1198",
+      "collection": "SIMS",
+      "title": "Duplicate REFIDs in Student Personal",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1230",
+      "collection": "SIMS",
+      "title": "Invalid/Missing value for Instruction Mode. Must be 01 (in-person), 02 (hybrid), or 03 (remote)",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1231",
+      "collection": "SIMS",
+      "title": "If Instruction Mode is in-person only, Days in Attendance (DOE017) cannot be 0",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1251",
+      "collection": "SIMS",
+      "title": "If Instruction Mode is remote only, Days Attended Remote (DOE054) cannot be 0",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1321",
+      "collection": "SIMS",
+      "title": "Missing EnrollmentOfferDate. When SiblingPreference is Yes, EnrollmentOfferDate cannot be blank",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1322",
+      "collection": "SIMS",
+      "title": "Invalid/Missing values in SiblingPreference or EnrollmentOfferDate element(s)",
+      "description": null,
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
+    },
+    {
+      "code": "SIF1520",
+      "collection": "SIMS",
+      "title": "Title I: School has no Title I. Students must be reported with DOE020=00 and DOE030=00",
+      "description": "This is a substitution to SIMS1520 for SIF districts which serves to allow homeless students to be reported as receiving Title I funding even though they attend a non-Title I school. School is listed as not having Title I but the non-homeless student is reported with a Title I participation code. If the school is not a Title I school, then Title I participation codes must be 00 (DOE020 & DOE030). (Exclude summer exits.)",
+      "example": null,
+      "elements_affected": [],
+      "collection_windows": [],
+      "related_fields": [],
+      "object": "SIF Validation"
     }
   ],
   "fields": [
