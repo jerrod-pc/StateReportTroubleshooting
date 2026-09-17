@@ -421,7 +421,7 @@
       "code": "SIMS2310",
       "collection": "SIMS",
       "title": "SASID (DOE002) not recorded in DESE student directory table",
-      "description": "There is no SASID with that sequence of numbers in the student directory. Usually, it\\'s a typo with one of the numbers.",
+      "description": "There is no SASID with that sequence of numbers in the student directory. Usually, it's a typo with one of the numbers.",
       "example": null,
       "elements_affected": [
         "DOE002"
@@ -440,7 +440,7 @@
       "code": "SIMS2320",
       "collection": "SIMS",
       "title": "SASID has been deactivated in student directory. Please use the active SASID:",
-      "description": "This student had been assigned two SASID numbers. We \\\"deactivated\\\" one of the numbers assigned so please use \\\"active\\\" number",
+      "description": "This student had been assigned two SASID numbers. We \"deactivated\" one of the numbers assigned so please use \"active\" number",
       "example": null,
       "elements_affected": [
         "DOE002"
@@ -1186,7 +1186,7 @@
       "code": "SIMS2650",
       "collection": "SIMS",
       "title": "EL code (DOE025) not consistent with English reported as first language (DOE024). Please request an exception if this is accurate.",
-      "description": "If the student\\'s native language is English (eng) then the EL code (DOE025) should equal 00.",
+      "description": "If the student's native language is English (eng) then the EL code (DOE025) should equal 00.",
       "example": null,
       "elements_affected": [
         "DOE024",
@@ -1362,7 +1362,7 @@
       "code": "SIMS2730",
       "collection": "SIMS",
       "title": "Graduates: High school completer plans code (DOE033) invalid with enrollment status",
-      "description": "If enrollment status (DOE012)=04, then High school completer plans (DOE033) must be 01-10. If enrollment status (DOE012)=10 or 11, then High school completer plans (DOE033) can be 01-10 and if enrollment status (DOE012) \\<\\> 04 (Graduate), then High school completer plans(DOE033) must be 500.",
+      "description": "If enrollment status (DOE012)=04, then High school completer plans (DOE033) must be 01-10. If enrollment status (DOE012)=10 or 11, then High school completer plans (DOE033) can be 01-10 and if enrollment status (DOE012) <> 04 (Graduate), then High school completer plans(DOE033) must be 500.",
       "example": null,
       "elements_affected": [
         "DOE033",
@@ -1585,7 +1585,7 @@
       "code": "SIMS2840",
       "collection": "SIMS",
       "title": "CVTE Special Population Code (DOE042) requires being in a CVTE Program (DOE035)",
-      "description": "If CVTE Special Populations code (DOE042)\\<\\>500 then CTE Program Type code (DOE035) must not = 00.",
+      "description": "If CVTE Special Populations code (DOE042)<>500 then CTE Program Type code (DOE035) must not = 00.",
       "example": null,
       "elements_affected": [
         "DOE035",
@@ -2275,7 +2275,7 @@
       "code": "SIMS7910",
       "collection": "SIMS",
       "title": "Reached maximum age must be 21 or older (Not less than 21 but less than 25)",
-      "description": "If Enrollment Status (DOE12) = 09 then the student\\'s age must be 21 and higher but less than 25",
+      "description": "If Enrollment Status (DOE12) = 09 then the student's age must be 21 and higher but less than 25",
       "example": null,
       "elements_affected": [
         "DOE006",
@@ -2401,7 +2401,7 @@
       "code": "SIMS7970",
       "collection": "SIMS",
       "title": "Summer dropouts reported in Oct must be reported in March/EOY",
-      "description": "Summer dropouts reported in October (DOE012=30\\'s, DOE017=555, DOE018=555) must be reported in March/EOY.",
+      "description": "Summer dropouts reported in October (DOE012=30's, DOE017=555, DOE018=555) must be reported in March/EOY.",
       "example": null,
       "elements_affected": [
         "DOE012",
@@ -2443,7 +2443,7 @@
       "code": "SIMS7990",
       "collection": "SIMS",
       "title": "Summer transfers reported in Oct must be reported in March/EOY",
-      "description": "Summer transfers reported in October (DOE012=20\\'s, DOE017=555, DOE018=555) must be reported in March/EOY.",
+      "description": "Summer transfers reported in October (DOE012=20's, DOE017=555, DOE018=555) must be reported in March/EOY.",
       "example": null,
       "elements_affected": [
         "DOE012",
@@ -2605,7 +2605,7 @@
       "code": "SIMS8090",
       "collection": "SIMS",
       "title": "Private or Approved Sped Grade not listed in reported school",
-      "description": "Student\\'s grade (DOE016) not valid for the reported school (DOE015)",
+      "description": "Student's grade (DOE016) not valid for the reported school (DOE015)",
       "example": null,
       "elements_affected": [
         "DOE016",
@@ -2947,7 +2947,7 @@
       "code": "SIMS8270",
       "collection": "SIMS",
       "title": "Outplacement school (DOE015) not approved for CVTE Program Type code (DOE035)",
-      "description": "Career and Tech Ed. (DOE035) Students cannot be reported as Sending (DOE011 = \\'02\\').",
+      "description": "Career and Tech Ed. (DOE035) Students cannot be reported as Sending (DOE011 = '02').",
       "example": null,
       "elements_affected": [
         "DOE035",
@@ -3053,7 +3053,7 @@
       "code": "SIMS8330",
       "collection": "SIMS",
       "title": "Student not reported in a Non-Ch. 74 program (DOE035) and so should report N/A (500) in the Non-Ch. 74 Program code (DOE044)",
-      "description": "If DOE035 - CTE Program Type code \\<\\> 14, then DOE044 - Non Ch. 74 Program Participation code must be 500.",
+      "description": "If DOE035 - CTE Program Type code <> 14, then DOE044 - Non Ch. 74 Program Participation code must be 500.",
       "example": null,
       "elements_affected": [
         "DOE035",
@@ -3074,7 +3074,7 @@
       "code": "SIMS8340",
       "collection": "SIMS",
       "title": "Student previously reported with a CVTE Program Type code (DOE035) and should continue to be reported with one",
-      "description": "A student (SASID) who is a summer exit, reported with an Enrollment Status of Graduate, Certificate of Attainment or Completed Grade 12 and District approved program (DOE-12 = 04, 9 or 10) and who in the immediately prior period was reported as enrolled in a CVTE program (DOE035\\<\\>00) must continue to be reported in the current period as being enrolled in a CVTE program.",
+      "description": "A student (SASID) who is a summer exit, reported with an Enrollment Status of Graduate, Certificate of Attainment or Completed Grade 12 and District approved program (DOE-12 = 04, 9 or 10) and who in the immediately prior period was reported as enrolled in a CVTE program (DOE035<>00) must continue to be reported in the current period as being enrolled in a CVTE program.",
       "example": null,
       "elements_affected": [
         "DOE012",
@@ -3840,7 +3840,7 @@
     {
       "code": "SIMS8925",
       "collection": "SIMS",
-      "title": "SpEd Placement (DOE032\\<\\>00) is only consistent with 3 to 5 year olds",
+      "title": "SpEd Placement (DOE032<>00) is only consistent with 3 to 5 year olds",
       "description": "A student aged less than 3 or greater than 5 on the report date may not be reported with a significant value in DOE032 (SpEd Placement Ages 3-5)",
       "example": null,
       "elements_affected": [
@@ -3919,7 +3919,7 @@
     {
       "code": "SIMS8945",
       "collection": "SIMS",
-      "title": "SpEd Placement (DOE034\\<\\>00) is not consistent with student being less than 6 years old",
+      "title": "SpEd Placement (DOE034<>00) is not consistent with student being less than 6 years old",
       "description": "If the student is less than 6 years old then the SpEd environment should be reported in DOE032, not DOE34.",
       "example": null,
       "elements_affected": [
@@ -6138,7 +6138,7 @@
       "max_length": 2,
       "acceptable_values": "00 = Does not apply (used for grade levels PK or SP)\n01 = EL student in first year of U.S. schooling\n02 = EL student not in first year of U.S. schooling",
       "related_elements": null,
-      "notes": "Changes to the Title I regulations require states and local school districts to identify EL students that have recently arrived to the United States and are in their first year of U.S. schooling. Below is the relevant text from the federal regulations for 34 CFR Part 200 (Title I) regarding the revised definition of EL students in their first year enrolled in U.S. schools.  \\(C\\) The State and its LEA must report on State and district report cards under section 1111(h) of the Act the number of recently arrived English learner (EL) students who are not assessed on the State's reading/language arts assessment.  \\(iv\\) A recently arrived English learner (EL) is a student who is not yet proficient in English and who has attended schools in the United States for less than twelve months. The phrase \"schools in the United States\" includes only schools in the 50 States and the District of Columbia.  Coding of students in Kindergarten through Grade 12:  All EL students enrolled in their first year of Kindergarten through Grade 12 in the U.S., regardless of country of birth, should be coded with 01. All EL students, regardless of country of birth, who are repeating Kindergarten through Grade 12 or who have been in U.S. schools for more than 12 months should be coded with 02.  Coding of students in PK or SP grade levels:  All students in grade levels PK or SP should be coded with 00.",
+      "notes": "Changes to the Title I regulations require states and local school districts to identify EL students that have recently arrived to the United States and are in their first year of U.S. schooling. Below is the relevant text from the federal regulations for 34 CFR Part 200 (Title I) regarding the revised definition of EL students in their first year enrolled in U.S. schools.  (C) The State and its LEA must report on State and district report cards under section 1111(h) of the Act the number of recently arrived English learner (EL) students who are not assessed on the State's reading/language arts assessment.  (iv) A recently arrived English learner (EL) is a student who is not yet proficient in English and who has attended schools in the United States for less than twelve months. The phrase \"schools in the United States\" includes only schools in the 50 States and the District of Columbia.  Coding of students in Kindergarten through Grade 12:  All EL students enrolled in their first year of Kindergarten through Grade 12 in the U.S., regardless of country of birth, should be coded with 01. All EL students, regardless of country of birth, who are repeating Kindergarten through Grade 12 or who have been in U.S. schools for more than 12 months should be coded with 02.  Coding of students in PK or SP grade levels:  All students in grade levels PK or SP should be coded with 00.",
       "sif_object": "StudentPersonal",
       "sif_element": "Extended/LEPStudentsInTheirFirstYearInUSSchools",
       "field_id": "DOE021",
@@ -6146,7 +6146,7 @@
       "collection": "SIMS"
     },
     {
-      "description": "Immigrant status is an indication of whether a student is considered to be an immigrant student under the federal definition. DESE now receives federal funding based on the immigrant student population enrolled in Massachusetts\\'s public schools. To meet the federal definition, a student must:  1. be between the ages of 3 and 21  2. not have been born in any state; AND  3. not have been attending one or more schools in any one or more States for more than three full academic year",
+      "description": "Immigrant status is an indication of whether a student is considered to be an immigrant student under the federal definition. DESE now receives federal funding based on the immigrant student population enrolled in Massachusetts's public schools. To meet the federal definition, a student must:  1. be between the ages of 3 and 21  2. not have been born in any state; AND  3. not have been attending one or more schools in any one or more States for more than three full academic year",
       "type": "Alphanumeric",
       "min_length": 2,
       "max_length": 2,
@@ -6166,7 +6166,7 @@
       "max_length": 3,
       "acceptable_values": "Country codes are provided in Appendix B.  500 Not an immigrant student",
       "related_elements": null,
-      "notes": "1. The DOE must determine the number of immigrant students enrolled in public schools and in nonpublic elementary and secondary schools within the district served by an LEA in order to determine district eligibility to receive federal funds designated for immigrant students. For the purposes of determining eligibility for immigrant funds, \"State\" is defined as the 50 States, the District of Columbia, and the Commonwealth of Puerto Rico.  Country of Origin must be provided.  2. Country code equals 500 if:  a\\. Student was born in the United States  b\\. Student was born to Embassy personnel who are citizens of the United States  c\\. Student was born to parents, who are United States citizens, while traveling abroad  e\\. Student is a foreign exchange student  f\\. Student has completed over three full academic years of school in U.S.",
+      "notes": "1. The DOE must determine the number of immigrant students enrolled in public schools and in nonpublic elementary and secondary schools within the district served by an LEA in order to determine district eligibility to receive federal funds designated for immigrant students. For the purposes of determining eligibility for immigrant funds, \"State\" is defined as the 50 States, the District of Columbia, and the Commonwealth of Puerto Rico.  Country of Origin must be provided.  2. Country code equals 500 if:  a. Student was born in the United States  b. Student was born to Embassy personnel who are citizens of the United States  c. Student was born to parents, who are United States citizens, while traveling abroad  e. Student is a foreign exchange student  f. Student has completed over three full academic years of school in U.S.",
       "sif_object": "StudentPersonal",
       "sif_element": "Extended/CountryOfOrigin",
       "field_id": "DOE023",
@@ -6502,7 +6502,7 @@
       "max_length": 3,
       "acceptable_values": "IRC codes are provided in Appendix D.  500 Does not apply",
       "related_elements": null,
-      "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements  1\\. DOE047 is no longer restricted to a specific list of safety-related IRCs.  2\\. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  3\\. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  4. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
+      "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements  1. DOE047 is no longer restricted to a specific list of safety-related IRCs.  2. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  3. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  4. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
       "sif_object": "StudentPersonal",
       "sif_element": "Extended/IndustryRecognizedCredentials",
       "field_id": "DOE047",
@@ -6516,7 +6516,7 @@
       "max_length": 3,
       "acceptable_values": "IRC codes are provided in Appendix D.  500 Does not apply",
       "related_elements": null,
-      "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements.  1\\. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  2\\. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  3. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
+      "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements.  1. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  2. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  3. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
       "sif_object": "StudentPersonal",
       "sif_element": "Extended/IndustryRecognizedCredentials",
       "field_id": "DOE048",
@@ -6530,7 +6530,7 @@
       "max_length": 3,
       "acceptable_values": "IRC codes are provided in Appendix D.  500 Does not apply",
       "related_elements": null,
-      "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements.  1\\. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  2\\. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  3. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
+      "notes": "IRCs validate the technical knowledge and skills students gain in CCTE programs and support federal accountability reporting requirements.  1. The IRC(s) reported in DOE047, DOE048, and DOE049 must be the most recent credentials the student has attained since the last reporting period.  2. IRCs must be unique (i.e., not duplicative):  Within the same reporting period;  Across reporting periods within the same school year; and  Across the student's entire secondary education record.  3. Students may report up to three unique IRCs per reporting period. Across reporting periods within the same school year, a student may report up to nine unique IRCs.",
       "sif_object": "StudentPersonal",
       "sif_element": "Extended/IndustryRecognizedCredentials",
       "field_id": "DOE049",
