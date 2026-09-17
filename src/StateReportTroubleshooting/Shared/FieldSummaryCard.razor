@@ -113,7 +113,8 @@ else
     private bool ShowAppendixButton =>
         _resolved is not null &&
         (_resolved.Value.Collection.Equals("EPIMS", StringComparison.OrdinalIgnoreCase)
-         || _resolved.Value.Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase));
+         || _resolved.Value.Collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase)
+         || _resolved.Value.Collection.Equals("SSDR", StringComparison.OrdinalIgnoreCase));
 
     private async Task ToggleAppendices()
     {

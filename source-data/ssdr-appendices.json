@@ -1,0 +1,16 @@
+{
+  "collection": "SSDR",
+  "appendices": [
+    {
+      "sheet_name": "Appendix A - List of Offense Codes",
+      "collection": "SSDR",
+      "linked_fields": ["OT1", "SOT1"],
+      "columns": ["Note"],
+      "rows": [
+        [
+          "This table (offense codes with their Always Reportable, Victim Count Required, Description Required, and Physical Injury Indicator Required flags) is not yet available here. The source SSDR Error List PDF has severe column misalignment in this table - offense descriptions and Y/N flags get scrambled across the wrong rows when extracted, so it could not be reliably reconstructed without risking incorrect compliance data. If you have access to a clean version of this table (e.g. a spreadsheet export from DESE), please email jcampion@rediker.com so it can be added correctly."
+        ]
+      ]
+    }
+  ]
+}

@@ -28,6 +28,7 @@ public class TroubleshootingDataService(HttpClient http)
 
     private AppendixFile? _epimsAppendices;
     private AppendixFile? _simsAppendices;
+    private AppendixFile? _ssdrAppendices;
 
     private static string Key(string collection, string fieldId) => $"{collection}|{fieldId}";
 
@@ -40,8 +41,9 @@ public class TroubleshootingDataService(HttpClient http)
         var simsTask = http.GetFromJsonAsync<CollectionFile>("data/sims.json");
         var ssdrTask = http.GetFromJsonAsync<CollectionFile>("data/ssdr.json");
         var epimsAppendicesTask = http.GetFromJsonAsync<AppendixFile>("data/epims-appendices.json");
+        var ssdrAppendicesTask = http.GetFromJsonAsync<AppendixFile>("data/ssdr-appendices.json");
 
-        await Task.WhenAll(scsTask, epimsTask, simsTask, ssdrTask, epimsAppendicesTask);
+        await Task.WhenAll(scsTask, epimsTask, simsTask, ssdrTask, epimsAppendicesTask, ssdrAppendicesTask);
 
         RegisterCollection(scsTask.Result);
         RegisterCollection(epimsTask.Result);
@@ -52,6 +54,12 @@ public class TroubleshootingDataService(HttpClient http)
         if (_epimsAppendices is not null)
         {
             IndexAppendices(_epimsAppendices);
+        }
+
+        _ssdrAppendices = ssdrAppendicesTask.Result;
+        if (_ssdrAppendices is not null)
+        {
+            IndexAppendices(_ssdrAppendices);
         }
 
         IsInitialized = true;
@@ -193,6 +201,10 @@ public class TroubleshootingDataService(HttpClient http)
         if (collection.Equals("SIMS", StringComparison.OrdinalIgnoreCase))
         {
             return _simsAppendices?.Appendices ?? [];
+        }
+        if (collection.Equals("SSDR", StringComparison.OrdinalIgnoreCase))
+        {
+            return _ssdrAppendices?.Appendices ?? [];
         }
         return [];
     }
