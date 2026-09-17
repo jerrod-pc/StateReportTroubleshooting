@@ -1361,7 +1361,7 @@
       "related_elements": "SIMS: DOE015 - School Identification Number  EPIMS: WA06 -- Assignment Location Code",
       "notes": "The four character educational institution codes required to report courses provided by colleges are the same codes required to report EPIMS SR19 Degree Institution 1, SR 22 Degree Institution 2 and SR 25 Degree Institution 3. (See *EPIMS Data Handbook*, *Appendix C*.)  Element is similar to SIMS DOE015 School Identification Number and EPIMS WA06 Assignment Location Code.  \"CLBR\" must be all uppercase letters only. Lowercase letters will cause an error.\\\\\\\\",
       "sif_object": "SchoolInfo",
-      "sif_element": "SchoolInfo",
+      "sif_element": "SchoolInfo/StateProvinceId",
       "field_id": "SCS03",
       "name": "School/Program ID Number",
       "collection": "SCS"
@@ -1417,7 +1417,7 @@
       "related_elements": "EPIMS: WA16 -- Course Term",
       "notes": "All non-instructional staff should be reported as code 01 -- FULL. Value must match course term values reported in EPIMS (WA16).",
       "sif_object": "TermInfo",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MATermCode",
       "field_id": "SCS07",
       "name": "Course Term",
       "collection": "SCS"
@@ -1431,7 +1431,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentSectionEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/CourseEnrollmentStatus",
       "field_id": "SCS08",
       "name": "Course Enrollment Status",
       "collection": "SCS"
@@ -1445,7 +1445,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "SchoolCourseInfo",
-      "sif_element": "InstructionalLevel",
+      "sif_element": "InstructionalLevel/Code",
       "field_id": "SCS09",
       "name": "Course Level",
       "collection": "SCS"
@@ -1473,7 +1473,7 @@
       "related_elements": null,
       "notes": "If a course is currently in progress; the value for this element will be 0 or 9999 and will match the value reported in SCS10.",
       "sif_object": "StudentSectionMarks",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MACreditsEarned",
       "field_id": "SCS11",
       "name": "Course Credit Earned",
       "collection": "SCS"
@@ -1487,7 +1487,7 @@
       "related_elements": null,
       "notes": "on Dependencies  - If the course has been completed and only a numeric mark has been provided, then the value for SCS12 should be reported as 99, and a numeric mark other than 99999, 88888, 21111, 22222, 23333, 40000 and 50000 must be reported in SCS13.  - If the course has been completed, and only a letter mark has been provided, then the value for SCS13 should be reported as 99999, and a letter mark other than 99, 88, 21, 22, 23, 40, and 50 must be reported in SCS12.  - If SCS08 is 01 (Enrolled), then SCS12 may be 55 (Mark will not be reported for this course), 66 (No grade provided for this course (ungraded)), 77 (Audit), 88 (Course In Progress) or 99 (Not Applicable).  - If the Enrollment Status (SCS08) for a student course is reported as \"Completed\", a mark (letter, numeric, or both) is required.",
       "sif_object": "StudentSectionMarks",
-      "sif_element": "MarkList",
+      "sif_element": "MarkList/Mark/Letter",
       "field_id": "SCS12",
       "name": "Course Letter Mark",
       "collection": "SCS"
@@ -1501,7 +1501,7 @@
       "related_elements": null,
       "notes": "on Dependencies:  - If SCS08 is 01, then SCS13 may be 55555, 66666, 77777, 88888, or 99999.  - If a numeric mark will be provided when the course is completed however the course is being offered at the time of the collection, the value for this element will be reported as 88888. In this case, SCS12 (Course Letter Mark) should have a value of \"88\".  - If the course has been completed, and only a letter mark has been provided, then the value for SCS13 should be reported as 99999, and a letter mark other than 99, 88, 21, 22, 23, 40, and 50 must be reported in SCS12.  - If the Enrollment Status (SCS08) for a student course is reported as \"Completed,\" a mark (letter, numeric, or both) is required.  - If a course offered across non-consecutive terms is not completed and is not in session at the time of the collection, the Enrollment Status (SCS08) will be reported as \"Enrolled,\" and the value for this element will be reported as code 88888 or 99999.",
       "sif_object": "StudentSectionMarks",
-      "sif_element": "MarkList",
+      "sif_element": "MarkList/Mark/Percentage",
       "field_id": "SCS13",
       "name": "Course Numeric Mark",
       "collection": "SCS"
@@ -1515,7 +1515,7 @@
       "related_elements": null,
       "notes": "More information on Early College and Innovation Pathways: [Massachusetts High Quality College and Career Pathways Initiative - College, Career and Technical Education](https://www.doe.mass.edu/ccte/pathways/hqccp/default.html)  More information on Perkins: [Perkins Funding - College, Career and Technical Education](https://www.doe.mass.edu/ccte/policies/perkins-v/default.html)",
       "sif_object": "StudentSectionEnrollment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/PathwaysCourse",
       "field_id": "SCS14",
       "name": "Pathways Course",
       "collection": "SCS"

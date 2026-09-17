@@ -1020,7 +1020,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "DisciplineIncident",
-      "sif_element": "RelatedToList",
+      "sif_element": "RelatedToList/RelatedTo & WeaponTypeList/WeaponType",
       "field_id": "OT1",
       "name": "Offense Code 1",
       "collection": "SSDR"
@@ -1034,7 +1034,7 @@
       "related_elements": null,
       "notes": "**  If there is no second offense type associated with the incident, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "RelatedToList",
+      "sif_element": "RelatedToList/RelatedTo & WeaponTypeList/WeaponType",
       "field_id": "OT2",
       "name": "Offense Code 2",
       "collection": "SSDR"
@@ -1048,7 +1048,7 @@
       "related_elements": null,
       "notes": "**  If there is no third offense type associated with the incident, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "RelatedToList",
+      "sif_element": "RelatedToList/RelatedTo & WeaponTypeList/WeaponType",
       "field_id": "OT3",
       "name": "Offense Code 3",
       "collection": "SSDR"
@@ -1062,7 +1062,7 @@
       "related_elements": null,
       "notes": "**  If there is no fourth offense type associated with the incident, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "RelatedToList",
+      "sif_element": "RelatedToList/RelatedTo & WeaponTypeList/WeaponType",
       "field_id": "OT4",
       "name": "Offense Code 4",
       "collection": "SSDR"
@@ -1076,7 +1076,7 @@
       "related_elements": null,
       "notes": "**  If there is no fifth offense type associated with the incident, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "RelatedToList",
+      "sif_element": "RelatedToList/RelatedTo & WeaponTypeList/WeaponType",
       "field_id": "OT5",
       "name": "Offense Code 5",
       "collection": "SSDR"
@@ -1090,7 +1090,7 @@
       "related_elements": null,
       "notes": "If no student victims, report 0 in this field.  See [Appendix A](#AppendixA) for which offense types require a victim count",
       "sif_object": "DisciplineIncident",
-      "sif_element": "VictimList",
+      "sif_element": "VictimList/Victim",
       "field_id": "VS",
       "name": "Count of Student Victims",
       "collection": "SSDR"
@@ -1104,7 +1104,7 @@
       "related_elements": null,
       "notes": "If no personnel victims, report 0 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "VictimList",
+      "sif_element": "VictimList/Victim",
       "field_id": "VSCHP",
       "name": "Count of School Personnel Victims",
       "collection": "SSDR"
@@ -1118,7 +1118,7 @@
       "related_elements": null,
       "notes": "If no non-school personnel victims, report 0 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "VictimList",
+      "sif_element": "VictimList/Victim",
       "field_id": "VNSCHP",
       "name": "Count of Non-School Personnel Victims",
       "collection": "SSDR"
@@ -1132,7 +1132,7 @@
       "related_elements": null,
       "notes": "If no unknown victims, report 0 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "VictimList",
+      "sif_element": "VictimList/Victim",
       "field_id": "VU",
       "name": "Count of Unknown Victims",
       "collection": "SSDR"
@@ -1146,7 +1146,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender",
       "field_id": "OFFES",
       "name": "Count of Student Offenders",
       "collection": "SSDR"
@@ -1160,7 +1160,7 @@
       "related_elements": null,
       "notes": "If no non-student offenders, report 0 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender",
       "field_id": "OFFENS",
       "name": "Count of Non-Student Offenders",
       "collection": "SSDR"
@@ -1174,7 +1174,7 @@
       "related_elements": null,
       "notes": "If no unknown offenders, report 0 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender",
       "field_id": "OFFEU",
       "name": "Count of Unknown Offenders",
       "collection": "SSDR"
@@ -1188,7 +1188,7 @@
       "related_elements": "See [Appendix A](#AppendixA) for which offense types require the physical injury indicator",
       "notes": "See [Appendix A](#AppendixA) for which offense types require a description",
       "sif_object": "DisciplineIncident",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAOtherOffense",
       "field_id": "OFF DESC",
       "name": "Description of Offense Code 1",
       "collection": "SSDR"
@@ -1202,7 +1202,7 @@
       "related_elements": null,
       "notes": "See [Appendix A](#AppendixA) for which offense types require a description",
       "sif_object": "DisciplineIncident",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAOtherOffense",
       "field_id": "OFF DESC2",
       "name": "Description of Offense Code 2",
       "collection": "SSDR"
@@ -1216,7 +1216,7 @@
       "related_elements": null,
       "notes": "See [Appendix A](#AppendixA) for which offense types require a description",
       "sif_object": "DisciplineIncident",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAOtherOffense",
       "field_id": "OFF DESC3",
       "name": "Description of Offense Code 3",
       "collection": "SSDR"
@@ -1230,7 +1230,7 @@
       "related_elements": null,
       "notes": "See [Appendix A](#AppendixA) for which offense types require a description",
       "sif_object": "DisciplineIncident",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAOtherOffense",
       "field_id": "OFF DESC4",
       "name": "Description of Offense Code 4",
       "collection": "SSDR"
@@ -1244,7 +1244,7 @@
       "related_elements": null,
       "notes": "See [Appendix A](#AppendixA) for which offense types require a description",
       "sif_object": "DisciplineIncident",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAOtherOffense",
       "field_id": "OFF DESC5",
       "name": "Description of Offense Code 5",
       "collection": "SSDR"
@@ -1328,7 +1328,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/FirstName",
       "field_id": "FN",
       "name": "First Name",
       "collection": "SSDR"
@@ -1342,7 +1342,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/LastName",
       "field_id": "LN",
       "name": "Last Name",
       "collection": "SSDR"
@@ -1356,7 +1356,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StudentPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/BirthDate",
       "field_id": "DOB",
       "name": "Date of Birth",
       "collection": "SSDR"
@@ -1383,8 +1383,8 @@
       "acceptable_values": "1 = In-school suspension\n2 = Out-of-school suspension\n3 = Expulsion\n4 = Removed by impartial hearing officer to an alternative setting\n5 = Removed by school personnel to an alternative setting\n6 = Emergency Removal\n7 = School-related arrest and/or law enforcement referral with no school imposed suspension or removal.\n\nDependencies: If DAT = 4, PST must be 2. If DAT = 6, DM must not be > 3. If DAT = 7, LAWENFREF must not be 00.",
       "related_elements": null,
       "notes": "In-school suspension is reportable only if it is for half the school day or more. In-school suspensions for less than half the day are not reportable.  Out-of-school suspension is reportable no matter the duration. An out-of-school suspension for any portion of the day should be reported as a day of suspension.  Expulsion is the removal of a student from school for more than 90 school days, indefinitely, or permanently",
-      "sif_object": null,
-      "sif_element": null,
+      "sif_object": "DisciplineIncident",
+      "sif_element": "OffenderList/Offender/ActionList/Action/Code (or .../OtherCodeList/OtherCode, Codeset=Other)",
       "field_id": "DAT",
       "name": "Disciplinary Action Taken",
       "collection": "SSDR"
@@ -1411,8 +1411,8 @@
       "acceptable_values": "DISCONTINUED, LEAVE BLANK",
       "related_elements": null,
       "notes": null,
-      "sif_object": null,
-      "sif_element": null,
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "BI OFF",
       "name": "Bodily Injury Indicator *DISCONTINUED*",
       "collection": "SSDR"
@@ -1426,7 +1426,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/ActionList/Action/StartDate",
       "field_id": "SD",
       "name": "Start Date of Discipline",
       "collection": "SSDR"
@@ -1440,7 +1440,7 @@
       "related_elements": null,
       "notes": "Students whose discipline lasts one day will have the same start and end date.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/ActionList/Action/EndDate",
       "field_id": "RD",
       "name": "Discipline End Date",
       "collection": "SSDR"
@@ -1453,8 +1453,8 @@
       "acceptable_values": "DISCONTINUED, LEAVE BLANK",
       "related_elements": null,
       "notes": null,
-      "sif_object": null,
-      "sif_element": null,
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "ERD",
       "name": "Eligible to Return Date *DISCONTINUED*",
       "collection": "SSDR"
@@ -1468,7 +1468,7 @@
       "related_elements": null,
       "notes": "Must be between 1 and 200",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/ActionList/Action/Duration",
       "field_id": "DM",
       "name": "Days Missed",
       "collection": "SSDR"
@@ -1481,8 +1481,8 @@
       "acceptable_values": "DISCONTINUED, LEAVE BLANK",
       "related_elements": null,
       "notes": null,
-      "sif_object": null,
-      "sif_element": null,
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "AEINC",
       "name": "Education Services Indicator *DISCONTINUED*",
       "collection": "SSDR"
@@ -1496,7 +1496,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/ActionList/Action/OtherCodeList/OtherCode (Codeset=StateProvince)",
       "field_id": "AE",
       "name": "Education Services",
       "collection": "SSDR"
@@ -1510,7 +1510,7 @@
       "related_elements": null,
       "notes": "**  Law enforcement referral = an action by which a student is reported to any law enforcement agency or official, including a school police unit, for an incident that occurs on school grounds, during school-related events, or while taking school transportation, regardless of whether official action is taken. Citations, tickets, court referrals, and school-related arrests are considered referrals to law enforcement  Do not report this as yes for a felony complaint or felony charge outside of school (offense code MA05 and MA19).  If no removal, expulsion or suspension is associated with the referral, then report \"7\" in DAT.  Dependencies:",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/ActionList/Action/Code",
       "field_id": "LAWENFREF",
       "name": "Law Enforcement Referral",
       "collection": "SSDR"
@@ -1524,7 +1524,7 @@
       "related_elements": null,
       "notes": "**  Do not report this as yes for a felony complaint or felony charge outside of school (offense code MA05 and MA19).  If no removal, expulsion or suspension is associated with an arrest then report \"7\" in DAT.  If ARREST = Y, LAWENFREF must = Y  Dependencies:",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/ActionList/Action/Arrest",
       "field_id": "ARREST",
       "name": "School-Related Arrest",
       "collection": "SSDR"
@@ -1537,8 +1537,8 @@
       "acceptable_values": "DISCONTINUED, LEAVE BLANK",
       "related_elements": null,
       "notes": null,
-      "sif_object": null,
-      "sif_element": null,
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "APPEAL",
       "name": "Appeal Indicator *DISCONTINUED*",
       "collection": "SSDR"
@@ -1551,8 +1551,8 @@
       "acceptable_values": "DISCONTINUED, LEAVE BLANK",
       "related_elements": null,
       "notes": null,
-      "sif_object": null,
-      "sif_element": null,
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "AEX",
       "name": "Education Services Description *DISCONTINUED*",
       "collection": "SSDR"
@@ -1566,7 +1566,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/RelatedToList/RelatedTo & OffenderList/Offender/WeaponTypeList/WeaponType",
       "field_id": "SOT1",
       "name": "Offense Code 1",
       "collection": "SSDR"
@@ -1580,7 +1580,7 @@
       "related_elements": null,
       "notes": "If the student is not being disciplined for a second offense type, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/RelatedToList/RelatedTo & OffenderList/Offender/WeaponTypeList/WeaponType",
       "field_id": "SOT2",
       "name": "Offense Code 2",
       "collection": "SSDR"
@@ -1594,7 +1594,7 @@
       "related_elements": null,
       "notes": "If the student is not being disciplined for a third offense type, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/RelatedToList/RelatedTo & OffenderList/Offender/WeaponTypeList/WeaponType",
       "field_id": "SOT3",
       "name": "Offense Code 3",
       "collection": "SSDR"
@@ -1608,7 +1608,7 @@
       "related_elements": null,
       "notes": "If the student is not being disciplined for a fourth offense type, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/RelatedToList/RelatedTo & OffenderList/Offender/WeaponTypeList/WeaponType",
       "field_id": "SOT4",
       "name": "Offense Code 4",
       "collection": "SSDR"
@@ -1622,7 +1622,7 @@
       "related_elements": null,
       "notes": "If the student is not being disciplined for a fifth offense type, report 500 in this field.",
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
+      "sif_element": "OffenderList/Offender/RelatedToList/RelatedTo & OffenderList/Offender/WeaponTypeList/WeaponType",
       "field_id": "SOT5",
       "name": "Offense Code 5",
       "collection": "SSDR"

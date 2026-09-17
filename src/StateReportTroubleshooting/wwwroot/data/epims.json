@@ -2781,8 +2781,8 @@
       "acceptable_values": "An alphanumeric string 20 characters or less. Special characters other than the hyphen are not acceptable. Due to security concerns and confidentiality requirements, districts should not use social security numbers for their local employee numbers.\n0 = Not Applicable",
       "related_elements": "SCS07 Course Term",
       "notes": "Primary use of this field is to simplify the MEPID import process for districts.  ## Staff Roster Data Elements {#staff-roster-data-elements .unnumbered}  1. Massachusetts Education Personnel Identifier (MEPID)  A unique number assigned to an individual by the Massachusetts Department of Elementary and Secondary Education.  The MEPID is the primary key that links the staff roster record to the work assignment record and to an individual's identifying characteristics entered in MEPID Management.  Primary use of this field is to simplify the ability to review and edit the staff roster for districts.  The license number entered in an individual's staff roster record must match the license number associated with their MEPID in MEPID Management.  The first name must match the first name entered in the work assignment record and to assign the MEPID in MEPID Management.  Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts.  Individuals must be sixteen years old or older.  *Employment Status* and *Reason for Exit* fields are cross-checked. Only if an individual is coded as \"exited\" should there be a code designating a reason for exit in the *Reason for Exit* field. For all others, the *Reason for Exit* field should be coded as \"not applicable.\"  *Employment Status* and *Exit Date* fields are cross-checked. If an individual is coded as \"exited\" there must be a valid date in the *Exit Date* field.  If an individual is coded as \"exited\", one or more complete work assignment records must be reported for the work assignment(s) the employee held prior to exiting.  *Reason for Exit* and *Employment Status* fields are cross-checked. If an individual is coded here with a reason for having exited, in other words, anything other than \"not applicable,\" the code in the preceding field for *Employment Status* must be for \"exited.\"  Date must be prior to collection date.  If an individual was hired as a paraprofessional but has since been re-assigned to a teaching position, the date he or she was hired as a paraprofessional is the date used.  If an individual was hired in the district and subsequently exited the district, then later was re-employed in the district, the latter date is used.  The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 1* is associated with *Percent of Federal Salary Source 1.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 1*.  This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 1*, there should be an appropriate percent entered here.  The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 2* is associated with *Percent of Federal Salary Source 2.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 2*.  This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 2*, there should be an appropriate percent entered here.  The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 3* is associated with *Percent of Federal Salary Source 3.* If a code for a specific federal salary source is used, a number other than zero must be entered in *Percent of Federal Salary Source 3*.  This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 3*, there should be an appropriate percent entered here.  *Degree Type 1* is associated with *Degree Institution 1* and *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"  *Degree Institution 1* is associated with *Degree Type 1* and with *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"  *Degree Subject 1* is associated with *Degree Type 1* and with *Degree Institution 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"  *Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"  *Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"  *Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"  *Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"  *Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"  *Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"  The date reported in this field must be greater than SR11 (Date of Hire) and less than or equal to the collection date.  If an exit date is reported then the value of SR09 must be 04.  If an individual has not exited, then report \"NA\" in this field.  Report 99 if:  - the status is not relevant for a specific educator or  - reporting for a charter school  Professional teacher status should be supplied for all educators. Reference regulations below:  35.08: Performance Level Ratings  > \\(6\\) Professional teacher status, pursuant to G.L. ch. 71, § 41, > should be granted only to educators who have achieved ratings of > proficient or exemplary on each Performance Standard and overall. A > principal considering making an employment decision that would lead to > professional teacher status for any educator who has not been rated > proficient or exemplary on each Performance Standard and overall on > the most recent evaluation shall confer with the superintendent of > schools by May 1. The principal\\'s decision is subject to review and > approval by the superintendent.  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  [Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)  An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical leave.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.  **To calculate Expected Days of Attendance, subtract any paid vacation days taken from the number of days in the employee's contract year.**  An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.  This element is meant to identify staff who are new to their position in general, not just new to the district. If the staff member has worked in their primary position before (in another district, state etc) then they are not a beginner educator for EPIMS reporting purposes.  The MEPID is the primary key that links any corresponding work assignment records to the staff roster record and to an individual's identifying characteristics entered in MEPID Management.  Primary use of this field is to simplify the ability to review and edit the staff roster for districts.  The first name must match the first name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.  Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts. The middle name or middle initial must match the middle name or middle initial entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.  The last name must match the last name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.  The eight-digit code for the district and/or school where the course is being taught. Each district/school in Massachusetts has an eight-digit code assigned by the ESE. The first four digits represent the district code. The second four digits represent the school code. The last four digits for a district position will equal \"0000.\" A listing of ESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>  Examples of job classifications for which codes are provided:  Superintendent of Schools  Teacher  Occupational Therapist  Librarians  Examples of teacher/paraprofessional assignments for which codes will be provided:  Severe Disabilities Consultative Content Instructors  Secondary Level ESL Teacher  Title I Instructional Paraprofessional  The intended grade for specific courses should be reported. A limited number of records will be accepted with the value of \"88\" and \"99.\"  Value must match course term values reported in SCS07.  Term Definitions Table  ----------------------------------------------------------------------- Term Definition --------------- ------------------------------------------------------- Full school A regular school term consisting of no major year subdivision of time segments. It usually begins in the late summer or early fall and ends in late spring or early summer (e.g., elementary school).  Intersession A short session which occurs between longer sessions.  Mini-term A school term which is shorter than a regular session.  Quarter One of four equal segments into which a school year is divided.  Quinmester One of five equal segments into which a school year is divided.  Semester One of two equal segments into which a school year is divided.  Summer term A school term which takes place in the summer between two regular school terms.  Trimester One of three equal segments into which a school year is divided. -----------------------------------------------------------------------  All non-instructional staff should be reported as code 01 -- FULL  Reporting Courses that Span Multiple Terms  Districts should use the \"X\" term codes (codes 34, 45, 56, and 68) when the length of the course consists of multiple terms, but does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters, but the Advanced Economics course is two trimesters long. In this case, the Course Term for Advanced Economics should be reported as code 34 -- TRIX to indicate that the course covers multiple trimesters.  Reporting Courses that Span Multiple Non-consecutive Terms  Districts should use the \"N\" term codes (codes 35, 46, 57, and 69) when the length of the course consists of multiple non-consecutive terms, and does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters. The World Cultures course is two trimesters long, but is in session during trimesters 1 and 3. In this case, the Course Term for World Cultures should be reported as code 35 -- TRIN to indicate that the course covers multiple non-consecutive trimesters.  The term status for the last term of a collection year should be reported as active in the EPIMS June EOY collection even though the course enrollment status for the course in the SCS collection will be reported as \"completed\" for the corresponding subject-area course and term reported in the SCS. The last term of the year may be a full year term, a fourth quarter term, or any other term that is active until the end of the academic school year.  01 = Active Term -- Use this code to indicate that the assignment is active and that the term is also active or was active at end of year.  02 = Inactive Term - Use this code to indicate that the assignment was active at the end of the term and that the term has completed (except for EOY).  03 = Inactive Assignment - Use this code to indicate that the educator was not active in this assignment at the time of the report or at the end of the term if it was in the past.",
-      "sif_object": "StaffPersonal",
-      "sif_element": "StateProvinceId",
+      "sif_object": "None",
+      "sif_element": "None",
       "field_id": "ID07",
       "name": "Local Employee Number",
       "collection": "EPIMS"
@@ -2824,7 +2824,7 @@
       "related_elements": null,
       "notes": "The license number entered in an individual's staff roster record must match the license number associated with their MEPID in MEPID Management.",
       "sif_object": "StaffPersonal",
-      "sif_element": "OtherIdList",
+      "sif_element": "OtherIdList/OtherId (Type=0399)",
       "field_id": "SR03",
       "name": "License / Certification Number",
       "collection": "EPIMS"
@@ -2838,7 +2838,7 @@
       "related_elements": null,
       "notes": "The first name must match the first name entered in the work assignment record and to assign the MEPID in MEPID Management.",
       "sif_object": "StaffPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/FirstName",
       "field_id": "SR04",
       "name": "First Name",
       "collection": "EPIMS"
@@ -2852,7 +2852,7 @@
       "related_elements": null,
       "notes": "Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts.",
       "sif_object": "StaffPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/MiddleName",
       "field_id": "SR05",
       "name": "Middle Name / Middle Initial",
       "collection": "EPIMS"
@@ -2866,7 +2866,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StaffPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/LastName",
       "field_id": "SR06",
       "name": "Last Name",
       "collection": "EPIMS"
@@ -2880,7 +2880,7 @@
       "related_elements": null,
       "notes": "Individuals must be sixteen years old or older.",
       "sif_object": "StaffPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/BirthDate",
       "field_id": "SR07",
       "name": "Date of Birth",
       "collection": "EPIMS"
@@ -2894,7 +2894,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StaffPersonal",
-      "sif_element": "Demographics",
+      "sif_element": "Demographics/RaceList/Race/OtherCodeList/OtherCode",
       "field_id": "SR08",
       "name": "Race-Ethnicity",
       "collection": "EPIMS"
@@ -2908,7 +2908,7 @@
       "related_elements": null,
       "notes": "*Employment Status* and *Reason for Exit* fields are cross-checked. Only if an individual is coded as \"exited\" should there be a code designating a reason for exit in the *Reason for Exit* field. For all others, the *Reason for Exit* field should be coded as \"not applicable.\"  *Employment Status* and *Exit Date* fields are cross-checked. If an individual is coded as \"exited\" there must be a valid date in the *Exit Date* field.  If an individual is coded as \"exited\", one or more complete work assignment records must be reported for the work assignment(s) the employee held prior to exiting.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAEmploymentStatus (or Extended/MADistrictEmployee for exited staff past their termination date)",
       "field_id": "SR09",
       "name": "Employment Status at Time of Data Collection",
       "collection": "EPIMS"
@@ -2922,7 +2922,7 @@
       "related_elements": null,
       "notes": "*Reason for Exit* and *Employment Status* fields are cross-checked. If an individual is coded here with a reason for having exited, in other words, anything other than \"not applicable,\" the code in the preceding field for *Employment Status* must be for \"exited.\"",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAReasonForExit",
       "field_id": "SR10",
       "name": "Reason for Exit",
       "collection": "EPIMS"
@@ -2950,7 +2950,7 @@
       "related_elements": null,
       "notes": "The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 1* is associated with *Percent of Federal Salary Source 1.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 1*.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAFederalSalaryInfo",
       "field_id": "SR12",
       "name": "Federal Salary Source 1",
       "collection": "EPIMS"
@@ -2964,7 +2964,7 @@
       "related_elements": null,
       "notes": "This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 1*, there should be an appropriate percent entered here.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAFederalSalaryInfo",
       "field_id": "SR13",
       "name": "Percent of Federal Salary Source 1",
       "collection": "EPIMS"
@@ -2978,7 +2978,7 @@
       "related_elements": null,
       "notes": "The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 2* is associated with *Percent of Federal Salary Source 2.* If a code other than \"not applicable\" is used, a number other than zero must be entered in *Percent of Federal Salary Source 2*.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAFederalSalaryInfo",
       "field_id": "SR14",
       "name": "Federal Salary Source 2",
       "collection": "EPIMS"
@@ -2992,7 +2992,7 @@
       "related_elements": null,
       "notes": "This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 2*, there should be an appropriate percent entered here.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAFederalSalaryInfo",
       "field_id": "SR15",
       "name": "Percent of Federal Salary Source 2",
       "collection": "EPIMS"
@@ -3006,7 +3006,7 @@
       "related_elements": null,
       "notes": "The list of federal salary source codes will need to be revised at the beginning of each collection period as the list of available federal grants changes.  *Federal Salary Source 3* is associated with *Percent of Federal Salary Source 3.* If a code for a specific federal salary source is used, a number other than zero must be entered in *Percent of Federal Salary Source 3*.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAFederalSalaryInfo",
       "field_id": "SR16",
       "name": "Federal Salary Source 3",
       "collection": "EPIMS"
@@ -3020,7 +3020,7 @@
       "related_elements": null,
       "notes": "This field should be coded \"not applicable\" if the preceding/corresponding field for the federal salary source is \"not applicable.\" If there is a code in *Federal Salary Source 3*, there should be an appropriate percent entered here.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAFederalSalaryInfo",
       "field_id": "SR17",
       "name": "Percent of Federal Salary Source 3",
       "collection": "EPIMS"
@@ -3034,7 +3034,7 @@
       "related_elements": null,
       "notes": "*Degree Type 1* is associated with *Degree Institution 1* and *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR18",
       "name": "Degree Type 1",
       "collection": "EPIMS"
@@ -3048,7 +3048,7 @@
       "related_elements": null,
       "notes": "*Degree Institution 1* is associated with *Degree Type 1* and with *Degree Subject 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR19",
       "name": "Degree Institution 1",
       "collection": "EPIMS"
@@ -3062,7 +3062,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 1* is associated with *Degree Type 1* and with *Degree Institution 1*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 1* = 009--013, *Degree Institution 1* and *Degree Subject 1* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR20",
       "name": "Degree Subject 1",
       "collection": "EPIMS"
@@ -3076,7 +3076,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR21",
       "name": "Degree Type 2",
       "collection": "EPIMS"
@@ -3090,7 +3090,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR22",
       "name": "Degree Institution 2",
       "collection": "EPIMS"
@@ -3104,7 +3104,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 2* is associated with *Degree Type 2* and with *Degree Institution 2*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 2* = 009--013, *Degree Institution 2* and *Degree Subject 2* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR23",
       "name": "Degree Subject 2",
       "collection": "EPIMS"
@@ -3118,7 +3118,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR24",
       "name": "Degree Type 3",
       "collection": "EPIMS"
@@ -3132,7 +3132,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR25",
       "name": "Degree Institution 3",
       "collection": "EPIMS"
@@ -3146,7 +3146,7 @@
       "related_elements": null,
       "notes": "*Degree Subject 3* is associated with *Degree Type 3* and with *Degree Institution 3*. If any one of these fields is \"not applicable,\" they should all be \"not applicable.\" Also, if *Degree Type 3* = 009--013, *Degree Institution 3* and *Degree Subject 3* must be \"not applicable.\"",
       "sif_object": "StaffPersonal",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADegreeInfo",
       "field_id": "SR26",
       "name": "Degree Subject 3",
       "collection": "EPIMS"
@@ -3174,7 +3174,7 @@
       "related_elements": null,
       "notes": "Report 99 if:  - the status is not relevant for a specific educator or  - reporting for a charter school  Professional teacher status should be supplied for all educators. Reference regulations below:  35.08: Performance Level Ratings  > \\(6\\) Professional teacher status, pursuant to G.L. ch. 71, § 41, > should be granted only to educators who have achieved ratings of > proficient or exemplary on each Performance Standard and overall. A > principal considering making an employment decision that would lead to > professional teacher status for any educator who has not been rated > proficient or exemplary on each Performance Standard and overall on > the most recent evaluation shall confer with the superintendent of > schools by May 1. The principal\\'s decision is subject to review and > approval by the superintendent.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MADistrictLevelProfessionalTeacher",
       "field_id": "SR28",
       "name": "District Level Educator's Professional Teacher Status",
       "collection": "EPIMS"
@@ -3202,7 +3202,7 @@
       "related_elements": null,
       "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
       "sif_object": "StaffEvaluation",
-      "sif_element": "EvaluationParts",
+      "sif_element": "EvaluationParts/EvaluationPart/Score",
       "field_id": "SR30",
       "name": "Standard (1) Evaluation Rating",
       "collection": "EPIMS"
@@ -3216,7 +3216,7 @@
       "related_elements": null,
       "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
       "sif_object": "StaffEvaluation",
-      "sif_element": "EvaluationParts",
+      "sif_element": "EvaluationParts/EvaluationPart/Score",
       "field_id": "SR31",
       "name": "Standard (2) Evaluation Rating",
       "collection": "EPIMS"
@@ -3230,7 +3230,7 @@
       "related_elements": null,
       "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
       "sif_object": "StaffEvaluation",
-      "sif_element": "EvaluationParts",
+      "sif_element": "EvaluationParts/EvaluationPart/Score",
       "field_id": "SR32",
       "name": "Standard (3) Evaluation Rating",
       "collection": "EPIMS"
@@ -3244,7 +3244,7 @@
       "related_elements": null,
       "notes": "[Frequently Asked Questions - Educator Evaluation](https://www.doe.mass.edu/edeval/faq.html)",
       "sif_object": "StaffEvaluation",
-      "sif_element": "EvaluationParts",
+      "sif_element": "EvaluationParts/EvaluationPart/Score",
       "field_id": "SR33",
       "name": "Standard (4) Evaluation Rating",
       "collection": "EPIMS"
@@ -3258,7 +3258,7 @@
       "related_elements": null,
       "notes": null,
       "sif_object": "StaffAssignment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/BeginnerEducatorMentor",
       "field_id": "SR34",
       "name": "Beginner Educator Mentor",
       "collection": "EPIMS"
@@ -3286,7 +3286,7 @@
       "related_elements": null,
       "notes": "An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical leave.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAStaffActualAttendance",
       "field_id": "SR36",
       "name": "Staff Days of Attendance",
       "collection": "EPIMS"
@@ -3300,7 +3300,7 @@
       "related_elements": null,
       "notes": "**To calculate Expected Days of Attendance, subtract any paid vacation days taken from the number of days in the employee's contract year.**  An absence is defined as not present for at least half of the school day for reason other than a paid vacation day or a district approved professional activity.  The following are examples of an absence: sick, personal, maternity, paternity, jury duty, bereavement, and medical.  The following are not examples of an absence: paid vacation days, district approved professional development, district sanctioned field trips and school closures.",
       "sif_object": "EmploymentRecord",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MAStaffExpectedAttendance",
       "field_id": "SR37",
       "name": "Staff Expected Days of Attendance",
       "collection": "EPIMS"
@@ -3314,7 +3314,7 @@
       "related_elements": null,
       "notes": "This element is meant to identify staff who are new to their position in general, not just new to the district. If the staff member has worked in their primary position before (in another district, state etc) then they are not a beginner educator for EPIMS reporting purposes.",
       "sif_object": "StaffAssignment",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MABeginningEducator",
       "field_id": "SR38",
       "name": "Beginner Educator Identifier",
       "collection": "EPIMS"
@@ -3356,7 +3356,7 @@
       "related_elements": null,
       "notes": "The first name must match the first name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.",
       "sif_object": "StaffPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/FirstName",
       "field_id": "WA03",
       "name": "First Name",
       "collection": "EPIMS"
@@ -3370,7 +3370,7 @@
       "related_elements": null,
       "notes": "Districts are strongly encouraged to provide a complete middle name to avoid potential MEPID conflicts. The middle name or middle initial must match the middle name or middle initial entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.",
       "sif_object": "StaffPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/MiddleName",
       "field_id": "WA04",
       "name": "Middle Name / Middle Initial",
       "collection": "EPIMS"
@@ -3384,7 +3384,7 @@
       "related_elements": null,
       "notes": "The last name must match the last name entered in the staff roster record and to assign the MEPID in MEPID Management.  This field is included to assist districts in identifying individuals for checking data.",
       "sif_object": "StaffPersonal",
-      "sif_element": "Name",
+      "sif_element": "Name/LastName",
       "field_id": "WA05",
       "name": "Last Name",
       "collection": "EPIMS"
@@ -3397,8 +3397,8 @@
       "acceptable_values": "Only school codes currently reported as being open in Directory Administration will be accepted.",
       "related_elements": null,
       "notes": "The eight-digit code for the district and/or school where the course is being taught. Each district/school in Massachusetts has an eight-digit code assigned by the ESE. The first four digits represent the district code. The second four digits represent the school code. The last four digits for a district position will equal \"0000.\" A listing of ESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>",
-      "sif_object": "SchoolInfo",
-      "sif_element": "SchoolInfo",
+      "sif_object": "SchoolInfo (or SchoolCourseInfo in some cases)",
+      "sif_element": "StateProvinceId (or AttendingSchool under SchoolCourseInfo, if it exists)",
       "field_id": "WA06",
       "name": "Assignment Location Code",
       "collection": "EPIMS"
@@ -3412,7 +3412,7 @@
       "related_elements": null,
       "notes": "Examples of job classifications for which codes are provided:  Superintendent of Schools  Teacher  Occupational Therapist  Librarians",
       "sif_object": "StaffAssignment",
-      "sif_element": "JobFunction",
+      "sif_element": "JobFunction/OtherCodeList/OtherCode (Codeset=Other)",
       "field_id": "WA07",
       "name": "Job Classification",
       "collection": "EPIMS"
@@ -3426,7 +3426,7 @@
       "related_elements": null,
       "notes": "Examples of teacher/paraprofessional assignments for which codes will be provided:  Severe Disabilities Consultative Content Instructors  Secondary Level ESL Teacher  Title I Instructional Paraprofessional",
       "sif_object": "StaffAssignment",
-      "sif_element": "TeachingAssignment",
+      "sif_element": "TeachingAssignment/OtherCodeList/OtherCode (Codeset=StateProvince)",
       "field_id": "WA08",
       "name": "Teacher / Paraprofessional Assignment",
       "collection": "EPIMS"
@@ -3439,8 +3439,8 @@
       "acceptable_values": "00 = Grade does not apply to this assignment\nPK = Pre-Kindergarten\nK = Kindergarten\n01 = Grade 1\nK01 = Grade K/1\n0102 = Grade 1/2\n02 = Grade 2\n03 = Grade 3\n04 = Grade 4\n05 = Grade 5\n06 = Grade 6\n07 = Grade 7\n08 = Grade 8\n09 = Grade 9\n10 = Grade 10\n11 = Grade 11\n12 = Grade 12\n88 = Multiple - This assignment provides instruction or services to students in multiple grades. The grade \"multiple\" should be used to report a special education classroom teacher or the teacher of an ELL class.\n99 = All - The individual in this assignment provides instruction or services to all grade levels in the school.",
       "related_elements": null,
       "notes": "The intended grade for specific courses should be reported. A limited number of records will be accepted with the value of \"88\" and \"99.\"",
-      "sif_object": "StudentSchoolEnrollment",
-      "sif_element": "Extended",
+      "sif_object": "StudentSchoolEnrollment (or SectionInfo)",
+      "sif_element": "Extended/MAGradeLevelOverride (SectionInfo override)",
       "field_id": "WA09",
       "name": "Grade",
       "collection": "EPIMS"
@@ -3538,7 +3538,7 @@
       "related_elements": "SCS07 Course Term",
       "notes": "Value must match course term values reported in SCS07.  Term Definitions Table  ----------------------------------------------------------------------- Term Definition --------------- ------------------------------------------------------- Full school A regular school term consisting of no major year subdivision of time segments. It usually begins in the late summer or early fall and ends in late spring or early summer (e.g., elementary school).  Intersession A short session which occurs between longer sessions.  Mini-term A school term which is shorter than a regular session.  Quarter One of four equal segments into which a school year is divided.  Quinmester One of five equal segments into which a school year is divided.  Semester One of two equal segments into which a school year is divided.  Summer term A school term which takes place in the summer between two regular school terms.  Trimester One of three equal segments into which a school year is divided. -----------------------------------------------------------------------  All non-instructional staff should be reported as code 01 -- FULL  Reporting Courses that Span Multiple Terms  Districts should use the \"X\" term codes (codes 34, 45, 56, and 68) when the length of the course consists of multiple terms, but does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters, but the Advanced Economics course is two trimesters long. In this case, the Course Term for Advanced Economics should be reported as code 34 -- TRIX to indicate that the course covers multiple trimesters.  Reporting Courses that Span Multiple Non-consecutive Terms  Districts should use the \"N\" term codes (codes 35, 46, 57, and 69) when the length of the course consists of multiple non-consecutive terms, and does not constitute a full year course.  Example: A school's course schedule primarily uses trimesters. The World Cultures course is two trimesters long, but is in session during trimesters 1 and 3. In this case, the Course Term for World Cultures should be reported as code 35 -- TRIN to indicate that the course covers multiple non-consecutive trimesters.",
       "sif_object": "TermInfo",
-      "sif_element": "Extended",
+      "sif_element": "Extended/MATermCode",
       "field_id": "WA16",
       "name": "Course Term",
       "collection": "EPIMS"
@@ -3551,8 +3551,8 @@
       "acceptable_values": "01 = Active Term  02 = Inactive Term  03 = Inactive Assignment",
       "related_elements": null,
       "notes": "The term status for the last term of a collection year should be reported as active in the EPIMS June EOY collection even though the course enrollment status for the course in the SCS collection will be reported as \"completed\" for the corresponding subject-area course and term reported in the SCS. The last term of the year may be a full year term, a fourth quarter term, or any other term that is active until the end of the academic school year.  01 = Active Term -- Use this code to indicate that the assignment is active and that the term is also active or was active at end of year.  02 = Inactive Term - Use this code to indicate that the assignment was active at the end of the term and that the term has completed (except for EOY).  03 = Inactive Assignment - Use this code to indicate that the educator was not active in this assignment at the time of the report or at the end of the term if it was in the past.",
-      "sif_object": "StaffAssignment",
-      "sif_element": "JobEndDate",
+      "sif_object": "StaffSectionAssignment (instructional) or StaffAssignment (non-instructional)",
+      "sif_element": "AssignmentEndDate (instructional) or JobEndDate (non-instructional)",
       "field_id": "WA17",
       "name": "Term Status at Time of Data Collection",
       "collection": "EPIMS"
