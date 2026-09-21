@@ -41,7 +41,9 @@ There's nothing to configure — no connection strings, no secrets, no `.env`.
 ```
 source-docs/               Original DESE PDFs/xlsx this app's data was built from
                             (also copied into wwwroot/resources/ for the Resources
-                            page's public downloads)
+                            page's public downloads). OutdatedDocs/ holds the prior
+                            release's copies, kept for reference/diffing rather than
+                            deleted whenever DESE ships an update
 source-data/                Hand-edited JSON, source of truth for wwwroot/data/
   README.md                 Notes from the original PDF→JSON conversion pass
                              (schema details + known positional-inference caveats)
@@ -124,14 +126,14 @@ Each of `scs.json` / `epims.json` / `sims.json` / `ssdr.json`:
                      "columns": [], "rows": [[...]] } ] }
 ```
 
-Current size, as of the last audit pass:
+Current size, as of the 2026-27 documentation update:
 
 | Collection | Errors | Fields | Error list v | Handbook v |
 |---|---|---|---|---|
-| SIMS  | 334 | 60 | 21.2 | 31.4 |
-| EPIMS | 207 | 62 | 9.9  | 10.4 |
-| SCS   | 120 | 14 | 10.3 | 9.4  |
-| SSDR  | 89  | 50 | 10.0 | 23.2 |
+| SIMS  | 341 | 60 | 21.3 | 31.4 |
+| EPIMS | 207 | 62 | 10.0 | 10.5 |
+| SCS   | 108 | 14 | 10.4 | 9.5  |
+| SSDR  | 89  | 50 | 10.1 | 23.3 |
 
 ## Dataset quirks
 
@@ -239,6 +241,23 @@ build. In rough chronological order:
    handbook PDF that every fragment already had a complete, correct home on
    its real field — pure duplicate overflow, not missing content — and
    truncated `ID07`'s notes back to just its own text.
+8. **2026-27 DESE documentation update.** DESE released refreshed Error
+   Lists and Data Handbooks for all four collections (prior versions kept
+   under `source-docs/OutdatedDocs/`), applied after a read-only diff pass
+   confirmed the scope per collection. In short: SCS dropped its 12-entry
+   legacy flat-file-transfer error section entirely; EPIMS's core content
+   was untouched (version bump only) but shipped two brand-new documents —
+   a 43-row "Job Classifications Requiring Educator Evaluation" appendix
+   (linked to `WA07`/`SR29`, transcribed from the PDF's rendered table
+   rather than its badly-interleaved `pdftotext` extraction) and an
+   Educator Evaluation FAQ folded into `SR29`'s notes; SIMS retired 3
+   errors and added 10 (a Seal of Biliteracy dual-language + MyCAP
+   participation cluster), with its handbook confirmed textually unchanged
+   despite the new download; SSDR's content carried forward unchanged
+   (including the compliance-sensitive Appendix A offense table, verified
+   via independent code/flag/vocabulary checks), and while rebuilding it a
+   pre-existing, unrelated bug was fixed — a stray null-`field_id` parsing
+   artifact was replaced with the genuinely missing `PHYS INJ` field.
 
 ## Known remaining limitations
 
@@ -255,6 +274,12 @@ build. In rough chronological order:
 - A handful of file-level error entries with no numeric code (e.g. "Student
   file: Invalid file - No records available") aren't captured in `errors[]`
   at all.
+- **SIMS `SIMS8375`'s `elements_affected`/`related_fields` reads
+  `["DOE028", "DOE058"]`** per DESE's own v21.3 error list text, even though
+  the entry is entirely about `DOE059` (almost certainly a copy/paste
+  leftover from `SIMS8373`'s identical line, one field too far). Transcribed
+  literally rather than silently corrected — worth reporting upstream to
+  DESE, or overriding locally if it proves confusing in practice.
 - `sif-mapping-review.txt` at the repo root is a plain-text dump of every
   field's SIF mapping, generated on request for manual spot-checking. It's
   deliberately left untracked (never `git add`ed) rather than gitignored —
