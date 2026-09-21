@@ -17,7 +17,11 @@ Live at **[srtroubleshooting.help](https://srtroubleshooting.help)**.
   ships as static files and runs client-side.
 - **Bootstrap 5** (vendored under `wwwroot/lib/bootstrap`) for layout/styling,
   plus a small custom `wwwroot/css/app.css` for the brand theme and
-  light/dark mode.
+  light/dark mode. Both `bootstrap.min.css` and `bootstrap.bundle.min.js` are
+  loaded in `index.html` — the JS bundle is required for any Bootstrap
+  component that needs its own interactivity (e.g. the SIF Object page's
+  accordions); the collection-page tabs don't need it since those use custom
+  C# `@onclick` handlers instead of Bootstrap's JS tab component.
 - **Data**: static JSON files under `wwwroot/data/`, fetched via `HttpClient`
   on startup. No database, no API — everything the app knows is baked into
   those JSON files at commit time.
@@ -74,12 +78,19 @@ src/StateReportTroubleshooting/
                              (see source-data/README.md for field-by-field docs)
   Services/
     TroubleshootingDataService.cs   Loads all 4 collections + EPIMS/SSDR
-                                     appendices eagerly on startup; SIMS
-                                     appendices (~1.4 MB, mostly the 5,000-row
-                                     degree-institution table) load lazily on
-                                     first access. Builds in-memory indexes for
-                                     error↔field cross-references and
-                                     field↔appendix links.
+                                     appendices + sif-objects.json eagerly on
+                                     startup; SIMS appendices (~1.4 MB, mostly
+                                     the 5,000-row degree-institution table)
+                                     load lazily on first access. Builds
+                                     in-memory indexes for error↔field
+                                     cross-references and field↔appendix
+                                     links, and sorts each collection's
+                                     errors[] by code (own collection's codes
+                                     ascending, then SIF#### codes) since
+                                     source-data array order is edit-history
+                                     order, not display order. Fields are
+                                     left in their original (handbook
+                                     document) order deliberately.
     TextFormat.cs               Turns flattened, whitespace-mangled source text
                                  back into readable lines/paragraphs for display
                                  (see "Dataset quirks" below) — never rewrites
@@ -128,6 +139,7 @@ Each of `scs.json` / `epims.json` / `sims.json` / `ssdr.json`:
   "collection": "SCS",
   "error_list_version": "10.3",
   "handbook_version": "9.4",
+  "purpose": "One or two plain-English sentences on what this collection is for",
   "object_ranges": [{ "object": "...", "start": 0, "end": 0 }],
   "errors": [ { "code", "collection", "title", "description", "example",
                 "elements_affected", "collection_windows", "related_fields",
@@ -352,6 +364,10 @@ build. In rough chronological order:
   field's SIF mapping, generated on request for manual spot-checking. It's
   deliberately left untracked (never `git add`ed) rather than gitignored —
   regenerate or delete as needed; it's not part of the app.
+- A SIF object's element row links to its matching field, but not directly to
+  that field's appendix/code table if it has one — getting there is one extra
+  click (element → field → its code table), not a direct link from the
+  element itself.
 
 ## Deployment
 
