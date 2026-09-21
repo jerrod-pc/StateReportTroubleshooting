@@ -1,6 +1,6 @@
 {
   "collection": "SIMS",
-  "error_list_version": "21.2",
+  "error_list_version": "21.3",
   "handbook_version": "31.4",
   "object_ranges": [
     {
@@ -3204,20 +3204,6 @@
       "object": "StudentSchoolEnrollment"
     },
     {
-      "code": "SIMS8385",
-      "collection": "SIMS",
-      "title": "Seal of Biliteracy with Distinction is not valid for prior-year graduates",
-      "description": "Seal of Biliteracy with Distinction may not be awarded to student graduating before the 2020 school year.\n\nOCT,MAR,EOY (2020 only)",
-      "example": null,
-      "elements_affected": [
-        "DOE028",
-        "DOE12"
-      ],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": "StudentSchoolEnrollment"
-    },
-    {
       "code": "SIMS8390",
       "collection": "SIMS",
       "title": "Invalid HQCCP program Type code (DOE045)",
@@ -3462,25 +3448,6 @@
       "collection": "SIMS",
       "title": "Invalid Days In Attendance (DOE017) - must be between 0 and 261",
       "description": "Days in attendance must not be less than 0 or greater than 261.",
-      "example": null,
-      "elements_affected": [
-        "DOE017"
-      ],
-      "collection_windows": [
-        "OCT",
-        "MAR",
-        "EOY"
-      ],
-      "related_fields": [
-        "DOE017"
-      ],
-      "object": "StudentAttendanceSummary"
-    },
-    {
-      "code": "SIMS8640",
-      "collection": "SIMS",
-      "title": "Days in Attendance exceeds maximum for collection period",
-      "description": "In October, the number of Days of Attendance (DOE017) cannot exceed 65, in March: 170 & EOY: 261",
       "example": null,
       "elements_affected": [
         "DOE017"
@@ -4226,27 +4193,6 @@
       ],
       "related_fields": [
         "DOE013",
-        "DOE034"
-      ],
-      "object": "TermInfo"
-    },
-    {
-      "code": "SIMS9050",
-      "collection": "SIMS",
-      "title": "Student reported as outplaced (DOE011 = 02) should have a corresponding special education placement setting value in DOE034",
-      "description": "If a student is reported as outplaced to a collaborative or special education school, the special education placement setting code in DOE034 should be 41, 50 or 60 depending on which setting they're in.",
-      "example": null,
-      "elements_affected": [
-        "DOE011",
-        "DOE034"
-      ],
-      "collection_windows": [
-        "OCT",
-        "MAR",
-        "EOY"
-      ],
-      "related_fields": [
-        "DOE011",
         "DOE034"
       ],
       "object": "TermInfo"
@@ -5848,6 +5794,210 @@
       "collection_windows": [],
       "related_fields": [],
       "object": "SIF Validation"
+    },
+    {
+      "code": "SIMS8371",
+      "collection": "SIMS",
+      "title": "Invalid/Missing Seal of Biliteracy Language 1 (DOE058)",
+      "description": "The code entered is invalid. Refer to valid values for DOE058 in the SIMS Data Handbook.",
+      "example": null,
+      "elements_affected": [
+        "DOE058"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE058"
+      ],
+      "object": "StudentSchoolEnrollment"
+    },
+    {
+      "code": "SIMS8372",
+      "collection": "SIMS",
+      "title": "Seal of Biliteracy Language 1 (DOE058) code cannot be 500 when DOE028 is 01 (Student has earned a Seal of Biliteracy).",
+      "description": "If student has earned a Seal of Biliteracy, the language must be specified in DOE058.",
+      "example": null,
+      "elements_affected": [
+        "DOE028",
+        "DOE058"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE028",
+        "DOE058"
+      ],
+      "object": "StudentSchoolEnrollment"
+    },
+    {
+      "code": "SIMS8373",
+      "collection": "SIMS",
+      "title": "Seal of Biliteracy Language 1 (DOE058) code must be 500 when DOE028 is 00 (Student does not have a Seal of Biliteracy).",
+      "description": "If student has not earned a Seal of Biliteracy, DOE058 must be 500.",
+      "example": null,
+      "elements_affected": [
+        "DOE028",
+        "DOE058"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE028",
+        "DOE058"
+      ],
+      "object": "StudentSchoolEnrollment"
+    },
+    {
+      "code": "SIMS8374",
+      "collection": "SIMS",
+      "title": "Invalid/Missing Seal of Biliteracy Language 2 (DOE059)",
+      "description": "The code entered is invalid. Refer to valid values for DOE059 in the SIMS Data Handbook.",
+      "example": null,
+      "elements_affected": [
+        "DOE059"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE059"
+      ],
+      "object": "StudentSchoolEnrollment"
+    },
+    {
+      "code": "SIMS8375",
+      "collection": "SIMS",
+      "title": "Seal of Biliteracy Language 2 (DOE059) code must be 500 when DOE028 is 00 (Student does not have a Seal of Biliteracy).",
+      "description": "If student has not earned a Seal of Biliteracy, DOE059 must be 500.",
+      "example": null,
+      "elements_affected": [
+        "DOE028",
+        "DOE058"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE028",
+        "DOE058"
+      ],
+      "object": "StudentSchoolEnrollment"
+    },
+    {
+      "code": "SIMS8376",
+      "collection": "SIMS",
+      "title": "Seal of Biliteracy Language 1 (DOE058) cannot be 500 when DOE059 is not 500.",
+      "description": "If student has earned one Seal of Biliteracy, the language code should be reported in DOE058.",
+      "example": null,
+      "elements_affected": [
+        "DOE058",
+        "DOE059"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE058",
+        "DOE059"
+      ],
+      "object": "StudentSchoolEnrollment"
+    },
+    {
+      "code": "SIMS9850",
+      "collection": "SIMS",
+      "title": "All graduates reported as having completed MassCore. If this is correct, please ask your support specialist for an exception.",
+      "description": "All graduates reported as 01 in DOE037",
+      "example": null,
+      "elements_affected": [
+        "DOE012",
+        "DOE037"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE012",
+        "DOE037"
+      ],
+      "object": "StudentSectionEnrollment"
+    },
+    {
+      "code": "SIMS9910",
+      "collection": "SIMS",
+      "title": "Invalid/Missing My Career and Academic Plan (MyCAP) Participation (DOE060)",
+      "description": "MyCAP Participation (DOE060) must be 500, 00, or 01.",
+      "example": null,
+      "elements_affected": [
+        "DOE060"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE060"
+      ],
+      "object": "Discontinued Elements"
+    },
+    {
+      "code": "SIMS9920",
+      "collection": "SIMS",
+      "title": "My Career and Academic Plan (MyCAP) Participation (DOE060) cannot be 500 for students in grades 06 to 12",
+      "description": "MyCAP Participation (DOE060) must not be 500 for grades 06-12.",
+      "example": null,
+      "elements_affected": [
+        "DOE016",
+        "DOE060"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE016",
+        "DOE060"
+      ],
+      "object": "Discontinued Elements"
+    },
+    {
+      "code": "SIMS9930",
+      "collection": "SIMS",
+      "title": "My Career and Academic Plan (MyCAP) Participation (DOE060) must be 500 for students in grades PK to 05.",
+      "description": "MyCAP Participation (DOE060) must be 500 for students in grades PK-05.",
+      "example": null,
+      "elements_affected": [
+        "DOE016",
+        "DOE060"
+      ],
+      "collection_windows": [
+        "OCT",
+        "MAR",
+        "EOY"
+      ],
+      "related_fields": [
+        "DOE016",
+        "DOE060"
+      ],
+      "object": "Discontinued Elements"
     }
   ],
   "fields": [
