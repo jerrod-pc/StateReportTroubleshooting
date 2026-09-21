@@ -295,6 +295,24 @@ build. In rough chronological order:
    thrown away — they moved into a collapsed-by-default "Advanced
    implementation notes" section per object, exactly per the user's choice
    to keep but de-emphasize them.
+10. **Two bugs found via live testing of the SIF Objects page, both fixed**:
+    (a) `index.html` linked Bootstrap's CSS but never its JS bundle — nothing
+    needed Bootstrap's own JS until the "Advanced implementation notes"
+    accordion (the collection tabs elsewhere use custom C# `@onclick`
+    handlers), so `data-bs-toggle="collapse"` markup rendered but silently
+    did nothing when clicked. (b) No page sorted error listings at all —
+    every one trusted `errors[]`'s raw JSON array order, which is
+    edit-history order, not display order, so the 10 SIMS errors added in
+    item 8 (appended to the end of the array) rendered stuck after the
+    SIF1xxx block instead of among the other SIMS codes. Now sorted once in
+    `TroubleshootingDataService.RegisterCollection` - each collection's own
+    codes first in ascending numeric order, then `SIF####` codes (a
+    deliberate separate block, not a bug) - so every consumer (Errors tab,
+    Search, the reverse field→errors index) gets correct order for free.
+    Fields were audited too and deliberately left unsorted: their array
+    order is the handbook's own document order (e.g. SSDR's mnemonic codes
+    like `OFF ID`/`PST` have no sortable scheme), which is more correct
+    than any code-based sort would be.
 
 ## Known remaining limitations
 
