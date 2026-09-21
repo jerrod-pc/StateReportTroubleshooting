@@ -18,8 +18,10 @@
 
 <h4 class="mb-2">Downloads</h4>
 <p class="text-muted">
-    The original DESE handbooks, error lists, and appendix workbooks this app's data was built from. If you
-    notice DESE has published a newer version of any of these than what's listed here, please email
+    The original DESE handbooks, error lists, and appendix workbooks this app's data was built from, each
+    with the version and effective date printed on its own cover (where DESE includes one). Collection
+    updates typically ship together, so a date that doesn't match its siblings is worth a second look. If
+    you notice DESE has published a newer version of any of these than what's listed here, please email
     <a href="mailto:jcampion@rediker.com">jcampion@rediker.com</a> directly so the site can be updated accordingly.
 </p>
 
@@ -31,7 +33,13 @@
         {
             <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                href="@("resources/" + file.FileName)" download>
-                <span>@file.Label <span class="text-muted">(@file.DisplayVersion)</span></span>
+                <span>
+                    @file.Label
+                    @if (file.MetaText is not null)
+                    {
+                        <span class="text-muted">(@file.MetaText)</span>
+                    }
+                </span>
                 <span class="badge text-bg-secondary">@file.Extension</span>
             </a>
         }
@@ -39,37 +47,54 @@
 }
 
 @code {
-    private record FileItem(string Label, string Version, string FileName)
+    private record FileItem(string Label, string? Version, string? ReleaseDate, string FileName)
     {
-        public string DisplayVersion => "v" + Version;
+        public string? MetaText
+        {
+            get
+            {
+                var parts = new List<string>();
+                if (Version is not null) parts.Add("v" + Version);
+                if (ReleaseDate is not null) parts.Add(ReleaseDate);
+                return parts.Count > 0 ? string.Join(" · ", parts) : null;
+            }
+        }
+
         public string Extension => System.IO.Path.GetExtension(FileName).TrimStart('.').ToUpperInvariant();
     }
 
     private record FileGroup(string Title, List<FileItem> Files);
 
+    // ReleaseDate is DESE's own printed effective date on the document's cover (not a file
+    // timestamp) - the whole point is spotting a stale outlier when everything else moves
+    // together, so a modified-in-Excel timestamp on an unchanged workbook would be actively
+    // misleading here. Left null for files with no such printed date (the appendix workbooks,
+    // and the two new EPIMS documents below, neither of which carries a version or date at all).
     private static readonly List<FileGroup> DownloadGroups =
     [
         new("SCS", [
-            new("SCS Data Handbook", "9.4", "scs-datahandbook.pdf"),
-            new("SCS Error List", "10.3", "scs-errorlist.pdf"),
+            new("SCS Data Handbook", "9.5", "Oct 1, 2026", "scs-datahandbook.pdf"),
+            new("SCS Error List", "10.4", "Oct 1, 2026", "scs-errorlist.pdf"),
         ]),
         new("EPIMS", [
-            new("EPIMS Data Handbook", "10.4", "epims-datahandbook.pdf"),
-            new("EPIMS Error List", "9.9", "epims-errorlist.pdf"),
-            new("EPIMS Appendices", "21.3", "epims-appendices.xlsx"),
+            new("EPIMS Data Handbook", "10.5", "Oct 1, 2026", "epims-datahandbook.pdf"),
+            new("EPIMS Error List", "10.0", "Oct 1, 2026", "epims-errorlist.pdf"),
+            new("EPIMS Appendices", "21.3", null, "epims-appendices.xlsx"),
+            new("EPIMS Job Classifications Requiring Educator Evaluation", null, null, "epims-evaljobclass.pdf"),
+            new("EPIMS Educator Evaluation FAQ", null, null, "epims-educator-evaluation-faq.pdf"),
         ]),
         new("SIMS", [
-            new("SIMS Data Handbook", "31.4", "sims-datahandbook.pdf"),
-            new("SIMS Error List", "21.2", "sims-errorlist.pdf"),
-            new("SIMS Appendices", "1.2", "sims-appendices.xlsx"),
+            new("SIMS Data Handbook", "31.4", "Oct 1, 2026", "sims-datahandbook.pdf"),
+            new("SIMS Error List", "21.3", "Oct 1, 2026", "sims-errorlist.pdf"),
+            new("SIMS Appendices", "1.2", null, "sims-appendices.xlsx"),
         ]),
         new("SSDR", [
-            new("SSDR Data Handbook", "23.2", "ssdr-datahandbook.pdf"),
-            new("SSDR Error List", "10.0", "ssdr-errorlist.pdf"),
+            new("SSDR Data Handbook", "23.3", "Oct 1, 2026", "ssdr-datahandbook.pdf"),
+            new("SSDR Error List", "10.1", "Oct 1, 2026", "ssdr-errorlist.pdf"),
         ]),
         new("General", [
-            new("Massachusetts SIF Profile", "3.4", "stateprofile.xlsx"),
-            new("MA SIF Technical Guide", "2.12", "technical-guide.pdf"),
+            new("Massachusetts SIF Profile", "3.4", null, "stateprofile.xlsx"),
+            new("MA SIF Technical Guide", "2.12", "Feb 1, 2018", "technical-guide.pdf"),
         ]),
     ];
 }
