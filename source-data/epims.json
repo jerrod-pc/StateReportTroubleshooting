@@ -2,6 +2,7 @@
   "collection": "EPIMS",
   "error_list_version": "10.0",
   "handbook_version": "10.5",
+  "purpose": "The Education Personnel Information Management System (EPIMS) is an online, secure data collection of individuals employed in the public school districts of Massachusetts. The EPIMS data collection process enables the Department to meet federal reporting requirements and to inform policy and programmatic decisions.  EPIMS is enabled by the secure transmission of district data through the ESE's security portal and by MEPIDs (Massachusetts Education Personnel IDs), unique identifiers assigned to all education personnel and linked to their individual data.",
   "object_ranges": [
     {
       "object": "LEAInfo",

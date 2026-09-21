@@ -2,6 +2,7 @@
   "collection": "SIMS",
   "error_list_version": "21.3",
   "handbook_version": "31.4",
+  "purpose": "The Student Information Management System (SIMS) is a student-level data collection system that allows DESE to collect and analyze accurate and comprehensive information, to meet federal and state reporting requirements, and to inform policy and programmatic decisions.  SIMS has two important components: a unique student identifier for all students receiving a publicly funded education in Massachusetts, and transmissions of data from districts to DESE for all students via the security portal.",
   "object_ranges": [
     {
       "object": "LEAInfo",

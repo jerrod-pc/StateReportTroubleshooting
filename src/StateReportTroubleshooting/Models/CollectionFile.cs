@@ -13,6 +13,9 @@ public class CollectionFile
     [JsonPropertyName("handbook_version")]
     public string? HandbookVersion { get; set; }
 
+    [JsonPropertyName("purpose")]
+    public string? Purpose { get; set; }
+
     [JsonPropertyName("object_ranges")]
     public List<ObjectRange> ObjectRanges { get; set; } = [];
 

@@ -2,6 +2,7 @@
   "collection": "SSDR",
   "error_list_version": "10.1",
   "handbook_version": "23.3",
+  "purpose": "The SSDR reporting obligation applies to all public school districts in Massachusetts, including charter schools, virtual schools and collaboratives.  This report provides information on: (1) all incidents involving bullying, drug, violent, or crime-related offenses on school property and any resulting reportable disciplinary actions imposed on the student offender(s), and (2) any other offenses in violation of the student code of conduct that result in a disciplinary action which removes the student from their regular educational environment (in-school or out-of-school suspension, removal or expulsion).",
   "object_ranges": [
     {
       "object": "LEAInfo",

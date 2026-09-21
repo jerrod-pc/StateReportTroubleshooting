@@ -1,0 +1,11 @@
+@inject TroubleshootingDataService Data
+
+@if (Field.SifMapping is not null)
+{
+    var elementPath = Field.SifElement?.Replace('/', '.');
+    <code>@if (Data.FindSifObject(Field.SifObject!) is not null) {<a href="@($"/objects/{Uri.EscapeDataString(Field.SifObject!)}")">@Field.SifObject</a>} else {@Field.SifObject}.@elementPath</code>
+}
+
+@code {
+    [Parameter, EditorRequired] public FieldEntry Field { get; set; } = null!;
+}

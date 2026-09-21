@@ -29,6 +29,8 @@ public class TroubleshootingDataService(HttpClient http)
     private AppendixFile? _epimsAppendices;
     private AppendixFile? _simsAppendices;
     private AppendixFile? _ssdrAppendices;
+    private SifObjectFile? _sifObjects;
+    private readonly Dictionary<string, SifObject> _sifObjectsByName = new(StringComparer.OrdinalIgnoreCase);
 
     private static string Key(string collection, string fieldId) => $"{collection}|{fieldId}";
 
@@ -42,8 +44,9 @@ public class TroubleshootingDataService(HttpClient http)
         var ssdrTask = http.GetFromJsonAsync<CollectionFile>("data/ssdr.json");
         var epimsAppendicesTask = http.GetFromJsonAsync<AppendixFile>("data/epims-appendices.json");
         var ssdrAppendicesTask = http.GetFromJsonAsync<AppendixFile>("data/ssdr-appendices.json");
+        var sifObjectsTask = http.GetFromJsonAsync<SifObjectFile>("data/sif-objects.json");
 
-        await Task.WhenAll(scsTask, epimsTask, simsTask, ssdrTask, epimsAppendicesTask, ssdrAppendicesTask);
+        await Task.WhenAll(scsTask, epimsTask, simsTask, ssdrTask, epimsAppendicesTask, ssdrAppendicesTask, sifObjectsTask);
 
         RegisterCollection(scsTask.Result);
         RegisterCollection(epimsTask.Result);
@@ -60,6 +63,15 @@ public class TroubleshootingDataService(HttpClient http)
         if (_ssdrAppendices is not null)
         {
             IndexAppendices(_ssdrAppendices);
+        }
+
+        _sifObjects = sifObjectsTask.Result;
+        if (_sifObjects is not null)
+        {
+            foreach (var obj in _sifObjects.Objects)
+            {
+                _sifObjectsByName[obj.Name] = obj;
+            }
         }
 
         IsInitialized = true;
@@ -251,6 +263,51 @@ public class TroubleshootingDataService(HttpClient http)
             .SelectMany(c => Collections[c].Fields)
             .Where(f => (f.FieldId?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false)
                         || f.Name.Contains(q, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+    public List<SifObject> SifObjects => _sifObjects?.Objects ?? [];
+
+    public List<SifNote> SifGeneralNotes => _sifObjects?.GeneralNotes ?? [];
+
+    public SifObject? FindSifObject(string name)
+    {
+        return _sifObjectsByName.TryGetValue(name, out var obj) ? obj : null;
+    }
+
+    /// <summary>
+    /// Every field, across all 4 collections, whose sif_object matches the given SIF object name -
+    /// the "which of our modeled fields actually write to this object" cross-reference shown on
+    /// each object's reference page.
+    /// </summary>
+    public List<(string Collection, FieldEntry Field)> FieldsForSifObject(string objectName)
+    {
+        return CollectionNames
+            .Where(c => Collections.ContainsKey(c))
+            .SelectMany(c => Collections[c].Fields.Select(f => (Collection: c, Field: f)))
+            .Where(t => !string.IsNullOrWhiteSpace(t.Field.SifObject)
+                        && t.Field.SifObject != "None"
+                        && t.Field.SifObject!.Equals(objectName, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+    /// <summary>
+    /// Distinct SIF objects actually referenced by this collection's own fields (not the coarser
+    /// object_ranges table, which includes non-object bucket labels like "Discontinued Elements"),
+    /// filtered to names that resolve in the SIF object reference - a handful of fields carry a
+    /// compound/conditional sif_object (e.g. "SchoolInfo (or SchoolCourseInfo in some cases)")
+    /// rather than a single clean name, which wouldn't resolve to a real object page.
+    /// </summary>
+    public List<string> ObjectsUsedInCollection(string collection)
+    {
+        if (!Collections.TryGetValue(collection, out var file)) return [];
+
+        return file.Fields
+            .Select(f => f.SifObject)
+            .Where(o => !string.IsNullOrWhiteSpace(o) && o != "None" && FindSifObject(o!) is not null)
+            .Select(o => o!)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(o => o, StringComparer.OrdinalIgnoreCase)
             .ToList();
     }
 

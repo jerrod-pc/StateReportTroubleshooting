@@ -2,6 +2,7 @@
   "collection": "SCS",
   "error_list_version": "10.4",
   "handbook_version": "9.5",
+  "purpose": "The Student Course Schedule System (SCS) is an online, secure data collection of the courses taken by students in the public school districts of Massachusetts. SCS collects data at the student and course levels.",
   "object_ranges": [
     {
       "object": "LEAInfo",

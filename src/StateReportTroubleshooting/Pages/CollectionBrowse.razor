@@ -12,6 +12,22 @@ else
     <h1 class="mb-1">@Collection</h1>
     <p class="text-muted">Error list v@(_file.ErrorListVersion) &middot; Handbook v@(_file.HandbookVersion)</p>
 
+    @if (!string.IsNullOrWhiteSpace(_file.Purpose))
+    {
+        <div class="mb-2"><FormattedText Text="@_file.Purpose" /></div>
+    }
+
+    @if (ObjectsUsed.Count > 0)
+    {
+        <p class="mb-3">
+            <span class="text-muted small me-2">SIF objects used:</span>
+            @foreach (var name in ObjectsUsed)
+            {
+                <a class="badge text-bg-secondary text-decoration-none me-1" href="@($"/objects/{Uri.EscapeDataString(name)}")">@name</a>
+            }
+        </p>
+    }
+
     <ul class="nav nav-tabs mb-3">
         <li class="nav-item">
             <button type="button" class="nav-link @(_tab == "errors" ? "active" : "")" @onclick='() => SetTab("errors")'>
@@ -140,6 +156,8 @@ else
         _tab = "errors";
         _filter = "";
     }
+
+    private List<string> ObjectsUsed => Data.ObjectsUsedInCollection(Collection);
 
     private bool HasAppendices =>
         Collection.Equals("EPIMS", StringComparison.OrdinalIgnoreCase)
