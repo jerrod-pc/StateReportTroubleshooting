@@ -1,7 +1,7 @@
 {
   "collection": "SCS",
-  "error_list_version": "10.3",
-  "handbook_version": "9.4",
+  "error_list_version": "10.4",
+  "handbook_version": "9.5",
   "object_ranges": [
     {
       "object": "LEAInfo",
@@ -100,138 +100,6 @@
     }
   ],
   "errors": [
-    {
-      "code": "SCSF10",
-      "collection": "SCS",
-      "title": "Invalid Record/Missing Data",
-      "description": "A record with the right number of commas but data not provided.",
-      "example": ",,,,,,,,,,,, [correct number of commas, 12 commas]",
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF20",
-      "collection": "SCS",
-      "title": "Invalid Record/Missing Data",
-      "description": "A record with the wrong number of commas and data not provided.",
-      "example": ",,,,,,,,,,, [incorrect number of commas, less than 12 commas]",
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF30",
-      "collection": "SCS",
-      "title": "Invalid Record/Only SASID Provided",
-      "description": "A record with a SASID but no other data provided.",
-      "example": ",8910111213,,,,,,,,,,, [correct number of commas but no values except a 10 digit SASID.]",
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF40",
-      "collection": "SCS",
-      "title": "Invalid Record/Missing SASID",
-      "description": "A record with a missing SASID.",
-      "example": "12345,,09990999,123454,1200,22,31,01,01,2,0,55,55555 [SASID is missing]",
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF50",
-      "collection": "SCS",
-      "title": "Invalid Record/Invalid SASID Length",
-      "description": "A record with an invalid SASID.",
-      "example": "12345,678,09990999,123454,1200,22,31,01,01,2,0,55,55555 [SASID length is not 10 digits.]",
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF60",
-      "collection": "SCS",
-      "title": "Invalid Record/Special character reported",
-      "description": "A special character is reported.",
-      "example": "12345,6789101112,^,123454,1200,22,31,01,01,2,0,55,55555 [^ is reported in one of the fields ]",
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF70",
-      "collection": "SCS",
-      "title": "Invalid File Header",
-      "description": "The SCS file header should always follow the following format:\n\nSCS, STUDENT_COURSE_DATA,XXXX0000\n\nWhere XXXX0000 is the 8 digits organization code submitting the file.",
-      "example": null,
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF80",
-      "collection": "SCS",
-      "title": "Invalid File Selection/File Missing",
-      "description": "The SCS file should be a text or CSV file.\n\nWhen you upload the file, please make sure that the file exists.",
-      "example": null,
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF90",
-      "collection": "SCS",
-      "title": "Invalid organization Code in the Header",
-      "description": "The header should always contain the org code for which the data are reported.",
-      "example": null,
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF100",
-      "collection": "SCS",
-      "title": "Invalid Record Length",
-      "description": "Each record in the file should not exceed 242 characters.",
-      "example": null,
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF110",
-      "collection": "SCS",
-      "title": "File Size Exceeds Maximum Size",
-      "description": "File size exceeds limit. Please break it into smaller files.",
-      "example": null,
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
-    {
-      "code": "SCSF120",
-      "collection": "SCS",
-      "title": "File has Formatting Errors",
-      "description": "All of the records in your file have formatting errors.\n\n#",
-      "example": null,
-      "elements_affected": [],
-      "collection_windows": [],
-      "related_fields": [],
-      "object": null
-    },
     {
       "code": "SCS2100",
       "collection": "SCS",
@@ -1663,11 +1531,11 @@
       "collection": "SCS"
     },
     {
-      "description": "Indicates the location where a course is being taught. This code may differ from the school in which the student is enrolled. Each school in Massachusetts has a four-digit code assigned by the ESE. In combination with the four-digit district code, each school in Massachusetts has a unique, eight-digit code number. Each student's course record must contain the eight-digit code of the school or institution where the course is being taught.  Starting in October 2011, alternative education programs can be reported in SCS as the location where a course is taught **if the course in not taught in a school**. If the course is taught in a school, the school code must be used for WA06 (and SCS03).  Districts will be able to report school codes or valid 8-digit district alternative education program codes in WA06 (and SCS03).  District alternative education program codes must **be registered with DESE**.  Alternative Education program codes will be cross-validated between EPIMS and SCS so students and teachers will be linked at the classroom level by the alternative education program code OR by the school code.",
+      "description": "Indicates the location where a course is being taught. This code may differ from the school in which the student is enrolled. Each school in Massachusetts has a four-digit code assigned by DESE. In combination with the four-digit district code, each school in Massachusetts has a unique, eight-digit code number. Each student's course record must contain the eight-digit code of the school or institution where the course is being taught.  Alternative education programs can be reported in SCS as the location where a course is taught **if the course is not taught in a school**. If the course is taught in a school, the school code must be used for WA06 (and SCS03).  Districts will be able to report school codes or valid 8-digit district alternative education program codes in WA06 (and SCS03).  District alternative education program codes must **be registered with DESE**.  Alternative Education program codes will be cross-validated between EPIMS and SCS so students and teachers will be linked at the classroom level by the alternative education program code OR by the school code.",
       "type": "Alphanumeric",
       "min_length": 8,
       "max_length": 8,
-      "acceptable_values": "Set by State. Only school codes currently reported as being open in Directory Administration will be accepted.  To report course location for public schools in Massachusetts: Each school in Massachusetts has an eight-digit code assigned by the ESE. The first four digits represent the district code. The second four digits represent the school code.  To report courses provided by colleges: The four digit college institution codes used to report degree institutions in the EPIMS staff roster file will be preceded by \"CLBR\" (all uppercase letters only) to form the 8 character code.  The following two codes will be used to report online (virtual) courses:  \"CLBRVK12\" will be used to report online courses for grades K -12.  \"CLBRVCLG\" will be used to report online college-level courses.  A listing of DESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>",
+      "acceptable_values": "Set by State. Only school codes currently reported as being open in Directory Administration will be accepted.  To report course location for public schools in Massachusetts: Each school in Massachusetts has an eight-digit code assigned by DESE. The first four digits represent the district code. The second four digits represent the school code.  To report courses provided by colleges: The four digit college institution codes used to report degree institutions in the EPIMS staff roster file will be preceded by \"CLBR\" (all uppercase letters only) to form the 8 character code.  The following two codes will be used to report online (virtual) courses:  \"CLBRVK12\" will be used to report online courses for grades K -12.  \"CLBRVCLG\" will be used to report online college-level courses.  A listing of DESE school codes can be found at: <http://www.doe.mass.edu/infoservices/data/sims/schoolcodes.html>",
       "related_elements": "SIMS: DOE015 - School Identification Number  EPIMS: WA06 -- Assignment Location Code",
       "notes": "The four character educational institution codes required to report courses provided by colleges are the same codes required to report EPIMS SR19 Degree Institution 1, SR 22 Degree Institution 2 and SR 25 Degree Institution 3. (See *EPIMS Data Handbook*, *Appendix C*.)  Element is similar to SIMS DOE015 School Identification Number and EPIMS WA06 Assignment Location Code.  \"CLBR\" must be all uppercase letters only. Lowercase letters will cause an error.",
       "sif_object": "SchoolInfo",
