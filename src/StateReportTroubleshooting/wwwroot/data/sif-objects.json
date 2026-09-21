@@ -5,7 +5,44 @@
       "abbreviation": "LEAI",
       "level": "I",
       "used_in": [],
-      "notes": []
+      "notes": [],
+      "purpose": "Identifies the school district (LEA) itself. Used for general SIF setup, not something individual state reports pull values from directly.",
+      "elements": [
+        {
+          "path": "StateProvinceId",
+          "description": "8-digit district code (e.g. 09990000)",
+          "used_in": [
+            "SIMS",
+            "SCS",
+            "EPIMS",
+            "SSDR"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SCS": "M",
+            "EPIMS": "M",
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "LEAName",
+          "description": "Name of LEA.",
+          "used_in": [
+            "SIMS",
+            "SCS",
+            "EPIMS",
+            "SSDR"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SCS": "M",
+            "EPIMS": "M",
+            "SSDR": "M"
+          },
+          "fields": []
+        }
+      ]
     },
     {
       "name": "SchoolInfo",
@@ -30,6 +67,82 @@
           "heading": "School Type (SchoolInfo/SchoolType)",
           "body": "The SchoolType element is no longer used and is optional. The NCES codes for SchoolType are broad and ESE standards are more restrictive.  The ESE standards are described below with the NCES codes in parentheses following.  ELEMENTARY SCHOOL (0789, 1304, 1981, 2397): grades starting at lowest levels, such as PK, KG or 01; grade span of successive grades, such as PK, KG, 01, 02, and 03; and grades ending at either grades 05, 06, 07 and/or 08.  MIDDLE/JUNIOR HIGH SCHOOL (2399, 2400, 2602): grades starting at either grades 04, 05, 06, 07 and/or 08; grade span may also include pre-kindergarten grade combined with middle/junior high school grades, for example, PK, 06-08; grades ending at or before grade 09; and school administered as a separate entity between the elementary and secondary levels.  SECONDARY HIGH SCHOOL (2402, 2403): grades starting at either grades as 05, 06, 07, 08, 09, and/or 11; grade span of successive grades, such as 05, 06, 07, 08, 09, 10, 11 and 12; grade span may also include pre-kindergarten grade combined with secondary grades, for example, PK, 09-12; and ability to graduate students upon completion of final years of school work from grades 10,11 and/or 12.  ESE has no official \"Multi-Type\" definition, however if a school can award a HS diploma and accommodate all grade levels, it is not covered by any of the definitions above, so that s/b reported as 1302 (\"All levels\"). Any left-over NCES codes (0013,0787) will be considered \"Other\"."
         }
+      ],
+      "purpose": "Identifies a single school or program location. Courses, course enrollments, and staff assignments all get tied back to one of these.",
+      "elements": [
+        {
+          "path": "StateProvinceId",
+          "description": "SIMS \u2013 If no AttendingSchool in StudentSchoolEnrollment, then use this for DOE015",
+          "used_in": [
+            "SIMS",
+            "SCS",
+            "EPIMS",
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE015"
+            },
+            {
+              "collection": "SCS",
+              "field_id": "SCS03"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA06"
+            },
+            {
+              "collection": "SSDR",
+              "field_id": "SCH CODE"
+            }
+          ]
+        },
+        {
+          "path": "SchoolName",
+          "description": "Name of school.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "SCH NAME"
+            }
+          ]
+        },
+        {
+          "path": "LEAInfoRefId",
+          "description": "The ID (GUID) that references the school district of which this school is a member.",
+          "used_in": [
+            "SIMS",
+            "SCS",
+            "EPIMS",
+            "SSDR"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SCS": "M",
+            "EPIMS": "M",
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "SchoolFocusList/SchoolFocus",
+          "description": "The type of educational institution as classified by its focus. MA extended code \"Scheduling\" must be used for students to be enrolled using the AttendingSchool extended element.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SCS": "MR",
+            "EPIMS": "MR"
+          },
+          "fields": []
+        }
       ]
     },
     {
@@ -44,6 +157,231 @@
         {
           "heading": null,
           "body": "Only one record per MEPID. Valid MEPID Present in StateProvinceID element (Number - 8 digits)"
+        }
+      ],
+      "purpose": "Identifies one staff member, uniquely, by their state-assigned MEPID. Everything about an employee - their assignments, evaluations, discipline involvement - hangs off this one record.",
+      "elements": [
+        {
+          "path": "StateProvinceId",
+          "description": "A unique number assigned to an individual by the Massachusetts Department of Elementary and Secondary Education.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR01"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA01"
+            }
+          ]
+        },
+        {
+          "path": "LocalId",
+          "description": "A number used at the local district to identify an employee. If districts do not use local employee numbers or do not have local employee numbers for all personnel reported in EPIMS, the \"not applicable\" code should be used.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR02"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA02"
+            }
+          ]
+        },
+        {
+          "path": "OtherIdList/OtherId/@Type",
+          "description": "Set to 0399 for educator license",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OtherIdList/OtherId",
+          "description": "ELAR License number. If no license, do not report.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR03"
+            }
+          ]
+        },
+        {
+          "path": "Name/@Type",
+          "description": "Must equal \"04\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Name/FirstName",
+          "description": "A name given to an individual at birth, during a naming ceremony, or through legal change.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR04"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA03"
+            }
+          ]
+        },
+        {
+          "path": "Name/MiddleName",
+          "description": "A secondary name given to an individual at birth, during a naming ceremony, or through legal change. If none exists, the code \"NMN\" (No Middle Name) should be entered in the field.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR05"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA04"
+            }
+          ]
+        },
+        {
+          "path": "Name/LastName",
+          "description": "The name borne in common by members of a family.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR06"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA05"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/RaceList/Race/Code",
+          "description": "NCES0849 Race Type",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Demographics/RaceList/Race/OtherCodeList/OtherCode/@Codeset",
+          "description": "must equal \"StateProvince\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Demographics/RaceList/Race/OtherCodeList/OtherCode",
+          "description": "The general racial category or categories that most clearly reflects the individual's recognition of his or her community or with which the individual most identifies.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR08"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/BirthDate",
+          "description": "The month, day, and year in which an individual was born.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR07"
+            }
+          ]
+        },
+        {
+          "path": "MADegreeInfo",
+          "description": "This is a MA Extended Element List as described in the MA SIF Technical Guide. See EPIMS Data Manual to see when this information is required. Results from reporting more than three of this element will be unpredictable. This element reports Degree type, institution and subject seperated by a full colon (:) where required, using codes defined in the EPIMS documentation. The format is <SIF_ExtendedElement Name=\"MADegreeInfo\">Type:Institution:Subject</SIF_ExtendedElement> The following example describes a Masters in Education from UMass Dartmouth. <SIF_ExtendedElement Name=\"MADegreeInfo\">003:3786:33</SIF_ExtendedElement>",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR18"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR19"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR20"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR21"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR22"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR23"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR24"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR25"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR26"
+            }
+          ]
         }
       ]
     },
@@ -61,6 +399,511 @@
           "heading": null,
           "body": "Only one record per SASID. Valid SASID Present in StateProvinceID element (Number - 10 digits)"
         }
+      ],
+      "purpose": "Identifies one student, uniquely, by their state-assigned SASID. Demographic and identity information (name, birth date, race/ethnicity, home language, etc.) lives here, and nearly every other student-related object references it.",
+      "elements": [
+        {
+          "path": "LocalId",
+          "description": "A code assigned and maintained by the local school district that is unique for each student in the district over time.",
+          "used_in": [
+            "SIMS",
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE001"
+            },
+            {
+              "collection": "SCS",
+              "field_id": "SCS01"
+            }
+          ]
+        },
+        {
+          "path": "StateProvinceId",
+          "description": "Send \"REQUEST\" when applying for a SASID",
+          "used_in": [
+            "SIMS",
+            "SCS",
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE002"
+            },
+            {
+              "collection": "SCS",
+              "field_id": "SCS02"
+            },
+            {
+              "collection": "SSDR",
+              "field_id": "SASID"
+            }
+          ]
+        },
+        {
+          "path": "Name",
+          "description": "Name of the student. Note: Type value of 04 must be used here.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Name/@Type",
+          "description": "Must equal \"04\"",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Name/FirstName",
+          "description": "The first name of a student",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE003"
+            },
+            {
+              "collection": "SSDR",
+              "field_id": "FN"
+            }
+          ]
+        },
+        {
+          "path": "Name/MiddleName",
+          "description": "The middle name of a student",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE004"
+            }
+          ]
+        },
+        {
+          "path": "Name/LastName",
+          "description": "The name borne in common by members of a family.",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE005"
+            },
+            {
+              "collection": "SSDR",
+              "field_id": "LN"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/RaceList/Race/Code",
+          "description": "NCES0849 Race Type",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Demographics/RaceList/Race/OtherCodeList/OtherCode/@Codeset",
+          "description": "must equal \"StateProvince\"",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Demographics/RaceList/Race/OtherCodeList/OtherCode",
+          "description": "The general racial and ethnic category that most clearly reflects the individual's recognition of his or her community or with which the individual most identifies.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE010"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/Gender",
+          "description": "The gender identity of a student",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE009"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/BirthDate",
+          "description": "The month, day, and year on which an individual was born.",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE006"
+            },
+            {
+              "collection": "SSDR",
+              "field_id": "DOB"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/PlaceOfBirth",
+          "description": "The name of the city (or comparable unit) in which an individual was born.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE008"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/EnglishProficiency",
+          "description": "Person's proficiency in English.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Demographics/EnglishProficiency/Code",
+          "description": "NCES 0585 English Proficiency",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE025"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/LanguageList/Language/Code",
+          "description": "Z39.53 Language Code",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE024"
+            }
+          ]
+        },
+        {
+          "path": "Demographics/LanguageList/Language/LanguageType",
+          "description": "Must be 1038",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Demographics/LanguageList/Language/OtherCodeList/OtherCode/@Codeset",
+          "description": "No longer required, will be ignored",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "Homeless",
+          "description": "Yes, No",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "Section504",
+          "description": "Yes, No",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE039"
+            }
+          ]
+        },
+        {
+          "path": "Immigrant",
+          "description": "Yes or No",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE022"
+            }
+          ]
+        },
+        {
+          "path": "CityofResidence",
+          "description": "MA Town code from SIMS Appendix A",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE014"
+            }
+          ]
+        },
+        {
+          "path": "LowIncomeStatus",
+          "description": "An indication of whether the student is eligible for free or reduced price lunch",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE019"
+            }
+          ]
+        },
+        {
+          "path": "LEPStudentsInTheirFirstYearInUSSchools",
+          "description": "An English Learner in grades K through 12 who has attended schools in the United States for less than twelve months",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE021"
+            }
+          ]
+        },
+        {
+          "path": "CountryOfOrigin",
+          "description": "Defaulted to 500 if student is not an immigrant (DOE022 = No)",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE023"
+            }
+          ]
+        },
+        {
+          "path": "MemberofMilitaryFamily",
+          "description": "Report Yes or No through 2017. Report new values 00-04 beginning school year 2018",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE029"
+            }
+          ]
+        },
+        {
+          "path": "VocTechEdAttainment",
+          "description": "If the student is enrolled in a College, Career and Technical Education program, an indication of whether the student completed the program. Program types include: - [State-designated CTE programs](https://www.doe.mass.edu/ccte/pathways/cte/default.html): DESE-approved programs under Mass. Gen. Laws c. 74 that provide instruction based on the Career Technical Education Frameworks and the Massachusetts Curriculum Frameworks. - [Career Connections programs](https://www.doe.mass.edu/ccte/pathways/n74/default.html): Locally-designated programs---or programs not approved by DESE under Mass. Gen. Laws c. 74 as a state-designated program---approved through the Perkins grant process. Perkins recipients can use Perkins funds to support Career Connections programs that meet the outcomes and design components.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE031"
+            }
+          ]
+        },
+        {
+          "path": "HighSchoolCompleterPlans",
+          "description": "An indication of what a student plans to do after completing high school",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE033"
+            }
+          ]
+        },
+        {
+          "path": "Graduate",
+          "description": "An indication of whether a student has met the graduation requirements of the Massachusetts Core Curriculum, designed to prepare students for college, work, and citizenship.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE037"
+            }
+          ]
+        },
+        {
+          "path": "MAFormerSection504",
+          "description": "Yes or No",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE039"
+            }
+          ]
+        },
+        {
+          "path": "SLIFE",
+          "description": "Yes or No",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE041"
+            }
+          ]
+        },
+        {
+          "path": "CTESingleParent",
+          "description": "If the student is enrolled in a CCTE program, an indication of whether the student meets the definition for \"single parent.\" To be considered a single parent, the student must: - Be unmarried or legally separated from a spouse; and - Have a minor child or children for which the parent has either custody or joint custody. The definition of single parent also includes single pregnant women.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE042"
+            }
+          ]
+        },
+        {
+          "path": "EarlyChildhoodExperience",
+          "description": "An indicator of the student's early childhood education",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE050"
+            }
+          ]
+        },
+        {
+          "path": "IndustryRecognizedCredentials",
+          "description": "This is a MA Extended Element List as described in the MA SIF Technical Guide. See SIMS Data Manual to see when this information is required. Results from reporting more than three of this element will be unpredictable. This element reports Industry Recognized Credentials, using codes defined in the SIMS documentation. The format is <SIF_ExtendedElement Name=\"IndustryRecognizedCredentials\">CredentialCode~CredentialCode</SIF_ExtendedElement>",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE047"
+            },
+            {
+              "collection": "SIMS",
+              "field_id": "DOE048"
+            },
+            {
+              "collection": "SIMS",
+              "field_id": "DOE049"
+            }
+          ]
+        },
+        {
+          "path": "SupplementalLowIncomeIndicator",
+          "description": "An indication of whether a district is submitting student to be considered for the supplemental low-income process",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE056"
+            }
+          ]
+        }
       ]
     },
     {
@@ -74,6 +917,584 @@
         {
           "heading": "The DisciplineIncident object and the SSDR",
           "body": "Many of the requirements for reporting SSDR through the DisciplineIncident object are apparent from reading the profile; however some elements bear further expansion. SSDR only requires clear identification of students who have been disciplined by means of suspension. For SSDR purposes ESE has no interest in identifying non-suspended students or staff involved in an incident. For that reason, for non-student offenders and all victims, LEAs may submit aggregate counts for offender and victim types by specifying the first name as \"Count\" and the last name as the number of offenders or victims of that type.  Not all Incidents and disciplines reported in the DisciplineIncident will be extracted to the SSDR. Incidents with disciplines in which there is a Legacy MA code value (Column E) for the OffenderList/Offender/ActionList/Action/Code structure in the Code Sets tab of the MA SIF profile will be extracted into the SSDR. Additionaly any incident involving drug, violent or criminal offenses will be extracted.  AgencyReporting: Do not report the LEA's RefId here. Report only the school's RefId in this element. The SSDR report only recognizes schools.  IncidentLocationRefId: If the incident's location is somewhere other than school grounds within the LEA reporting the incident, then do not report this element.  RelatedToList: This list of offenses may or may not relate to offenses listed in OffenderList/Offender/RelatedToList. Offenses listed here might not be in the OffenderList, however all offenses in the OffenderList must be listed here. Code 3700 (Weapons Possession) is combined with WeaponTypeList/WeaponType to arrive at the appropriate MA legacy code for the offense.  WeaponTypeList/WeaponType: RelatedTo Code 3700 (Weapons Possession) is combined with WeaponTypeList/WeaponType to generate a weapons offense.  OffenderList/Offender/@Type: Counts of the offenders of each type will be used to populate the SSDR.  OffenderList/Offender/SIF_RefId: Only the RefIds of students who are suspended need be reported here. For SSDR purposes ESE has no interest in identifying non-suspended students or staff involved in an incident.  OffenderList/Offender/ActionList/Action/Code: Only those student offenders with a non-null MA legacy code are reportable in the SSDR.  OffenderList/Offender/ActionList/Action/OtherCodeList/OtherCode/@CodeSet: Only report CodeSet \"Other\" if the student was removed by school personnel to an alternative setting. Always report Codeset \"StateProvince\" to record the alternative education status for this particular discipline.  OffenderList/Offender/WeaponTypeList/WeaponType: See WeaponTypeList/WeaponType above.  OffenderList/Offender/RelatedToList/RelatedTo: See RelatedToList above.  VictimList/Victim @Type: Specifies the type of victim. Name/FirstName: If this is a summary record for this victim type with a count in the last name, enter \"Count\" in this element. Name/LastName: If there is only one record of this victim type and this value is numeric, then this value will be used as the count of victims of this type. Otherwise, counts of the offenders of each type will be used to populate the SSDR. Specific data about each victim is not relevant to the SSDR.  Extended Element MAOtherOffense: When additional text is required for an offense listed in RelatedToList/RelatedTo, report that text in this element. There are two sub-elements reported here separated by a full colon (:) with individual occurrences separated by tildes (~). The format is  <SIF_ExtendedElement Name=\"MAOtherOffense\"> RelatedToCode:Description</SIF_ExtendedElement>  The following example describes a student who was disciplined for cocaine use.  <SIF_ExtendedElement Name=\"MAOtherOffense\">1650:Cocaine</SIF_ExtendedElement>  Extended Element MAOtherWeapon: When additional text is required for a weapon listed in WeaponTypeList/WeaponType, report that text in this element. There are two sub-elements reported here separated by a full colon (:) with individual occurrences separated by tildes (~). The format is  <SIF_ExtendedElement Name=\"MAOtherWeapon\"> WeaponTypeCode:Description</SIF_ExtendedElement>  The following example describes a student who used an haleberd in an offense.  <SIF_ExtendedElement Name=\"MAOtherWeapon\">0030:Haleberd</SIF_ExtendedElement>"
+        }
+      ],
+      "purpose": "One behavioral incident at a school - who was involved (offenders and victims), what happened, and what discipline resulted. This is the object the SSDR collection is built from.",
+      "elements": [
+        {
+          "path": "@RefId",
+          "description": "The unique identifier (GUID) of this discipline incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "@SchoolYear",
+          "description": "School year in which the incident occurred, and for which the information is applicable, expressed as the four-digit year in which the school year ends (e.g., \"2007\" for the 2006-07 school year).",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "AgencyReporting",
+          "description": "The Id (GUID) of the school or LEA reporting the incident, usually the school in which the incident occurred.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "AgencyReporting/@SIF_RefObject",
+          "description": "The name of the SIF object to which the GUID relates. (must be a SchoolInfo object)",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "IncidentNumber",
+          "description": "The locally-defined unique identifier (within the school or school district) to identify this specific incident or occurrence.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "OFF ID"
+            }
+          ]
+        },
+        {
+          "path": "IncidentDate",
+          "description": "The date when the incident occurred.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "OFF DATE"
+            }
+          ]
+        },
+        {
+          "path": "IncidentReporter",
+          "description": "Information regarding the individual who reported the incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "IncidentReporter/@Type",
+          "description": "Identifies the type of individual who reported the incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "IncidentReporter/Name",
+          "description": "The name of the individual reporting the incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "O"
+          },
+          "fields": []
+        },
+        {
+          "path": "IncidentReporter/SIF_RefId",
+          "description": "GUID of the SIF object that relates to the person who reported the incident, if applicable.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "O"
+          },
+          "fields": []
+        },
+        {
+          "path": "IncidentReporter/SIF_RefId/@SIF_RefObject",
+          "description": "The name of the SIF object to which the GUID relates. If a refid is reported, it may only be \"StudentPersonal\" or \"StaffPersonal\"",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "RelatedToList",
+          "description": "List of categories to which the incident is related.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "RelatedToList/RelatedTo",
+          "description": "Identifies if incident was related to a specific category. Note: The code set that is specified for MA may seem to conflict with the codes allowable in the SIFA specification, however we have confirmed with SIFA that this is the correct code set.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "WeaponTypeList",
+          "description": "List of weapons involved in the incident. If the incident involves weapons, the element must have a value.Each weapon used in the incident is identified by a WeaponType entry. When multiple weapons of a single type are used, each weapon has a separate entry in this list.Weapons used by individual offenders are also reported in WeaponTypeList entries associated to the offender.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "WeaponTypeList/WeaponType",
+          "description": "Identifies the type of weapon used during an incident. NCES 1045",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "OffenderList",
+          "description": "List of offenders.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender",
+          "description": "Information regarding the offender(s)/perpetrator(s).",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "MR"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/@Type",
+          "description": "Identifies the type of offender involved in the incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/Name",
+          "description": "The name of the offender.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/SIF_RefId",
+          "description": "If the Offender Type attribute identifies the offender as a Student, then this element should contain the Id (GUID) of the student to whom this information relates.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/SIF_RefId/@SIF_RefObject",
+          "description": "SIF Object to which the SIFRefId relates. Report only StudentPersonal",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/Injury",
+          "description": "Identifies whether or not this specific offender was physically injured, and if so, identifies whether the injury was major or minor.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/ActionList",
+          "description": "Note: There is also a SIF type called ActionList. It is one of two types of lists. Do not confuse this element with the SIF type called ActionList. This problem will be resolved in the next major release.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action",
+          "description": "Information regarding the action(s) taken against the offender in response to the incident. MA: Only the first reportable action will be exported to SSDR",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "MR"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/Code",
+          "description": "Specific action taken toward this offender. NCES 1054",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "DAT"
+            }
+          ]
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/OtherCodeList",
+          "description": "List of other codes or strings that crosswalk to or serve as translations of the Code element. If Code changes and OtherCode elements are supported, both Code and all associated OtherCode elements must be present.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/OtherCodeList/OtherCode/@Codeset",
+          "description": "Must be Other if the MA NCES 1054 extension code applies",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/OtherCodeList/OtherCode",
+          "description": "If the MA NCES 1054 extension code applies, then enter it here.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "DAT"
+            }
+          ]
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/OtherCodeList/OtherCode/@Codeset",
+          "description": "Must be StateProvince",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/OtherCodeList/OtherCode",
+          "description": "Enter the Education Services code from the table here.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "AE"
+            }
+          ]
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/StartDate",
+          "description": "The date on which the disciplinary action begins.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "SD"
+            }
+          ]
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/EndDate",
+          "description": "The date through which the disciplinary action is in effect, inclusive.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "RD"
+            }
+          ]
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/Duration",
+          "description": "Identifies the length, in school days, of the disciplinary action. Note: decimal places may be used for fractions of school days.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "DM"
+            }
+          ]
+        },
+        {
+          "path": "OffenderList/Offender/ActionList/Action/Arrest",
+          "description": "Identifies whether or not the offender was arrested.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/WeaponTypeList",
+          "description": "List of weapons involved in the incident used by the offender. If the incident involves weapons, the element must have a value.Each weapon used by the offender is identified by a WeaponType entry. When multiple weapons of a single type are used by the offender, each weapon has a separate entry in this list.(Note: All weapons used in the incident are reported in WeaponTypeList entries for the incident, including those weapons related to this offender.)",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/WeaponTypeList/WeaponType",
+          "description": "Identifies the type of weapon used by the offender during an incident. NCES 1045",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "MR"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/RelatedToList",
+          "description": "List of categories to which the offender's incident is related. Report NCES 1049 codes (MA requirement). Only SSDR required codes will be extracted for the report.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "OffenderList/Offender/RelatedToList/RelatedTo",
+          "description": "Identifies if offender's incident was related to a specific category. Note: The code set that is specified for MA may seem to conflict with the codes allowable in the SIFA specification, however we have confirmed with SIFA that this is the correct code set.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "VictimList",
+          "description": "List of victim(s) if the incident is directed toward specific persons or their property.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim",
+          "description": "Information regarding the victim(s) in the incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "MR"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/@Type",
+          "description": "Identifies the type of individual victimized in the incident.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/Name",
+          "description": "The name of the victim.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "O"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/Name/FirstName",
+          "description": "If a victim total count is being provided in LastName then report \"Count\" in this element.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/Name/LastName",
+          "description": "If there is only one Victim element for this type, then if this element is numeric, it will be used as a total count for this victim type.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/SIF_RefId",
+          "description": "If the Victim Type attribute identifies the victim as a Student or Staff Member, then this element should contain the Id (GUID) of the student or staff to whom this information relates.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/SIF_RefId/@SIF_RefObject",
+          "description": "SIF Object to which the SIFRefId relates. May only be \"StudentPersonal\" or \"StaffPersonal\"",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "VictimList/Victim/Injury",
+          "description": "Identifies whether or not this specific victim was physically injured, and if so, identify whether the injury was major or minor.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "IncidentDescription",
+          "description": "A long text description of full details and a report of what occurred.",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "INC DESC"
+            }
+          ]
+        },
+        {
+          "path": "MAOtherOffense",
+          "description": "This is a MA Extended Element List as described in the MA SIF Technical Guide. This element reports the Offense Code and description of offenses which need further data separated by a full colon (:) where required, using RelatedTo codes defined in the SIF documentation. The format is <SIF_ExtendedElement Name=\"MAOtherOffense\">Code:Description</SIF_ExtendedElement> The following example describes an item in the RelatedToList describing cocaine use. <SIF_ExtendedElement Name=\"MAOtherOffense\">1650:Cocaine</SIF_ExtendedElement>",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "MAOtherWeapon",
+          "description": "This is a MA Extended Element List as described in the MA SIF Technical Guide. This element reports the RefId, Weapon Code and description of eweapons which need further data separated by a full colon (:), using Weapon codes defined in the SIF documentation. The format is <SIF_ExtendedElement Name=\"MAOtherWeapon\">Code:Description</SIF_ExtendedElement> The following example describes a student who used an haleberd in an offense. <SIF_ExtendedElement Name=\"MAOtherWeapon\">0030:Haleberd</SIF_ExtendedElement>",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": []
+        },
+        {
+          "path": "Retaliation",
+          "description": "Yes, No. Identifies whether an incident was retaliation against a person who reports bullying, or who provides information in a bullying investigation",
+          "used_in": [
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SSDR",
+              "field_id": "RETALIATION"
+            }
+          ]
         }
       ]
     },
@@ -89,6 +1510,210 @@
           "heading": null,
           "body": "For staff to be reported in EPIMS: Start date <= Report Date; in March and EOY TerminationDate >= School Start Date. Multiple employment records are allowed. The latest received with the most recent hire and termination dates is used.  Report conditional elements only when required.  MADistrictLevelProfessionalTeacher (SR28) is a conditional extended element. Do not report this element for Charter Schools. On extracting this element from SIF to the EPIMS report, the process should apply these rules:  If period=1 (October), then SR28=99  If a Charter School (org_type=12) then SR28=99  If no StaffAssignments then SR28=99  If MADistrictLevelProfessionalTeacher is null (not supplied), SR28=99  If MADistrictLevelProfessionalTeacher=Yes then SR28=01  If MADistrictLevelProfessionalTeacher=No then SR28=02"
         }
+      ],
+      "purpose": "One employee's employment status with the district - when they were hired, their current status (active, on leave, exited), and why, if they've left.",
+      "elements": [
+        {
+          "path": "@RefId",
+          "description": "The unique identifier (GUID) of this record",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "@SIF_RefId",
+          "description": "The GUID can either refer to the EmployeePersonal or StaffPersonal object.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "@SIF_RefObject",
+          "description": "must be StaffPersonal",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "LEAInfoRefId",
+          "description": "The GUID reference to the LEAInfo object representing the LEA that employs the staff member.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Active",
+          "description": "Staff is currently active and/or employed. (True or False)",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "HireDate",
+          "description": "Date the employee was hired.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR11"
+            }
+          ]
+        },
+        {
+          "path": "TerminationDate",
+          "description": "Date the employee resigned. Present if a HireDate is entered and a TerminationDate is available.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR27"
+            }
+          ]
+        },
+        {
+          "path": "MAEmploymentStatus",
+          "description": "See EPIMS handbook",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR09"
+            }
+          ]
+        },
+        {
+          "path": "MAReasonForExit",
+          "description": "See EPIMS handbook",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR10"
+            }
+          ]
+        },
+        {
+          "path": "MAFederalSalaryInfo",
+          "description": "This is a MA Extended Element List as described in the MA SIF Technical Guide. See EPIMS Data Manual to see when this information is required. Results from reporting more than three of this element will be unpredictable. This element reports Federal Salary Source and percentage separated by a full colon (:) where required, using codes defined in the EPIMS documentation. The format is <SIF_ExtendedElement Name=\"MAFederalSalaryInfo\">Source:Percentage</SIF_ExtendedElement> The following example describes a staff memeber derives 50% of her salary from an IDEA Basic: Sped 94-142 Allocation Grant. <SIF_ExtendedElement Name=\"MAFederalSalaryInfo\">240:.5</SIF_ExtendedElement>",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR12"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR13"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR14"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR15"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR16"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "SR17"
+            }
+          ]
+        },
+        {
+          "path": "MADistrictLevelProfessionalTeacher",
+          "description": "Yes, No",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR28"
+            }
+          ]
+        },
+        {
+          "path": "MADistrictEmployee",
+          "description": "Yes, No. Required only for Non-District employees. This is used to determine if exited staff were district or non-district staff.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR09"
+            }
+          ]
+        },
+        {
+          "path": "MAStaffActualAttendance",
+          "description": "Cumulative number of days a staff member has been present (defined as at least half the school day) in the district.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR36"
+            }
+          ]
+        },
+        {
+          "path": "MAStaffExpectedAttendance",
+          "description": "Cumulative number of days a staff member was expected to be present (defined as at least half the school day) in the district.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR37"
+            }
+          ]
+        }
       ]
     },
     {
@@ -102,7 +1727,148 @@
       "notes": [
         {
           "heading": null,
-          "body": "InstructionalLevel: The legacy SCS value is interpreted from the NCES codes as described below. For legacy code 05, report 9999 in the InstructionalLevel Code and then report 05 in the OtherCodeList  Table: InstructionalLevel NCES code to legacy MA code mapping. NOTE: this table's Legacy MA Code column extracted from the source PDF with misaligned/duplicated values (a wrapped two-line \"Legacy MA / Code\" header caused numbers to land on the wrong lines) and could not be reliably reconstructed; the rows below are transcribed as literally as possible, with both numbers shown where two appeared for a row. A cleaner rendition of what appears to be the same mapping is given as the SCS09 Instructional Level Map table under SCS Data Extraction in General Instructions -- verify against the original PDF before relying on either.  0568 — Remedial — 01  0569 — Special education course — 01, then an additional \"01\" on the next source line  0570 — Basic — 02, then an additional \"03\" on the next source line  0571 — General — 03, then an additional \"03\" on the next source line  0572 — Honors level — 03, then an additional \"04\" on the next source line  0573 — Gifted and talented level — 02, then an additional \"01\" on the next source line  0574 — International Baccalaureate program — 02  0575 — Advanced placement — (no code value printed in source)  0576 — College level — (no code value printed in source)  0577 — Untracked — (no code value printed in source)  0578 — English Language Learner (ELL) — (no code value printed in source)  0579 — Accepted as a high school equivalent — (no code value printed in source)  9999 — Other — (no code value printed in source)  See Reporting Organizations via SIF for some other specific instructions."
+          "body": "InstructionalLevel: The legacy SCS value is interpreted from the NCES codes as described below. For legacy code 05, report 9999 in the InstructionalLevel Code and then report 05 in the OtherCodeList  Table: InstructionalLevel NCES code to legacy MA code mapping. NOTE: this table's Legacy MA Code column extracted from the source PDF with misaligned/duplicated values (a wrapped two-line \"Legacy MA / Code\" header caused numbers to land on the wrong lines) and could not be reliably reconstructed; the rows below are transcribed as literally as possible, with both numbers shown where two appeared for a row. A cleaner rendition of what appears to be the same mapping is given as the SCS09 Instructional Level Map table under SCS Data Extraction in General Instructions -- verify against the original PDF before relying on either.  0568 \u2014 Remedial \u2014 01  0569 \u2014 Special education course \u2014 01, then an additional \"01\" on the next source line  0570 \u2014 Basic \u2014 02, then an additional \"03\" on the next source line  0571 \u2014 General \u2014 03, then an additional \"03\" on the next source line  0572 \u2014 Honors level \u2014 03, then an additional \"04\" on the next source line  0573 \u2014 Gifted and talented level \u2014 02, then an additional \"01\" on the next source line  0574 \u2014 International Baccalaureate program \u2014 02  0575 \u2014 Advanced placement \u2014 (no code value printed in source)  0576 \u2014 College level \u2014 (no code value printed in source)  0577 \u2014 Untracked \u2014 (no code value printed in source)  0578 \u2014 English Language Learner (ELL) \u2014 (no code value printed in source)  0579 \u2014 Accepted as a high school equivalent \u2014 (no code value printed in source)  9999 \u2014 Other \u2014 (no code value printed in source)  See Reporting Organizations via SIF for some other specific instructions."
+        }
+      ],
+      "purpose": "Describes a course offered by a school - the subject, instructional level, and other course-catalog details. Course sections (SCS) and staff teaching assignments (EPIMS) both reference a course through this object.",
+      "elements": [
+        {
+          "path": "StateCourseCode",
+          "description": "MA SCED or MA CIP code. See appendices G1-G3 of the EPIMS Handbook. Note: If this object represents a unit not reportable in SCS, such as a standards based unit (ie \"Completes Homework on Time\") then report 00000 here. This will prevent the course from being reported in SCS and EPIMS.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS05"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA10"
+            }
+          ]
+        },
+        {
+          "path": "DistrictCourseCode",
+          "description": "1-20 characters.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS04"
+            }
+          ]
+        },
+        {
+          "path": "InstructionalLevel",
+          "description": "An indication of the general nature and difficulty of instruction provided.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "InstructionalLevel/Code",
+          "description": "NCES0437 Code - See Instructional Level Map",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS09"
+            }
+          ]
+        },
+        {
+          "path": "InstructionalLevel/OtherCodeList",
+          "description": "Only required for MA othercode 05 when code is equal to 9999",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "InstructionalLevel/OtherCodeList/OtherCode/@Codeset",
+          "description": "must equal \"Other\"",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "InstructionalLevel/OtherCodeList/OtherCode",
+          "description": "The only recognized value is '05'",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS09"
+            }
+          ]
+        },
+        {
+          "path": "CourseCredits",
+          "description": "When N/A (SCS10=9999) report null here and set @Type=9998",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS10"
+            }
+          ]
+        },
+        {
+          "path": "CourseCredits/@Type",
+          "description": "NCES0108 Credit Type Earned",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "AttendingSchool",
+          "description": "If the student is attending a college, out of district traditional or out of district virtual course, then report the school code here, otherwise the StateProvinceId from the SchoolInfoObject will be used. This might not be equal to DOE015, see SCS data handbook",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS03"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA06"
+            }
+          ]
         }
       ]
     },
@@ -128,7 +1894,196 @@
         },
         {
           "heading": "Reporting FTE for teaching assignments",
-          "body": "For instructional assignments, create one StaffAssignment (SA) record for every role and school; for which an educator is listed in StaffSectionAssignment(SSA). Detail in each SA JobFTE element, the FTE that s/he is expected to spend in each role. Whether a SA is marked for allocation to SSAs will be based on matching specific values in both objects. The table below shows the values which in addition to StaffPersonalRefId must align SSAs to the SA which holds their FTE. For example we would expect for a SSA with a TeamTeacher role that there would be a corresponding SA with the same StaffPersonalRefId, a JobFunction/Code of 1000 and a JobFunction/OtherCodeList/OtherCode of 2306.  Table: values that (in addition to StaffPersonalRefId) must align an SSA to the SA which holds its FTE:  SSA/Roles/Role — SA/JobFunction/Code — SA/JobFunction/OtherCodeList/OtherCode  LeadTeacher — 1000 — 2305 or 2325  TeamTeacher — 1000 — 2306 or 2325  ContributingProfessional — 1000 — 2310 or 2325  Paraprofessional — 1000 — 4100  In SA/JobFunction/OtherCodeList/OtherCode report teachers of virtual courses with the corresponding non-virtual code (2307=2305,2308=2306). The conversion of this code to the corresponding virtual teacher code will be based on the MediumOfInstruction code reported in SectionInfo. If a paraprofessional has both non-instructional and instructional assignments, report 2 SAs. Only use code 1000 in SA/JobFunction/Code for assignments for which there are corresponding SSA objects.  To simplify the process, FTE will be allocated only to current SSAs and SAs. Non-current SSAs will be allocated a minimal FTE (0.001). Current is defined as any object whose Start and End dates enclose the report date.  Example: A teacher spends 20% of the time as a Dept Head, Co-teaches 3 virtual courses (60%) and is the Lead Teacher on one course (20%). We would expect 3 SA objects. One SA object for the Dept head assignment would have .2 FTE and the JobFunction/Code not equal to 1000, as this is not instructional. 9999 is a safe value. A second SA object would have .2 FTE and a JobFunction/Code=1000 with an OtherCode of 2305. This supplies the FTE for the single LeadTeacher SSA object. A third SA object would have .6 FTE and a JobFunction/Code=1000 with an OtherCode of 2306. This supplies the FTE for the three TeamTeacher SSA objects. A value of .2 (.6/3) will be assigned as the FTE for each of the three TeamTeacher SSA objects when being extracted to the Work Assignment tables."
+          "body": "For instructional assignments, create one StaffAssignment (SA) record for every role and school; for which an educator is listed in StaffSectionAssignment(SSA). Detail in each SA JobFTE element, the FTE that s/he is expected to spend in each role. Whether a SA is marked for allocation to SSAs will be based on matching specific values in both objects. The table below shows the values which in addition to StaffPersonalRefId must align SSAs to the SA which holds their FTE. For example we would expect for a SSA with a TeamTeacher role that there would be a corresponding SA with the same StaffPersonalRefId, a JobFunction/Code of 1000 and a JobFunction/OtherCodeList/OtherCode of 2306.  Table: values that (in addition to StaffPersonalRefId) must align an SSA to the SA which holds its FTE:  SSA/Roles/Role \u2014 SA/JobFunction/Code \u2014 SA/JobFunction/OtherCodeList/OtherCode  LeadTeacher \u2014 1000 \u2014 2305 or 2325  TeamTeacher \u2014 1000 \u2014 2306 or 2325  ContributingProfessional \u2014 1000 \u2014 2310 or 2325  Paraprofessional \u2014 1000 \u2014 4100  In SA/JobFunction/OtherCodeList/OtherCode report teachers of virtual courses with the corresponding non-virtual code (2307=2305,2308=2306). The conversion of this code to the corresponding virtual teacher code will be based on the MediumOfInstruction code reported in SectionInfo. If a paraprofessional has both non-instructional and instructional assignments, report 2 SAs. Only use code 1000 in SA/JobFunction/Code for assignments for which there are corresponding SSA objects.  To simplify the process, FTE will be allocated only to current SSAs and SAs. Non-current SSAs will be allocated a minimal FTE (0.001). Current is defined as any object whose Start and End dates enclose the report date.  Example: A teacher spends 20% of the time as a Dept Head, Co-teaches 3 virtual courses (60%) and is the Lead Teacher on one course (20%). We would expect 3 SA objects. One SA object for the Dept head assignment would have .2 FTE and the JobFunction/Code not equal to 1000, as this is not instructional. 9999 is a safe value. A second SA object would have .2 FTE and a JobFunction/Code=1000 with an OtherCode of 2305. This supplies the FTE for the single LeadTeacher SSA object. A third SA object would have .6 FTE and a JobFunction/Code=1000 with an OtherCode of 2306. This supplies the FTE for the three TeamTeacher SSA objects. A value of .2 (.6/3) will be assigned as the FTE for each of the three TeamTeacher SSA objects when being extracted to the Work Assignment tables."
+        }
+      ],
+      "purpose": "One staff member's job assignment - their role, school, and FTE. A staff member can have more than one StaffAssignment record if they hold multiple roles.",
+      "elements": [
+        {
+          "path": "PrimaryAssignment",
+          "description": "Is this the staff member's primary assignment? Note: There must be one and only one instance of the object with a Yes value in this element per school year.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "JobStartDate",
+          "description": "This is the date from which the staff assignment is valid (inclusive). Replaces extended element beginning FY17.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "JobEndDate",
+          "description": "This is the date through which the staff assignment is valid (inclusive). May be left empty for active assignments. Only required for early exits.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "JobFTE",
+          "description": "The ratio between the hours expected of a full-time position and the number of actual hours being provided by an individual (i.e., the percent of workday staff are involved in an assignment: 1.00 is a full-time employee; a half-time employee is a .50 FTE, etc.) FTE must be computed on a term basis. Compute a part-time employee's FTE by dividing the time worked by the amount of time required for a full-time position for each term reported in the collection. E.g., (a) for a teacher employed three hours each day in the first semester when full time is considered to be six hours, calculate 3 divided by 6 equals .50 FTE for the first semester. (b) for a teacher employed one day a week in the second semester, calculate 1 divided by 5 equals .20 FTE for the second semester. Enter as a decimal to the thousandths (if necessary); e.g., .04, .25, .333, .5... 1.00 representing the FTE for that assignment for each reported term.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA12"
+            }
+          ]
+        },
+        {
+          "path": "JobFunction/Code",
+          "description": "NCES0568 Function",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "JobFunction/OtherCodeList/OtherCode/@Codeset",
+          "description": "must equal \"Other\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "JobFunction/OtherCodeList/OtherCode",
+          "description": "Value from EPIMS Appendices",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA07"
+            }
+          ]
+        },
+        {
+          "path": "JobFunction/OtherCodeList/OtherCode/@Codeset",
+          "description": "must equal \"Text\" - Conditional for 2310s and instructional 4100s - See tech guide",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "JobFunction/OtherCodeList/OtherCode",
+          "description": "Value from EPIMS Appendices - Conditional for 2310s and instructional 4100s - See tech guide",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA10"
+            }
+          ]
+        },
+        {
+          "path": "TeachingAssignment",
+          "description": "This item is only required for Paraprofessionals and some 2310s (See tech guide). All others will have a deafault WA08 value of 000 (NA)",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "TeachingAssignment/Code",
+          "description": "NCES0436 Teaching Assignment",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "TeachingAssignment/OtherCodeList/OtherCode",
+          "description": "Value from EPIMS Appendices",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA08"
+            }
+          ]
+        },
+        {
+          "path": "GradeLevels/GradeLevel/Code",
+          "description": "Calculated from the grade level (DOE016 values) of the students in the section",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA09"
+            }
+          ]
+        },
+        {
+          "path": "MABeginningEducator",
+          "description": "See EPIMS data Manual - Must be reported when PrimaryAssignment is set to \"Yes\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR38"
+            }
+          ]
+        },
+        {
+          "path": "BeginnerEducatorMentor",
+          "description": "8 digit MEPID of the mentor. See EPIMS data Manual - Must be reported when MABeginningEducator is set to 01",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR34"
+            }
+          ]
         }
       ]
     },
@@ -143,6 +2098,288 @@
         {
           "heading": null,
           "body": "As the name suggests, the StaffEvaluation object is used to report staff evaluation information. It is not necessary to submit a StaffEvaluation object for those staff for whom an evaluation is not required. Where an evaluation is not received, a value of \"not applicable\" will be extracted to the appropriate staff roster fields. This will trigger a data validation error for staff in job classifications that are required to be evaluated, so that it is brought to the attention of the district submitting the data.  SchoolInfoRefId: Transmit the RefId of the school in which the staff is being evaluated. For district (LEA) level staff, it is preferable to use a SchoolInfo object that has the same StateProvinceId as the LEA.  EvaluatorStateProvinceId: Reporting the MEPID of the evaluator is optional.  EvaluationCycleName: The evaluation cycle codes are slightly different from those documented for SR35 in the EPIMS manual use the codes found in the \"Evaluation Codes\" tab in the SIF Profile. This element is no longer required beginning in FY2017.  Evaluation System: This element's value must be \"MA ESE Educator Evaluation\" to distinguish it from other possible evaluations.  EvaluationParts/EvaluationPart/Name: The Name element must be reported with the exact text as described for the five elements of the evaluation. Multiple EvaluationParts with the same name are not permitted. If one of the EvaluationParts is missing then \"Not Evaluated\" will be extracted to the appropriate staff roster fields.  EvaluationParts/EvaluationPart/Score: The evaluation scores are the same as those documented for SR29 through SR33 in the EPIMS manual.  EvaluationParts/EvaluationPart/Scale: This must be \"00-20\".  EvaluationHolisticScore: The evaluation scores are the same as those documented for SR29 through SR33 in the EPIMS manual.  EvaluationHolisticScale: This must be \"00-20\".  Evaluation Extract Logic: The data to be extracted to EPIMS elements SR29-35 is function of the intersection of three data sets, 1) Valid evaluations, 2) staff that are required or eligible to be evaluated and 3) LEAS required to evaluate staff (any LEA type except Commonwealth Charter Schools). The data to be extracted also is a function of snapshot or collection date.  1) The set of StaffEvaluation objects to be considered must:  a) Have an EvaluationSystem value of \"MA ESE Educator Evaluation\"  b) Have an EvaluationDate. i) For the October snapshot, the date must be between 7/1/CurrentYear and 10/1/CurrentYear inclusive for SR29 - SR33. ii) For other snapshots and for SR34, the date must be on or after January 1 of the schoolyear.  c) Where there are multiple evaluations submitted, the most recent evaluation prior to the report date will be used. If two have the same data, then the most recent evaluation will be used.  2) If no valid evaluation is found for the current collection then '99' will be extracted to SR29-SR35"
+        }
+      ],
+      "purpose": "An educator's performance evaluation - the rating(s) they received under the state's educator evaluation system.",
+      "elements": [
+        {
+          "path": "@RefID",
+          "description": "MA Addition",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "StaffPersonalRefId",
+          "description": "The Id (GUID) of the staff being evaluated.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "SchoolInfoRefId",
+          "description": "The Id (GUID) of the School where they are being evaluated.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationDate",
+          "description": "Date of when the evaluation actually was observed.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationSystem",
+          "description": "This is the name of the tool being used. Must be \"MA ESE Educator Evaluation\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts",
+          "description": "The set of the Evaluation Parts.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart",
+          "description": "Container for parts of the evaluation.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Name",
+          "description": "must be \"SR30 - Standard (1) Evaluation\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Score",
+          "description": "This is a subscore that is part of the evaluation. *",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR30"
+            }
+          ]
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Scale",
+          "description": "must be '00-20'",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart",
+          "description": "Container for parts of the evaluation.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Name",
+          "description": "must be \"SR31 - Standard (2) Evaluation\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Score",
+          "description": "This is a subscore that is part of the evaluation. *",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR31"
+            }
+          ]
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Scale",
+          "description": "must be '00-20'",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart",
+          "description": "Container for parts of the evaluation.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Name",
+          "description": "must be \"SR32 - Standard (3) Evaluation\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Score",
+          "description": "This is a subscore that is part of the evaluation. *",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR32"
+            }
+          ]
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Scale",
+          "description": "must be '00-20'",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart",
+          "description": "Container for parts of the evaluation.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Name",
+          "description": "must be \"SR33 - Standard (4) Evaluation\"",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Score",
+          "description": "This is a subscore that is part of the evaluation. *",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR33"
+            }
+          ]
+        },
+        {
+          "path": "EvaluationParts/EvaluationPart/Scale",
+          "description": "must be '00-20'",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EvaluationHolisticScore",
+          "description": "The overall Score for the evaluation. *",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "SR29"
+            }
+          ]
+        },
+        {
+          "path": "EvaluationHolisticScale",
+          "description": "This is the overall Scale that is being used for the evaluation. This must be '00-20'",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
         }
       ]
     },
@@ -160,11 +2397,84 @@
         },
         {
           "heading": "Issues with Days of Attendance & Membership",
-          "body": "Introduction: Experience has shown that dealing with Massachusetts' SIMS Days of Attendance & Membership (DOE017, DOE018 & DOE052) requirements within SIF present some unique challenges. What follows is an attempt to offer some solutions to those challenges from a standpoint of letting SIF be SIF and SIMS be SIMS, not letting either disturb the design of the other.  There are two types of reporting situations which will be discussed here: students with attendance and summer exits. It is perfectly possible for a district to legitimately report a single student with one or more StudentAttendanceSummary (SAS) records in each of these categories. For example a student may exit during the summer, then return midyear to an in-district school, transfer to another in-district school and then outplace him. In this case the student would have at least four valid SAS records of which the values in three would need to be summed to get complete DOE017, DOE018 & DOE052 values.  To make this work properly, the Terminfo objects for each school are required. The minimum StartDate and maximum EndDate for the school year will be used where bounding dates are required.  Because students may be concurrently enrolled in two schools in the same district, only those SAS records that refer to a student's \"Home\" school (MembershipType in the StudentSchoolEnrollment object) will be included in computing DOE017, DOE018 & DOE052 values.  DESE will request a SAS for each student based on the parameters described below.  Table: parameters DESE uses when requesting a StudentAttendanceSummary:  @SchoolYear — The value will the current year.  StartDate — For all periods: The value will equal the Minimum TermInfo.StartDate for that school.  EndDate — For Oct & March: The value will be equal to the \"report date\". For EOY: The value will be equal to the maximum TermInfo.EndDate for that school.  For each Current or Historical Home StudentSchoolEnrollment object, for each student in the district:  DaysAttended is summed to get DOE017  DaysInMembership is summed to get DOE018  UnexcusedAbsences is summed to get DOE52"
+          "body": "Introduction: Experience has shown that dealing with Massachusetts' SIMS Days of Attendance & Membership (DOE017, DOE018 & DOE052) requirements within SIF present some unique challenges. What follows is an attempt to offer some solutions to those challenges from a standpoint of letting SIF be SIF and SIMS be SIMS, not letting either disturb the design of the other.  There are two types of reporting situations which will be discussed here: students with attendance and summer exits. It is perfectly possible for a district to legitimately report a single student with one or more StudentAttendanceSummary (SAS) records in each of these categories. For example a student may exit during the summer, then return midyear to an in-district school, transfer to another in-district school and then outplace him. In this case the student would have at least four valid SAS records of which the values in three would need to be summed to get complete DOE017, DOE018 & DOE052 values.  To make this work properly, the Terminfo objects for each school are required. The minimum StartDate and maximum EndDate for the school year will be used where bounding dates are required.  Because students may be concurrently enrolled in two schools in the same district, only those SAS records that refer to a student's \"Home\" school (MembershipType in the StudentSchoolEnrollment object) will be included in computing DOE017, DOE018 & DOE052 values.  DESE will request a SAS for each student based on the parameters described below.  Table: parameters DESE uses when requesting a StudentAttendanceSummary:  @SchoolYear \u2014 The value will the current year.  StartDate \u2014 For all periods: The value will equal the Minimum TermInfo.StartDate for that school.  EndDate \u2014 For Oct & March: The value will be equal to the \"report date\". For EOY: The value will be equal to the maximum TermInfo.EndDate for that school.  For each Current or Historical Home StudentSchoolEnrollment object, for each student in the district:  DaysAttended is summed to get DOE017  DaysInMembership is summed to get DOE018  UnexcusedAbsences is summed to get DOE52"
         },
         {
           "heading": "Values Returned for a StudentAttendanceSummary Request",
-          "body": "The uniqueness of a SAS record is determined by five elements/attributes:  1) @StudentPersonalRefId  2) @SchoolInfoRefId  3) @SchoolYear  4) StartDate — This must be identical to the StartDate received in the request even though the student may have started school mid-term.  5) EndDate — This must be identical to the EndDate received in the request, even though that date may be in the future or the past.  Examples:  A student enters on 9/1/13 and transfers out of district on 9/25. ESE requests attendance for 9/1/13 through 10/1/13 on 9/28/13. The values returned in StartDate & ExitDate must be 9/1/13 & 10/1/13 respectively.  A student enters on 9/1/13 and transfers to another school in the district on 10/25. ESE requests attendance for 9/1/13 through 3/1/14 for both schools on 1/15/14. Since attendance is requested on a school by school basis, this student will have two SAS records, one for each school. The values in StartDate & ExitDate must be 9/1/13 & 3/1/13 respectively for each of the SAS objects returned. The attendance and membership data returned is not aggregated, but is for each school individually.  A student enters on 9/1/13 and transfers out of the district on 10/25. On 1/15/14 the student returns to the same school to complete the year. ESE requests attendance for 9/1/13 through 6/21/14 on 7/01/14. The attendance for both enrollments is returned in a single SAS object. The values returned in StartDate & ExitDate must be 9/1/13 & 6/21/13 respectively."
+          "body": "The uniqueness of a SAS record is determined by five elements/attributes:  1) @StudentPersonalRefId  2) @SchoolInfoRefId  3) @SchoolYear  4) StartDate \u2014 This must be identical to the StartDate received in the request even though the student may have started school mid-term.  5) EndDate \u2014 This must be identical to the EndDate received in the request, even though that date may be in the future or the past.  Examples:  A student enters on 9/1/13 and transfers out of district on 9/25. ESE requests attendance for 9/1/13 through 10/1/13 on 9/28/13. The values returned in StartDate & ExitDate must be 9/1/13 & 10/1/13 respectively.  A student enters on 9/1/13 and transfers to another school in the district on 10/25. ESE requests attendance for 9/1/13 through 3/1/14 for both schools on 1/15/14. Since attendance is requested on a school by school basis, this student will have two SAS records, one for each school. The values in StartDate & ExitDate must be 9/1/13 & 3/1/13 respectively for each of the SAS objects returned. The attendance and membership data returned is not aggregated, but is for each school individually.  A student enters on 9/1/13 and transfers out of the district on 10/25. On 1/15/14 the student returns to the same school to complete the year. ESE requests attendance for 9/1/13 through 6/21/14 on 7/01/14. The attendance for both enrollments is returned in a single SAS object. The values returned in StartDate & ExitDate must be 9/1/13 & 6/21/13 respectively."
+        }
+      ],
+      "purpose": "A summary of one student's attendance - days present, days enrolled - for a given school and date range. DESE requests this on demand rather than districts submitting it proactively.",
+      "elements": [
+        {
+          "path": "DaysAttended",
+          "description": "Cumulative number of days a member student has been present in the district in-person from the beginning of the current school year to the time of reporting (e.g., October 1).",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE017"
+            }
+          ]
+        },
+        {
+          "path": "UnexcusedAbsences",
+          "description": "The number of school days a student was recorded with an unexcused absence.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE052"
+            }
+          ]
+        },
+        {
+          "path": "DaysInMembership",
+          "description": "Cumulative number of days a student has been enrolled in the district from the beginning of the current school year to the time of reporting (e.g., October 1).",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE018"
+            }
+          ]
+        },
+        {
+          "path": "DaysAttendedRemote",
+          "description": "The number of days the student was in attendance in a remote instruction mode.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE054"
+            }
+          ]
+        },
+        {
+          "path": "DaysAbsentRemote",
+          "description": "The number of days the student was absent in a remote instruction mode.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE055"
+            }
+          ]
         }
       ]
     },
@@ -204,6 +2514,417 @@
           "heading": "Summer Exits",
           "body": "ESE requires that all students reported as enrolled or receiving services be accounted for in the current collection. Students who were present in the EOY collection, but are not present in the following October collection are considered Summer Exits and must be reported with an exit code in DOE012. The StudentAttendanceSummary is ignored for summer exits. All such exits are to be reported in a StudentSchoolEnrollment object with a valid exit code and an ExitDate which falls between the end of the prior school year (maximum TermInfo.EndDate for that school and year inclusive) and the beginning of the current year (Minimum TermInfo.StartDate for that school inclusive)."
         }
+      ],
+      "purpose": "One stretch of a student's enrollment at a school - when they started, when (or if) they left, and why. This is the object SIMS' enrollment-status reporting is built from, and the trickiest one to get exactly right - see the advanced notes below if you're troubleshooting enrollment-status errors.",
+      "elements": [
+        {
+          "path": "@SchoolInfoRefId",
+          "description": "Can be used to find SchoolInfo/StateProvinceId via SchoolInfo",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "EntryDate",
+          "description": "See MA SIF Guide for a discussion of how this is used.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "GradeLevel/Code",
+          "description": "See SIF/MA Mapping.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE016"
+            }
+          ]
+        },
+        {
+          "path": "GradeLevel/OtherCodeList/OtherCode/@Codeset",
+          "description": "Codeset =\"StateProvince\"",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "GradeLevel/OtherCodeList/OtherCode",
+          "description": "See SIF/MA Mapping.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE016"
+            }
+          ]
+        },
+        {
+          "path": "ExitDate",
+          "description": "Required for exited students. See MA SIF Guide for a discussion of how this is used.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ExitType",
+          "description": "Required for exited students. See MA SIF Guide for a discussion of how this is used.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ExitType/Code",
+          "description": "Code indicating the type of exit for this enrollment.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ExitType/OtherCodeList/OtherCode/@Codeset",
+          "description": "Codeset =\"Text\"",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ExitType/OtherCodeList/OtherCode",
+          "description": "Report DOE012 codes. Important: See MA SIF Guide",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE012"
+            }
+          ]
+        },
+        {
+          "path": "FTE",
+          "description": "The sum of the FTEs for all Current Home and Concurrent enrollments must not exceed 1.00 for an individual student.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "O"
+          },
+          "fields": []
+        },
+        {
+          "path": "ResidencyStatus/Code",
+          "description": "NCES0598 Public School Residence Status",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ResidencyStatus/OtherCodeList/OtherCode/@Codeset",
+          "description": "Codeset =\"Other\"",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ResidencyStatus/OtherCodeList/OtherCode",
+          "description": "State Code for Reason for Reporting",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE011"
+            }
+          ]
+        },
+        {
+          "path": "AttendingSchool",
+          "description": "Use this element ONLY if this enrollment is for a student who has been outplaced or is receiving services only. Students enrolled within-this LEA should not report this element. For those students DOE015 will be extracted from the SchoolInfo object.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE015"
+            }
+          ]
+        },
+        {
+          "path": "ReasonForEnrollment",
+          "description": "An indication of the reason for a student's enrollment in the receiving school district. The indication should represent the reason for the most recent enrollment if the student is not enrolled at the time of reporting, or the current Reason for Enrollment if the reason has changed over time.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE013"
+            }
+          ]
+        },
+        {
+          "path": "ServicesOnly",
+          "description": "Values: Yes or No - Indicates whether this enrollment is for \"Services Only\" Enrollments for services must retain a \"Yes\" value even after the student has exited. If the student has not exited, then a Yes value means DOE012=40 and a No value means DOE012=01",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE012"
+            }
+          ]
+        },
+        {
+          "path": "MATitleINonInstructional",
+          "description": "Report DOE030 codes. See SIMS Data Manual",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE030"
+            }
+          ]
+        },
+        {
+          "path": "TitleIParticipation",
+          "description": "An indication of the type of Title I Services at the specified time of reporting",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE020"
+            }
+          ]
+        },
+        {
+          "path": "ELLProgramStatus",
+          "description": "An indication of the type of English Language Education Program in which a student is enrolled as of the time of reporting (e.g., October 1).",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE026"
+            }
+          ]
+        },
+        {
+          "path": "AlternativeEducationProgram",
+          "description": "The 8-digit code of the Alternative, Innovation or Charter Location program in which the student is enrolled at the time of reporting. If the student is not enrolled in a program the value \"00000000\" should be entered.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE027"
+            }
+          ]
+        },
+        {
+          "path": "VocTechEdProgramType",
+          "description": "If the student is enrolled in a CCTE program, the type of program in which the student is enrolled at the specified time of reporting (e.g., October 1). Program types include: - [State-designated CTE programs](https://www.doe.mass.edu/ccte/pathways/cte/default.html) which are approved by DESE in accordance with the Commonwealth's CTE regulations (603 CMR 4.00) and Mass. Gen. Laws c. 74. ```{=html} <!-- --> ``` - Cooperative education programs which enroll students in programs approved under Mass. Gen. Laws c. 74 that alternate between study in school and work-based learning in a related occupational field ```{=html} <!-- --> ``` - [State-designated CTE partnership program (also known as \"After Dark\")](https://www.doe.mass.edu/ccte/pathways/cte/afterdark/default.html) which use an approval process that recognizes innovative CTE opportunities, often with an altered delivery schedule through a partnership between the district where the student is enrolled and a district with an established state-designated CTE program. ```{=html} <!-- --> ``` - Locally designated [Career Connections programs](https://www.doe.mass.edu/ccte/pathways/n74/default.html) which meet the [Commonwealth's definition of program size, scope, and quality](https://www.doe.mass.edu/ccte/policies/perkins-v/size-scope-quality.docx) for eligibility for federal Perkins funding.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE035"
+            }
+          ]
+        },
+        {
+          "path": "VocTecEdCh74",
+          "description": "An indication of whether the student is enrolled in a state-designated (i.e., approved by DESE under Mass. Gen. Laws c. 74) Career Technical Education (CTE) program.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE043"
+            }
+          ]
+        },
+        {
+          "path": "VocTecEdNonCh74",
+          "description": "An indication of whether the student is enrolled in a Career Connections program. A Career Connections program is a locally-designated CCTE program---or one not approved by DESE under Mass. Gen. Laws c. 74 - which meets the [Commonwealth's definition of program size, scope, and quality](https://www.doe.mass.edu/ccte/policies/perkins-v/size-scope-quality.docx) for eligibility for federal Perkins funding (see [Perkins \u00a7 3(5)](https://www.govinfo.gov/content/pkg/COMPS-3096/pdf/COMPS-3096.pdf); 20 U.S.C. 2302(5)).",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE044"
+            }
+          ]
+        },
+        {
+          "path": "SealOfBiliteracy",
+          "description": "See relevant SIMS documentation",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE028"
+            }
+          ]
+        },
+        {
+          "path": "HQCCPType",
+          "description": "See relevant SIMS documentation",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE045"
+            }
+          ]
+        },
+        {
+          "path": "EarlyCollegePartnership",
+          "description": "See relevant SIMS documentation",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE046"
+            }
+          ]
+        },
+        {
+          "path": "CivicsProject",
+          "description": "An indicator as to whether a student participated in a civics project during the current academic year.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE053"
+            }
+          ]
+        },
+        {
+          "path": "InnovationCareerPathwaySector",
+          "description": "See relevant SIMS documentation",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE057"
+            }
+          ]
+        },
+        {
+          "path": "SealofBiliteracyLanguage",
+          "description": "This element reports Seal of Biliteracy languages, using codes defined in the SIMS Appendix C. The format is <SIF_ExtendedElement Name=\"SealofBiliteracylanguage\">LanguageCode~LanguageCode</SIF_ExtendedElement>",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE058"
+            },
+            {
+              "collection": "SIMS",
+              "field_id": "DOE059"
+            }
+          ]
+        },
+        {
+          "path": "MyCAPParticipation",
+          "description": "An indication of whether a student has MyCAP (Yes/No)",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE060"
+            }
+          ]
+        }
       ]
     },
     {
@@ -219,6 +2940,168 @@
           "heading": null,
           "body": "The StudentSpecialEducationSummary (SSES) as the name implies is a summary of the special education data for a student. Events are not generated for this object and so EOE will have to request it.  WHAT WE EXPECT TO GET: We expect to get SSES objects for all students involved in a special education program. This also includes those not currently a Special Education student but who were previously a Special Education student during the current school year and 3-5 year old general education students serving as role models in Pre-K classes.  DATA CONVERSION FOR EXTRACT TO SIMS: For students without a SSES default values should be provided on the extract from Veracity to Oracle. DOE032=00, DOE034=00, DOE036=500, DOE038=500 & DOE040=00. For students with a SSES whose DOE032 value=05 the above default values except for DOE032 apply as well.  There are conversion tables in the MA SIF profile to assist in converting the values for PrimaryDisabilityCode.  Some of the values for StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode are age dependent and some are not. If the student's age on the SummaryDate is 3-5, then the data should populate DOE032 while DOE034 should be reported as '00'. If the age on the SummaryDate is 6 or above, then the data should populate DOE034 while DOE032 should be reported as '00'. If the student is 3-5 years old on report date and codes 40-90 are reported, then the value will be converted back to the corresponding DOE032 as noted in the Code Sets tab of the profile."
         }
+      ],
+      "purpose": "A summary of a student's special-education status and services - disability, placement setting, and related program participation.",
+      "elements": [
+        {
+          "path": "@StudentPersonalRefId",
+          "description": "The Id (GUID) of the student for whom this special education information is being reported.",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "@SummaryDate",
+          "description": "The date the data summary was taken. Some elements are provided/calculated as of the SummaryDate, and some are provided as of the date the object is requested (i.e., some can be historical and some will represent the last information available/last known value).",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "@SchoolYear",
+          "description": "School year for which the information is applicable.",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SSDR": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "PrimaryDisabilityCode",
+          "description": "A code that identifies the primary disability type for a student who is eligible for services under the Individuals with Disabilities Education Act (IDEA) and who has an Individualized Education Program (IEP). Since primary disability is time-dependent a student's primary disability can change through a school year or reporting period. Do not report if StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode is 05, otherwise this is mandatory.",
+          "used_in": [
+            "SIMS",
+            "SSDR"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE036"
+            },
+            {
+              "collection": "SSDR",
+              "field_id": "PST"
+            }
+          ]
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData",
+          "description": "Collects elements of interest for each StudentParticipation.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "MR"
+          },
+          "fields": []
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode/@Codeset",
+          "description": "must be StateProvince",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode",
+          "description": "Not required if DOE040 is 02, 08 or 09",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE032"
+            },
+            {
+              "collection": "SIMS",
+              "field_id": "DOE034"
+            }
+          ]
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData/ProgramStatus",
+          "description": "Do not report if StudentParticipationList/StudentParticipationData/ProgramType/OtherCodeList/OtherCode is 05, otherwise this is mandatory.",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData/ProgramStatus/OtherCodeList/OtherCode/@Codeset",
+          "description": "must be \"Other\"",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData/ProgramStatus/OtherCodeList/OtherCode",
+          "description": "An indication of the result of a special education evaluation (initial or re-evaluation) that has been done since the end of the last school year (July 1st).",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE040"
+            }
+          ]
+        },
+        {
+          "path": "StudentParticipationList/StudentParticipationData/EvaluationDate",
+          "description": "Date of most recent evaluation",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {
+            "SIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "SpEdLevelofNeed",
+          "description": "Must be one of the Massachusetts codes",
+          "used_in": [
+            "SIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SIMS",
+              "field_id": "DOE038"
+            }
+          ]
+        }
       ]
     },
     {
@@ -230,7 +3113,44 @@
         "SCS",
         "EPIMS"
       ],
-      "notes": []
+      "notes": [],
+      "purpose": "Defines the school terms in use (full year, semester, quarter, etc.) and their start/end dates. Course terms and section terms reference this.",
+      "elements": [
+        {
+          "path": "StartDate",
+          "description": "If the report date falls between the Startdate & EndDate then the term is considered active (WA17=01)",
+          "used_in": [
+            "SIMS",
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SIMS": "M",
+            "SCS": "M",
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "MATermCode",
+          "description": "Must be one of the Massachusetts term codes",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS07"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA16"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "SectionInfo",
@@ -246,6 +3166,144 @@
           "heading": null,
           "body": "See StudentSectionMarks, SectionMarkInfo and StaffSectionAssignment"
         }
+      ],
+      "purpose": "Describes one section (period/block) of a course - essentially one specific offering of a class.",
+      "elements": [
+        {
+          "path": "MediumOfInstruction",
+          "description": "Medium through which the student receives instructional communication from the teacher.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "SchoolCourseInfoOverride/StateCourseCode",
+          "description": "Override of the state-defined course code for this section.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS05"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA10"
+            }
+          ]
+        },
+        {
+          "path": "SchoolCourseInfoOverride/DistrictCourseCode",
+          "description": "Override of the district course code for this section.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS04"
+            }
+          ]
+        },
+        {
+          "path": "SchoolCourseInfoOverride/InstructionalLevel/Code",
+          "description": "Override of the instructional level for this section.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS09"
+            }
+          ]
+        },
+        {
+          "path": "SchoolCourseInfoOverride/CourseCredits",
+          "description": "Override of the course credits for this section.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS10"
+            }
+          ]
+        },
+        {
+          "path": "SchoolCourseInfoOverride/CourseCredits/@Type",
+          "description": "NCES0108 Credit Type Earned",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "CourseSectionCode",
+          "description": "A section code that is linked to a course. This should be a unique identifier within the school year and course (i.e. the class instance number for a course). For example, Algebra I: Section 23 is different from English II: Section 23",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS06"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA11"
+            }
+          ]
+        },
+        {
+          "path": "MAGradeLevelOverride",
+          "description": "Used to override the calculated grade level (calculated from DOE016 values from students' SSE). Acceptable values may be found under WA09 in the EPIMS data handbook",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA09"
+            }
+          ]
+        },
+        {
+          "path": "AttendingSchool",
+          "description": "This element will override the Schoolcode if the @Override flag is set to 'Yes'. It is mandatory (M) only when the override is set to 'Yes'.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS03"
+            },
+            {
+              "collection": "EPIMS",
+              "field_id": "WA06"
+            }
+          ]
+        }
       ]
     },
     {
@@ -259,7 +3317,75 @@
       "notes": [
         {
           "heading": null,
-          "body": "SectionMarkInfo has been added to the profile to facilitate reporting of SCS while the class is in progress. The previous MA SIF specifications would require reporting a StudentSectionMarks object for every enrolled student in a section in order to get term information about the course. This object is used to determine the term information for a class section when no marks have been reported yet.  ASSUMPTIONS:  For each SectionInfo, there is a SectionMarkInfo object which has only the TermInfoRefIds for those terms for which marks will be reported for SCS.  Both SCS and our SIF profile requirements disallow two marks for the same section/term.  One StudentSectionEnrollment can cover a Section with Multi-Term marks.  SCS EXTRACT REQUIREMENTS:  For each snapshot date, report only those courses in SCS and EPIMS that are in session or completed. The enrollment status extracted for SCS must be that as of the report date  Rule 1 — For enrollments that have concluded on or prior to the specified date, whether a SSM object is needed or used is dependent on the value in SCS08 (StudentSectionEnrollment/CourseEnrollmentStatus):  SCS08=01 (Enrolled) — This is an error for a course whose exit date is in the past (before today)  SCS08=02 (Withdrawn) — The SSM is optional. If not supplied report SCS12=21 & SCS13=21111; Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available. If SSM is supplied then use values reported there.  SCS08=03 (Completed) — SSM is required. Use values reported there.  SCS08=04 (Incomplete) — report SCS12=40 & SCS13=40000. Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available.  SCS08=05 (Excused) — report SCS12=50 & SCS13=50000. Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available.  Rule 2 — For enrollments that are current as of the specified date (ie ones that continue on to the next day), a SSM is not needed. Regardless of the value reported in StudentSectionEnrollment/CourseEnrollmentStatus, the value to be reported for SCS08 will be 01 (Enrolled). The only valid values for marks in this case are SCS12=88 & SCS13=88888. Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available.  Rule 3 — For enrollments that continue past the term end date (multi-term courses). A SSM is required. If StudentSectionEnrollment/CourseEnrollmentStatus=01 then SCS08 must be inferred from the mark (SCS12 values below):  SCS12=01-20, 55, 66, 77, or 99 — SCS08=03  SCS12=20-23 or 88 — Illegal.  SCS12=40 — SCS08=04  SCS12=50 — SCS08=05  In the examples below, please refer to the diagram on the next page.  Diagram: object relationships referenced by the examples below — TermInfo (PK @RefID, @SchoolInfoRefID, @SchoolYear) — SectionMarkInfo (FK1 @SectionInfoRefId referencing SectionInfo; FK2 TermMarkLists/MarkInfoList/@TermInfoRefId referencing TermInfo; TermMarkLists/MarkInfoList/MarkInfoRefId) — SectionInfo (PK @RefId, @SchoolCourseInfoRefID, @SchoolYear)  1) Snapshot 1 (10/1) — Term 01:  a) The date of Snapshot 1 (SN1) falls within the date range of Term01 so any SectionInfo object whose RefId is referenced in a SectionMarkInfo object that contains a reference to Term01 is a section to be included in SCS and EPIMS.  b) SN1 falls within the date range of Enrollments 1 & 2 and so both of these enrollments will be included in the SCS snapshot. Refer to rule 2.  c) StaffSectionAssignments will be selected in a similar fashion for creation of WA records.  2) Snapshot 1 (10/1) — Term 21:  a) Term 21 is the first term of a two term section.  b) There is no difference in the results for the two enrollments selected for Term01  3) Snapshot 2 (03/01) — Term 01:  a) The same rules explained in 1a apply here.  b) Enrollments 1 & 3: i) SN2 falls within the date range of Enrollments 1 & 3 and so Rule 2 applies.  c) Enrollment 2 concluded prior to SN2 and so Rule 1 applies  4) Snapshot 2 (03/01) — Term 21:  a) The EndDate of Term 21 falls within the date range of Enrollments 1 & 3 and so both of these enrollments will be included in the SCS snapshot. Refer to Rule 3.  b) Enrollment 2 concludes prior to the EndDate of Term 21 and so Rule 1 applies  5) Snapshot 2 (03/01) — Term 22:  a) SN2 is within the date range of Enrollments 1 & 3 and so both of these enrollments will be included in the SCS snapshot. Refer to Rule 2.  b) Enrollment 2 concludes prior to SN2 and so Rule 1 applies  6) Snapshot 3 (EOY) — Term 01:  a) Rule 1 applies to Enrollments 1, 3 & 4 as they all ended on or before the report date.  b) Enrollment 2 is for the same student in the same section and term as Enrollment #4. Enrollment 4 is the most recent instance so it is used and #2 is ignored.  7) Snapshot 3 (EOY) — Term 21:  a) The same rules as for #4 above.  8) Snapshot 3 (EOY) — Term 22:  a) Same as 6a. While Enrollment 2 is for the same student as enrollment 4, it is in a different term and so was handled in #7 above. There will be 2 SCS records for this student in this section. One for Term21 and one for Term22.  Timeline diagram accompanying the examples above (dates shown are for the 2014-2015 school year):  Snapshot 1 = 10/1/2014  Snapshot 2 = 3/1/2015  Snapshot 3 (EOY) = 6/30/2015  Term 21 = 9/1/2014 to 1/31/2015  Term 01 = 9/1/2014 to 6/30/2015  Term 22 = 2/1/2015 to 6/30/2015  Enrollment 1 = 9/1/2014 to 6/30/2015  Enrollment 2 = 9/1/2014 to 10/15/2014  Enrollment 3 = 10/16/2014 to 4/15/2015  Enrollment 4 = 3/27/2015 to 6/30/2015"
+          "body": "SectionMarkInfo has been added to the profile to facilitate reporting of SCS while the class is in progress. The previous MA SIF specifications would require reporting a StudentSectionMarks object for every enrolled student in a section in order to get term information about the course. This object is used to determine the term information for a class section when no marks have been reported yet.  ASSUMPTIONS:  For each SectionInfo, there is a SectionMarkInfo object which has only the TermInfoRefIds for those terms for which marks will be reported for SCS.  Both SCS and our SIF profile requirements disallow two marks for the same section/term.  One StudentSectionEnrollment can cover a Section with Multi-Term marks.  SCS EXTRACT REQUIREMENTS:  For each snapshot date, report only those courses in SCS and EPIMS that are in session or completed. The enrollment status extracted for SCS must be that as of the report date  Rule 1 \u2014 For enrollments that have concluded on or prior to the specified date, whether a SSM object is needed or used is dependent on the value in SCS08 (StudentSectionEnrollment/CourseEnrollmentStatus):  SCS08=01 (Enrolled) \u2014 This is an error for a course whose exit date is in the past (before today)  SCS08=02 (Withdrawn) \u2014 The SSM is optional. If not supplied report SCS12=21 & SCS13=21111; Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available. If SSM is supplied then use values reported there.  SCS08=03 (Completed) \u2014 SSM is required. Use values reported there.  SCS08=04 (Incomplete) \u2014 report SCS12=40 & SCS13=40000. Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available.  SCS08=05 (Excused) \u2014 report SCS12=50 & SCS13=50000. Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available.  Rule 2 \u2014 For enrollments that are current as of the specified date (ie ones that continue on to the next day), a SSM is not needed. Regardless of the value reported in StudentSectionEnrollment/CourseEnrollmentStatus, the value to be reported for SCS08 will be 01 (Enrolled). The only valid values for marks in this case are SCS12=88 & SCS13=88888. Course Credit Earned (SCS11) will be zero where credit is available and 9999 if credit is not available.  Rule 3 \u2014 For enrollments that continue past the term end date (multi-term courses). A SSM is required. If StudentSectionEnrollment/CourseEnrollmentStatus=01 then SCS08 must be inferred from the mark (SCS12 values below):  SCS12=01-20, 55, 66, 77, or 99 \u2014 SCS08=03  SCS12=20-23 or 88 \u2014 Illegal.  SCS12=40 \u2014 SCS08=04  SCS12=50 \u2014 SCS08=05  In the examples below, please refer to the diagram on the next page.  Diagram: object relationships referenced by the examples below \u2014 TermInfo (PK @RefID, @SchoolInfoRefID, @SchoolYear) \u2014 SectionMarkInfo (FK1 @SectionInfoRefId referencing SectionInfo; FK2 TermMarkLists/MarkInfoList/@TermInfoRefId referencing TermInfo; TermMarkLists/MarkInfoList/MarkInfoRefId) \u2014 SectionInfo (PK @RefId, @SchoolCourseInfoRefID, @SchoolYear)  1) Snapshot 1 (10/1) \u2014 Term 01:  a) The date of Snapshot 1 (SN1) falls within the date range of Term01 so any SectionInfo object whose RefId is referenced in a SectionMarkInfo object that contains a reference to Term01 is a section to be included in SCS and EPIMS.  b) SN1 falls within the date range of Enrollments 1 & 2 and so both of these enrollments will be included in the SCS snapshot. Refer to rule 2.  c) StaffSectionAssignments will be selected in a similar fashion for creation of WA records.  2) Snapshot 1 (10/1) \u2014 Term 21:  a) Term 21 is the first term of a two term section.  b) There is no difference in the results for the two enrollments selected for Term01  3) Snapshot 2 (03/01) \u2014 Term 01:  a) The same rules explained in 1a apply here.  b) Enrollments 1 & 3: i) SN2 falls within the date range of Enrollments 1 & 3 and so Rule 2 applies.  c) Enrollment 2 concluded prior to SN2 and so Rule 1 applies  4) Snapshot 2 (03/01) \u2014 Term 21:  a) The EndDate of Term 21 falls within the date range of Enrollments 1 & 3 and so both of these enrollments will be included in the SCS snapshot. Refer to Rule 3.  b) Enrollment 2 concludes prior to the EndDate of Term 21 and so Rule 1 applies  5) Snapshot 2 (03/01) \u2014 Term 22:  a) SN2 is within the date range of Enrollments 1 & 3 and so both of these enrollments will be included in the SCS snapshot. Refer to Rule 2.  b) Enrollment 2 concludes prior to SN2 and so Rule 1 applies  6) Snapshot 3 (EOY) \u2014 Term 01:  a) Rule 1 applies to Enrollments 1, 3 & 4 as they all ended on or before the report date.  b) Enrollment 2 is for the same student in the same section and term as Enrollment #4. Enrollment 4 is the most recent instance so it is used and #2 is ignored.  7) Snapshot 3 (EOY) \u2014 Term 21:  a) The same rules as for #4 above.  8) Snapshot 3 (EOY) \u2014 Term 22:  a) Same as 6a. While Enrollment 2 is for the same student as enrollment 4, it is in a different term and so was handled in #7 above. There will be 2 SCS records for this student in this section. One for Term21 and one for Term22.  Timeline diagram accompanying the examples above (dates shown are for the 2014-2015 school year):  Snapshot 1 = 10/1/2014  Snapshot 2 = 3/1/2015  Snapshot 3 (EOY) = 6/30/2015  Term 21 = 9/1/2014 to 1/31/2015  Term 01 = 9/1/2014 to 6/30/2015  Term 22 = 2/1/2015 to 6/30/2015  Enrollment 1 = 9/1/2014 to 6/30/2015  Enrollment 2 = 9/1/2014 to 10/15/2014  Enrollment 3 = 10/16/2014 to 4/15/2015  Enrollment 4 = 3/27/2015 to 6/30/2015"
+        }
+      ],
+      "purpose": "Reports which grading term(s) will eventually have marks recorded for a section, before those marks actually exist yet - lets SCS be reported while a course is still in progress, before grades are in.",
+      "elements": [
+        {
+          "path": "@SectionInfoRefId",
+          "description": "The Id (GUID) that uniquely identifies the SectionInfo object that this item refers to.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SCS": "M",
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "@SchoolInfoRefId",
+          "description": "The Id (GUID) that uniquely identifies the School that these Mark Values apply to.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SCS": "M",
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "TermMarkLists/MarkInfoList",
+          "description": "The grading-related information for a section, repeating for each marking period (TermInfo) in which the section reports Marks.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SCS": "MR",
+            "EPIMS": "MR"
+          },
+          "fields": []
+        },
+        {
+          "path": "TermMarkLists/MarkInfoList/@TermInfoRefId",
+          "description": "The Id (GUID) that identifies the marking period that the following marks are recorded in.",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SCS": "M",
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "TermMarkLists/MarkInfoList/MarkInfoRefId",
+          "description": "The Id (GUID) that identifies a mark that was given for this student. Report one unique RefId for each district and only send one value on each SSM and SectionMarkInfo",
+          "used_in": [
+            "SCS",
+            "EPIMS"
+          ],
+          "requirement": {
+            "SCS": "MR",
+            "EPIMS": "MR"
+          },
+          "fields": []
         }
       ]
     },
@@ -275,6 +3401,84 @@
           "heading": null,
           "body": "Massachusetts DESE requires reporting of courses and marks given to students within its SCS collection. The final cumulative mark for a course is all that is to be reported within the SCS collection.  To accommodate DESE's SCS requirements the following will need to be implemented:  Vendor's software will need to accommodate the MACreditsEarned extended element in the StudentSectionMarks object. As noted in the profile, when there are special circumstances in a course whose marks are normally reported as a percentage (incomplete, pass, withdrawn, etc.) then report those in the MarkList/Letter element. MarkList/Letter will follow the format described in the SCS manual.  Districts will need to submit at least one StudentSectionMarks object with a valid Mark for each completed StudentSectionEnrollment.  DESE will need to populate SCS13 based on values in MarkList/Letter when no percentage mark is reported.  EXAMPLES  1) A student is taking a year-long course for which quarterly marks are given; however a yearlong final mark is the basis for passing.  a) In October, DESE would expect to receive a SectionInfo object which might indicate the four quarters in which the class meets. There should be one SectionMarkInfo object relating to this section, the MarkList of which should contain one element which will refer to the TermInfo object which represents the total length of the course or the term for which the final grade will be reported.  b) During the course of the school year DESE might receive quarterly StudentSectionMarks with IsFinal set to false.  c) At the end of the year in the full year StudentSectionMarks object with the same TermInfoRefId as that found in SectionMarkInfo, we would expect to receive a valid letter mark code and a percentage mark in the mark list if one was given. The IsFinal flag should be set to true  2) A student is taking a year-long course for which semester marks are given; no yearlong final mark is awarded.  a) In October, DESE would expect to receive a SectionInfo object which might indicate the two semesters in which the class meets. Each student enrolled in the section would have a StudentSectionEnrollment object pointing to the SectionInfo object. There should be one SectionMarkInfo object relating to this section, the MarkList of which should contain two elements which will refer to the TermInfo objects which represent each of the course terms for which grades will be reported.  b) During the course of the school year DESE would expect to receive a first semester StudentSectionMarks with final values in MarkList/Letter, and valid marks in the MarkList. IsFinal should be set to true.  c) When the second semester starts, if the student has continued their enrollment in the course, DESE would expect to receive a StudentSectionMarks object pointing to the second semester TermInfo object and with the MarkList/Letter set to \"88\" (Course in Progress)  d) At the end of the year in the second semester marks object, we would expect to receive a valid letter mark code and a percentage mark in the mark list if one was given."
         }
+      ],
+      "purpose": "One student's mark/grade for one course section - the actual letter or numeric grade and credit earned.",
+      "elements": [
+        {
+          "path": "MarkList/Mark",
+          "description": "Outer wrapper for marks reported for this section, in this term.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "MarkList/Mark/@MarkInfoRefId",
+          "description": "The Id (GUID) that identifies a mark that was given for this student. Report one unique RefId for each district and only send one value on each SSM and SectionMarkInfo",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "MarkList/Mark/Percentage",
+          "description": "For special circumstances such as withdrawal, incomplete, audit, etc. use MarkList/Mark/Letter",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS13"
+            }
+          ]
+        },
+        {
+          "path": "MarkList/Mark/Numeric",
+          "description": "The raw numeric score for this mark.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "C"
+          },
+          "fields": []
+        },
+        {
+          "path": "MarkList/Mark/Letter",
+          "description": "Must conform to specifications for SCS12 in the SCS Data Manual.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS12"
+            }
+          ]
+        },
+        {
+          "path": "[@Name=\"MACreditsEarned\"]",
+          "description": "Must be less than or equal to credits attempted",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS11"
+            }
+          ]
+        }
       ]
     },
     {
@@ -289,6 +3493,114 @@
           "heading": null,
           "body": "Report instructional assignments for staff with this object. Use of the TeacherList in the SectionInfo object will be ignored. See also StaffAssignment."
         }
+      ],
+      "purpose": "Links a staff member to a specific course section they teach - the connection between a teacher and the class they're instructing.",
+      "elements": [
+        {
+          "path": "@RefId",
+          "description": "The Id (GUID) that uniquely identifies this StaffSectionAssignment entity.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "StaffPersonalRefId",
+          "description": "The Id (GUID) of the teacher or educational staff to whom the assignment information applies.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "SectionInfoRefId",
+          "description": "The Id (GUID) of the section in which this staff (teacher) is assigned.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "AssignmentStartDate",
+          "description": "Date span from when this section assignment is effective",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "AssignmentEndDate",
+          "description": "This is the date through which the assignment is valid (inclusive). May be left empty for active assignments. Only required for early exits.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Roles",
+          "description": "List of one or more Roles.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "Roles/Role",
+          "description": "One of a set of possible enumerated Role values.",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA07"
+            }
+          ]
+        },
+        {
+          "path": "MATeachingAssignment",
+          "description": "Teacher / Paraprofessional Assignment",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "EPIMS",
+              "field_id": "WA08"
+            }
+          ]
+        },
+        {
+          "path": "MALongTermSubstitute",
+          "description": "Is this a long term substitute teaching assignment? (Yes or No)",
+          "used_in": [
+            "EPIMS"
+          ],
+          "requirement": {
+            "EPIMS": "M"
+          },
+          "fields": []
+        }
       ]
     },
     {
@@ -298,13 +3610,66 @@
       "used_in": [
         "SCS"
       ],
-      "notes": []
+      "notes": [],
+      "purpose": "One student's enrollment in a specific course section - their status in that particular class (enrolled, withdrawn, completed, etc.).",
+      "elements": [
+        {
+          "path": "EntryDate",
+          "description": "Date from when this course section enrollment is valid.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "ExitDate",
+          "description": "The last school calendar day (membership day) the student was enrolled in the course section (inclusive).",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {
+            "SCS": "M"
+          },
+          "fields": []
+        },
+        {
+          "path": "CourseEnrollmentStatus",
+          "description": "Indicates a student's enrollment status in a section. This element if optional for a future enrollment but mandatory for current and historical ones.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS08"
+            }
+          ]
+        },
+        {
+          "path": "PathwaysCourse",
+          "description": "Indicates that a particular course is being used to meet the student's technical course taking requirement for Perkins, Early College or Innovation Pathway programs.",
+          "used_in": [
+            "SCS"
+          ],
+          "requirement": {},
+          "fields": [
+            {
+              "collection": "SCS",
+              "field_id": "SCS14"
+            }
+          ]
+        }
+      ]
     }
   ],
   "general_notes": [
     {
       "heading": "Reporting Organizations via SIF",
-      "body": "In ESE SIMS, SCS & EPIMS legacy reporting there are four locations where school and/or program codes are entered. In SIF reporting there are five locations, but there is not necessarily a one to one correspondence. Currently there are some inaccuracies in the sifCodeValues wich need to be corrected. These inaccuracies would be caught by validations on the Oracle side.  LEGACY:  SIMS - DOE015 - The school location where a student is receiving education. May not be an Alternative Education Program (AEP).  SIMS - DOE027 - Must be an AEP.  SCS — SCS03 — The school where a course is being offered. This may also be an AEP or college.  EPIMS — WA06 — The location or program where a work assignment is performed. This may be an AEP but not a college.  SIF:  LEAInfo/StateProvinceId — The code of a LEA.  SchoolInfo/StateProvinceId — The code of a school or LEA over which the LEA has control.  StudentPersonal/AlternativeEducationProgram: An alternative education program.  StudentSchoolEnrollment/AttendingSchool — The code of a school in which the student is being educated, but which is not a part of the reporting LEA. This element should not be reported if ResidencyStatus/OtherCodeList/OtherCode is not '02' or it may be '00000001' or '00000002' if StudentSchoolEnrollment/[@Name=\"ServicesOnly\"] is either \"Yes\".  SchoolCourseInfo/AttendingSchool — The code of a school where a student is taking a course, but which is not a part of the reporting LEA. This may also be the code of an AEP over which a district does have control.  How the SIF school code is translated into legacy is a rather long and tortuous path.  DOE015 — If StudentSchoolEnrollment/AttendingSchool is not reported in the Home object, then use SchoolInfo/StateProvinceId.  SCS03 — If SchoolCourseInfo/AttendingSchool is not reported, then use SchoolInfo/StateProvinceId.  WA06 — For work assignments reported through StaffSectionAssignment, use the same process as for SCS03. For assignment reported through StaffAssignment, use SchoolInfo/StateProvinceId.  Table A - Valid Org Types for SIF elements. This should be used to construct the sifCodeValues table values on SQL server. Columns, left to right: LEAInfo/StateProvinceId, SchoolInfo/StateProvinceId, StudentPersonal/AlternativeEducationProgram, StudentSchoolEnrollment/AttendingSchool, SchoolCourseInfo/AttendingSchool. NOTE: this table's row/column alignment extracted poorly from the source PDF -- the X marks indicating which org types are valid in which SIF elements appear shifted relative to their row labels, and the type-1 row's description was lost entirely. The rows below are transcribed as literally as possible; verify actual X-mark placement against the original PDF before relying on this table.  Type 1 [description not clearly extracted in source] — X marks appear on this and the following line; columns unclear  Type 2 — Special Education School — X mark(s) present, column unclear  Type 3 — Collaborative — X mark(s) present, column unclear  Type 4 — Collaborative Program — X mark(s) present, column unclear  Type 5 — Public School District — X mark present, column unclear  Type 6 — Public School — X mark present, column unclear  Type 11 — Private (Non-Public/Non-Special Ed) Schools (includes Special Pre-School & Home School) — X mark present, column unclear  Type 12 — Charter District — no X marks shown in source  Type 13 — Charter School — X marks present, column unclear  Type 22 — Charter School Program — X mark present, column unclear  Type 29 — Out-of-state School — no X marks shown in source  Type 25 — Alternative Ed Program (Public) — X marks present, column unclear  Type 26 — Alternative Ed Program (Charter) — X marks present, column unclear  Type 34 — SEIS Program — X marks present, column unclear  Type 40 — Innovation Program — no X marks shown on this row in source (an X appears on the following, unlabeled line)  Type 95 — Special Education Program — no X marks shown in source  Type CL/BR — College — X mark present, column unclear"
+      "body": "In ESE SIMS, SCS & EPIMS legacy reporting there are four locations where school and/or program codes are entered. In SIF reporting there are five locations, but there is not necessarily a one to one correspondence. Currently there are some inaccuracies in the sifCodeValues wich need to be corrected. These inaccuracies would be caught by validations on the Oracle side.  LEGACY:  SIMS - DOE015 - The school location where a student is receiving education. May not be an Alternative Education Program (AEP).  SIMS - DOE027 - Must be an AEP.  SCS \u2014 SCS03 \u2014 The school where a course is being offered. This may also be an AEP or college.  EPIMS \u2014 WA06 \u2014 The location or program where a work assignment is performed. This may be an AEP but not a college.  SIF:  LEAInfo/StateProvinceId \u2014 The code of a LEA.  SchoolInfo/StateProvinceId \u2014 The code of a school or LEA over which the LEA has control.  StudentPersonal/AlternativeEducationProgram: An alternative education program.  StudentSchoolEnrollment/AttendingSchool \u2014 The code of a school in which the student is being educated, but which is not a part of the reporting LEA. This element should not be reported if ResidencyStatus/OtherCodeList/OtherCode is not '02' or it may be '00000001' or '00000002' if StudentSchoolEnrollment/[@Name=\"ServicesOnly\"] is either \"Yes\".  SchoolCourseInfo/AttendingSchool \u2014 The code of a school where a student is taking a course, but which is not a part of the reporting LEA. This may also be the code of an AEP over which a district does have control.  How the SIF school code is translated into legacy is a rather long and tortuous path.  DOE015 \u2014 If StudentSchoolEnrollment/AttendingSchool is not reported in the Home object, then use SchoolInfo/StateProvinceId.  SCS03 \u2014 If SchoolCourseInfo/AttendingSchool is not reported, then use SchoolInfo/StateProvinceId.  WA06 \u2014 For work assignments reported through StaffSectionAssignment, use the same process as for SCS03. For assignment reported through StaffAssignment, use SchoolInfo/StateProvinceId.  Table A - Valid Org Types for SIF elements. This should be used to construct the sifCodeValues table values on SQL server. Columns, left to right: LEAInfo/StateProvinceId, SchoolInfo/StateProvinceId, StudentPersonal/AlternativeEducationProgram, StudentSchoolEnrollment/AttendingSchool, SchoolCourseInfo/AttendingSchool. NOTE: this table's row/column alignment extracted poorly from the source PDF -- the X marks indicating which org types are valid in which SIF elements appear shifted relative to their row labels, and the type-1 row's description was lost entirely. The rows below are transcribed as literally as possible; verify actual X-mark placement against the original PDF before relying on this table.  Type 1 [description not clearly extracted in source] \u2014 X marks appear on this and the following line; columns unclear  Type 2 \u2014 Special Education School \u2014 X mark(s) present, column unclear  Type 3 \u2014 Collaborative \u2014 X mark(s) present, column unclear  Type 4 \u2014 Collaborative Program \u2014 X mark(s) present, column unclear  Type 5 \u2014 Public School District \u2014 X mark present, column unclear  Type 6 \u2014 Public School \u2014 X mark present, column unclear  Type 11 \u2014 Private (Non-Public/Non-Special Ed) Schools (includes Special Pre-School & Home School) \u2014 X mark present, column unclear  Type 12 \u2014 Charter District \u2014 no X marks shown in source  Type 13 \u2014 Charter School \u2014 X marks present, column unclear  Type 22 \u2014 Charter School Program \u2014 X mark present, column unclear  Type 29 \u2014 Out-of-state School \u2014 no X marks shown in source  Type 25 \u2014 Alternative Ed Program (Public) \u2014 X marks present, column unclear  Type 26 \u2014 Alternative Ed Program (Charter) \u2014 X marks present, column unclear  Type 34 \u2014 SEIS Program \u2014 X marks present, column unclear  Type 40 \u2014 Innovation Program \u2014 no X marks shown on this row in source (an X appears on the following, unlabeled line)  Type 95 \u2014 Special Education Program \u2014 no X marks shown in source  Type CL/BR \u2014 College \u2014 X mark present, column unclear"
     },
     {
       "heading": "Reporting Long Term Substitutes in EPIMS",
@@ -312,11 +3677,11 @@
     },
     {
       "heading": "Reporting Support Content Instructors in EPIMS",
-      "body": "Method (1)  Support content instructors (2310) may be reported with StaffSectionAssignments. These Sections may or may not have students reported in them.  Method (2)  Alternately, support content staff and instructional paraprofessionals (4100) may be reported with one or more StaffAssignments without StaffSectionAssignments. This method can only be used for full year assignments and may not be used for when there are multiple assignments for the same subject in the same school. To do this, additional elements need to be reported in the object  Table: additional SIF elements needed for Method (2) reporting, mapped to EPIMS elements. NOTE: this table extracted from the source PDF with unclear column alignment -- see the WA08-WA16 descriptions below for the reliable mapping.  JobFunction/OtherCodeList/OtherCode/@Codeset — Text  JobFunction/OtherCodeList/OtherCode — WA10  TeachingAssignment — StateProvince  TeachingAssignment/Code — WA08  TeachingAssignment/OtherCodeList/OtherCode/@Codeset — WA09  TeachingAssignment/OtherCodeList/OtherCode  GradeLevels  GradeLevels/GradeLevel  GradeLevels/GradeLevel/Code  WA08 Teacher/Paraprofessional Assignment — Place this value in TeachingAssignment/OtherCodeList/OtherCode with a codeset of \"StateProvince\"  WA09 Grade — Enter the GradeLevel from the EPIMS documentation in GradeLevels/GradeLevel/Code. Enter only one in the list as only the first one will be used to create a work assignment record.  WA10 Subject Area Course Code — Place this value in JobFunction/OtherCodeList/OtherCode with a codeset of \"Text\". This will flag this as an instructional staff assignment not requiring a StaffSectionAssignment  WA11 Class Section — This value will default to the course code to keep everything unique.  WA16 Course Term — This value will default to full year (01).  StaffAssignment WA Extract Logic:  Method (1) — construct work assignment from StaffSectionAssignment, etc  Method (2) — construct a WA under this additional method  Method (3) — construct an administrative WA with 00000 as course code, etc. including WA08 for 4100s  Case WA07  When in (2305,2306,2307,2308,2325) then Method (1)  When 2310 then  Case JobFunction/OtherCode @Codeset=\"Text\"  When OtherCode (WA10)<>\"\" then Method (2)  Else Method (1)  End  When 4100 then  Case JobFunction/OtherCode @Codeset=\"Text\"  When OtherCode (WA10)<>\"\" then Method (2)  Else  Case StaffSectionSassignments  When exists then Method (1)  Else Method (3)  End  End  Else Method (3)  end"
+      "body": "Method (1)  Support content instructors (2310) may be reported with StaffSectionAssignments. These Sections may or may not have students reported in them.  Method (2)  Alternately, support content staff and instructional paraprofessionals (4100) may be reported with one or more StaffAssignments without StaffSectionAssignments. This method can only be used for full year assignments and may not be used for when there are multiple assignments for the same subject in the same school. To do this, additional elements need to be reported in the object  Table: additional SIF elements needed for Method (2) reporting, mapped to EPIMS elements. NOTE: this table extracted from the source PDF with unclear column alignment -- see the WA08-WA16 descriptions below for the reliable mapping.  JobFunction/OtherCodeList/OtherCode/@Codeset \u2014 Text  JobFunction/OtherCodeList/OtherCode \u2014 WA10  TeachingAssignment \u2014 StateProvince  TeachingAssignment/Code \u2014 WA08  TeachingAssignment/OtherCodeList/OtherCode/@Codeset \u2014 WA09  TeachingAssignment/OtherCodeList/OtherCode  GradeLevels  GradeLevels/GradeLevel  GradeLevels/GradeLevel/Code  WA08 Teacher/Paraprofessional Assignment \u2014 Place this value in TeachingAssignment/OtherCodeList/OtherCode with a codeset of \"StateProvince\"  WA09 Grade \u2014 Enter the GradeLevel from the EPIMS documentation in GradeLevels/GradeLevel/Code. Enter only one in the list as only the first one will be used to create a work assignment record.  WA10 Subject Area Course Code \u2014 Place this value in JobFunction/OtherCodeList/OtherCode with a codeset of \"Text\". This will flag this as an instructional staff assignment not requiring a StaffSectionAssignment  WA11 Class Section \u2014 This value will default to the course code to keep everything unique.  WA16 Course Term \u2014 This value will default to full year (01).  StaffAssignment WA Extract Logic:  Method (1) \u2014 construct work assignment from StaffSectionAssignment, etc  Method (2) \u2014 construct a WA under this additional method  Method (3) \u2014 construct an administrative WA with 00000 as course code, etc. including WA08 for 4100s  Case WA07  When in (2305,2306,2307,2308,2325) then Method (1)  When 2310 then  Case JobFunction/OtherCode @Codeset=\"Text\"  When OtherCode (WA10)<>\"\" then Method (2)  Else Method (1)  End  When 4100 then  Case JobFunction/OtherCode @Codeset=\"Text\"  When OtherCode (WA10)<>\"\" then Method (2)  Else  Case StaffSectionSassignments  When exists then Method (1)  Else Method (3)  End  End  Else Method (3)  end"
     },
     {
       "heading": "SCS Data Extraction",
-      "body": "To determine what data is to be extracted to SCS, one must look at the intersection of two sets. The first set is the set of those students reported in SIMS and the second set is those course sections that are either in session or completed during the collection period. The good news is that there is one object that can serve as the central focus of any SCS extract. This year, that is the StudentSectionEnrollment (SSE) object  SELECTING STUDENTSECTIONMARKS OBJECTS  The broad range of SSM objects that we want to report in SCS are characterized by their having a MarkList/Letter value (and whose IsFinal value is set to true). This selection is limited by those students whose @StudentPersonalRefId was submitted in SIMS for the Report date. This selection is further limited by those @TermInfoRefId's whose StartDate or EndDate fall within the reporting period.  Table: SCS01-SCS13 code/object/element/business-rule reference (SCS Data Extraction). NOTE: this table extracted from the source PDF very badly -- it is a 4-column table (Code, Object, Element, Business Rules) and the columns wrapped and interleaved unreliably, so the exact SCS-code-to-business-rule correspondence for SCS01-SCS08 could not be reconstructed with confidence. What follows are the distinct object paths and element names that could be read unambiguously (by rejoining obviously word-wrapped fragments), followed by the readable business-rule prose, transcribed in source reading order without asserting which exact code each sentence belongs to. Verify against the SCS Data Handbook or the original PDF before relying on this section for SCS01-SCS08.  Codes covered in this portion of the table: SCS01 (M), SCS02 (M), SCS03 (C and M), SCS04 (M), SCS05 (M), SCS06 (M), SCS07 (M), SCS08 (C).  Object paths appearing in this table:  StudentSectionEnrollment=>StudentPersonal  StudentSectionEnrollment=>SectionInfo=>SchoolCourseInfo=>SchoolInfo  StudentSectionEnrollment=>SectionInfo  SectionInfo=>SectionMarkInfo=>TermInfo  SectionInfo=>StudentSectionEnrollment  Element names appearing in this table:  LocalId  StateProvinceId  [@Name=\"AttendingSchool\"]  DistrictCourseCode  StateCourseCode  CourseSectionCode / [@Name=\"MATermCode\"]  [@Name=\"CourseEnrollmentStatus\"]  Business rules text (reading order, as printed): If the student is attending a college, out of district traditional or out of district virtual course, then report the school code here, otherwise the StateProvinceId from the SchoolInfoObject will be used. This might not be equal to DOE015, see SCS data handbook. SIMS — If no AttendingSchool in SchoolCourseInfo, then use this for SCS03. 1-20 characters. See appendices G1-G3 in the EPIMS Appendices document. Note: If this code is 00000, then the course and its students should not be exported to SCS and its teachers' assignment data not reported in EPIMS. Must be one of the Massachusetts term codes. Indicates a student's enrollment status in a section. This element is optional for a future enrollment but mandatory for current and historical ones.  SCS09 (M) — StudentSectionEnrollment=>SectionInfo=>SchoolCourseInfo — InstructionalLevel/Code — NCES0437 Code - See Instructional Level Map to convert to MA codes  SCS10 (M) — StudentSectionEnrollment=>SectionInfo=>SchoolCourseInfo — CourseCredits — If @Type=9998 then return '9999'  If SCS08 = 03 then a StudentSectionMarks object must exist for this student. Use the values from StudentSectionMarks for SCS11-SCS13  SCS11 (M) — StudentSectionEnrollment=>StudentSectionMarks — [@Name=\"MACreditsEarned\"] — Must be less than or equal to credits attempted, or if SCS10='9999' then return '9999'  SCS12 (M) — StudentSectionEnrollment=>StudentSectionMarks — MarkList/Letter — Must conform to specifications for SCS12 in the SCS Data Handbook  SCS13 (C) — StudentSectionEnrollment=>StudentSectionMarks — MarkList/Mark/Percentage — Truncate to rightmost 5 characters. See discussion of SCS13 below.  If SCS08 <> 03 then the values below may be derived. (See SectionMarkInfo)  SCS11 (M) — StudentSectionEnrollment — If SCS10='9999' then return '9999' otherwise enter 0.  SCS12 (M) — StudentSectionEnrollment — Must be '88'  SCS13 (M) — StudentSectionEnrollment — Must be '88888'  Instructional Level Map (SCS09). NOTE: like the InstructionalLevel table under SchoolCourseInfo, this table's MA-code column extracted from the source PDF with an apparent one-row vertical shift (caused by a wrapped two-line \"MA / Code\" header), and its values do not agree with the other occurrence of what appears to be the same mapping. The row below shows exactly what is printed on each NCES code's own source line; verify the true NCES-to-MA-code mapping against the original PDF or the SCS Data Handbook before relying on it.  0568 — Remedial — (no value on this line in source; header fragment \"Code\" appears here instead)  0569 — Special education course — 01  0570 — Basic — 01  0571 — General — 01  0572 — Honors level — 02  0573 — Gifted and talented level — 03  0574 — International Baccalaureate program — 03  0575 — Advanced placement — 03  0576 — College level — 03  0577 — Untracked — 04  0578 — English Language Learner (ELL) — 02  0579 — Accepted as a high school equivalent — 01  9999 — Other — 02  (an additional lone \"02\" appears on its own line after the 9999 row in the source)  SCS13 COURSE NUMERIC MARK. Return values for SCS13 are dependent on values in SCS12 (MarkList/Letter).  NOTE: in the source PDF, the SCS13 return-value column for codes 04-09 extracted badly and contains numeric values that do not belong to those codes -- they are actually the SCS13 values for codes 21, 22, 23, 40, 50, 55, 66, 77 and 88 (which are listed later in the source with no SCS13 value of their own shown). This was determined by matching the stray values, in order, to those later codes, and is corroborated for codes 21, 40, 50 and 88 by the explicit SCS12/SCS13 pairs stated earlier in this document under SectionMarkInfo's Rule 1 and Rule 2 (SCS12=21 & SCS13=21111; SCS12=40 & SCS13=40000; SCS12=50 & SCS13=50000; SCS12=88 & SCS13=88888). The reconstructed pairing is used below; verify against the original PDF if in doubt.  01 A+ — If MarkList/Mark/Percentage is 0 or null then return 99999, otherwise, return value  02 A — If MarkList/Mark/Percentage is null then return 99999, otherwise, return value  03 A- — If MarkList/Mark/Percentage is 0 or null then return 99999, otherwise, return value  04 B+ — no reliable SCS13 value determined (the source's numeric fragments in this row actually belong to codes 21/22/23/40/etc.; see note above)  05 B — no reliable SCS13 value determined (see note above)  06 B- — no reliable SCS13 value determined (see note above)  07 C+ — no reliable SCS13 value determined (see note above)  08 C — no reliable SCS13 value determined (see note above)  09 C- — If MarkList/Mark/Percentage is null then return 99999, otherwise, return value  10 D+ — no SCS13 value shown in source  11 D — no SCS13 value shown in source  12 D- — no SCS13 value shown in source  13 F — no SCS13 value shown in source  14 Pass — no SCS13 value shown in source  15 Fail — no SCS13 value shown in source  16 Failing (Very poor performance) — no SCS13 value shown in source  17 Minimally Acceptable (Lowest passing grade) — no SCS13 value shown in source  18 Acceptable (Meets some of the basic standards for the course) — no SCS13 value shown in source  19 Good (Meets standards for the assignment or course) — no SCS13 value shown in source  20 Outstanding (Meets the highest standards for the assignment or course) — no SCS13 value shown in source  21 Withdrawn — SCS13=21111 (per note above)  22 Withdrawn - Pass — SCS13=22222 (per note above)  23 Withdrawn - Fail — SCS13=23333 (per note above)  40 Incomplete — SCS13=40000 (per note above)  50 Excused — SCS13=50000 (per note above)  55 Mark is not required — SCS13=55555 (per note above)  66 Ungraded Course — SCS13=66666 (per note above)  77 Audit — SCS13=77777 (per note above)  88 Course In Progress — SCS13=88888 (per note above)  99 Numeric Mark (only) provided for this course — no SCS13 value shown in source"
+      "body": "To determine what data is to be extracted to SCS, one must look at the intersection of two sets. The first set is the set of those students reported in SIMS and the second set is those course sections that are either in session or completed during the collection period. The good news is that there is one object that can serve as the central focus of any SCS extract. This year, that is the StudentSectionEnrollment (SSE) object  SELECTING STUDENTSECTIONMARKS OBJECTS  The broad range of SSM objects that we want to report in SCS are characterized by their having a MarkList/Letter value (and whose IsFinal value is set to true). This selection is limited by those students whose @StudentPersonalRefId was submitted in SIMS for the Report date. This selection is further limited by those @TermInfoRefId's whose StartDate or EndDate fall within the reporting period.  Table: SCS01-SCS13 code/object/element/business-rule reference (SCS Data Extraction). NOTE: this table extracted from the source PDF very badly -- it is a 4-column table (Code, Object, Element, Business Rules) and the columns wrapped and interleaved unreliably, so the exact SCS-code-to-business-rule correspondence for SCS01-SCS08 could not be reconstructed with confidence. What follows are the distinct object paths and element names that could be read unambiguously (by rejoining obviously word-wrapped fragments), followed by the readable business-rule prose, transcribed in source reading order without asserting which exact code each sentence belongs to. Verify against the SCS Data Handbook or the original PDF before relying on this section for SCS01-SCS08.  Codes covered in this portion of the table: SCS01 (M), SCS02 (M), SCS03 (C and M), SCS04 (M), SCS05 (M), SCS06 (M), SCS07 (M), SCS08 (C).  Object paths appearing in this table:  StudentSectionEnrollment=>StudentPersonal  StudentSectionEnrollment=>SectionInfo=>SchoolCourseInfo=>SchoolInfo  StudentSectionEnrollment=>SectionInfo  SectionInfo=>SectionMarkInfo=>TermInfo  SectionInfo=>StudentSectionEnrollment  Element names appearing in this table:  LocalId  StateProvinceId  [@Name=\"AttendingSchool\"]  DistrictCourseCode  StateCourseCode  CourseSectionCode / [@Name=\"MATermCode\"]  [@Name=\"CourseEnrollmentStatus\"]  Business rules text (reading order, as printed): If the student is attending a college, out of district traditional or out of district virtual course, then report the school code here, otherwise the StateProvinceId from the SchoolInfoObject will be used. This might not be equal to DOE015, see SCS data handbook. SIMS \u2014 If no AttendingSchool in SchoolCourseInfo, then use this for SCS03. 1-20 characters. See appendices G1-G3 in the EPIMS Appendices document. Note: If this code is 00000, then the course and its students should not be exported to SCS and its teachers' assignment data not reported in EPIMS. Must be one of the Massachusetts term codes. Indicates a student's enrollment status in a section. This element is optional for a future enrollment but mandatory for current and historical ones.  SCS09 (M) \u2014 StudentSectionEnrollment=>SectionInfo=>SchoolCourseInfo \u2014 InstructionalLevel/Code \u2014 NCES0437 Code - See Instructional Level Map to convert to MA codes  SCS10 (M) \u2014 StudentSectionEnrollment=>SectionInfo=>SchoolCourseInfo \u2014 CourseCredits \u2014 If @Type=9998 then return '9999'  If SCS08 = 03 then a StudentSectionMarks object must exist for this student. Use the values from StudentSectionMarks for SCS11-SCS13  SCS11 (M) \u2014 StudentSectionEnrollment=>StudentSectionMarks \u2014 [@Name=\"MACreditsEarned\"] \u2014 Must be less than or equal to credits attempted, or if SCS10='9999' then return '9999'  SCS12 (M) \u2014 StudentSectionEnrollment=>StudentSectionMarks \u2014 MarkList/Letter \u2014 Must conform to specifications for SCS12 in the SCS Data Handbook  SCS13 (C) \u2014 StudentSectionEnrollment=>StudentSectionMarks \u2014 MarkList/Mark/Percentage \u2014 Truncate to rightmost 5 characters. See discussion of SCS13 below.  If SCS08 <> 03 then the values below may be derived. (See SectionMarkInfo)  SCS11 (M) \u2014 StudentSectionEnrollment \u2014 If SCS10='9999' then return '9999' otherwise enter 0.  SCS12 (M) \u2014 StudentSectionEnrollment \u2014 Must be '88'  SCS13 (M) \u2014 StudentSectionEnrollment \u2014 Must be '88888'  Instructional Level Map (SCS09). NOTE: like the InstructionalLevel table under SchoolCourseInfo, this table's MA-code column extracted from the source PDF with an apparent one-row vertical shift (caused by a wrapped two-line \"MA / Code\" header), and its values do not agree with the other occurrence of what appears to be the same mapping. The row below shows exactly what is printed on each NCES code's own source line; verify the true NCES-to-MA-code mapping against the original PDF or the SCS Data Handbook before relying on it.  0568 \u2014 Remedial \u2014 (no value on this line in source; header fragment \"Code\" appears here instead)  0569 \u2014 Special education course \u2014 01  0570 \u2014 Basic \u2014 01  0571 \u2014 General \u2014 01  0572 \u2014 Honors level \u2014 02  0573 \u2014 Gifted and talented level \u2014 03  0574 \u2014 International Baccalaureate program \u2014 03  0575 \u2014 Advanced placement \u2014 03  0576 \u2014 College level \u2014 03  0577 \u2014 Untracked \u2014 04  0578 \u2014 English Language Learner (ELL) \u2014 02  0579 \u2014 Accepted as a high school equivalent \u2014 01  9999 \u2014 Other \u2014 02  (an additional lone \"02\" appears on its own line after the 9999 row in the source)  SCS13 COURSE NUMERIC MARK. Return values for SCS13 are dependent on values in SCS12 (MarkList/Letter).  NOTE: in the source PDF, the SCS13 return-value column for codes 04-09 extracted badly and contains numeric values that do not belong to those codes -- they are actually the SCS13 values for codes 21, 22, 23, 40, 50, 55, 66, 77 and 88 (which are listed later in the source with no SCS13 value of their own shown). This was determined by matching the stray values, in order, to those later codes, and is corroborated for codes 21, 40, 50 and 88 by the explicit SCS12/SCS13 pairs stated earlier in this document under SectionMarkInfo's Rule 1 and Rule 2 (SCS12=21 & SCS13=21111; SCS12=40 & SCS13=40000; SCS12=50 & SCS13=50000; SCS12=88 & SCS13=88888). The reconstructed pairing is used below; verify against the original PDF if in doubt.  01 A+ \u2014 If MarkList/Mark/Percentage is 0 or null then return 99999, otherwise, return value  02 A \u2014 If MarkList/Mark/Percentage is null then return 99999, otherwise, return value  03 A- \u2014 If MarkList/Mark/Percentage is 0 or null then return 99999, otherwise, return value  04 B+ \u2014 no reliable SCS13 value determined (the source's numeric fragments in this row actually belong to codes 21/22/23/40/etc.; see note above)  05 B \u2014 no reliable SCS13 value determined (see note above)  06 B- \u2014 no reliable SCS13 value determined (see note above)  07 C+ \u2014 no reliable SCS13 value determined (see note above)  08 C \u2014 no reliable SCS13 value determined (see note above)  09 C- \u2014 If MarkList/Mark/Percentage is null then return 99999, otherwise, return value  10 D+ \u2014 no SCS13 value shown in source  11 D \u2014 no SCS13 value shown in source  12 D- \u2014 no SCS13 value shown in source  13 F \u2014 no SCS13 value shown in source  14 Pass \u2014 no SCS13 value shown in source  15 Fail \u2014 no SCS13 value shown in source  16 Failing (Very poor performance) \u2014 no SCS13 value shown in source  17 Minimally Acceptable (Lowest passing grade) \u2014 no SCS13 value shown in source  18 Acceptable (Meets some of the basic standards for the course) \u2014 no SCS13 value shown in source  19 Good (Meets standards for the assignment or course) \u2014 no SCS13 value shown in source  20 Outstanding (Meets the highest standards for the assignment or course) \u2014 no SCS13 value shown in source  21 Withdrawn \u2014 SCS13=21111 (per note above)  22 Withdrawn - Pass \u2014 SCS13=22222 (per note above)  23 Withdrawn - Fail \u2014 SCS13=23333 (per note above)  40 Incomplete \u2014 SCS13=40000 (per note above)  50 Excused \u2014 SCS13=50000 (per note above)  55 Mark is not required \u2014 SCS13=55555 (per note above)  66 Ungraded Course \u2014 SCS13=66666 (per note above)  77 Audit \u2014 SCS13=77777 (per note above)  88 Course In Progress \u2014 SCS13=88888 (per note above)  99 Numeric Mark (only) provided for this course \u2014 no SCS13 value shown in source"
     },
     {
       "heading": "Issues with Extraneous Data and \"Other\" Codes",

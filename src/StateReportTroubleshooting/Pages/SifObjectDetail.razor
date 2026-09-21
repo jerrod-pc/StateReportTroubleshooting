@@ -25,7 +25,7 @@ else
         }
     </h1>
 
-    <p class="mb-3">
+    <p class="mb-2">
         <span class="badge text-bg-secondary me-2">Level @_object.Level</span>
         @if (_object.UsedIn.Count == 0)
         {
@@ -40,33 +40,75 @@ else
         }
     </p>
 
-    <h5 class="mb-2 mt-4">Implementation notes</h5>
-    @if (_object.Notes.Count == 0)
+    @if (!string.IsNullOrWhiteSpace(_object.Purpose))
     {
-        <p class="text-muted fst-italic">No special instructions identified for this object.</p>
+        <p class="mb-4">@_object.Purpose</p>
     }
-    else if (_object.Notes.Count == 1)
+
+    <h5 class="mb-2">Elements</h5>
+    @if (_object.Elements.Count == 0)
     {
-        <FormattedText Text="@_object.Notes[0].Body" />
+        <p class="text-muted fst-italic">No MA-relevant elements identified for this object.</p>
     }
     else
     {
+        <div class="list-group mb-4">
+            @foreach (var el in _object.Elements)
+            {
+                <div class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-1">
+                        <code class="fw-semibold">@el.Path</code>
+                        <span>
+                            @foreach (var c in el.UsedIn)
+                            {
+                                var fields = el.Fields.Where(f => f.Collection == c).ToList();
+                                if (fields.Count > 0)
+                                {
+                                    @foreach (var f in fields)
+                                    {
+                                        <a class="badge text-bg-primary text-decoration-none ms-1"
+                                           href="@($"/collection/{c}/fields/{Uri.EscapeDataString(f.FieldId)}")"
+                                           title="@c">@f.FieldId</a>
+                                    }
+                                }
+                                else if (el.Requirement.TryGetValue(c, out var flag))
+                                {
+                                    <span class="badge text-bg-secondary ms-1" title="@RequirementLabel(flag)">@c</span>
+                                }
+                                else
+                                {
+                                    <span class="badge text-bg-secondary ms-1">@c</span>
+                                }
+                            }
+                        </span>
+                    </div>
+                    @if (!string.IsNullOrWhiteSpace(el.Description))
+                    {
+                        <p class="small text-muted mb-0 mt-1">@el.Description</p>
+                    }
+                </div>
+            }
+        </div>
+    }
+
+    @if (_object.Notes.Count > 0)
+    {
+        <h6 class="mb-2 text-muted">Advanced implementation notes</h6>
         <div class="accordion mb-3" id="objectNotesAccordion">
             @for (var i = 0; i < _object.Notes.Count; i++)
             {
                 var note = _object.Notes[i];
-                var isFirst = i == 0;
                 var headingId = $"objNoteHeading{i}";
                 var collapseId = $"objNoteCollapse{i}";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="@headingId">
-                        <button class="accordion-button @(isFirst ? "" : "collapsed")" type="button"
+                        <button class="accordion-button collapsed" type="button"
                                 data-bs-toggle="collapse" data-bs-target="@("#" + collapseId)"
-                                aria-expanded="@(isFirst ? "true" : "false")" aria-controls="@collapseId">
+                                aria-expanded="false" aria-controls="@collapseId">
                             @(note.Heading ?? _object.Name)
                         </button>
                     </h2>
-                    <div id="@collapseId" class="accordion-collapse collapse @(isFirst ? "show" : "")"
+                    <div id="@collapseId" class="accordion-collapse collapse"
                          aria-labelledby="@headingId" data-bs-parent="#objectNotesAccordion">
                         <div class="accordion-body">
                             <FormattedText Text="@note.Body" />
@@ -75,25 +117,6 @@ else
                 </div>
             }
         </div>
-    }
-
-    <h5 class="mb-2 mt-4">Fields already modeled for this object</h5>
-    @if (LinkedFields.Count == 0)
-    {
-        <p class="text-muted fst-italic">None of the currently modeled fields map directly to this object.</p>
-    }
-    else
-    {
-        <ul class="list-group">
-            @foreach (var (collection, field) in LinkedFields)
-            {
-                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-                   href="@($"/collection/{collection}/fields/{Uri.EscapeDataString(field.FieldId!)}")">
-                    <span><strong>@field.FieldId</strong> &mdash; @field.Name</span>
-                    <span class="badge text-bg-secondary rounded-pill">@collection</span>
-                </a>
-            }
-        </ul>
     }
 }
 
@@ -107,6 +130,12 @@ else
         _object = Data.FindSifObject(Name);
     }
 
-    private List<(string Collection, FieldEntry Field)> LinkedFields =>
-        _object is null ? [] : Data.FieldsForSifObject(_object.Name);
+    private static string RequirementLabel(string flag) => flag switch
+    {
+        "M" => "Mandatory",
+        "MR" => "Mandatory, repeating",
+        "C" => "Conditional",
+        "O" => "Optional",
+        _ => flag,
+    };
 }

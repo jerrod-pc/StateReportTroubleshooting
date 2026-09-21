@@ -56,12 +56,16 @@ source-data/                Hand-edited JSON, source of truth for wwwroot/data/
                              acceptable_values points to
   index.json                 Flat error+field code list; NOT shipped to wwwroot,
                              kept only as a possible future search-index source
-  sif-objects.json            SIF object reference: 18 objects (Level I–V) each
-                             with which collections use it and implementation
-                             notes transcribed from the MA SIF Technical Guide,
-                             plus cross-cutting "General Instructions" notes not
-                             tied to one object. Collection-agnostic - loaded once,
-                             not per-collection like the files above.
+  sif-objects.json            SIF object reference: 18 objects (Level I–V), each
+                             with a short conversational purpose blurb, its
+                             MA-relevant elements (short description + which
+                             collections use it + a link to the matching field,
+                             where one exists) sourced from the SIF State
+                             Profile's Objects sheet, and secondary/collapsed
+                             "advanced notes" transcribed from the SIF
+                             Technical Guide for whoever wants the deeper
+                             implementation detail. Collection-agnostic —
+                             loaded once, not per-collection like the files above.
 
 src/StateReportTroubleshooting/
   Program.cs                 DI setup: one scoped HttpClient, one scoped
@@ -90,10 +94,12 @@ src/StateReportTroubleshooting/
     AppendixDetail.razor       /collection/{Collection}/appendices/{SheetSlug}
     SifObjects.razor            /objects — SIF object reference index, grouped by
                                SIF Level I–V
-    SifObjectDetail.razor       /objects/{Name} — one object's purpose, which
-                               collections use it, implementation notes (from the
-                               SIF Technical Guide), and every modeled field that
-                               maps to it
+    SifObjectDetail.razor       /objects/{Name} — purpose, which collections use
+                               it, its MA-relevant elements (one compact line
+                               each: short description + a link to the matching
+                               field, where we have one), and a collapsed
+                               "Advanced implementation notes" section for the
+                               denser SIF Technical Guide content
     Search.razor                /search?q=  — global search across all 4 collections
     Resources.razor            /resources — quick links + original-document downloads
   Shared/                     FormattedText, AppendixTable, FieldSummaryCard,
@@ -272,18 +278,23 @@ build. In rough chronological order:
    via independent code/flag/vocabulary checks), and while rebuilding it a
    pre-existing, unrelated bug was fixed — a stray null-`field_id` parsing
    artifact was replaced with the genuinely missing `PHYS INJ` field.
-9. **SIF Objects reference** (`/objects`, `/objects/{Name}`). Transcribed the
-   MA SIF Technical Guide into `sif-objects.json` — 18 objects grouped by
-   their official SIF Level (I–V), each with which collections use it and
-   DESE's own implementation notes, plus 7 cross-cutting notes not tied to
-   one object. Every field's SIF mapping is now a clickable link into the
-   object it belongs to. Several of the guide's own tables extract badly
-   (columns misaligned/interleaved by `pdftotext`) — those are transcribed
-   literally with an inline flag to verify against the source PDF rather
-   than silently reconstructed; see "Known remaining limitations" below.
-   This is deliberately the *curated* layer only — the full element-by-
-   element SIF State Profile spec (~713 rows across all objects) is a
-   separate, larger follow-up, not yet started.
+9. **SIF Objects reference** (`/objects`, `/objects/{Name}`), built in two
+   passes. The first pass transcribed the MA SIF Technical Guide into
+   per-object prose notes — the user's own review called this "too heavy...
+   daunting and wordy," a fair read of dense implementation-guide text as
+   the *headline* content of a page meant for quick orientation. The second
+   pass rebuilt the page around what was actually asked for: a short
+   conversational purpose blurb per object, plus its MA-relevant elements
+   (short description, which collections use it, and a link to the matching
+   field when one exists) — pulled from the SIF State Profile workbook's
+   "Objects" sheet (parsed with openpyxl/pandas; ~713 rows total across all
+   objects, filtered to the 251 elements at least one of the 4 collections
+   actually uses, since MA-irrelevant SIF-spec elements were explicitly out
+   of scope). Field links are verified against real `field_id`s before
+   linking, never guessed. The original Technical Guide notes weren't
+   thrown away — they moved into a collapsed-by-default "Advanced
+   implementation notes" section per object, exactly per the user's choice
+   to keep but de-emphasize them.
 
 ## Known remaining limitations
 
@@ -297,9 +308,10 @@ build. In rough chronological order:
 - `related_fields` on errors is extracted via regex for known code patterns
   and can miss references phrased unusually, or SSDR's mnemonic-style codes
   (`OFF ID`, etc.).
-- **A handful of `sif-objects.json` notes contain tables that extracted badly**
-  from the source PDF (columns misaligned or interleaved) and are flagged
-  inline rather than reconstructed: `SchoolCourseInfo`'s InstructionalLevel
+- **A handful of `sif-objects.json`'s collapsed "Advanced implementation
+  notes" contain tables that extracted badly** from the source PDF (columns
+  misaligned or interleaved) and are flagged inline rather than
+  reconstructed: `SchoolCourseInfo`'s InstructionalLevel
   code table, `StudentSchoolEnrollment`'s DOE012-derivation table (whose raw
   fragments as printed even contradict the plain-English rule stated in the
   same paragraph), the org-type validity matrix and EPIMS-code table under
