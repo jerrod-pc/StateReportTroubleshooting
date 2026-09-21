@@ -1,10 +1,15 @@
 using System.Net.Http.Json;
+using System.Text.RegularExpressions;
 using StateReportTroubleshooting.Models;
 
 namespace StateReportTroubleshooting.Services;
 
 public class TroubleshootingDataService(HttpClient http)
 {
+    // Every error code across all 4 collections is PREFIX + digits (e.g. "SIMS8371",
+    // "SIF1230") - verified against the actual data, not assumed.
+    private static readonly Regex ErrorCodePattern = new(@"^([A-Za-z]+)(\d+)$", RegexOptions.Compiled);
+
     public static readonly string[] CollectionNames = ["SIMS", "EPIMS", "SCS", "SSDR"];
 
     public bool IsInitialized { get; private set; }
@@ -90,11 +95,41 @@ public class TroubleshootingDataService(HttpClient http)
         SimsAppendicesLoaded = true;
     }
 
+    /// <summary>
+    /// (group, number) sort key for an error code within its own collection: the collection's
+    /// own codes (e.g. SIMS#### on the SIMS page) sort first in ascending numeric order, then
+    /// SIF#### validation codes (a distinct appendix-style block, by design - see README),
+    /// then anything else as a final fallback. Source JSON array order is edit-history order
+    /// (whatever got appended when), not display order, so every error listing sorts through
+    /// this rather than trusting array position.
+    /// </summary>
+    private static (int Group, int Number) ErrorSortKey(string collectionName, string code)
+    {
+        var match = ErrorCodePattern.Match(code);
+        if (!match.Success)
+        {
+            return (2, 0);
+        }
+
+        var prefix = match.Groups[1].Value;
+        var number = int.TryParse(match.Groups[2].Value, out var n) ? n : int.MaxValue;
+        var group = prefix.Equals(collectionName, StringComparison.OrdinalIgnoreCase) ? 0
+            : prefix.Equals("SIF", StringComparison.OrdinalIgnoreCase) ? 1
+            : 2;
+        return (group, number);
+    }
+
     private void RegisterCollection(CollectionFile? file)
     {
         if (file is null) return;
 
         var name = file.Collection;
+        // Fields are left in their original array order - that's the handbook's own document
+        // order (e.g. SSDR's Offense-then-Discipline element grouping with mnemonic codes like
+        // "OFF ID"/"PST" that have no meaningful alphabetic or numeric sort), not edit-history
+        // order, so it's already correct. Errors, unlike fields, are DESE's own ascending
+        // numeric identifiers, so a code-based sort reproduces the source document's order.
+        file.Errors = [.. file.Errors.OrderBy(e => ErrorSortKey(name, e.Code))];
         Collections[name] = file;
 
         var errorDict = new Dictionary<string, ErrorEntry>(StringComparer.OrdinalIgnoreCase);
