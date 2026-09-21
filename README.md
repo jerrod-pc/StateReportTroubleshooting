@@ -56,6 +56,12 @@ source-data/                Hand-edited JSON, source of truth for wwwroot/data/
                              acceptable_values points to
   index.json                 Flat error+field code list; NOT shipped to wwwroot,
                              kept only as a possible future search-index source
+  sif-objects.json            SIF object reference: 18 objects (Level I–V) each
+                             with which collections use it and implementation
+                             notes transcribed from the MA SIF Technical Guide,
+                             plus cross-cutting "General Instructions" notes not
+                             tied to one object. Collection-agnostic - loaded once,
+                             not per-collection like the files above.
 
 src/StateReportTroubleshooting/
   Program.cs                 DI setup: one scoped HttpClient, one scoped
@@ -82,10 +88,18 @@ src/StateReportTroubleshooting/
     ErrorDetail.razor          /collection/{Collection}/errors/{Code}
     FieldDetail.razor          /collection/{Collection}/fields/{FieldId}
     AppendixDetail.razor       /collection/{Collection}/appendices/{SheetSlug}
+    SifObjects.razor            /objects — SIF object reference index, grouped by
+                               SIF Level I–V
+    SifObjectDetail.razor       /objects/{Name} — one object's purpose, which
+                               collections use it, implementation notes (from the
+                               SIF Technical Guide), and every modeled field that
+                               maps to it
     Search.razor                /search?q=  — global search across all 4 collections
     Resources.razor            /resources — quick links + original-document downloads
   Shared/                     FormattedText, AppendixTable, FieldSummaryCard,
-                             QuickJumpBox, WindowBadge, ThemeToggle, LoadingSplash
+                             SifMappingLink (makes a field's SIF Object a link into
+                             /objects/{Name} when it resolves to one), QuickJumpBox,
+                             WindowBadge, ThemeToggle, LoadingSplash
   wwwroot/
     data/                     Deployed copy of source-data/*.json (kept in sync
                              by hand — there's no build step that copies these)
@@ -258,6 +272,18 @@ build. In rough chronological order:
    via independent code/flag/vocabulary checks), and while rebuilding it a
    pre-existing, unrelated bug was fixed — a stray null-`field_id` parsing
    artifact was replaced with the genuinely missing `PHYS INJ` field.
+9. **SIF Objects reference** (`/objects`, `/objects/{Name}`). Transcribed the
+   MA SIF Technical Guide into `sif-objects.json` — 18 objects grouped by
+   their official SIF Level (I–V), each with which collections use it and
+   DESE's own implementation notes, plus 7 cross-cutting notes not tied to
+   one object. Every field's SIF mapping is now a clickable link into the
+   object it belongs to. Several of the guide's own tables extract badly
+   (columns misaligned/interleaved by `pdftotext`) — those are transcribed
+   literally with an inline flag to verify against the source PDF rather
+   than silently reconstructed; see "Known remaining limitations" below.
+   This is deliberately the *curated* layer only — the full element-by-
+   element SIF State Profile spec (~713 rows across all objects) is a
+   separate, larger follow-up, not yet started.
 
 ## Known remaining limitations
 
@@ -271,6 +297,18 @@ build. In rough chronological order:
 - `related_fields` on errors is extracted via regex for known code patterns
   and can miss references phrased unusually, or SSDR's mnemonic-style codes
   (`OFF ID`, etc.).
+- **A handful of `sif-objects.json` notes contain tables that extracted badly**
+  from the source PDF (columns misaligned or interleaved) and are flagged
+  inline rather than reconstructed: `SchoolCourseInfo`'s InstructionalLevel
+  code table, `StudentSchoolEnrollment`'s DOE012-derivation table (whose raw
+  fragments as printed even contradict the plain-English rule stated in the
+  same paragraph), the org-type validity matrix and EPIMS-code table under
+  the general "Reporting Organizations via SIF" / "Reporting Support Content
+  Instructors in EPIMS" notes, and the SCS01–SCS08 object/element table under
+  "SCS Data Extraction." One value (SCS13's numeric-mark-to-code table) was
+  reconstructed rather than left as fragments, with that reasoning stated
+  inline — worth a clean-PDF verification pass before leaning on any of these
+  for something compliance-sensitive.
 - A handful of file-level error entries with no numeric code (e.g. "Student
   file: Invalid file - No records available") aren't captured in `errors[]`
   at all.
