@@ -36867,6 +36867,192 @@
           ""
         ]
       ]
+    },
+    {
+      "sheet_name": "Job Classifications Requiring Educator Evaluation",
+      "collection": "EPIMS",
+      "linked_fields": [
+        "WA07",
+        "SR29"
+      ],
+      "columns": [
+        "Code",
+        "Job Classification"
+      ],
+      "rows": [
+        [
+          "1200",
+          "Superintendent of Schools/Charter School Leader/Collaborative Director"
+        ],
+        [
+          "1201",
+          "Assistant/Associate/Vice Superintendents"
+        ],
+        [
+          "1202",
+          "School Business Official"
+        ],
+        [
+          "1205",
+          "Other District Wide Administrators - OPTIONAL"
+        ],
+        [
+          "1210",
+          "Supervisor/Director of Guidance"
+        ],
+        [
+          "1211",
+          "Supervisor/Director of Pupil Personnel"
+        ],
+        [
+          "1212",
+          "Special Education Administrator"
+        ],
+        [
+          "1213",
+          "Supervisor/Director/Coordinator: Arts"
+        ],
+        [
+          "1214",
+          "Supervisor/Director/Coordinator of Assessment"
+        ],
+        [
+          "1215",
+          "Supervisor/Director/Coordinator of Curriculum"
+        ],
+        [
+          "1216",
+          "Supervisor/Director/Coordinator: English Language Learner"
+        ],
+        [
+          "1217",
+          "Supervisor/Director/Coordinator: English"
+        ],
+        [
+          "1218",
+          "Supervisor/Director/Coordinator: Foreign Language"
+        ],
+        [
+          "1219",
+          "Supervisor/Director/Coordinator: History/Social Studies"
+        ],
+        [
+          "1220",
+          "Supervisor/Director/Coordinator: Library/Media"
+        ],
+        [
+          "1221",
+          "Supervisor/Director/Coordinator: Mathematics"
+        ],
+        [
+          "1222",
+          "Supervisor/Director/Coordinator: Reading"
+        ],
+        [
+          "1223",
+          "Supervisor/Director/Coordinator: Science"
+        ],
+        [
+          "1224",
+          "Supervisor/Director/Coordinator: Technology - OPTIONAL"
+        ],
+        [
+          "1225",
+          "Supervisor/Director/Coordinator of Professional Development"
+        ],
+        [
+          "1226",
+          "School Nurse Leader (SNL)"
+        ],
+        [
+          "1305",
+          "Principal/headmaster/headmistress/head of school"
+        ],
+        [
+          "1310",
+          "Deputy/associate/vice-/assistance principal"
+        ],
+        [
+          "1312",
+          "School Special Education Administrator"
+        ],
+        [
+          "1320",
+          "Other School Administrator/Coordinator - OPTIONAL"
+        ],
+        [
+          "1208",
+          "Human Resources Director - OPTIONAL"
+        ],
+        [
+          "2305",
+          "Teacher"
+        ],
+        [
+          "2306",
+          "Co-Teacher"
+        ],
+        [
+          "2307",
+          "Virtual Course Teacher"
+        ],
+        [
+          "2308",
+          "Virtual Course Co-Teacher"
+        ],
+        [
+          "2310",
+          "Teacher - support content instruction"
+        ],
+        [
+          "2325",
+          "Long Term Substitute Teacher - YES, if more than 90 consecutive days. Otherwise, value = 99"
+        ],
+        [
+          "2330",
+          "Instructional Coach"
+        ],
+        [
+          "3329",
+          "Guidance Counselor"
+        ],
+        [
+          "3330",
+          "Librarians and Media Center Directors"
+        ],
+        [
+          "3350",
+          "School Adjustment Counselor - Non-Special Education"
+        ],
+        [
+          "3351",
+          "School Adjustment Counselor - Special Education"
+        ],
+        [
+          "3360",
+          "School Psychologist - Non-Special Education"
+        ],
+        [
+          "3361",
+          "School Psychologist - Special Education"
+        ],
+        [
+          "3370",
+          "School Social Worker - Non-Special Education"
+        ],
+        [
+          "3371",
+          "School Social Worker - Special Education"
+        ],
+        [
+          "5020",
+          "School Nurse - Non-Special Education"
+        ],
+        [
+          "5021",
+          "School Nurse - Special Education"
+        ]
+      ]
     }
   ]
 }
