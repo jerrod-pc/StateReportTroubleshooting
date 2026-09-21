@@ -1,7 +1,7 @@
 {
   "collection": "SSDR",
-  "error_list_version": "10.0",
-  "handbook_version": "23.2",
+  "error_list_version": "10.1",
+  "handbook_version": "23.3",
   "object_ranges": [
     {
       "object": "LEAInfo",
@@ -1546,7 +1546,7 @@
       "max_length": 1,
       "acceptable_values": "1 = In-school suspension\n2 = Out-of-school suspension\n3 = Expulsion\n4 = Removed by impartial hearing officer to an alternative setting\n5 = Removed by school personnel to an alternative setting\n6 = Emergency Removal\n7 = School-related arrest and/or law enforcement referral with no school imposed suspension or removal.\n\nDependencies: If DAT = 4, PST must be 2. If DAT = 6, DM must not be > 3. If DAT = 7, LAWENFREF must not be 00.",
       "related_elements": null,
-      "notes": "In-school suspension is reportable only if it is for half the school day or more. In-school suspensions for less than half the day are not reportable.  Out-of-school suspension is reportable no matter the duration. An out-of-school suspension for any portion of the day should be reported as a day of suspension.  Expulsion is the removal of a student from school for more than 90 school days, indefinitely, or permanently",
+      "notes": "In-school suspension is reportable only if it is for half the school day or more. In-school suspensions for less than half the day are not reportable.  Out-of-school suspension is reportable no matter the duration. An out-of-school suspension for any portion of the day should be reported as a day of suspension.  Expulsion is the removal of a student from school for more than 90 school days, indefinitely, or permanently  Emergency Removal is temporary and may not exceed three school days.",
       "sif_object": "DisciplineIncident",
       "sif_element": "OffenderList/Offender/ActionList/Action/Code (or .../OtherCodeList/OtherCode, Codeset=Other)",
       "field_id": "DAT",
@@ -1554,17 +1554,17 @@
       "collection": "SSDR"
     },
     {
-      "description": null,
-      "type": null,
-      "min_length": null,
-      "max_length": null,
-      "acceptable_values": null,
-      "related_elements": null,
+      "description": "Indicates if the reported offense resulted in a physical injury.",
+      "type": "Alphanumeric",
+      "min_length": 1,
+      "max_length": 1,
+      "acceptable_values": "Y = Yes  N = No",
+      "related_elements": "See [Appendix A](#AppendixA) for which offense types require the physical injury indicator",
       "notes": null,
       "sif_object": "DisciplineIncident",
-      "sif_element": "OffenderList",
-      "field_id": null,
-      "name": "Emergency Removal is temporary and may not exceed three school days.",
+      "sif_element": "OffenderList/Offender/Injury & VictimList/Victim/Injury",
+      "field_id": "PHYS INJ",
+      "name": "Physical Injury Indicator",
       "collection": "SSDR"
     },
     {
